@@ -1,0 +1,45 @@
+<nav
+  class="navbar is-spaced {{ this.theme }}"
+  role="navigation"
+  aria-label="main navigation"
+>
+  <div class="navbar-brand">
+    <a class="navbar-item" routerLink="/">
+      <img id="logo" src="assets/images/{{ this.theme }}.png" />
+    </a>
+    <a
+      (click)="toggleNavbar()"
+      role="button"
+      #navBurger
+      class="navbar-burger"
+      aria-label="menu"
+      aria-expanded="false"
+    >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <!-- Shown on mobile -->
+  <div class="navbar-menu {{ this.theme }}" #navMenu>
+    <!-- Left side -->
+    <div class="navbar-start">
+      <a routerLink="/" class="navbar-item {{ this.theme }}"> Home </a>
+      <a routerLink="/blog" class="navbar-item {{ this.theme }}"> Blog </a>
+      <a routerLink="/projects" class="navbar-item {{ this.theme }}">
+        Projects
+      </a>
+      <a routerLink="/about" class="navbar-item {{ this.theme }}"> About </a>
+    </div>
+    <div class="navbar-end">
+      <button
+        class="button {{ this.themeInverse }}"
+        (click)="toggleTheme()"
+        id="themeButton"
+      >
+        Theme
+      </button>
+    </div>
+  </div>
+</nav>

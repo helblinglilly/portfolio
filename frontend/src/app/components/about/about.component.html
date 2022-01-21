@@ -1,0 +1,67 @@
+<app-header></app-header>
+<div class="columns">
+  <div class="column is-one-quarter" id="sidebarColumn">
+    <app-sidebar></app-sidebar>
+  </div>
+
+  <div class="column">
+    <div class="notification is-warning">
+      <p>This website is currently still in development</p>
+    </div>
+
+    <p class="title {{ themeInverse }}">Website</p>
+    <p class="{{ themeInverse }}">
+      This website is replacing a previous version built in PHP and UI Kit. The
+      current version is available on
+      <a href="https://github.com/camperguy/portfolio">Github</a> for your
+      inspection.<br />
+      After finishing my computer science degree I was keen on exploring new
+      technologies. Before starting this project I had no previous experience in
+      typescript, and I believe it to be a valuable skill to have.
+    </p>
+    <div class="columns">
+      <div class="column">
+        <div class="card {{ theme }}" (click)="linkTo('angular')">
+          <div class="card-content">
+            <img
+              src="/assets/icons/angular.svg"
+              class="icon"
+              alt="Angular Icon"
+            />
+            <a href="https://angular.io" class="card-text">Angular</a>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="card {{ theme }}" (click)="linkTo('bulma')">
+          <div class="card-content">
+            <img src="/assets/icons/bulma.svg" class="icon" alt="Bulma Icon" />
+            <a href="https://bulma.io" class="card-text">Bulma</a>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="card {{ theme }}" (click)="linkTo('apache')">
+          <div class="card-content">
+            <img
+              src="/assets/icons/apache.svg"
+              class="icon"
+              alt="Apache Icon"
+            />
+            <a href="https://httpd.apache.org/" class="card-text">Apache</a>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="card {{ theme }}" (click)="linkTo('golang')">
+          <div class="card-content">
+            <img src="/assets/icons/go.svg" class="icon" alt="Golang Icon" />
+            <a href="https://golang.org/" class="card-text">Golang</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="title {{ themeInverse }}">Interests</p>
+  </div>
+</div>

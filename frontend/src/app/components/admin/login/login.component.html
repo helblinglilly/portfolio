@@ -1,0 +1,31 @@
+<app-header></app-header>
+
+<div class="columns is-vcentered">
+  <div class="box column {{ this.theme }}">
+    <div class="field">
+      <label for="username" class="label {{ this.themeInverse }}"
+        >Username:</label
+      >
+      <input type="text" class="input" #username placeholder="e.g. Alex" />
+    </div>
+
+    <div class="field">
+      <label for="password" class="label {{ this.themeInverse }}">
+        Password:
+      </label>
+      <input
+        type="password"
+        class="input"
+        #password
+        placeholder="password123"
+      />
+    </div>
+
+    <button
+      (click)="login(username.value, password.value)"
+      class="button purple is-pulled-right"
+    >
+      Sign in
+    </button>
+  </div>
+</div>

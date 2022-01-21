@@ -1,0 +1,37 @@
+/* You can add global styles to this file, and also import other style files */
+// @import "styles"
+$darkBackground : #282828
+$darkBackgroundSecondary : #363636
+$darkHover : #525252
+
+$lightBackground : #fafafa
+$lightHover : whitesmoke
+
+$mobileBreakpoint: 1024px
+
+html.is-light
+    background-color: $lightBackground
+    
+html.is-dark
+    background-color: $darkBackground
+
+div.is-light
+    background-color: $lightBackground
+div.is-dark
+    background-color: $darkBackground
+
+p
+    word-break: break-word
+    
+p.is-dark
+    color: $darkBackground
+p.is-light
+    color: $lightBackground
+
+.columns
+    margin: 20px
+
+
+@media (max-width: $mobileBreakpoint)
+    #sidebarColumn
+        display: none
