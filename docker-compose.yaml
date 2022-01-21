@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  frontend:
+    build: frontend/.
+    stdin_open: true
+    depends_on:
+      - backend
+  backend:
+    build: backend/.
+    stdin_open: true
+    environment:
+      - SERVER_PORT=10000
+      - DB_FOLDER=/mnt/db/
+    tty: true
+    depends_on:
+      - db
+    volumes:
+      - "portfolioDB:/mnt/db:rw"
+  db:
+    build: db/.
+    volumes:
+      - "portfolioDB:/mnt/db:rw"
+
+volumes:
+  portfolioDB:
