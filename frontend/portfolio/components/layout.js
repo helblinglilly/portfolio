@@ -1,18 +1,23 @@
 import Image from "next/image";
 import Link from "next/link";
+import Script from "next/script";
+import Head from "next/head";
 
 export const siteTitle = "Next.js Sample Website";
 
 export default function Layout({ children, home }) {
 	return (
 		<div>
+			<Head>
+				<Script src="/js/navbar.js"></Script>
+			</Head>
 			<nav className="navbar is-spaced">
 				<div className="navbar-brand">
 					<a className="navbar-item" Link="/">
 						<Image src="/images/is-light.png" width={250} height={50} />
 					</a>
 					<a
-						onClick={() => alert("Hi")}
+						onClick={toggleNavbar}
 						role="button"
 						id="navBurger"
 						className="navbar-burger"
@@ -44,6 +49,7 @@ export default function Layout({ children, home }) {
 }
 
 function toggleNavbar() {
+	// document.addEventListener("DOMContentLoaded", () => {
 	// Get all "navbar-burger" elements
 	const $navbarBurgers = Array.prototype.slice.call(
 		document.querySelectorAll(".navbar-burger"),
@@ -65,4 +71,5 @@ function toggleNavbar() {
 			});
 		});
 	}
+	// });
 }
