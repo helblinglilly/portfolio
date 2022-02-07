@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Script from "next/script";
 import Head from "next/head";
+import Link from "next/link"
 import { useTheme } from 'next-themes'
 
 export default function Layout({ children, home }) {
@@ -14,20 +15,21 @@ export default function Layout({ children, home }) {
 	return (
 		<div>
 			<Head>
-				<meta charset="utf-8"></meta>
+				<meta charSet="utf-8"></meta>
 				<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2,shrink-to-fit=no" />
 				<meta name="author" content={author}/>
 				<meta name="description" content={description}/>
 				<title>{siteTitle}</title>
-				<Script src="/js/navbar.js"></Script>
-				<Script></Script>
 			</Head>
+			<Script src="/js/navbar.js"></Script>
 
 			<nav className="navbar is-spaced">
 				<div className="navbar-brand">
-					<a className="navbar-item" href="/">
-						<Image src="/images/is-light.png" width={250} height={50} />
-					</a>
+					<Link href="/">
+						<a className="navbar-item">
+							<Image src="/images/is-light.png" width={250} height={50} alt="Website Logo"/>
+						</a>
+      				</Link>
 					<a
 						onClick={toggleNavbar}
 						role="button"
@@ -44,8 +46,12 @@ export default function Layout({ children, home }) {
 				</div>
 				<div className="navbar-menu">
 					<div className="navbar-start">
-						<a href="/" className="navbar-item">Home</a>
-						<a href="/blog" className="navbar-item">Blog</a>
+						<Link href="/">
+							<a className="navbar-item">Home</a>
+						</Link>
+						<Link href="/blog">
+							<a className="navbar-item">Blog</a>
+						</Link>
 					</div>
 					<div className="navbar-end">
 					<a onClick={() => {
