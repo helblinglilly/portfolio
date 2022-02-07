@@ -1,19 +1,23 @@
 import Image from "next/image";
-import Link from "next/link";
 import Script from "next/script";
 import Head from "next/head";
+import { useTheme } from 'next-themes'
 
-export const siteTitle = "Next.js Sample Website";
+export const siteTitle = "Joel Helbling";
 
 export default function Layout({ children, home }) {
+	const { theme, setTheme } = useTheme()
+	
 	return (
 		<div>
 			<Head>
 				<Script src="/js/navbar.js"></Script>
+				<Script></Script>
 			</Head>
+
 			<nav className="navbar is-spaced">
 				<div className="navbar-brand">
-					<a className="navbar-item" Link="/">
+					<a className="navbar-item" href="/">
 						<Image src="/images/is-light.png" width={250} height={50} />
 					</a>
 					<a
@@ -30,46 +34,41 @@ export default function Layout({ children, home }) {
 						<span aria-hidden="true"></span>
 					</a>
 				</div>
-				<div className="navbar-menu" id="navMenu">
+				<div className="navbar-menu">
 					<div className="navbar-start">
-						<Link href="/">
-							<a className="navbar-item">Home</a>
-						</Link>
-						<Link href="/blog">
-							<a className="navbar-item">Blog</a>
-						</Link>
+						<a href="/" className="navbar-item">Home</a>
+						<a href="/blog" className="navbar-item">Blog</a>
 					</div>
 					<div className="navbar-end">
-						<button className="button">Theme</button>
+					<a onClick={() => {
+						if (theme === 'light' || localStorage.getItem('theme') === 'light')
+							setTheme('dark');
+						else if (theme === 'dark' || localStorage.getItem('theme') === 'dark')
+							setTheme('light');
+						else
+							setTheme('light');
+					}} className="navbar-item">Change Theme</a>
 					</div>
 				</div>
 			</nav>
+			<div>
+	  </div>
 		</div>
 	);
 }
 
-function toggleNavbar() {
-	// document.addEventListener("DOMContentLoaded", () => {
-	// Get all "navbar-burger" elements
-	const $navbarBurgers = Array.prototype.slice.call(
-		document.querySelectorAll(".navbar-burger"),
-		0
-	);
 
-	// Check if there are any navbar burgers
-	if ($navbarBurgers.length > 0) {
-		// Add a click event on each of them
-		$navbarBurgers.forEach((el) => {
-			el.addEventListener("click", () => {
-				// Get the target from the "data-target" attribute
-				const target = el.dataset.target;
-				const $target = document.getElementById(target);
 
-				// Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-				el.classList.toggle("is-active");
-				$target.classList.toggle("is-active");
-			});
-		});
-	}
-	// });
+const toggleNavbar = () => {
+	document.querySelector('.navbar-menu').classList.toggle('is-active');
+	document.querySelector('.navbar-burger').classList.toggle('is-active');
+}
+
+const themeButton = (givenTheme) => {
+	if (givenTheme === 'light')
+		setTheme('dark');
+	else if (givenTheme === 'dark')
+		setTheme('light');
+	else
+		setTheme('light');
 }

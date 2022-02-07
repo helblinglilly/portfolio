@@ -1,1 +1,71 @@
 @import '../node_modules/bulma/css/bulma.min.css';
+
+:root {
+  --primary: #e6e6e6;
+  --secondary: rgb(24, 24, 24);
+  --accent: rgb(255, 255, 255);
+
+  background-color: var(--primary);
+  color: var(--secondary);
+}
+
+[data-theme='dark'] {
+  --primary: rgb(43, 43, 43);
+  --secondary: rgb(243, 243, 243);
+  --accent: rgb(0, 0, 0);
+}
+
+html {
+    background-color: var(--primary);
+    color: var(--secondary);
+}
+
+body {
+    background-color: var(--primary);
+    color: var(--secondary);
+}
+
+a {
+    background-color: var(--accent);
+    color: var(--secondary);
+}
+
+.navbar {
+    background-color: var(--accent);
+    color: var(--secondary);
+}
+
+.navbar-menu {
+    background-color: var(--accent);
+    color: var(--secondary);
+}
+
+.navbar-item {
+    background-color: var(--accent);
+    color: var(--secondary);
+}
+
+div.navbar-start {
+    background-color: var(--accent);
+    color: var(--secondary);
+}
+
+div.navbar-brand {
+    background-color: var(--accent);
+    color: var(--secondary);
+}
+
+div.navbar-end {
+    background-color: var(--accent);
+    color: var(--secondary);
+}
+
+div {
+    background-color: var(--primary);
+    color: var(--secondary);
+} 
+
+a.navbar-item:hover {
+    background-color: var(--primary);
+    color: var(--secondary)
+}
