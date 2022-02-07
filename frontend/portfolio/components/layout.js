@@ -3,14 +3,22 @@ import Script from "next/script";
 import Head from "next/head";
 import { useTheme } from 'next-themes'
 
-export const siteTitle = "Joel Helbling";
-
 export default function Layout({ children, home }) {
 	const { theme, setTheme } = useTheme()
 	
+	const siteTitle = "Joel Helbling";
+	const author = "Joel Helbling";
+	const description = "This website is still in development";
+	// Need to add images into meta tags
+
 	return (
 		<div>
 			<Head>
+				<meta charset="utf-8"></meta>
+				<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2,shrink-to-fit=no" />
+				<meta name="author" content={author}/>
+				<meta name="description" content={description}/>
+				<title>{siteTitle}</title>
 				<Script src="/js/navbar.js"></Script>
 				<Script></Script>
 			</Head>
