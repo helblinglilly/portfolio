@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Script from "next/script";
 import Head from "next/head";
-import Link from "next/link"
-import { useTheme } from 'next-themes'
+import Link from "next/link";
+import { useTheme } from "next-themes";
 
-export default function Layout({ children, home }) {
-	const { theme, setTheme } = useTheme()
+export default function Layout({children}) {
+	const { theme, setTheme } = useTheme();
 	
 	const siteTitle = "Joel Helbling";
 	const author = "Joel Helbling";
@@ -54,19 +54,20 @@ export default function Layout({ children, home }) {
 						</Link>
 					</div>
 					<div className="navbar-end">
-					<a onClick={() => {
-						if (theme === 'light' || localStorage.getItem('theme') === 'light')
-							setTheme('dark');
-						else if (theme === 'dark' || localStorage.getItem('theme') === 'dark')
-							setTheme('light');
-						else
-							setTheme('light');
-					}} className="navbar-item">Change Theme</a>
+						<a onClick={() => {
+							if (theme === "light" || localStorage.getItem("theme") === "light")
+								setTheme("dark");
+							else if (theme === "dark" || localStorage.getItem("theme") === "dark")
+								setTheme("light");
+							else
+								setTheme("light");
+						}} className="navbar-item">Change Theme</a>
 					</div>
 				</div>
 			</nav>
 			<div>
-	  </div>
+				<main>{children}</main>
+	  		</div>
 		</div>
 	);
 }
@@ -74,15 +75,15 @@ export default function Layout({ children, home }) {
 
 
 const toggleNavbar = () => {
-	document.querySelector('.navbar-menu').classList.toggle('is-active');
-	document.querySelector('.navbar-burger').classList.toggle('is-active');
-}
+	document.querySelector(".navbar-menu").classList.toggle("is-active");
+	document.querySelector(".navbar-burger").classList.toggle("is-active");
+};
 
 const themeButton = (givenTheme) => {
-	if (givenTheme === 'light')
-		setTheme('dark');
-	else if (givenTheme === 'dark')
-		setTheme('light');
+	if (givenTheme === "light")
+		setTheme("dark");
+	else if (givenTheme === "dark")
+		setTheme("light");
 	else
-		setTheme('light');
-}
+		setTheme("light");
+};

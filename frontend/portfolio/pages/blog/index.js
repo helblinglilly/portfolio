@@ -5,7 +5,7 @@ import Layout from '../../components/layout'
 export default function FirstPost() {
   return (
     <Layout>
-      <p>test</p>
+      <p>Root of blog</p>
     </Layout>
   )
 }
