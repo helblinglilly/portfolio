@@ -1,11 +1,10 @@
-import Head from 'next/head'
-import Link from 'next/link'
 import Layout from '../../components/layout'
 
 export default function FirstPost() {
   return (
     <Layout>
-      <p>Root of blog</p>
+      <div className="column">Blog Page</div>
+      <div className="column">Third column</div>
     </Layout>
   )
 }
