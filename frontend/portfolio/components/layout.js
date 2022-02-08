@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Sidebar from "./sidebar";
 import Navbar from "./navbar"
 
 export default function Layout({children}) {
@@ -21,9 +20,6 @@ export default function Layout({children}) {
 			<div>
 				<main className="p-6">
 					<div className="columns">
-						<div className="column">
-							<Sidebar></Sidebar>
-						</div>
 						{children}
 					</div>
 				</main>

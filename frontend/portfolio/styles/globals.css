@@ -73,6 +73,10 @@ div.card {
     background: var(--accent);
 }
 
+footer.card-footer {
+    background: var(--accent);
+}
+
 div {
     background-color: var(--primary);
     color: var(--secondary);
@@ -113,9 +117,15 @@ p.card-header-title {
     color: var(--secondary)
 }
 
+time {
+    color: var(--secondary)
+}
+
+
 i.fas {
     color: var(--secondary);
 }
+
 @media (min-width: 770px) and (max-width: 1200px){
     .map {
       display: none;
@@ -125,12 +135,7 @@ i.fas {
     }
 }
 
-@media (max-width: 550px) {
-    iframe {
-        width: 98%;
-        height: 450;
-    }
-}
+
 
 .hidden {
     display: none;

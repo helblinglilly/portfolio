@@ -57,12 +57,3 @@ const toggleNavbar = () => {
 	document.querySelector(".navbar-menu").classList.toggle("is-active");
 	document.querySelector(".navbar-burger").classList.toggle("is-active");
 };
-
-const themeButton = (givenTheme) => {
-	if (givenTheme === "light")
-		setTheme("dark");
-	else if (givenTheme === "dark")
-		setTheme("light");
-	else
-		setTheme("light");
-};
