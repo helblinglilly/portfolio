@@ -1,10 +1,13 @@
-import Head from 'next/head'
+import Image from "next/image";
+import Link from "next/link";
 import Layout, { siteTitle } from '../components/layout'
+
 
 export default function Home() {
   return (
     <Layout home>
-      <p>Home Page</p>
+      <div className="column">Second column</div>
+      <div className="column">Third column</div>
     </Layout>
-  )
+  );
 }

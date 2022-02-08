@@ -25,9 +25,14 @@ body {
     color: var(--secondary);
 }
 
-a {
+a.navbar-item {
     background-color: var(--accent);
     color: var(--secondary);
+}
+
+a.navbar-item:hover {
+    background-color: var(--primary);
+    color: var(--secondary)
 }
 
 .navbar {
@@ -65,7 +70,23 @@ div {
     color: var(--secondary);
 } 
 
-a.navbar-item:hover {
-    background-color: var(--primary);
+#profile {
+    border-radius: 50%
+}
+
+.title {
     color: var(--secondary)
+}
+
+.subtitle {
+    color: var(--secondary);
+    font-weight: bold;
+}
+
+a {
+    background-color: var(--primary);
+}
+
+.socialContainer {
+    margin-bottom: 0.5rem;
 }
