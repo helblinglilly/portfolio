@@ -7,7 +7,7 @@ export default function Sidebar() {
         <figure className="image">
             <Image src="/images/professional.jpg" id="profile" width={250} height={250} alt="Profile Picture"/>
         </figure>
-        <div>
+        <div className="pt-4">
             <p className="title">About me</p>
             <p>{biography}</p>
             <div id="socialLinks" className="pt-3 pb-0">

@@ -82,6 +82,10 @@ div {
     color: var(--secondary);
 } 
 
+div.has-text-right {
+    background-color: var(--accent);
+}
+
 #profile {
     border-radius: 50%
 }
@@ -118,7 +122,7 @@ p.card-header-title {
 }
 
 time {
-    color: var(--secondary)
+    color: var(--secondary);
 }
 
 
@@ -135,8 +139,24 @@ i.fas {
     }
 }
 
-
+p {
+    overflow: hidden;
+}
 
 .hidden {
     display: none;
 }
+
+.column > div {
+    flex-grow: 1;
+    flex-shrink: 1;
+    /* set value for the flex basis, the two properties above will evenly 
+    divide the space. */
+    flex-basis: 20px;
+  
+    -webkit-flex-grow: 1;
+    -webkit-flex-shrink: 1;
+  
+    margin: 15px;
+    overflow: hidden;
+  }

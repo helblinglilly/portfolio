@@ -9,14 +9,14 @@ export default function Home() {
   let universityToggledState = false;
   return (
     <Layout home>
-      <div className='column'>
+      <div className='column is-one-third'>
         <Sidebar></Sidebar>
       </div>
-      <div className="column">
+      <div className="column is-one-third">
         <CurrentRole></CurrentRole>
         <Experience></Experience>
       </div>
-      <div className="column">
+      <div className="column is-one-third">
         <LatestPost></LatestPost>
         <Location></Location>
       </div>

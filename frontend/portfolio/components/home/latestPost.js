@@ -6,13 +6,14 @@ export default function LatestPost() {
             <div className="card mt-2">
                 <header className="card-header">
                   <p className="card-header-title">Latest Post</p>
+                  <div className="has-text-right pt-2 pr-3">
+                    <i><time dateTime="21/06/2022">21/06/2022</time></i>
+                  </div>
                 </header>
                 <div className="card-content" id="mcdonaldsContent">
                   <p>Content Preview</p>
                 </div>
-                <footer className="card-footer has-text-right">
-                    <time datetime="2016-1-1">21/06/2022</time>
-                </footer>
+               
               </div>
         </div>
     )
