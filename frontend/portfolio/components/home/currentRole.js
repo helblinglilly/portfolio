@@ -2,7 +2,7 @@ import Link from "next/link"
 
 export default function CurrentRole(){
     return (
-        <div className="currentRole">
+        <div className="currentRole pt-6">
           <p className="title">Current Role</p>
           <p style={{display: "inline"}}>Currently I'm working on </p>
           <Link href="https://digital.nhs.uk/services/nhs-pathways" style={{display: "inline"}}>Pathways at NHS Digital</Link>
