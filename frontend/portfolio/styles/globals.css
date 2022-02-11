@@ -1,169 +1,167 @@
-@import '../node_modules/bulma/css/bulma.min.css';
+@import "../node_modules/bulma/css/bulma.min.css";
 
 :root {
-  --primary: rgb(250, 250, 250);
-  --secondary: rgb(24, 24, 24);
-  --accent: rgb(255, 255, 255);
-  --linkcolor: #485fc7;
-  --linkhover: rgb(240, 240, 240);
+	--primary: rgb(250, 250, 250);
+	--secondary: rgb(24, 24, 24);
+	--accent: rgb(255, 255, 255);
+	--linkcolor: #485fc7;
+	--linkhover: rgb(240, 240, 240);
 
-  background-color: var(--primary);
-  color: var(--secondary);
+	background-color: var(--primary);
+	color: var(--secondary);
 }
 
-[data-theme='dark'] {
-  --primary: rgb(43, 43, 43);
-  --secondary: rgb(243, 243, 243);
-  --accent: rgb(0, 0, 0);
-  --linkcolor: #ccd5ff;
-  --linkhover: rgb(110, 110, 110);
+[data-theme="dark"] {
+	--primary: rgb(43, 43, 43);
+	--secondary: rgb(243, 243, 243);
+	--accent: rgb(0, 0, 0);
+	--linkcolor: #ccd5ff;
+	--linkhover: rgb(110, 110, 110);
 }
 
 html {
-    background-color: var(--primary);
-    color: var(--secondary);
+	background-color: var(--primary);
+	color: var(--secondary);
 }
 
 body {
-    background-color: var(--primary);
-    color: var(--secondary);
+	background-color: var(--primary);
+	color: var(--secondary);
 }
 
 a.navbar-item {
-    background-color: var(--accent);
-    color: var(--secondary);
+	background-color: var(--accent);
+	color: var(--secondary);
 }
 
 a.navbar-item:hover {
-    background-color: var(--primary);
-    color: var(--secondary)
+	background-color: var(--primary);
+	color: var(--secondary);
 }
 
 .navbar {
-    background-color: var(--accent);
-    color: var(--secondary);
+	background-color: var(--accent);
+	color: var(--secondary);
 }
 
 .navbar-menu {
-    background-color: var(--accent);
-    color: var(--secondary);
+	background-color: var(--accent);
+	color: var(--secondary);
 }
 
 .navbar-item {
-    background-color: var(--accent);
-    color: var(--secondary);
+	background-color: var(--accent);
+	color: var(--secondary);
 }
 
 div.navbar-start {
-    background-color: var(--accent);
-    color: var(--secondary);
+	background-color: var(--accent);
+	color: var(--secondary);
 }
 
 div.navbar-brand {
-    background-color: var(--accent);
-    color: var(--secondary);
+	background-color: var(--accent);
+	color: var(--secondary);
 }
 
 div.navbar-end {
-    background-color: var(--accent);
-    color: var(--secondary);
+	background-color: var(--accent);
+	color: var(--secondary);
 }
 
 div.card {
-    background: var(--accent);
+	background: var(--accent);
 }
 
 footer.card-footer {
-    background: var(--accent);
+	background: var(--accent);
 }
 
 div {
-    background-color: var(--primary);
-    color: var(--secondary);
-} 
+	background-color: var(--primary);
+	color: var(--secondary);
+}
 
 div.has-text-right {
-    background-color: var(--accent);
+	background-color: var(--accent);
 }
 
 #profile {
-    border-radius: 50%
+	border-radius: 50%;
 }
 
 .title {
-    color: var(--secondary)
+	color: var(--secondary);
 }
 
 .subtitle {
-    color: var(--secondary);
-    font-weight: bold;
+	color: var(--secondary);
+	font-weight: bold;
 }
 
 a {
-    color: var(--linkcolor);
-    background-color: var(--primary);
+	color: var(--linkcolor);
+	background-color: var(--primary);
 }
 
 a:hover {
-    color: var(--linkcolor);
-    background-color: var(--linkhover)
+	color: var(--linkcolor);
+	background-color: var(--linkhover);
 }
 
 .socialContainer {
-    margin-bottom: 0.5rem;
+	margin-bottom: 0.5rem;
 }
 
 .alternateLocation {
-    display: none;
+	display: none;
 }
 
 p.card-header-title {
-    color: var(--secondary)
+	color: var(--secondary);
 }
 
 time {
-    color: var(--secondary);
+	color: var(--secondary);
 }
-
 
 i.fas {
-    color: var(--secondary);
+	color: var(--secondary);
 }
 
-@media (min-width: 770px) and (max-width: 1200px){
-    .map {
-      display: none;
-    }
-    .alternateLocation {
-        display: block;
-    }
+@media (min-width: 770px) and (max-width: 1200px) {
+	.map {
+		display: none;
+	}
+	.alternateLocation {
+		display: block;
+	}
 }
 
 p {
-    overflow: hidden;
+	overflow: hidden;
 }
 
 .hidden {
-    display: none;
+	display: none;
 }
 
-
 #latestBlogTitle {
-    margin-bottom: 0px;
+	margin-bottom: 0px;
 }
 
 .accented {
-    background-color: var(--accent);
+	background-color: var(--accent);
 }
 
 div.tags {
-    background-color: var(--accent);
+	background-color: var(--accent);
 }
 
 .postImage {
-    border-radius: 5px;
+	border-radius: 5px;
 }
 
 .tweet:hover {
-    cursor: pointer;
+	cursor: pointer;
 }
