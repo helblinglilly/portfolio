@@ -8,7 +8,7 @@ export default function Layout({children}) {
 	// Need to add images into meta tags
 
 	return (
-		<html>
+		<div>
 			<Head>
 				<meta charSet="utf-8"></meta>
 				<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2,shrink-to-fit=no" />
@@ -24,7 +24,7 @@ export default function Layout({children}) {
 					</div>
 				</main>
 	  		</div>
-		</html>
+		</div>
 	);
 }
 

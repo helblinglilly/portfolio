@@ -148,7 +148,18 @@ p {
 }
 
 
-
 #latestBlogTitle {
     margin-bottom: 0px;
+}
+
+.accented {
+    background-color: var(--accent);
+}
+
+div.tags {
+    background-color: var(--accent);
+}
+
+.postImage {
+    border-radius: 5px;
 }
