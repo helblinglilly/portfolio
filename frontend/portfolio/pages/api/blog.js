@@ -1,3 +1,5 @@
+import { formatDate } from "../../utils";
+
 export default function handler(req, res) {
     if (req.method === 'GET') {
         const response = {
@@ -51,16 +53,4 @@ class Post {
             date: formatDate(this.date)
         }
     }
-  }
-  
-function formatDate(date) {
-    return [
-        padTo2Digits(date.getDate()),
-        padTo2Digits(date.getMonth() + 1),
-        date.getFullYear(),
-      ].join('/');
-}
-
-function padTo2Digits(num) {
-    return num.toString().padStart(2, '0');
   }

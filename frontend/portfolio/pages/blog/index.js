@@ -1,13 +1,12 @@
 import Layout from '../../components/layout'
 import Image from 'next/image'
 import Link from 'next/link'
-import LatestTweets from '../../components/blog/latestTweets'
 import { allPosts } from '../api/blog'
 import React from 'react';
 import axios from 'axios'
+import LatestTweets from '../../components/blog/latestTweets';
 
 export default function Blog(props) {
-  console.log("Front end props", props);
   return (
     <Layout home>
     <div className='column is-one-quarter'>
@@ -62,9 +61,8 @@ export async function getServerSideProps() {
       headers: { Authorization: `Bearer ${token}` }
   };
 
-  let tweets = await axios.get('https://api.twitter.com/2/users/1397471686371467266/tweets?tweet.fields=created_at', config)
+  let tweets = await axios.get('https://api.twitter.com/2/users/1397471686371467266/tweets?tweet.fields=created_at&max_results=5', config)
   tweets = tweets.data.data;
-  console.log("just after fetching:", tweets);
   return {
       props: {
           tweets: tweets
