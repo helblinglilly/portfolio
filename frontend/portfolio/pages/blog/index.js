@@ -4,9 +4,10 @@ import Link from 'next/link'
 import LatestTweets from '../../components/blog/latestTweets'
 import { allPosts } from '../api/blog'
 import React from 'react';
-import axios from "axios"
+import axios from 'axios'
 
-export default function Blog() {
+export default function Blog(props) {
+  console.log("Front end props", props);
   return (
     <Layout home>
     <div className='column is-one-quarter'>
@@ -19,7 +20,7 @@ export default function Blog() {
       </div>
     </div>
     <div className="column is-one-quarter">
-      <LatestTweets tweets={fetchTweets()}></LatestTweets>
+      <LatestTweets tweets={props}></LatestTweets>
     </div>
   </Layout>
   )
@@ -55,14 +56,18 @@ const card = (post) => {
   )
 }
 
-const fetchTweets = async () => {
+export async function getServerSideProps() {
   const token = process.env.TWITTER_TOKEN;
   const config = {
       headers: { Authorization: `Bearer ${token}` }
   };
-  console.log(token);
-  const tweets = await axios.get('https://api.twitter.com/2/users/1397471686371467266/tweets?tweet.fields=created_at', config)
-  console.log(tweets.data.data);
-  return tweets.data.data;
-  // .then((response) => response);
+
+  let tweets = await axios.get('https://api.twitter.com/2/users/1397471686371467266/tweets?tweet.fields=created_at', config)
+  tweets = tweets.data.data;
+  console.log("just after fetching:", tweets);
+  return {
+      props: {
+          tweets: tweets
+      }
+  }
 }
