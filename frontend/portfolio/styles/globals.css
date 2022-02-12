@@ -165,3 +165,12 @@ div.tags {
 .tweet:hover {
 	cursor: pointer;
 }
+
+input.input {
+	background-color: var(--primary);
+	color: var(--secondary);
+}
+
+label.checkbox:hover {
+	color: var(--secondary);
+}

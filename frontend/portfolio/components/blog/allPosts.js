@@ -1,13 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
-import { postSummaries } from "../../pages/api/blog";
 
-export default function AllPosts() {
+export default function AllPosts({ posts }) {
 	return (
 		<>
-			<p>Posts</p>
 			<p className="title is-3">Blog Posts</p>
-			{postSummaries().map((post) => card(post))}
+			{posts.map((post) => card(post))}
 		</>
 	);
 }
@@ -36,9 +34,13 @@ const card = (post) => {
 						</div>
 					</div>
 
-					<div className="tags are-medium">
-						<span className={post.tags.color}>{post.tags.name}</span>
-					</div>
+					{post.tags.map((tag) => {
+						return (
+							<div className="tags are-medium" key={tag}>
+								<span className={tag.color}>{tag.name}</span>
+							</div>
+						);
+					})}
 				</div>
 			</div>
 		</Link>
