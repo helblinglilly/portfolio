@@ -5,12 +5,13 @@ export default function CurrentRole() {
 		<div className="currentRole">
 			<p className="title">Current Role</p>
 			<p style={{ display: "inline" }}>Currently I'm working on </p>
-			<Link
+			<a
 				href="https://digital.nhs.uk/services/nhs-pathways"
+				target="_blank"
 				style={{ display: "inline" }}
 			>
 				Pathways at NHS Digital
-			</Link>
+			</a>
 			<p style={{ display: "inline" }}>
 				. This is about 50/50 between maintaining the existing products and
 				deploying a a new product to the cloud.

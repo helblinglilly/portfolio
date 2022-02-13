@@ -26,11 +26,15 @@ export default function Sidebar() {
 							width={20}
 							height={20}
 						/>
-						<Link href="https://github.com/helblingjoel">
-							<a className="ml-1" target="_blank" rel="noreferrer">
-								github.com/helblingjoel
-							</a>
-						</Link>
+
+						<a
+							className="ml-1"
+							href="https://github.com/helblingjoel"
+							target="_blank"
+							rel="noreferrer"
+						>
+							github.com/helblingjoel
+						</a>
 					</div>
 					<div className="socialContainer" id="twitter">
 						<Image
@@ -40,11 +44,15 @@ export default function Sidebar() {
 							width={20}
 							height={20}
 						/>
-						<Link href="https://twitter.com/_helblingjoel">
-							<a className="ml-1" target="_blank" rel="noreferrer">
-								twitter.com/_helblingjoel
-							</a>
-						</Link>
+
+						<a
+							className="ml-1"
+							href="https://twitter.com/_helblingjoel"
+							target="_blank"
+							rel="noreferrer"
+						>
+							twitter.com/_helblingjoel
+						</a>
 					</div>
 					<div className="socialContainer" id="instagram">
 						<Image
@@ -54,11 +62,15 @@ export default function Sidebar() {
 							width={20}
 							height={20}
 						/>
-						<Link href="https://instagram.com/helblingjoel">
-							<a className="ml-1" target="_blank" rel="noreferrer">
-								instagram.com/helblingjoel
-							</a>
-						</Link>
+
+						<a
+							className="ml-1"
+							href="https://instagram.com/helblingjoel"
+							target="_blank"
+							rel="noreferrer"
+						>
+							instagram.com/helblingjoel
+						</a>
 					</div>
 					<div className="socialContainer" id="linkedin">
 						<Image
@@ -68,11 +80,15 @@ export default function Sidebar() {
 							width={20}
 							height={20}
 						/>
-						<Link href="https://www.linkedin.com/in/joel-helbling-707ba0171">
-							<a className="ml-1" target="_blank" rel="noreferrer">
-								linkedin.com/joel-helblingjoel
-							</a>
-						</Link>
+
+						<a
+							className="ml-1"
+							href="https://www.linkedin.com/in/joel-helbling-707ba0171"
+							target="_blank"
+							rel="noreferrer"
+						>
+							linkedin.com/joel-helblingjoel
+						</a>
 					</div>
 				</div>
 			</div>

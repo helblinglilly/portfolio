@@ -191,6 +191,9 @@ input.input::placeholder {
 	.desktop {
 		display: none;
 	}
+	.mobileHidden {
+		display: none;
+	}
 }
 
 /* Desktop only */

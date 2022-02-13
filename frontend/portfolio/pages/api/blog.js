@@ -8,7 +8,10 @@ export function postSummaries() {
 			"Post 1",
 			"This post is about a man that used to walk on the beach until he didn't",
 			new Date("01 Jan 1975 00:00:00 GMT"),
-			[{ name: "JS", color: "is-warning" }]
+			[
+				{ name: "JS", color: "is-warning" },
+				{ name: "C#", color: "is-info" },
+			]
 		).toObject
 	);
 

@@ -4,7 +4,6 @@ import Layout from "../../components/layout";
 import AllPosts from "../../components/blog/allPosts";
 import LatestTweets from "../../components/blog/latestTweets";
 import { postSummaries } from "../api/blog";
-import { formatDate } from "../../utils";
 
 export default function Blog(props) {
 	const [searchTerm, setSearchTerm] = useState();
@@ -53,18 +52,18 @@ function search(setSearchTerm, setTags, setYears) {
 					</button>
 				</div>
 			</div>
-			{searchCard(setSearchTerm, setTags, setYears, "mobileSearch")}
+			{searchCard(setSearchTerm, setTags, setYears)}
 		</>
 	);
 }
 
 const toggleMobileSearch = () => {
-	document.querySelector("#mobileSearch").classList.toggle("hidden");
+	document.querySelector("#search").classList.toggle("mobileHidden");
 };
 
-function searchCard(setSearchTerm, setTags, setYears, id = "desktopSearch") {
+function searchCard(setSearchTerm, setTags, setYears) {
 	return (
-		<div className="card search" id={id}>
+		<div className="card search mobileHidden" id="search">
 			<div className="card-content">
 				<input
 					className="input"
