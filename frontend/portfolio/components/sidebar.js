@@ -27,7 +27,9 @@ export default function Sidebar() {
 							height={20}
 						/>
 						<Link href="https://github.com/helblingjoel">
-							<a className="ml-1">github.com/helblingjoel</a>
+							<a className="ml-1" target="_blank" rel="noreferrer">
+								github.com/helblingjoel
+							</a>
 						</Link>
 					</div>
 					<div className="socialContainer" id="twitter">
@@ -39,7 +41,9 @@ export default function Sidebar() {
 							height={20}
 						/>
 						<Link href="https://twitter.com/_helblingjoel">
-							<a className="ml-1">twitter.com/_helblingjoel</a>
+							<a className="ml-1" target="_blank" rel="noreferrer">
+								twitter.com/_helblingjoel
+							</a>
 						</Link>
 					</div>
 					<div className="socialContainer" id="instagram">
@@ -51,7 +55,9 @@ export default function Sidebar() {
 							height={20}
 						/>
 						<Link href="https://instagram.com/helblingjoel">
-							<a className="ml-1">instagram.com/helblingjoel</a>
+							<a className="ml-1" target="_blank" rel="noreferrer">
+								instagram.com/helblingjoel
+							</a>
 						</Link>
 					</div>
 					<div className="socialContainer" id="linkedin">
@@ -63,7 +69,9 @@ export default function Sidebar() {
 							height={20}
 						/>
 						<Link href="https://www.linkedin.com/in/joel-helbling-707ba0171">
-							<a className="ml-1">linkedin.com/joel-helblingjoel</a>
+							<a className="ml-1" target="_blank" rel="noreferrer">
+								linkedin.com/joel-helblingjoel
+							</a>
 						</Link>
 					</div>
 				</div>
