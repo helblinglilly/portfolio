@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Layout from "../../components/layout";
-import LatestTweets from "../../components/blog/latestTweets";
-import AllPosts from "../../components/blog/allPosts";
-import { postSummaries } from "../api/blog";
+import LatestTweets from "../../components/Tweets/LatestTweets";
+import AllPosts, { PostSummaries } from "../../components/Blog/AllPosts";
+import { Post } from "../../components/Blog/Post";
 
 export default function Blog(props) {
 	const [searchTerm, setSearchTerm] = useState();
@@ -184,14 +184,14 @@ export async function getStaticProps() {
 	return {
 		props: {
 			tweets: tweets,
-			posts: postSummaries(),
+			posts: PostSummaries(),
 		},
 	};
 }
 
 function getYears() {
 	const years = [];
-	for (const post of postSummaries()) {
+	for (const post of PostSummaries()) {
 		const year = post.date.split("/")[2];
 		if (!years.includes(year)) years.push(year);
 	}
@@ -200,7 +200,7 @@ function getYears() {
 
 function getTags() {
 	const tags = [];
-	for (const post of postSummaries()) {
+	for (const post of PostSummaries()) {
 		for (const tag of post.tags) {
 			if (!tags.includes(tag.name)) tags.push(tag.name);
 		}

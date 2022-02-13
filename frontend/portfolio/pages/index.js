@@ -1,7 +1,7 @@
-import Layout, { siteTitle } from "../components/layout";
+import Layout from "../components/layout";
 import Location from "../components/home/location";
 import CurrentRole from "../components/home/currentRole";
-import LatestPost from "../components/home/latestPost";
+import LatestPost from "../components/Blog/latestPost";
 import Sidebar from "../components/sidebar";
 
 export default function Home() {
