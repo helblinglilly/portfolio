@@ -6,6 +6,7 @@
 	--accent: rgb(255, 255, 255);
 	--linkcolor: #485fc7;
 	--linkhover: rgb(240, 240, 240);
+	--navbar: rgb(255, 255, 255);
 
 	background-color: var(--primary);
 	color: var(--secondary);
@@ -14,9 +15,10 @@
 [data-theme="dark"] {
 	--primary: rgb(43, 43, 43);
 	--secondary: rgb(243, 243, 243);
-	--accent: rgb(0, 0, 0);
+	--accent: rgb(26, 26, 26);
 	--linkcolor: #ccd5ff;
 	--linkhover: rgb(110, 110, 110);
+	--navbar: rgb(0, 0, 0);
 }
 
 html {
@@ -30,7 +32,7 @@ body {
 }
 
 a.navbar-item {
-	background-color: var(--accent);
+	background-color: var(--navbar);
 	color: var(--secondary);
 }
 
@@ -40,32 +42,32 @@ a.navbar-item:hover {
 }
 
 .navbar {
-	background-color: var(--accent);
+	background-color: var(--navbar);
 	color: var(--secondary);
 }
 
 .navbar-menu {
-	background-color: var(--accent);
+	background-color: var(--navbar);
 	color: var(--secondary);
 }
 
 .navbar-item {
-	background-color: var(--accent);
+	background-color: var(--navbar);
 	color: var(--secondary);
 }
 
 div.navbar-start {
-	background-color: var(--accent);
+	background-color: var(--navbar);
 	color: var(--secondary);
 }
 
 div.navbar-brand {
-	background-color: var(--accent);
+	background-color: var(--navbar);
 	color: var(--secondary);
 }
 
 div.navbar-end {
-	background-color: var(--accent);
+	background-color: var(--navbar);
 	color: var(--secondary);
 }
 

@@ -35,9 +35,8 @@ export default function Blog(props) {
 function search(setSearchTerm, setTags, setYears) {
 	return (
 		<>
-			<div className="desktop">
-				<p className="title is-3">Filter</p>
-				{searchCard(setSearchTerm, setTags, setYears)}
+			<div className="desktop title">
+				<p className="is-3">Filter</p>
 			</div>
 
 			<div className="card mobile mb-2">
@@ -172,10 +171,11 @@ export async function getServerSideProps() {
 			config
 		);
 		tweets = tweets.data.data;
+		console.log(tweets[0].created_at);
 	} catch (err) {
 		tweets = [
 			{
-				created_at: formatDate(new Date()),
+				created_at: new Date().toISOString(),
 				id: "1492283279768231937",
 				text: "Unable to get tweets at this time",
 			},
