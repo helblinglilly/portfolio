@@ -1,14 +1,14 @@
-import Layout from "../components/layout";
-import Location from "../components/home/location";
-import CurrentRole from "../components/home/currentRole";
+import Layout from "../components/Layout";
+import Location from "../components/Location/Location";
+import CurrentRole from "../components/CurrentRole";
 import LatestPost from "../components/Blog/latestPost";
-import Sidebar from "../components/sidebar";
+import AboutMe from "../components/AboutMe/AboutMe";
 
 export default function Home() {
 	return (
 		<Layout home>
 			<div className="column is-one-quarter">
-				<Sidebar></Sidebar>
+				<AboutMe></AboutMe>
 			</div>
 			<div className="column is-two-third">
 				<LatestPost></LatestPost>

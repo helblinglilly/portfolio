@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Layout from "../../components/layout";
+import Layout from "../../components/Layout";
 import LatestTweets from "../../components/Tweets/LatestTweets";
 import AllPosts, { PostSummaries } from "../../components/Blog/AllPosts";
 import { Post } from "../../components/Blog/Post";
