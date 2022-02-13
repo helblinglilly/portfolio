@@ -5,12 +5,19 @@ export default function AllPosts({ posts }) {
 	return (
 		<>
 			<p className="title is-3">Blog Posts</p>
-			{posts.map((post) => card(post))}
+			{posts.length > 0 ? (
+				posts.map((post) => card(post))
+			) : (
+				<div>
+					<p>No posts match search criteria.</p>
+					<p>Try adjusting your filters to find matching posts.</p>
+				</div>
+			)}
 		</>
 	);
 }
 
-const card = (post) => {
+export const card = (post) => {
 	const link = "/blog/" + post.link;
 	let r = (Math.random() + 1).toString(36).substring(7);
 

@@ -22,7 +22,9 @@ function showTweets(tweets) {
 				<p className="card-header-title">
 					{formatDate(new Date(tweets.created_at))}
 				</p>
-				<p className="pr-4 pt-3">_helblingjoel</p>
+				<div className="tweetAuthor accented">
+					<p className="pr-4 pt-3">_helblingjoel</p>
+				</div>
 			</div>
 			<div className="card-content">
 				<p>{tweets.text}</p>

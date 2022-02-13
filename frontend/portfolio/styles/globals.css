@@ -129,15 +129,6 @@ i.fas {
 	color: var(--secondary);
 }
 
-@media (min-width: 770px) and (max-width: 1200px) {
-	.map {
-		display: none;
-	}
-	.alternateLocation {
-		display: block;
-	}
-}
-
 p {
 	overflow: hidden;
 }
@@ -173,4 +164,36 @@ input.input {
 
 label.checkbox:hover {
 	color: var(--secondary);
+}
+
+input.input::placeholder {
+	color: var(--secondary);
+}
+
+/* Narrow desktop but not yet mobile */
+@media (min-width: 769px) and (max-width: 1030px) {
+	.tweetAuthor {
+		display: none;
+	}
+}
+
+/* Incredibly narrow */
+@media (max-width: 310px) {
+	.tweetAuthor {
+		display: none;
+	}
+}
+
+/* Mobile only */
+@media (max-width: 768px) {
+	.desktop {
+		display: none;
+	}
+}
+
+/* Desktop only */
+@media (min-width: 769px) {
+	.mobile {
+		display: none;
+	}
 }

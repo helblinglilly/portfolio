@@ -1,16 +1,5 @@
 import { formatDate } from "../../utils";
 
-export default function handler(req, res) {
-	if (req.method === "GET") {
-		const response = {
-			posts: postSummaries(),
-		};
-		res.send(response);
-	} else {
-		res.status(500).send();
-	}
-}
-
 export function postSummaries() {
 	const posts = [];
 	posts.push(
@@ -18,7 +7,7 @@ export function postSummaries() {
 			"first-post",
 			"Post 1",
 			"This post is about a man that used to walk on the beach until he didn't",
-			new Date(),
+			new Date("01 Jan 1975 00:00:00 GMT"),
 			[{ name: "JS", color: "is-warning" }]
 		).toObject
 	);
@@ -28,11 +17,15 @@ export function postSummaries() {
 			"second-post",
 			"Post 2",
 			"A massive bear somehow got to the beach and ate a man",
-			new Date()
+			new Date("01 Jan 1970 00:00:00 GMT")
 		).toObject
 	);
-
 	return posts;
+}
+
+export function latestPost() {
+	let posts = postSummaries();
+	return posts.sort((a, b) => (a.date < b.date ? 1 : -1))[0];
 }
 
 class Post {
