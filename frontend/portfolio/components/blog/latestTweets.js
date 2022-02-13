@@ -12,10 +12,6 @@ export default function LatestTweets({ tweets }) {
 function showTweets(tweets) {
 	const link = `https://twitter.com/_helblingjoel/status/${tweets.id}`;
 
-	const open = () => {
-		window.open(link, "_blank").focus();
-	};
-
 	return (
 		<div className="card mb-6" key={tweets.id}>
 			<div className="card-header">
@@ -29,12 +25,13 @@ function showTweets(tweets) {
 			<div className="card-content">
 				<p>{tweets.text}</p>
 			</div>
-
-			<div className="card-footer has-text-centred" onClick={open}>
-				<div className="card-footer-item accented tweet">
-					<p>View on Twitter</p>
+			<a href={link} target="_blank">
+				<div className="card-footer has-text-centred">
+					<div className="card-footer-item accented tweet">
+						<p>View on Twitter</p>
+					</div>
 				</div>
-			</div>
+			</a>
 		</div>
 	);
 }
