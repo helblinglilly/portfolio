@@ -57,9 +57,9 @@ function search(setSearchTerm, setTags, setYears) {
 	);
 }
 
-const toggleMobileSearch = () => {
+function toggleMobileSearch() {
 	document.querySelector("#search").classList.toggle("mobileHidden");
-};
+}
 
 function searchCard(setSearchTerm, setTags, setYears) {
 	return (

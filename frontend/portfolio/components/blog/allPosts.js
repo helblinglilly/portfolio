@@ -17,7 +17,7 @@ export default function AllPosts({ posts }) {
 	);
 }
 
-export const card = (post) => {
+function card(post) {
 	const link = "/blog/" + post.link;
 	let r = (Math.random() + 1).toString(36).substring(7);
 
@@ -54,4 +54,4 @@ export const card = (post) => {
 			</div>
 		</Link>
 	);
-};
+}
