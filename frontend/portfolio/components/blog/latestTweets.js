@@ -22,11 +22,11 @@ function showTweets(tweets) {
 					<p className="pr-4 pt-3">_helblingjoel</p>
 				</div>
 			</div>
-			<div className="card-content">
+			<div className="card-content" key={"content-" + link}>
 				<p>{tweets.text}</p>
 			</div>
 			<a href={link} target="_blank">
-				<div className="card-footer has-text-centred">
+				<div className="card-footer has-text-centred" key={link}>
 					<div className="card-footer-item accented tweet">
 						<p>View on Twitter</p>
 					</div>
