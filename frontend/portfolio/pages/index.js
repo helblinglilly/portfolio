@@ -1,7 +1,6 @@
 import Layout, { siteTitle } from "../components/layout";
 import Location from "../components/home/location";
 import CurrentRole from "../components/home/currentRole";
-import Education from "../components/home/education";
 import LatestPost from "../components/home/latestPost";
 import Sidebar from "../components/sidebar";
 

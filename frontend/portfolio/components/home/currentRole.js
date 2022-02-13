@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 export default function CurrentRole() {
 	return (
 		<div className="currentRole">
@@ -7,6 +5,7 @@ export default function CurrentRole() {
 			<p style={{ display: "inline" }}>Currently I'm working on </p>
 			<a
 				href="https://digital.nhs.uk/services/nhs-pathways"
+				rel="noreferrer"
 				target="_blank"
 				style={{ display: "inline" }}
 			>

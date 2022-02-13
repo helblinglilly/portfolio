@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Layout from "../../components/layout";
-import AllPosts from "../../components/blog/allPosts";
 import LatestTweets from "../../components/blog/latestTweets";
+import AllPosts from "../../components/blog/allPosts";
 import { postSummaries } from "../api/blog";
 
 export default function Blog(props) {
@@ -157,7 +157,7 @@ function filterPosts(posts, searchTerm, tags, years) {
 	});
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
 	const token = process.env.TWITTER_TOKEN;
 	const config = {
 		headers: { Authorization: `Bearer ${token}` },

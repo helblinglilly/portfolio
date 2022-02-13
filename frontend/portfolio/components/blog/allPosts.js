@@ -43,7 +43,11 @@ export const card = (post) => {
 
 					<div className="tags are-medium">
 						{post.tags.map((tag) => {
-							return <span className={tag.color}>{tag.name}</span>;
+							return (
+								<span className={tag.color} key={tag.name}>
+									{tag.name}
+								</span>
+							);
 						})}
 					</div>
 				</div>
