@@ -31,43 +31,8 @@ body {
 	color: var(--secondary);
 }
 
-a.navbar-item {
-	background-color: var(--navbar);
-	color: var(--secondary);
-}
-
-a.navbar-item:hover {
+div {
 	background-color: var(--primary);
-	color: var(--secondary);
-}
-
-.navbar {
-	background-color: var(--navbar);
-	color: var(--secondary);
-}
-
-.navbar-menu {
-	background-color: var(--navbar);
-	color: var(--secondary);
-}
-
-.navbar-item {
-	background-color: var(--navbar);
-	color: var(--secondary);
-}
-
-div.navbar-start {
-	background-color: var(--navbar);
-	color: var(--secondary);
-}
-
-div.navbar-brand {
-	background-color: var(--navbar);
-	color: var(--secondary);
-}
-
-div.navbar-end {
-	background-color: var(--navbar);
 	color: var(--secondary);
 }
 
@@ -79,26 +44,12 @@ footer.card-footer {
 	background: var(--accent);
 }
 
-div {
-	background-color: var(--primary);
+p {
+	overflow: hidden;
+}
+
+p.card-header-title {
 	color: var(--secondary);
-}
-
-div.has-text-right {
-	background-color: var(--accent);
-}
-
-#profile {
-	border-radius: 50%;
-}
-
-.title {
-	color: var(--secondary);
-}
-
-.subtitle {
-	color: var(--secondary);
-	font-weight: bold;
 }
 
 a {
@@ -109,54 +60,6 @@ a {
 a:hover {
 	color: var(--linkcolor);
 	background-color: var(--linkhover);
-}
-
-.socialContainer {
-	margin-bottom: 0.5rem;
-}
-
-.alternateLocation {
-	display: none;
-}
-
-p.card-header-title {
-	color: var(--secondary);
-}
-
-time {
-	color: var(--secondary);
-}
-
-i.fas {
-	color: var(--secondary);
-}
-
-p {
-	overflow: hidden;
-}
-
-.hidden {
-	display: none;
-}
-
-#latestBlogTitle {
-	margin-bottom: 0px;
-}
-
-.accented {
-	background-color: var(--accent);
-}
-
-div.tags {
-	background-color: var(--accent);
-}
-
-.postImage {
-	border-radius: 5px;
-}
-
-.tweet:hover {
-	cursor: pointer;
 }
 
 input.input {
@@ -170,6 +73,23 @@ label.checkbox:hover {
 
 input.input::placeholder {
 	color: var(--secondary);
+}
+
+.title {
+	color: var(--secondary);
+}
+
+.subtitle {
+	color: var(--secondary);
+	font-weight: bold;
+}
+
+.hidden {
+	display: none;
+}
+
+.accented {
+	background-color: var(--accent);
 }
 
 /* Narrow desktop but not yet mobile */

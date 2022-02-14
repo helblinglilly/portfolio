@@ -10,12 +10,10 @@ export default function Location() {
 				height="450"
 				loading="lazy"
 			></iframe>
-			<p className="alternateLocation">{alternateLocation}</p>
 			<p>{previousLocation}</p>
 			<p></p>
 		</div>
 	);
 }
 
-const alternateLocation = `I'm currently based in Leeds, West Yorkshire, United Kingdom.`;
 const previousLocation = `Previously, I lived in Kent during my studies and before moving to the UK I lived in Schaffhausen, Switzerland`;

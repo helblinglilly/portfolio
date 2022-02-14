@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function Sidebar() {
+export default function AboutMe() {
 	return (
 		<div className="sidebar">
 			<figure className="image has-text-centered">
