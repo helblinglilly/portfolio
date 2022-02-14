@@ -3,7 +3,6 @@ import axios from "axios";
 import Layout from "../../components/Layout/Layout";
 import LatestTweets from "../../components/Tweets/LatestTweets";
 import AllPosts, { PostSummaries } from "../../components/Blog/AllPosts";
-import { Post } from "../../components/Blog/Post";
 
 export default function Blog(props) {
 	const [searchTerm, setSearchTerm] = useState();
