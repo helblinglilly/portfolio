@@ -1,4 +1,4 @@
-import Layout from "../components/layout";
+import Layout from "../components/Layout/Layout";
 export default function Custom404() {
 	return (
 		<Layout home>

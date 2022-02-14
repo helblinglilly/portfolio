@@ -1,6 +1,6 @@
-import Layout from "../components/Layout";
+import Layout from "../components/Layout/Layout";
 import Location from "../components/Location/Location";
-import CurrentRole from "../components/CurrentRole";
+import CurrentRole from "../components/CurrentRole/CurrentRole";
 import LatestPost from "../components/Blog/latestPost";
 import AboutMe from "../components/AboutMe/AboutMe";
 
