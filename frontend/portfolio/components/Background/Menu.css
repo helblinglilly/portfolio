@@ -1,0 +1,36 @@
+.menu-label {
+	color: var(--secondary);
+}
+
+.menu-list a {
+	color: var(--secondary);
+}
+
+a.is-active {
+	color: var(--primary);
+}
+
+#nhsd {
+	background: linear-gradient(90deg, #0a5bba 75%, #fff 25%);
+	border: 1px solid black;
+}
+
+#kent {
+	background: linear-gradient(90deg, #043a84 75%, #fff 25%);
+	border: 1px solid black;
+}
+
+#waitrose {
+	background: linear-gradient(90deg, #578626 75%, #04462f 25%);
+	border: 1px solid black;
+}
+
+#mcd {
+	background: linear-gradient(90deg, #d40007 75%, #febc0c 25%);
+	border: 1px solid black;
+}
+
+#rha {
+	background: linear-gradient(90deg, #ad033b 75%, #fff 25%);
+	border: 1px solid black;
+}

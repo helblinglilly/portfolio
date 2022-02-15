@@ -41,6 +41,9 @@ export default function Navbar() {
 					<Link href="/blog">
 						<a className="navbar-item">Blog</a>
 					</Link>
+					<Link href="/background">
+						<a className="navbar-item">Background</a>
+					</Link>
 				</div>
 				<div className="navbar-end">
 					<a

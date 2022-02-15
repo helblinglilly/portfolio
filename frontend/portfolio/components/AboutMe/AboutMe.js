@@ -27,7 +27,7 @@ export default function AboutMe() {
 						/>
 
 						<a
-							className="ml-1"
+							className="ml-1 icon-text"
 							href="https://github.com/helblingjoel"
 							target="_blank"
 							rel="noreferrer"
@@ -45,7 +45,7 @@ export default function AboutMe() {
 						/>
 
 						<a
-							className="ml-1"
+							className="ml-1 icon-text"
 							href="https://twitter.com/_helblingjoel"
 							target="_blank"
 							rel="noreferrer"
@@ -63,7 +63,7 @@ export default function AboutMe() {
 						/>
 
 						<a
-							className="ml-1"
+							className="ml-1 icon-text"
 							href="https://instagram.com/helblingjoel"
 							target="_blank"
 							rel="noreferrer"
@@ -81,7 +81,7 @@ export default function AboutMe() {
 						/>
 
 						<a
-							className="ml-1"
+							className="ml-1 icon-text"
 							href="https://www.linkedin.com/in/joel-helbling-707ba0171"
 							target="_blank"
 							rel="noreferrer"
