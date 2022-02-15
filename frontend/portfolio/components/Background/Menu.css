@@ -10,27 +10,27 @@ a.is-active {
 	color: var(--primary);
 }
 
-#nhsd {
+#nhsd-menu {
 	background: linear-gradient(90deg, #0a5bba 75%, #fff 25%);
 	border: 1px solid black;
 }
 
-#kent {
+#kent-menu {
 	background: linear-gradient(90deg, #043a84 75%, #fff 25%);
 	border: 1px solid black;
 }
 
-#waitrose {
+#waitrose-menu {
 	background: linear-gradient(90deg, #578626 75%, #04462f 25%);
 	border: 1px solid black;
 }
 
-#mcd {
+#mcd-menu {
 	background: linear-gradient(90deg, #d40007 75%, #febc0c 25%);
 	border: 1px solid black;
 }
 
-#rha {
+#rha-menu {
 	background: linear-gradient(90deg, #ad033b 75%, #fff 25%);
 	border: 1px solid black;
 }

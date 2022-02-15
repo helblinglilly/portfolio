@@ -96,14 +96,6 @@ input.input::placeholder {
 	background-color: var(--accent);
 }
 
-.inline-image {
-	align-items: stretch;
-}
-
-/* .inline-text {
-	align-content: ;
-} */
-
 /* Narrow desktop but not yet mobile */
 @media (min-width: 769px) and (max-width: 1030px) {
 	.tweetAuthor {

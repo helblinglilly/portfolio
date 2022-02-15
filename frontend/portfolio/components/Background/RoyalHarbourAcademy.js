@@ -1,7 +1,7 @@
 export default function RoyalHarbour() {
 	return (
 		<>
-			<p className="title" id="rha-content">
+			<p className="title" id="rha">
 				Royal Harbour Academy
 			</p>
 			<div id="btec" className="mb-3">

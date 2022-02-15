@@ -2,7 +2,7 @@ export default function NHSDigital() {
 	return (
 		<>
 			<div id="nhsd-content">
-				<p className="title" id="nhsd-content">
+				<p className="title" id="nhsd">
 					NHS Digital
 				</p>
 				<p>

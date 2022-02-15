@@ -1,7 +1,7 @@
 export default function McDonalds() {
 	return (
 		<>
-			<p className="title" id="mcd-content">
+			<p className="title" id="mcd">
 				McDonalds
 			</p>
 			<div id="canterbury" className="mb-3">

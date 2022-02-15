@@ -1,0 +1,12 @@
+#waitrose-image {
+	float: left;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+
+@media (max-width: 560px) {
+	#waitrose-image {
+		float: none;
+		display: block;
+	}
+}

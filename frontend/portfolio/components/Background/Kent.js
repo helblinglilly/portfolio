@@ -1,7 +1,7 @@
 export default function Kent() {
 	return (
 		<>
-			<p className="title" id="kent-content">
+			<p className="title" id="kent">
 				University of Kent
 			</p>
 			<div id="transcript" className="mb-3">
