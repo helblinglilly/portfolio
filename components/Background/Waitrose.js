@@ -18,7 +18,6 @@ export default function Waitrose() {
 				</p>
 			</div>
 			<div className="pt-3" id="reductions">
-				<p className="title is-4 mb-2">Reductions</p>
 				<div>
 					<p className="inline-text">
 						<img
@@ -28,14 +27,14 @@ export default function Waitrose() {
 							id="waitrose-image"
 							alt="Picture of me holding the leaving gift from the reductions team"
 						/>
-						I mostly work on the checkouts and with the legal compliency team.
-						On the checkouts I offer outstanding customer service by utilising
-						the skills from my previous position. Ensuring I meet the
-						customer's needs, adapting to their rush when buying their lunch,
-						hearing about a family's recent stories as they do their weekly
-						shop and anything in between. Every interaction is unique which
-						requires me to use my adaptive, flexible personality with each
-						customer.
+						<p className="title is-4 mb-2">Reductions</p>I mostly work on the
+						checkouts and with the legal compliency team. On the checkouts I
+						offer outstanding customer service by utilising the skills from my
+						previous position. Ensuring I meet the customer's needs, adapting
+						to their rush when buying their lunch, hearing about a family's
+						recent stories as they do their weekly shop and anything in
+						between. Every interaction is unique which requires me to use my
+						adaptive, flexible personality with each customer.
 						<br></br>
 						In the legalities team we usually work in teams of 3-5, working
 						under the pressure of getting all required tasks done by the end
@@ -46,12 +45,11 @@ export default function Waitrose() {
 						always find a good compromise. My communication skills are
 						frequently being highlighted by the management team whose trust is
 						continuing to grow with each shift.
+						<div id="checkouts">
+							<p className="title is-4 mb-2 mt-2">Checkouts</p>
+							<p className="inline-text">something new</p>
+						</div>
 					</p>
-				</div>
-
-				<p className="title is-4 mb-2">Checkouts</p>
-				<div id="checkouts">
-					<p className="inline-text">something new</p>
 				</div>
 			</div>
 		</>
