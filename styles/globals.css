@@ -1,0 +1,129 @@
+@import "../node_modules/bulma/css/bulma.min.css";
+
+:root {
+	--primary: rgb(250, 250, 250);
+	--secondary: rgb(24, 24, 24);
+	--accent: rgb(255, 255, 255);
+	--linkcolor: #485fc7;
+	--linkhover: rgb(240, 240, 240);
+	--navbar: rgb(255, 255, 255);
+
+	background-color: var(--primary);
+	color: var(--secondary);
+}
+
+[data-theme="dark"] {
+	--primary: rgb(43, 43, 43);
+	--secondary: rgb(243, 243, 243);
+	--accent: rgb(26, 26, 26);
+	--linkcolor: #ccd5ff;
+	--linkhover: rgb(110, 110, 110);
+	--navbar: rgb(0, 0, 0);
+}
+
+html {
+	background-color: var(--primary);
+	color: var(--secondary);
+}
+
+body {
+	background-color: var(--primary);
+	color: var(--secondary);
+}
+
+hr {
+	background-color: var(--secondary);
+}
+
+div {
+	background-color: var(--primary);
+	color: var(--secondary);
+}
+
+div.card {
+	background: var(--accent);
+	z-index: 0;
+}
+
+footer.card-footer {
+	background: var(--accent);
+}
+
+p {
+	overflow: hidden;
+}
+
+p.card-header-title {
+	color: var(--secondary);
+}
+
+a {
+	color: var(--linkcolor);
+	background-color: var(--primary);
+}
+
+a:hover {
+	color: var(--linkcolor);
+	background-color: var(--linkhover);
+}
+
+input.input {
+	background-color: var(--primary);
+	color: var(--secondary);
+}
+
+label.checkbox:hover {
+	color: var(--secondary);
+}
+
+input.input::placeholder {
+	color: var(--secondary);
+}
+
+.title {
+	color: var(--secondary);
+}
+
+.subtitle {
+	color: var(--secondary);
+	font-weight: bold;
+}
+
+.hidden {
+	display: none;
+}
+
+.accented {
+	background-color: var(--accent);
+}
+
+/* Narrow desktop but not yet mobile */
+@media (min-width: 769px) and (max-width: 1030px) {
+	.tweetAuthor {
+		display: none;
+	}
+}
+
+/* Incredibly narrow */
+@media (max-width: 310px) {
+	.tweetAuthor {
+		display: none;
+	}
+}
+
+/* Mobile only */
+@media (max-width: 768px) {
+	.desktop {
+		display: none;
+	}
+	.mobileHidden {
+		display: none;
+	}
+}
+
+/* Desktop only */
+@media (min-width: 769px) {
+	.mobile {
+		display: none;
+	}
+}

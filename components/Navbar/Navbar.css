@@ -1,0 +1,39 @@
+a.navbar-item {
+	background-color: var(--navbar);
+	color: var(--secondary);
+}
+
+a.navbar-item:hover {
+	background-color: var(--primary);
+	color: var(--secondary);
+}
+
+.navbar {
+	background-color: var(--navbar);
+	color: var(--secondary);
+}
+
+.navbar-menu {
+	background-color: var(--navbar);
+	color: var(--secondary);
+}
+
+.navbar-item {
+	background-color: var(--navbar);
+	color: var(--secondary);
+}
+
+div.navbar-start {
+	background-color: var(--navbar);
+	color: var(--secondary);
+}
+
+div.navbar-brand {
+	background-color: var(--navbar);
+	color: var(--secondary);
+}
+
+div.navbar-end {
+	background-color: var(--navbar);
+	color: var(--secondary);
+}
