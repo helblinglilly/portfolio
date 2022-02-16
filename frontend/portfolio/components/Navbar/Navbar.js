@@ -6,7 +6,7 @@ import { useTheme } from "next-themes";
 export default function Navbar() {
 	const { theme, setTheme } = useTheme();
 	return (
-		<nav className="navbar is-spaced">
+		<nav className="navbar is-spaced" id="navbar">
 			<Script src="/js/navbar.js"></Script>
 			<div className="navbar-brand">
 				<Link href="/">

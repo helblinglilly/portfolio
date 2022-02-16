@@ -8,8 +8,9 @@ export default function Menu() {
 					<p className="menu-label">2021 - present</p>
 					<li>
 						<a className="is-active" id="nhsd-menu" href="#nhsd">
-							NHS Digital
+							<p className="mr-6">NHS Digital</p>
 						</a>
+
 						<ul>
 							<li>
 								<a href="#pathways">Pathways</a>
@@ -23,7 +24,7 @@ export default function Menu() {
 					<p className="menu-label">2019 - 2021</p>
 					<li>
 						<a className="is-active" id="waitrose-menu" href="#waitrose">
-							Waitrose
+							<p className="mr-6">Waitrose</p>
 						</a>
 						<ul>
 							<li>
@@ -40,9 +41,12 @@ export default function Menu() {
 				<ul className="menu-list">
 					<p className="menu-label">2018 - 2021</p>
 					<li>
-						<a className="is-active" id="kent-menu" href="#kent">
-							University of Kent
-						</a>
+						<span>
+							<a className="is-active" id="kent-menu" href="#kent">
+								<p className="mr-6">University of Kent</p>
+							</a>
+						</span>
+
 						<ul>
 							<li>
 								<a href="#transcript">Transcript</a>
@@ -59,7 +63,7 @@ export default function Menu() {
 					<p className="menu-label">2017 - 2020</p>
 					<li>
 						<a className="is-active" id="mcd-menu" href="#mcd">
-							McDonalds
+							<p className="mr-6">McDonalds</p>
 						</a>
 						<ul>
 							<li>
@@ -77,7 +81,7 @@ export default function Menu() {
 					<p className="menu-label">2016-2018</p>
 					<li>
 						<a className="is-active" id="rha-menu" href="#rha">
-							Royal Harbour Academy
+							<p className="mr-6">Royal Harbour Academy</p>
 						</a>
 						<ul>
 							<li>

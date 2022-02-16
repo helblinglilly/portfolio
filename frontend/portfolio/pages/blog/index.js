@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Layout from "../../components/Layout/Layout";
 import LatestTweets from "../../components/Tweets/LatestTweets";
@@ -11,10 +11,46 @@ export default function Blog(props) {
 
 	if (searchTerm === undefined || searchTerm === "") setSearchTerm(".*");
 
+	useEffect(() => {
+		document.addEventListener(
+			"scroll",
+			() => {
+				const limit =
+					Math.max(
+						document.body.scrollHeight,
+						document.body.offsetHeight,
+						document.documentElement.clientHeight,
+						document.documentElement.scrollHeight,
+						document.documentElement.offsetHeight
+					) - window.innerHeight;
+				const location = Math.floor(window.scrollY);
+				let menuButton = document.getElementById("backToTopButton");
+
+				if ((100 / limit) * location > 40) {
+					console.log("Turn on");
+					if (menuButton.classList.contains("hidden")) {
+						menuButton.classList.remove("hidden");
+						console.log("Turned on");
+					}
+				} else {
+					console.log("Turn off");
+					if (!menuButton.classList.contains("hidden"))
+						menuButton.classList.add("hidden");
+				}
+			},
+			[]
+		);
+	});
+
 	return (
 		<Layout home>
 			<div className="column is-one-quarter">
 				{search(setSearchTerm, setTags, setYears)}
+				<div id="backToTopContainer" className="">
+					<a className="button hidden" id="backToTopButton" href="#navbar">
+						Back to top
+					</a>
+				</div>
 			</div>
 			<div className="column is-two-third">
 				<div>

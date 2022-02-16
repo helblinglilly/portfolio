@@ -42,6 +42,7 @@ div {
 
 div.card {
 	background: var(--accent);
+	z-index: 0;
 }
 
 footer.card-footer {
