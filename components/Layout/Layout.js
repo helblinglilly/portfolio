@@ -1,12 +1,37 @@
 import Head from "next/head";
 import Navbar from "../Navbar/Navbar";
+import { useEffect } from "react";
 
 export default function Layout({ children }) {
 	const siteTitle = "Joel Helbling";
 	const author = "Joel Helbling";
 	const description = "This website is still in development";
-	// Need to add images into meta tags
 
+	useEffect(() => {
+		document.addEventListener(
+			"scroll",
+			() => {
+				const limit =
+					Math.max(
+						document.body.scrollHeight,
+						document.body.offsetHeight,
+						document.documentElement.clientHeight,
+						document.documentElement.scrollHeight,
+						document.documentElement.offsetHeight
+					) - window.innerHeight;
+				const location = Math.floor(window.scrollY);
+				let menuButton = document.getElementById("backToTopButton");
+
+				if ((100 / limit) * location > 40) {
+					menuButton.classList.remove("hidden");
+				} else {
+					if (!menuButton.classList.contains("hidden"))
+						menuButton.classList.add("hidden");
+				}
+			},
+			{ passive: true }
+		);
+	});
 	return (
 		<div>
 			<Head>
@@ -17,6 +42,7 @@ export default function Layout({ children }) {
 				/>
 				<meta name="author" content={author} />
 				<meta name="description" content={description} />
+
 				<title>{siteTitle}</title>
 			</Head>
 			<Navbar></Navbar>

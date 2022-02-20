@@ -67,6 +67,25 @@ a:hover {
 	background-color: var(--linkhover);
 }
 
+hr {
+	background-color: var(--linkhover);
+}
+
+.table th {
+	background-color: var(--primary);
+	color: var(--secondary);
+}
+
+.table td {
+	background-color: var(--primary);
+	color: var(--secondary);
+}
+
+.table {
+	background-color: var(--primary);
+	color: var(--secondary);
+}
+
 input.input {
 	background-color: var(--primary);
 	color: var(--secondary);
@@ -125,5 +144,10 @@ input.input::placeholder {
 @media (min-width: 769px) {
 	.mobile {
 		display: none;
+	}
+
+	.extraSpaceDesktop {
+		margin-top: 2vw;
+		margin-bottom: 2vw;
 	}
 }

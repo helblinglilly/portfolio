@@ -62,14 +62,19 @@ export function Post(post) {
 						</div>
 					</div>
 
-					<div className="tags are-medium">
-						{post.tags.map((tag) => {
-							return (
-								<span className={tag.color} key={tag.name}>
-									{tag.name}
-								</span>
-							);
-						})}
+					<div className="columns accented">
+						<div className="column tags are-medium accented mb-0">
+							{post.tags.map((tag) => {
+								return (
+									<span className={tag.color} key={tag.name}>
+										{tag.name}
+									</span>
+								);
+							})}
+						</div>
+						<div className="column accented has-text-right">
+							<i>Posted: {post.date}</i>
+						</div>
 					</div>
 				</div>
 			</div>

@@ -1,11 +1,12 @@
-#waitrose-image {
-	float: left;
-	margin-right: 20px;
+#mcdonalds-image {
+	align-items: right;
+	float: right;
+	margin-left: 20px;
 	margin-bottom: 20px;
 }
 
 @media (max-width: 560px) {
-	#waitrose-image {
+	#mcdonalds-image {
 		margin: 0;
 		margin-bottom: 2vw;
 		float: none;

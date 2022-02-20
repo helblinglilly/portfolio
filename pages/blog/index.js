@@ -11,37 +11,6 @@ export default function Blog(props) {
 
 	if (searchTerm === undefined || searchTerm === "") setSearchTerm(".*");
 
-	useEffect(() => {
-		document.addEventListener(
-			"scroll",
-			() => {
-				const limit =
-					Math.max(
-						document.body.scrollHeight,
-						document.body.offsetHeight,
-						document.documentElement.clientHeight,
-						document.documentElement.scrollHeight,
-						document.documentElement.offsetHeight
-					) - window.innerHeight;
-				const location = Math.floor(window.scrollY);
-				let menuButton = document.getElementById("backToTopButton");
-
-				if ((100 / limit) * location > 40) {
-					console.log("Turn on");
-					if (menuButton.classList.contains("hidden")) {
-						menuButton.classList.remove("hidden");
-						console.log("Turned on");
-					}
-				} else {
-					console.log("Turn off");
-					if (!menuButton.classList.contains("hidden"))
-						menuButton.classList.add("hidden");
-				}
-			},
-			[]
-		);
-	});
-
 	return (
 		<Layout home>
 			<div className="column is-one-quarter">
@@ -205,7 +174,6 @@ export async function getStaticProps() {
 			config
 		);
 		tweets = tweets.data.data;
-		console.log(tweets[0].created_at);
 	} catch (err) {
 		tweets = [
 			{
