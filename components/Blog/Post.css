@@ -5,3 +5,8 @@ div.tags {
 .postImage {
 	border-radius: 5px;
 }
+
+span.tag.aws {
+	color: #1f2a3b;
+	background-color: #fd9a00;
+}

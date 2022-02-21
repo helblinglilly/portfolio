@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import Layout from "../../components/Layout/Layout";
+import Head from "next/head";
 import LatestTweets from "../../components/Tweets/LatestTweets";
 import AllPosts, { PostSummaries } from "../../components/Blog/AllPosts";
 
@@ -13,6 +14,10 @@ export default function Blog(props) {
 
 	return (
 		<Layout home>
+			<Head>
+				<title>Blog - Joel Helbling</title>
+			</Head>
+
 			<div className="column is-one-quarter">
 				{search(setSearchTerm, setTags, setYears)}
 				<div id="backToTopContainer" className="">
@@ -21,12 +26,10 @@ export default function Blog(props) {
 					</a>
 				</div>
 			</div>
-			<div className="column is-two-third">
-				<div>
-					<AllPosts
-						posts={filterPosts(props.posts, searchTerm, tags, years)}
-					></AllPosts>
-				</div>
+			<div className="column is-two-third" id="main-content">
+				<AllPosts
+					posts={filterPosts(props.posts, searchTerm, tags, years)}
+				></AllPosts>
 			</div>
 			<div className="column is-one-quarter">
 				<LatestTweets tweets={props}></LatestTweets>

@@ -11,29 +11,35 @@ a.navbar-item:hover {
 .navbar {
 	background-color: var(--navbar);
 	color: var(--secondary);
+	z-index: 0;
 }
 
 .navbar-menu {
 	background-color: var(--navbar);
 	color: var(--secondary);
+	z-index: 0;
 }
 
 .navbar-item {
 	background-color: var(--navbar);
 	color: var(--secondary);
+	z-index: 0;
 }
 
 div.navbar-start {
 	background-color: var(--navbar);
 	color: var(--secondary);
+	z-index: 0;
 }
 
 div.navbar-brand {
 	background-color: var(--navbar);
 	color: var(--secondary);
+	z-index: 0;
 }
 
 div.navbar-end {
 	background-color: var(--navbar);
 	color: var(--secondary);
+	z-index: 0;
 }

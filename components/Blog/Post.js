@@ -28,11 +28,11 @@ export class PostPreview {
 		}
 
 		return {
-			link: this.link,
+			link: `${this.date.getFullYear()}/${this.link}`,
 			title: this.title,
 			preview: this.preview,
 			tags: tags,
-			thumbnail: `/images/thumbnails/${this.thumbnail}`,
+			thumbnail: `/images/thumbnails/${this.date.getFullYear()}/${this.thumbnail}`,
 			date: formatDate(this.date),
 		};
 	}

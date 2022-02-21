@@ -1,6 +1,5 @@
 import Layout from "../../components/Layout/Layout";
-import { useEffect } from "react";
-import ReactDOM from "react-dom";
+import Head from "next/head";
 import Menu from "../../components/Background/Menu";
 import NHSDigital from "../../components/Background/NHSDigital";
 import Waitrose from "../../components/Background/Waitrose";
@@ -11,6 +10,9 @@ import RoyalHarbour from "../../components/Background/RoyalHarbourAcademy";
 export default function Home() {
 	return (
 		<Layout home>
+			<Head>
+				<title>Background - Joel Helbling</title>
+			</Head>
 			<div className="column is-one-quarter">
 				<Menu></Menu>
 				<div id="backToTopContainer">
@@ -19,7 +21,7 @@ export default function Home() {
 					</a>
 				</div>
 			</div>
-			<div className="column mb-4">
+			<div className="column mb-4" id="main-content">
 				<NHSDigital></NHSDigital>
 				<hr></hr>
 				<Waitrose></Waitrose>

@@ -5,9 +5,7 @@ export default function McDonalds() {
 				<p className="title">McDonalds</p>
 				<p>
 					It might not seem particularly special, but I would argue that working
-					in this environment is ultimately where I got my work ethic from. On
-					top of that, it comes with the security that if I'm ever out of work,
-					I have a safe place to return to.
+					in this environment is ultimately where I got my work ethic from.
 				</p>
 				<div id="canterbury" className="mt-2">
 					<img

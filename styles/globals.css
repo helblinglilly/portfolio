@@ -24,6 +24,7 @@
 html {
 	background-color: var(--primary);
 	color: var(--secondary);
+	scroll-behavior: smooth;
 }
 
 body {
@@ -71,7 +72,7 @@ hr {
 	background-color: var(--linkhover);
 }
 
-.table th {
+.table thead th {
 	background-color: var(--primary);
 	color: var(--secondary);
 }
@@ -114,6 +115,19 @@ input.input::placeholder {
 
 .accented {
 	background-color: var(--accent);
+}
+
+.access-skipnav {
+	position: absolute;
+	transform: translateY(-110%);
+	background-color: var(--secondary);
+	color: var(--primary);
+	padding: 0.5rem 1.5rem;
+}
+
+.access-skipnav:focus {
+	z-index: 1;
+	transform: translateY(+30%);
 }
 
 /* Narrow desktop but not yet mobile */

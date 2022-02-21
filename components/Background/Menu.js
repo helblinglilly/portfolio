@@ -85,7 +85,7 @@ export default function Menu() {
 						</a>
 						<ul>
 							<li>
-								<a href="#btec">Btec</a>
+								<a href="#btec">BTEC Public Services</a>
 							</li>
 							<li>
 								<a href="#ibcp">IBCP</a>

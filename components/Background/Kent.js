@@ -19,216 +19,224 @@ export default function Kent() {
 						<div className="column">
 							<p className="title is-4">Year 1</p>
 							<table id="Year 1 Table" className="table uniResults">
-								<tr id="year1Headers">
-									<th>%</th>
-									<th>Module Name</th>
-									<th>Link</th>
-								</tr>
-								<tr id="Intro to OOP">
-									<td>88%</td>
-									<td>Intro to Object Orientated Programming</td>
-									<td>
-										<a
-											href="https://www.kent.ac.uk/courses/modules/module/COMP3200"
-											target="_blank"
-										>
-											Link
-										</a>
-									</td>
-								</tr>
-								<tr id="Further OOP">
-									<td>84%</td>
-									<td>Further Object Orientated Programming</td>
-									<td>
-										<a
-											href="https://www.kent.ac.uk/courses/modules/module/COMP5200"
-											target="_blank"
-										>
-											Link
-										</a>
-									</td>
-								</tr>
-								<tr id="Foundation 1">
-									<td>59%</td>
-									<td>Foundations of Computing 1</td>
-									<td>
-										<a
-											href="https://www.kent.ac.uk/courses/modules/module/COMP3220"
-											target="_blank"
-										>
-											Link
-										</a>
-									</td>
-								</tr>
-								<tr id="Foundation 2">
-									<td>55%</td>
-									<td>Foundations of Computing 2</td>
-									<td>
-										<a
-											href="https://www.kent.ac.uk/courses/modules/module/COMP3250"
-											target="_blank"
-										>
-											Link
-										</a>
-									</td>
-								</tr>
-								<tr id="DB and Web">
-									<td>89%</td>
-									<td>Databases and the Web</td>
-									<td>
-										<a
-											href="https://www.kent.ac.uk/courses/modules/module/COMP3230"
-											target="_blank"
-										>
-											Link
-										</a>
-									</td>
-								</tr>
-								<tr id="Computer Systems">
-									<td>67%</td>
-									<td>Computer Systems</td>
-									<td>
-										<a
-											href="https://www.kent.ac.uk/courses/modules/module/COMP3240"
-											target="_blank"
-										>
-											Link
-										</a>
-									</td>
-								</tr>
-								<tr id="HCI">
-									<td>52%</td>
-									<td>Human Computer Interaction</td>
-									<td>
-										<a
-											href="https://www.kent.ac.uk/courses/modules/module/COMP3280"
-											target="_blank"
-										>
-											Link
-										</a>
-									</td>
-								</tr>
-								<tr id="PC">
-									<td>88%</td>
-									<td>People and Computing</td>
-									<td>
-										<a
-											href="https://www.kent.ac.uk/courses/modules/module/COMP3340"
-											target="_blank"
-										>
-											Link
-										</a>
-									</td>
-								</tr>
-								<tr id="Year 1 Grade">
-									<td>73%</td>
-									<td>
-										<b>Distinction</b>
-									</td>
-									<td></td>
-								</tr>
+								<thead>
+									<tr>
+										<th>%</th>
+										<th>Module Name</th>
+										<th>Link</th>
+									</tr>
+								</thead>
+
+								<tbody>
+									<tr id="Intro to OOP">
+										<td>88%</td>
+										<td>Intro to Object Orientated Programming</td>
+										<td>
+											<a
+												href="https://www.kent.ac.uk/courses/modules/module/COMP3200"
+												target="_blank"
+											>
+												Link
+											</a>
+										</td>
+									</tr>
+									<tr id="Further OOP">
+										<td>84%</td>
+										<td>Further Object Orientated Programming</td>
+										<td>
+											<a
+												href="https://www.kent.ac.uk/courses/modules/module/COMP5200"
+												target="_blank"
+											>
+												Link
+											</a>
+										</td>
+									</tr>
+									<tr id="Foundation 1">
+										<td>59%</td>
+										<td>Foundations of Computing 1</td>
+										<td>
+											<a
+												href="https://www.kent.ac.uk/courses/modules/module/COMP3220"
+												target="_blank"
+											>
+												Link
+											</a>
+										</td>
+									</tr>
+									<tr id="Foundation 2">
+										<td>55%</td>
+										<td>Foundations of Computing 2</td>
+										<td>
+											<a
+												href="https://www.kent.ac.uk/courses/modules/module/COMP3250"
+												target="_blank"
+											>
+												Link
+											</a>
+										</td>
+									</tr>
+									<tr id="DB and Web">
+										<td>89%</td>
+										<td>Databases and the Web</td>
+										<td>
+											<a
+												href="https://www.kent.ac.uk/courses/modules/module/COMP3230"
+												target="_blank"
+											>
+												Link
+											</a>
+										</td>
+									</tr>
+									<tr id="Computer Systems">
+										<td>67%</td>
+										<td>Computer Systems</td>
+										<td>
+											<a
+												href="https://www.kent.ac.uk/courses/modules/module/COMP3240"
+												target="_blank"
+											>
+												Link
+											</a>
+										</td>
+									</tr>
+									<tr id="HCI">
+										<td>52%</td>
+										<td>Human Computer Interaction</td>
+										<td>
+											<a
+												href="https://www.kent.ac.uk/courses/modules/module/COMP3280"
+												target="_blank"
+											>
+												Link
+											</a>
+										</td>
+									</tr>
+									<tr id="PC">
+										<td>88%</td>
+										<td>People and Computing</td>
+										<td>
+											<a
+												href="https://www.kent.ac.uk/courses/modules/module/COMP3340"
+												target="_blank"
+											>
+												Link
+											</a>
+										</td>
+									</tr>
+									<tr id="Year 1 Grade">
+										<td>73%</td>
+										<td>
+											<b>Distinction</b>
+										</td>
+										<td></td>
+									</tr>
+								</tbody>
 							</table>
 						</div>
 						<div className="column">
 							<p className="title is-4">Year 2</p>
 							<table id="Year 2 Table" className="table uniResults">
-								<tr id="year2Headers">
-									<th>%</th>
-									<th>Module Name</th>
-									<th>Link</th>
-								</tr>
-								<tr id="Software Engineering">
-									<td>61%</td>
-									<td>Software Engineering</td>
-									<td>
-										<a
-											href="https://www.kent.ac.uk/courses/modules/module/COMP5100"
-											target="_blank"
-										>
-											Link
-										</a>
-									</td>
-								</tr>
-								<tr id="WebDev">
-									<td>91%</td>
-									<td>Web Development</td>
-									<td>
-										<a
-											href="https://www.kent.ac.uk/courses/modules/module/COMP5390"
-											target="_blank"
-										>
-											Link
-										</a>
-									</td>
-								</tr>
-								<tr id="DB Systems">
-									<td>52%</td>
-									<td>Database Systems</td>
-									<td>
-										<a
-											href="https://www.kent.ac.uk/courses/modules/module/COMP5320"
-											target="_blank"
-										>
-											Link
-										</a>
-									</td>
-								</tr>
-								<tr id="Functional Programming">
-									<td>83%</td>
-									<td>Functional Programming</td>
-									<td>
-										<a
-											href="https://www.kent.ac.uk/courses/modules/module/COMP5450"
-											target="_blank"
-										>
-											Link
-										</a>
-									</td>
-								</tr>
-								<tr id="Algorithms">
-									<td>70%</td>
-									<td>Algorithms, Correctness and Efficiency</td>
-									<td>
-										<a
-											href="https://www.kent.ac.uk/courses/modules/module/COMP5180"
-											target="_blank"
-										>
-											Link
-										</a>
-									</td>
-								</tr>
-								<tr id="Theory of Computing">
-									<td>47%</td>
-									<td>Theory of Computing</td>
-									<td>
-										<a
-											href="https://www.kent.ac.uk/courses/modules/module/COMP5190"
-											target="_blank"
-										>
-											Link
-										</a>
-									</td>
-								</tr>
-								<tr id="Operating Systems">
-									<td>58%</td>
-									<td>Operating Systems and Architecture</td>
-									<td>
-										<a
-											href="https://www.kent.ac.uk/courses/modules/module/COMP5270"
-											target="_blank"
-										>
-											Link
-										</a>
-									</td>
-								</tr>
-
-								<tr id="Year 2 Grade">
-									<td>66%</td>
-									<td>
-										<b>Merit</b>
-									</td>
-									<td></td>
-								</tr>
+								<thead>
+									<tr id="year2Headers">
+										<th>%</th>
+										<th>Module Name</th>
+										<th>Link</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr id="Software Engineering">
+										<td>61%</td>
+										<td>Software Engineering</td>
+										<td>
+											<a
+												href="https://www.kent.ac.uk/courses/modules/module/COMP5100"
+												target="_blank"
+											>
+												Link
+											</a>
+										</td>
+									</tr>
+									<tr id="WebDev">
+										<td>91%</td>
+										<td>Web Development</td>
+										<td>
+											<a
+												href="https://www.kent.ac.uk/courses/modules/module/COMP5390"
+												target="_blank"
+											>
+												Link
+											</a>
+										</td>
+									</tr>
+									<tr id="DB Systems">
+										<td>52%</td>
+										<td>Database Systems</td>
+										<td>
+											<a
+												href="https://www.kent.ac.uk/courses/modules/module/COMP5320"
+												target="_blank"
+											>
+												Link
+											</a>
+										</td>
+									</tr>
+									<tr id="Functional Programming">
+										<td>83%</td>
+										<td>Functional Programming</td>
+										<td>
+											<a
+												href="https://www.kent.ac.uk/courses/modules/module/COMP5450"
+												target="_blank"
+											>
+												Link
+											</a>
+										</td>
+									</tr>
+									<tr id="Algorithms">
+										<td>70%</td>
+										<td>Algorithms, Correctness and Efficiency</td>
+										<td>
+											<a
+												href="https://www.kent.ac.uk/courses/modules/module/COMP5180"
+												target="_blank"
+											>
+												Link
+											</a>
+										</td>
+									</tr>
+									<tr id="Theory of Computing">
+										<td>47%</td>
+										<td>Theory of Computing</td>
+										<td>
+											<a
+												href="https://www.kent.ac.uk/courses/modules/module/COMP5190"
+												target="_blank"
+											>
+												Link
+											</a>
+										</td>
+									</tr>
+									<tr id="Operating Systems">
+										<td>58%</td>
+										<td>Operating Systems and Architecture</td>
+										<td>
+											<a
+												href="https://www.kent.ac.uk/courses/modules/module/COMP5270"
+												target="_blank"
+											>
+												Link
+											</a>
+										</td>
+									</tr>
+									<tr id="Year 2 Grade">
+										<td>66%</td>
+										<td>
+											<b>Merit</b>
+										</td>
+										<td></td>
+									</tr>
+								</tbody>
 							</table>
 						</div>
 					</div>
@@ -237,103 +245,108 @@ export default function Kent() {
 						<div className="column extraSpaceDesktop">
 							<p className="title is-4">Year 3</p>
 							<table id="Year 3 Table" className="table uniResults">
-								<tr id="year3Headers">
-									<th>%</th>
-									<th>Module Name</th>
-									<th>Link</th>
-								</tr>
-								<tr id="Computer Networks and Communications">
-									<td>80%</td>
-									<td>Computer Networks and Communications</td>
-									<td>
-										<a
-											href="https://www.kent.ac.uk/courses/modules/module/COMP6330"
-											target="_blank"
-										>
-											Link
-										</a>
-									</td>
-								</tr>
-								<tr id="Security">
-									<td>79%</td>
-									<td>Computer Security and Cryptography</td>
-									<td>
-										<a
-											href="https://www.kent.ac.uk/courses/modules/module/COMP6340"
-											target="_blank"
-										>
-											Link
-										</a>
-									</td>
-								</tr>
-								<tr id="Computing Law and Professional Responsibility">
-									<td>70%</td>
-									<td>Computing Law and Professional Responsibility</td>
-									<td>
-										<a
-											href="https://www.kent.ac.uk/courses/modules/module/COMP6430"
-											target="_blank"
-										>
-											Link
-										</a>
-									</td>
-								</tr>
-								<tr id="NatComp">
-									<td>72%</td>
-									<td>Natural Computation</td>
-									<td>
-										<a
-											href="https://www.kent.ac.uk/courses/modules/module/COMP6370"
-											target="_blank"
-										>
-											Link
-										</a>
-									</td>
-								</tr>
-								<tr id="IT Consultancy">
-									<td>72%</td>
-									<td>IT Consultancy Project</td>
-									<td>
-										<a
-											href="https://www.kent.ac.uk/courses/modules/module/COMP6500"
-											target="_blank"
-										>
-											Link
-										</a>
-									</td>
-								</tr>
-								<tr id="Concurrency">
-									<td>60%</td>
-									<td>Theory and Practice of Concurrency</td>
-									<td>
-										<a
-											href="https://www.kent.ac.uk/courses/modules/module/COMP6610"
-											target="_blank"
-										>
-											Link
-										</a>
-									</td>
-								</tr>
-								<tr id="Image Analysis">
-									<td>60%</td>
-									<td>Image Analysis & Applications</td>
-									<td>
-										<a
-											href="https://www.kent.ac.uk/courses/modules/module/EENG5610"
-											target="_blank"
-										>
-											Link
-										</a>
-									</td>
-								</tr>
-
-								<tr id="Year 3 Grade">
-									<td>71%</td>
-									<td>
-										<b>First Class</b>
-									</td>
-									<td></td>
-								</tr>
+								<thead>
+									<tr id="year3Headers">
+										<th>%</th>
+										<th>Module Name</th>
+										<th>Link</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr id="Computer Networks and Communications">
+										<td>80%</td>
+										<td>Computer Networks and Communications</td>
+										<td>
+											<a
+												href="https://www.kent.ac.uk/courses/modules/module/COMP6330"
+												target="_blank"
+											>
+												Link
+											</a>
+										</td>
+									</tr>
+									<tr id="Security">
+										<td>79%</td>
+										<td>Computer Security and Cryptography</td>
+										<td>
+											<a
+												href="https://www.kent.ac.uk/courses/modules/module/COMP6340"
+												target="_blank"
+											>
+												Link
+											</a>
+										</td>
+									</tr>
+									<tr id="Computing Law and Professional Responsibility">
+										<td>70%</td>
+										<td>
+											Computing Law and Professional Responsibility
+										</td>
+										<td>
+											<a
+												href="https://www.kent.ac.uk/courses/modules/module/COMP6430"
+												target="_blank"
+											>
+												Link
+											</a>
+										</td>
+									</tr>
+									<tr id="NatComp">
+										<td>72%</td>
+										<td>Natural Computation</td>
+										<td>
+											<a
+												href="https://www.kent.ac.uk/courses/modules/module/COMP6370"
+												target="_blank"
+											>
+												Link
+											</a>
+										</td>
+									</tr>
+									<tr id="IT Consultancy">
+										<td>72%</td>
+										<td>IT Consultancy Project</td>
+										<td>
+											<a
+												href="https://www.kent.ac.uk/courses/modules/module/COMP6500"
+												target="_blank"
+											>
+												Link
+											</a>
+										</td>
+									</tr>
+									<tr id="Concurrency">
+										<td>60%</td>
+										<td>Theory and Practice of Concurrency</td>
+										<td>
+											<a
+												href="https://www.kent.ac.uk/courses/modules/module/COMP6610"
+												target="_blank"
+											>
+												Link
+											</a>
+										</td>
+									</tr>
+									<tr id="Image Analysis">
+										<td>60%</td>
+										<td>Image Analysis & Applications</td>
+										<td>
+											<a
+												href="https://www.kent.ac.uk/courses/modules/module/EENG5610"
+												target="_blank"
+											>
+												Link
+											</a>
+										</td>
+									</tr>
+									<tr id="Year 3 Grade">
+										<td>71%</td>
+										<td>
+											<b>First Class</b>
+										</td>
+										<td></td>
+									</tr>
+								</tbody>
 							</table>
 						</div>
 						<div className="column extraSpaceDesktop" id="kitc">

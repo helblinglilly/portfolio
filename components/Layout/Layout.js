@@ -3,7 +3,6 @@ import Navbar from "../Navbar/Navbar";
 import { useEffect } from "react";
 
 export default function Layout({ children }) {
-	const siteTitle = "Joel Helbling";
 	const author = "Joel Helbling";
 	const description = "This website is still in development";
 
@@ -42,9 +41,10 @@ export default function Layout({ children }) {
 				/>
 				<meta name="author" content={author} />
 				<meta name="description" content={description} />
-
-				<title>{siteTitle}</title>
 			</Head>
+			<a className="access-skipnav" href="#main-content">
+				Skip Navigation
+			</a>
 			<Navbar></Navbar>
 			<div>
 				<main className="p-6">

@@ -18,26 +18,37 @@ export default function AllPosts({ posts }) {
 
 export function PostSummaries() {
 	const posts = [];
+	// Link, Title, Preview Text, Creation Date, Tags, Post Image ([/images/thumbnails]/year/filename)
+
+	// Celeste Post
 	posts.push(
 		new PostPreview(
-			"first-post",
-			"Post 1",
-			"This post is about a man that used to walk on the beach until he didn't",
-			new Date("01 Jan 1975 00:00:00 GMT"),
+			"terraform",
+			"Terraform",
+			"A summary of my experience in building a CI/CD pipeline using Docker, Jenkins, Kubernetes and Terraform. Despite having completed training courses about AWS, I inherited an old code base which turned out to be problematic to work with.",
+			new Date("21 Feb 2022"),
 			[
-				{ name: "JS", color: "is-warning" },
-				{ name: "C#", color: "is-info" },
-			]
+				{ name: "AWS", color: "aws" },
+				{ name: "Cloud", color: "is-info" },
+			],
+			"2022/terraform.png"
 		).toObject
 	);
 
-	posts.push(
-		new PostPreview(
-			"second-post",
-			"Post 2",
-			"A massive bear somehow got to the beach and ate a man",
-			new Date("01 Jan 1970 00:00:00 GMT")
-		).toObject
-	);
-	return posts;
+	// Post with default image
+	// posts.push(
+	// 	new PostPreview(
+	// 		"first-post",
+	// 		"Post 1",
+	// 		"This post is about a man that used to walk on the beach until he didn't",
+	// 		new Date("01 Jan 1975 00:00:00 GMT"),
+	// 		[
+	// 			{ name: "JS", color: "is-warning" },
+	// 			{ name: "C#", color: "is-info" },
+	// 		]
+	// 	).toObject
+	// );
+
+	// Return by newest first
+	return posts.sort((a, b) => (a.date < b.date ? 1 : -1));
 }
