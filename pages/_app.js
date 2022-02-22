@@ -7,10 +7,16 @@ import "../components/Background/Menu.css";
 import "../components/Background/Waitrose.css";
 import "../components/Background/McDonalds.css";
 import "../components/Background/Kent.css";
+import "highlight.js/styles/monokai-sublime.css";
+import hljs from "highlight.js";
+import { useEffect } from "react";
 
 import { ThemeProvider } from "next-themes";
 
 export default function App({ Component, pageProps }) {
+	useEffect(() => {
+		hljs.initHighlighting();
+	}, []);
 	return (
 		<ThemeProvider>
 			<Component {...pageProps} />

@@ -58,6 +58,14 @@ p.card-header-title {
 	color: var(--secondary);
 }
 
+pre {
+	background-color: #23241f;
+}
+
+p.codeFilename {
+	color: rgb(110, 110, 110);
+}
+
 a {
 	color: var(--linkcolor);
 	background-color: var(--primary);
