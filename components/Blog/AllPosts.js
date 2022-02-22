@@ -19,8 +19,17 @@ export default function AllPosts({ posts }) {
 export function PostSummaries() {
 	const posts = [];
 	// Link, Title, Preview Text, Creation Date, Tags, Post Image ([/images/thumbnails]/year/filename)
-
-	// Celeste Post
+	posts.push(
+		new PostPreview(
+			"r-has-a-problem",
+			"R has a problem",
+			"In my work I had to deploy an R Shiny application.",
+			new Date("22 Feb 2022"),
+			[
+				{name: "Cloud", color: "is-info"}
+			]
+		).toObject
+	)
 	posts.push(
 		new PostPreview(
 			"terraform",
@@ -31,23 +40,9 @@ export function PostSummaries() {
 				{ name: "AWS", color: "aws" },
 				{ name: "Cloud", color: "is-info" },
 			],
-			"2022/terraform.png"
+			"terraform.png"
 		).toObject
 	);
-
-	// Post with default image
-	// posts.push(
-	// 	new PostPreview(
-	// 		"first-post",
-	// 		"Post 1",
-	// 		"This post is about a man that used to walk on the beach until he didn't",
-	// 		new Date("01 Jan 1975 00:00:00 GMT"),
-	// 		[
-	// 			{ name: "JS", color: "is-warning" },
-	// 			{ name: "C#", color: "is-info" },
-	// 		]
-	// 	).toObject
-	// );
 
 	// Return by newest first
 	return posts.sort((a, b) => (a.date < b.date ? 1 : -1));

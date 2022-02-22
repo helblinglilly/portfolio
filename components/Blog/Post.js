@@ -32,7 +32,7 @@ export class PostPreview {
 			title: this.title,
 			preview: this.preview,
 			tags: tags,
-			thumbnail: `/images/thumbnails/${this.date.getFullYear()}/${this.thumbnail}`,
+			thumbnail: this.thumbnail === "default.png" ? `/images/thumbnails/default.png`: `/images/thumbnails/${this.date.getFullYear()}/${this.thumbnail}`,
 			date: formatDate(this.date),
 		};
 	}
