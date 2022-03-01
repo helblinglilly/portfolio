@@ -8,14 +8,14 @@ export default function McDonalds() {
 					in this environment is ultimately where I got my work ethic from.
 				</p>
 				<div id="canterbury" className="mt-2">
+					<p className="title is-4 mb-2">Canterbury</p>
 					<img
 						src="/images/background/mcdonalds.png"
 						width="307"
 						height="410"
-						id="mcdonalds-image"
+						className="right-aligned"
 						alt="Getting star of the shift"
 					/>
-					<p className="title is-4 mb-2">Canterbury</p>
 					After moving to Canterbury for University to cut down my commute, I
 					made the hard decision to transfer to a new location. Canterbury had
 					two restaurants for me to choose from, but since only one of them had

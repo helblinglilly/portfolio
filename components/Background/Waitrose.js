@@ -22,7 +22,7 @@ export default function Waitrose() {
 						src="/images/background/goodbye_gift_waitrose.jpeg"
 						width="307"
 						height="410"
-						id="waitrose-image"
+						className="left-aligned"
 						alt="Picture of me holding the leaving gift from the reductions team"
 					/>
 					<p className="title is-4 mb-2">Reductions</p>

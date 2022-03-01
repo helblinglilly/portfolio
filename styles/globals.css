@@ -112,6 +112,19 @@ input.input::placeholder {
 	color: var(--secondary);
 }
 
+img.left-aligned {
+	float: left;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+
+img.right-aligned {
+	align-items: right;
+	float: right;
+	margin-left: 20px;
+	margin-bottom: 20px;
+}
+
 .title {
 	color: var(--secondary);
 }
@@ -161,8 +174,23 @@ input.input::placeholder {
 	.desktop {
 		display: none;
 	}
+
 	.mobileHidden {
 		display: none;
+	}
+	
+	img.left-aligned {
+		margin: 0;
+		margin-bottom: 2vw;
+		float: none;
+		display: block;
+	}
+	
+	img.right-aligned {
+		margin: 0;
+		margin-bottom: 2vw;
+		float: none;
+		display: block;
 	}
 }
 
