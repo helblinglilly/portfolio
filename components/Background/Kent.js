@@ -35,6 +35,7 @@ export default function Kent() {
 											<a
 												href="https://www.kent.ac.uk/courses/modules/module/COMP3200"
 												target="_blank"
+												rel="noreferrer"
 											>
 												Link
 											</a>
@@ -47,6 +48,7 @@ export default function Kent() {
 											<a
 												href="https://www.kent.ac.uk/courses/modules/module/COMP5200"
 												target="_blank"
+												rel="noreferrer"
 											>
 												Link
 											</a>
@@ -59,6 +61,7 @@ export default function Kent() {
 											<a
 												href="https://www.kent.ac.uk/courses/modules/module/COMP3220"
 												target="_blank"
+												rel="noreferrer"
 											>
 												Link
 											</a>
@@ -71,6 +74,7 @@ export default function Kent() {
 											<a
 												href="https://www.kent.ac.uk/courses/modules/module/COMP3250"
 												target="_blank"
+												rel="noreferrer"
 											>
 												Link
 											</a>
@@ -83,6 +87,7 @@ export default function Kent() {
 											<a
 												href="https://www.kent.ac.uk/courses/modules/module/COMP3230"
 												target="_blank"
+												rel="noreferrer"
 											>
 												Link
 											</a>
@@ -95,6 +100,7 @@ export default function Kent() {
 											<a
 												href="https://www.kent.ac.uk/courses/modules/module/COMP3240"
 												target="_blank"
+												rel="noreferrer"
 											>
 												Link
 											</a>
@@ -107,6 +113,7 @@ export default function Kent() {
 											<a
 												href="https://www.kent.ac.uk/courses/modules/module/COMP3280"
 												target="_blank"
+												rel="noreferrer"
 											>
 												Link
 											</a>
@@ -119,6 +126,7 @@ export default function Kent() {
 											<a
 												href="https://www.kent.ac.uk/courses/modules/module/COMP3340"
 												target="_blank"
+												rel="noreferrer"
 											>
 												Link
 											</a>
@@ -152,6 +160,7 @@ export default function Kent() {
 											<a
 												href="https://www.kent.ac.uk/courses/modules/module/COMP5100"
 												target="_blank"
+												rel="noreferrer"
 											>
 												Link
 											</a>
@@ -164,6 +173,7 @@ export default function Kent() {
 											<a
 												href="https://www.kent.ac.uk/courses/modules/module/COMP5390"
 												target="_blank"
+												rel="noreferrer"
 											>
 												Link
 											</a>
@@ -176,6 +186,7 @@ export default function Kent() {
 											<a
 												href="https://www.kent.ac.uk/courses/modules/module/COMP5320"
 												target="_blank"
+												rel="noreferrer"
 											>
 												Link
 											</a>
@@ -188,6 +199,7 @@ export default function Kent() {
 											<a
 												href="https://www.kent.ac.uk/courses/modules/module/COMP5450"
 												target="_blank"
+												rel="noreferrer"
 											>
 												Link
 											</a>
@@ -200,6 +212,7 @@ export default function Kent() {
 											<a
 												href="https://www.kent.ac.uk/courses/modules/module/COMP5180"
 												target="_blank"
+												rel="noreferrer"
 											>
 												Link
 											</a>
@@ -212,6 +225,7 @@ export default function Kent() {
 											<a
 												href="https://www.kent.ac.uk/courses/modules/module/COMP5190"
 												target="_blank"
+												rel="noreferrer"
 											>
 												Link
 											</a>
@@ -224,6 +238,7 @@ export default function Kent() {
 											<a
 												href="https://www.kent.ac.uk/courses/modules/module/COMP5270"
 												target="_blank"
+												rel="noreferrer"
 											>
 												Link
 											</a>
@@ -260,6 +275,7 @@ export default function Kent() {
 											<a
 												href="https://www.kent.ac.uk/courses/modules/module/COMP6330"
 												target="_blank"
+												rel="noreferrer"
 											>
 												Link
 											</a>
@@ -272,6 +288,7 @@ export default function Kent() {
 											<a
 												href="https://www.kent.ac.uk/courses/modules/module/COMP6340"
 												target="_blank"
+												rel="noreferrer"
 											>
 												Link
 											</a>
@@ -286,6 +303,7 @@ export default function Kent() {
 											<a
 												href="https://www.kent.ac.uk/courses/modules/module/COMP6430"
 												target="_blank"
+												rel="noreferrer"
 											>
 												Link
 											</a>
@@ -298,6 +316,7 @@ export default function Kent() {
 											<a
 												href="https://www.kent.ac.uk/courses/modules/module/COMP6370"
 												target="_blank"
+												rel="noreferrer"
 											>
 												Link
 											</a>
@@ -310,6 +329,7 @@ export default function Kent() {
 											<a
 												href="https://www.kent.ac.uk/courses/modules/module/COMP6500"
 												target="_blank"
+												rel="noreferrer"
 											>
 												Link
 											</a>
@@ -322,6 +342,7 @@ export default function Kent() {
 											<a
 												href="https://www.kent.ac.uk/courses/modules/module/COMP6610"
 												target="_blank"
+												rel="noreferrer"
 											>
 												Link
 											</a>
@@ -334,6 +355,7 @@ export default function Kent() {
 											<a
 												href="https://www.kent.ac.uk/courses/modules/module/EENG5610"
 												target="_blank"
+												rel="noreferrer"
 											>
 												Link
 											</a>

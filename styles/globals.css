@@ -62,6 +62,10 @@ pre {
 	background-color: #23241f;
 }
 
+pre code {
+	color: #fff;
+}
+
 p.codeFilename {
 	color: rgb(110, 110, 110);
 }
