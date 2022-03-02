@@ -29,19 +29,6 @@ export function PostSummaries() {
 			"r-shiny.png"
 		).toObject
 	);
-	posts.push(
-		new PostPreview(
-			"terraform",
-			"Terraform",
-			"A summary of my experience in building a CI/CD pipeline using Docker, Jenkins, Kubernetes and Terraform. Despite having completed training courses about AWS, I inherited an old code base which turned out to be problematic to work with.",
-			new Date("21 Feb 2022"),
-			[
-				{ name: "AWS", color: "aws" },
-				{ name: "Cloud", color: "is-info" },
-			],
-			"terraform.png"
-		).toObject
-	);
 
 	// Return by newest first
 	return posts.sort((a, b) => (a.date < b.date ? 1 : -1));

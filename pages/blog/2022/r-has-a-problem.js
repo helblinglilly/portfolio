@@ -3,19 +3,56 @@ import Image from "next/image";
 import RScriptBlock from "../../../components/CodeBlock/r";
 import Layout from "../../../components/Layout/Layout";
 import TableOfContents from "../../../components/Blog/tableOfContents";
+import ShellScriptBlock from "../../../components/CodeBlock/shell";
+import ApacheCodeBlock from "../../../components/CodeBlock/apache";
 
 export default function Post() {
 	const toc = [];
 	toc.push({ title: "Intro", id: "introduction" });
 	toc.push({ title: "Pipeline", id: "pipeline" });
-	toc.push({ title: "R-Studio", id: "r-studio" });
+	toc.push({ title: "Tools", id: "r-studio" });
 	toc.push({ title: "Paywalls", id: "paywall" });
 	toc.push({ title: "Documentation", id: "documentation" });
 	toc.push({ title: "Deployment implications", id: "deployment" });
 
-	const code = {};
-	code.code = `sysVariable <- Sys.getenv()["USERNAME"]`;
-	code.filename = `app.R`;
+	const shell = {};
+	shell.code = `#Perform system updates first
+sudo apt update && sudo apt upgrade -y
+#Install apache web server
+sudo apt install apache2
+#Install the extra packages required for proxies
+
+#Generate SSL certificate
+
+#cd to the apache directory
+cd /etc/apache2/sites-available
+#Disable the default page
+sudo a2dissite 000-default.conf
+#Create a new conf file
+nano shiny.conf
+
+#Paste the shiny.conf example into nano, save and exit with ctrl+c, y
+
+#Enable the shiny page
+sudo a2ensite shiny.conf
+#Reload apache2 to apply the changes
+sudo service apache2 reload`;
+	shell.filename = `Apache Proxy Server setup`;
+
+	const apacheconfig = {};
+	apacheconfig.code = `<VirtualHost _default:443>
+	ProxyPreserveHost On
+	ProxyPass /* http://localhost:3838/shinyapps/$1
+	ProxyPassReverse /* http://localhost:3838/shinyapps/$1
+	ServerName localhost
+</VirtualHost>
+
+#Redirect all http traffic to use https
+<VirtualHost *:80>
+	Redirect / https://localhost/
+</VirtualHost>
+	`;
+	apacheconfig.filename = `shiny.conf`;
 
 	return (
 		<Layout home>
@@ -109,12 +146,27 @@ export default function Post() {
 						a powerful tool like this is not good for its community and others have already demonstrated 
 						that they can run a successful business while keeping their main product truly open source.
 						<br />
-						SSL
+						What's concerning about this, is that they integrate native SSL support, but lock it behind a paywall.
+						I'm all for accessibility, but locking down on industry standard security measures is not okay with me.
+						If this was a paid feature within R-Studio I would be okay with it as the convenience would be the actual product.
+						However, it's even locked down on the lower level server implementation which really goes against the open source 
+						ethos. 
+						<br /><br />
+						So how are you supposed to integrate this yourself? Well, the official docs don't even feel like telling you <a href="https://docs.rstudio.com/shiny-server/#ssl" target="_blank" rel="noreferrer">https://docs.rstudio.com/shiny-server/#ssl </a>
+						Unsuspecting or unexperienced developers are being given no offical guidance, and the community is on both ends of the technical spectrum, there is not a nice middleground.
+						<br />
+						If you have found this blog post trying to work out how to do just that (setting up a reverse proxy yourself), see the instructions below for a Linux deployment with a self-signed (free but not trusted) certificate. 
+						<ShellScriptBlock code={shell}></ShellScriptBlock>
+						<ApacheCodeBlock code={apacheconfig}></ApacheCodeBlock>
 					</p>
 				</div>
 
 				<div className="mt-5" id="documentation">
 					<p className="title is-3 mb-1">Poor documentation</p>
+					<p>If you've followed the link to the official documentation above, you might have noticed that it's quite bare-bones compared to 
+						other environments like <a href="" target="_blank" rel="noreferrer">Node</a> for example. I'm bringing this up due to the irony 
+						of a web application having terribly outdated designs on their own website.
+					</p>
 					<p>Basic features not officially documented</p>
 				</div>
 
