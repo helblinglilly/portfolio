@@ -60,6 +60,8 @@ p.card-header-title {
 
 pre {
 	background-color: #23241f;
+	margin-top: 1vw;
+	margin-bottom: 1vw;
 }
 
 pre code {
