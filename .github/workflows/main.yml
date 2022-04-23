@@ -29,9 +29,9 @@ jobs:
     #               tags: helblingjoel/portfolio:latest
 
     restart:
-        needs: docker
+        # needs: docker
         name: Redeploy
-        # runs-on: pineapple
+        runs-on: pineapple
         if: github.event_name == 'pull_request'
         steps:
             - name: Login to DockerHub
