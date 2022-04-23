@@ -178,6 +178,7 @@ export async function getStaticProps() {
 		);
 		tweets = tweets.data.data;
 	} catch (err) {
+		console.log(err);
 		tweets = [
 			{
 				created_at: new Date().toISOString(),
