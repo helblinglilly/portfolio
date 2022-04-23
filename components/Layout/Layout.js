@@ -55,7 +55,6 @@ export default function Layout({ children }) {
 					content="/images/social_previews/1200x630.png"
 				/>
 
-				<meta property="twitter:card" content="summary_large_image" />
 				<meta property="twitter:url" content="https://helbling.uk/" />
 				<meta property="twitter:title" content="Homepage" />
 				<meta property="twitter:description" content={description} />

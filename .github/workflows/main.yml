@@ -3,7 +3,6 @@ on:
     pull_request:
         branches:
             - main
-            - develop
 jobs:
     docker:
         name: Push Docker Image
@@ -43,5 +42,5 @@ jobs:
               run: docker stop portfolio || true && docker rm portfolio || true
             - name: Start container off latest
               run:
-                  docker run -p 3000:3000 -d --name portfolio --restart unless-stopped
-                  --env ${{ secrets.TWITTER_TOKEN }} helblingjoel/portfolio:latest
+                  docker run -p 3000:3000 -d --name portfolio --restart unless-stopped -e
+                  ${{ secrets.TWITTER_TOKEN }} helblingjoel/portfolio:latest
