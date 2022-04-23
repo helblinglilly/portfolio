@@ -2,6 +2,7 @@ FROM node:latest
 COPY . ./
 
 ENV NODE_ENV=production
+ENV TWITTER_URL="https://api.twitter.com/2/users/1397471686371467266/tweets?tweet.fields=created_at&max_results=5"
 RUN npm ci
 RUN npm install sharp -g 
 RUN npm run build

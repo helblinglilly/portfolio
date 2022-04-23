@@ -172,10 +172,7 @@ export async function getStaticProps() {
 
 	let tweets;
 	try {
-		tweets = await axios.get(
-			"https://api.twitter.com/2/users/1397471686371467266/tweets?tweet.fields=created_at&max_results=5",
-			config
-		);
+		tweets = await axios.get(process.env.TWITTER_URL, config);
 		tweets = tweets.data.data;
 	} catch (err) {
 		tweets = [
