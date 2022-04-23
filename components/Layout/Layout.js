@@ -4,7 +4,8 @@ import { useEffect } from "react";
 
 export default function Layout({ children }) {
 	const author = "Joel Helbling";
-	const description = "Joel Helbling, Graduate Developer at NHS Digital";
+	const description =
+		"Joel Helbling, Graduate Developer at NHS Digital based in the UK. Computer Science graduate from Uni of Kent";
 
 	useEffect(() => {
 		document.addEventListener(
@@ -41,12 +42,19 @@ export default function Layout({ children }) {
 				/>
 				<meta name="author" content={author} />
 				<meta name="og:description" content={description} />
+				<meta property="og:type" content="website" />
+				<meta property="og:url" content="https://helbling.uk" />
+				<meta name="theme-color" content="#8D0370"></meta>
 				<meta property="og:title" content="Homepage" />
 				<meta
 					property="og:image"
 					content="/images/social_previews/1200x630.png"
 				/>
 				<meta property="og:image:type" content="image/png" />
+				<meta
+					name="twitter:card"
+					content="/images/social_previews/1200x630.png"
+				></meta>
 			</Head>
 			<a className="access-skipnav" href="#main-content">
 				Skip Navigation
