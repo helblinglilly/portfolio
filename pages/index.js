@@ -2,7 +2,7 @@ import Layout from "../components/Layout/Layout";
 import Head from "next/head";
 import Location from "../components/Location/Location";
 import CurrentRole from "../components/CurrentRole/CurrentRole";
-import LatestPost from "../components/Blog/latestPost";
+import LatestPost from "../components/Blog/LatestPost";
 import AboutMe from "../components/AboutMe/AboutMe";
 
 export default function Home() {
