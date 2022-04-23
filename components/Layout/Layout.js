@@ -48,7 +48,7 @@ export default function Layout({ children }) {
 				<meta property="og:title" content="Homepage" />
 				<meta
 					property="og:image"
-					content="/images/social_previews/1200x630.png"
+					content="https://helbling.uk/images/social_previews/1200x630.png"
 				/>
 				<meta property="og:image:type" content="image/png" />
 				<meta
