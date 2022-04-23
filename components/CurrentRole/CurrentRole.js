@@ -9,7 +9,7 @@ export default function CurrentRole() {
 				target="_blank"
 				style={{ display: "inline" }}
 			>
-				Pathways at NHS Digital
+				NHS Pathways
 			</a>
 			<p style={{ display: "inline" }}>
 				. This is about 50/50 between maintaining the existing products and

@@ -2,8 +2,7 @@ name: Main
 on:
     pull_request:
         branches:
-            - cicd
-            - develop
+            - main
 jobs:
     docker:
         name: Push Docker Image
@@ -43,5 +42,5 @@ jobs:
               run: docker stop portfolio || true && docker rm portfolio || true
             - name: Start container off latest
               run:
-                  docker run -p 80:3000 -p 443:3000 -d --name portfolio
+                  docker run -p 3000:3000 -d --name portfolio --restart unless-stopped
                   helblingjoel/portfolio:latest

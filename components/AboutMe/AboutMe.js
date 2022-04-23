@@ -95,9 +95,7 @@ export default function AboutMe() {
 	);
 }
 
-const biography = `Hi, I'm Joel and I'm currently 20 years old. 
+const biography = `Hi, I'm Joel and I'm currently 21 years old. 
 I'm a Swiss software engineer working in Leeds after having studied at the 
 University of Kent.\n
-In my current development work at NHS Digital I'm focused on product maintenance
-using C# and Javascript, as well as bringing a new product to the cloud through 
-AWS and Kubernetes. `;
+In my current team at NHS Digital I was mostly focused on Cloud Devops work and writing new software in NodeJS.`;
