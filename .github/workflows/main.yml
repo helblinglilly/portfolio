@@ -3,6 +3,7 @@ on:
     pull_request:
         branches:
             - cicd
+            - develop
 jobs:
     docker:
         name: Create and push Docker Image
