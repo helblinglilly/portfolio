@@ -11,7 +11,7 @@ export default function Home() {
 	return (
 		<Layout home>
 			<Head>
-				<title>Background - Joel Helbling</title>
+				<title>Background</title>
 			</Head>
 			<div className="column is-one-quarter">
 				<Menu></Menu>

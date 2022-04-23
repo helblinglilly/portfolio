@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 export default function Layout({ children }) {
 	const author = "Joel Helbling";
-	const description = "This website is still in development";
+	const description = "Joel Helbling, Graduate Developer at NHS Digital";
 
 	useEffect(() => {
 		document.addEventListener(
@@ -41,6 +41,7 @@ export default function Layout({ children }) {
 				/>
 				<meta name="author" content={author} />
 				<meta name="description" content={description} />
+				<meta property="og:image" content="/images/icon-transparent.png" />
 			</Head>
 			<a className="access-skipnav" href="#main-content">
 				Skip Navigation

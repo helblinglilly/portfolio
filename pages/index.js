@@ -9,7 +9,7 @@ export default function Home() {
 	return (
 		<Layout home>
 			<Head>
-				<title>Home - Joel Helbling</title>
+				<title>Home</title>
 			</Head>
 			<div className="column is-one-quarter" id="main-content">
 				<AboutMe></AboutMe>
