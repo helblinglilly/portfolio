@@ -42,6 +42,7 @@ export default function Layout({ children }) {
 				<meta name="author" content={author} />
 				<meta name="description" content={description} />
 				<meta property="og:image" content="/images/icon-transparent.png" />
+				<meta property="og:image:type" content="image/png" />
 			</Head>
 			<a className="access-skipnav" href="#main-content">
 				Skip Navigation
