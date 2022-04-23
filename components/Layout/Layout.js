@@ -51,10 +51,8 @@ export default function Layout({ children }) {
 					content="https://helbling.uk/images/social_previews/1200x630.png"
 				/>
 				<meta property="og:image:type" content="image/png" />
-				<meta
-					name="twitter:card"
-					content="/images/social_previews/1200x630.png"
-				></meta>
+				<meta name="twitter:card" content="summary_large_image" />
+				<meta name="twitter:creator" content="@_helblingjoel" />
 			</Head>
 			<a className="access-skipnav" href="#main-content">
 				Skip Navigation
