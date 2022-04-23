@@ -44,5 +44,4 @@ jobs:
             - name: Start container off latest
               run:
                   docker run -p 3000:3000 -d --name portfolio --restart unless-stopped
-                  --env TWITTER_TOKEN=${{ secrets.TWITTER_TOKEN }}
-                  helblingjoel/portfolio:latest
+                  --env ${{ secrets.TWITTER_TOKEN }} helblingjoel/portfolio:latest
