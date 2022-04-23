@@ -6,7 +6,7 @@ on:
             - develop
 jobs:
     docker:
-        name: Create and push Docker Image
+        name: Push Docker Image
         runs-on: self-hosted
         if: github.event_name == 'pull_request'
         steps:
@@ -27,3 +27,15 @@ jobs:
               with:
                   push: true
                   tags: helblingjoel/portfolio:latest
+
+    restart:
+        name: Redeploy
+        runs-on: pineapple
+        if: github.event_name == 'pull_request'
+        steps:
+            - name: Stop running container
+              run: docker kill portfolio
+            - name: Start container off latest
+              run:
+                  docker run -p 80:3000 443:3000 --name portfolio
+                  helblingjoel/portfolio:latest

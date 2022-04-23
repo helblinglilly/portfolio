@@ -3,6 +3,7 @@ COPY . ./
 
 ENV NODE_ENV=production
 RUN npm ci
+RUN npm install sharp -g 
 RUN npm run build
 RUN cp -R .next/ /usr/src/app
 
