@@ -40,8 +40,12 @@ export default function Layout({ children }) {
 					content="width=device-width,initial-scale=1,maximum-scale=2,shrink-to-fit=no"
 				/>
 				<meta name="author" content={author} />
-				<meta name="description" content={description} />
-				<meta property="og:image" content="/images/icon-transparent.png" />
+				<meta name="og:description" content={description} />
+				<meta property="og:title" content="Homepage" />
+				<meta
+					property="og:image"
+					content="/images/social_previews/1200x630.png"
+				/>
 				<meta property="og:image:type" content="image/png" />
 			</Head>
 			<a className="access-skipnav" href="#main-content">
