@@ -178,7 +178,8 @@ export async function getStaticProps() {
 		);
 		tweets = tweets.data.data;
 	} catch (err) {
-		console.log(err);
+		console.log("Error fetching tweet", err);
+		console.log("Twitter API Key", token);
 		tweets = [
 			{
 				created_at: new Date().toISOString(),
