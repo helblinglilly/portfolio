@@ -173,11 +173,13 @@ export async function getStaticProps() {
 	let tweets;
 	try {
 		tweets = await axios.get(
-			"delete me https://api.twitter.com/2/users/1397471686371467266/tweets?tweet.fields=created_at&max_results=5",
+			"https://api.twitter.com/2/users/1397471686371467266/tweets?tweet.fields=created_at&max_results=5",
 			config
 		);
 		tweets = tweets.data.data;
 	} catch (err) {
+		console.log("Error fetching tweet", err);
+		console.log("Twitter API Key", token);
 		tweets = [
 			{
 				created_at: new Date().toISOString(),

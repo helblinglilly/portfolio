@@ -22,8 +22,11 @@ sudo apt update && sudo apt upgrade -y
 #Install apache web server
 sudo apt install apache2
 #Install the extra packages required for proxies
+sudo a2enmod ssl
+sudo systemctl restart apache2
 
 #Generate SSL certificate
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/apache-selfsigned.key -out /etc/ssl/certs/apache-selfsigned.crt
 
 #cd to the apache directory
 cd /etc/apache2/sites-available
