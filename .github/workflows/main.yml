@@ -11,7 +11,8 @@ jobs:
         if: github.event_name == 'pull_request'
         steps:
             - name: Tidy
-            - uses: AutoModality/action-clean@v1
+              uses: AutoModality/action-clean@v1
+
             - name: Checkout repo
               uses: actions/checkout@v2
               with:
