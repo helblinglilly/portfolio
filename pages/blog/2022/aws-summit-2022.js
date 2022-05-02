@@ -57,53 +57,15 @@ export default function Post() {
 					</div>
 				</section>
 
-				<section className="mt-4" id="travel">
-					<h3 className="title is-3 mb-2">Travel</h3>
+				<section className="mt-4" id="overview">
+					<h3 className="title is-3 mb-2">Overview</h3>
 					<p>
-						A first for me, my employer was covering all travel, and
-						accommodation expenses as well as some food costs. I was allowed
-						to travel to London the afternoon before so that I could be
-						well-rested for the big day.
-					</p>
-					<div className="columns mt-1">
-						<div className="column">
-							<Image
-								src="/images/posts/aws-summit-2022/travel.jpeg"
-								width="378"
-								height="504"
-								alt="Canning Town DLR station"
-								placeholder={"blur"}
-								blurDataURL={"/../../images/icon-transparent.png"}
-							/>{" "}
-						</div>
-						<div className="column">
-							<p>
-								The fact that I got paid did make the overcrowding a lot
-								more bearable. Sneaking just around peak travelling times
-								was the best decision I made. The LNER to London was
-								relatively quiet, and after eating dinner in Islington I
-								managed to get to the hotel without much trouble.
-								<br />
-								However, after the lovely receptionist of the hotel kindly
-								placed me in the "quiet" area of the hotel - with a Royal
-								Mail distribution centre just outside my window... After a
-								short 4 hours of sleep and a Mcdonald's breakfast, I got
-								to join thousands of commuters on their morning routine
-								towards central London. While the Stratford tube station
-								was relatively quiet when I hit Canning Town for the DLR
-								to the Excel I wished I would have walked or cycled. The
-								station was so overcrowded I had to miss 3 trains before I
-								managed to get on board. As I later realised other expos
-								were happening on the same day at the other end of the
-								Excel, adding to the overcrowding even more (see picture).
-							</p>
-						</div>
-					</div>
-					<p>
-						My advice for anyone having to travel to the Excel in the future
-						would be to either stay at a hotel close enough in walking/cycling
-						distance, or one that is further down the tube line so that you
-						would be travelling towards central London.
+						This was the first time I managed to go to a convention in my
+						professional career. In this post I'm reflecting on my experience,
+						what I most appreciated and what I would do differently next time.
+						This being a massive event, there was too much to cover in one
+						day, or write about. Use the navigation to the side/above to skip
+						to the relevant section.
 					</p>
 				</section>
 
@@ -279,6 +241,56 @@ export default function Post() {
 						the end of your presentation is rarely a good idea, let alone when
 						it's a generic video with subtitles - I've not seen this many
 						people walk out of a talk all day.
+					</p>
+				</section>
+
+				<section className="mt-4" id="travel">
+					<h3 className="title is-3 mb-2">Travel</h3>
+					<p>
+						A first for me, my employer was covering all travel, and
+						accommodation expenses as well as some food costs. I was allowed
+						to travel to London the afternoon before so that I could be
+						well-rested for the big day.
+					</p>
+					<div className="columns mt-1">
+						<div className="column">
+							<Image
+								src="/images/posts/aws-summit-2022/travel.jpeg"
+								width="378"
+								height="504"
+								alt="Canning Town DLR station"
+								placeholder={"blur"}
+								blurDataURL={"/../../images/icon-transparent.png"}
+							/>{" "}
+						</div>
+						<div className="column">
+							<p>
+								The fact that I got paid did make the overcrowding a lot
+								more bearable. Sneaking just around peak travelling times
+								was the best decision I made. The LNER to London was
+								relatively quiet, and after eating dinner in Islington I
+								managed to get to the hotel without much trouble.
+								<br />
+								However, after the lovely receptionist of the hotel kindly
+								placed me in the "quiet" area of the hotel - with a Royal
+								Mail distribution centre just outside my window... After a
+								short 4 hours of sleep and a Mcdonald's breakfast, I got
+								to join thousands of commuters on their morning routine
+								towards central London. While the Stratford tube station
+								was relatively quiet when I hit Canning Town for the DLR
+								to the Excel I wished I would have walked or cycled. The
+								station was so overcrowded I had to miss 3 trains before I
+								managed to get on board. As I later realised other expos
+								were happening on the same day at the other end of the
+								Excel, adding to the overcrowding even more (see picture).
+							</p>
+						</div>
+					</div>
+					<p>
+						My advice for anyone having to travel to the Excel in the future
+						would be to either stay at a hotel close enough in walking/cycling
+						distance, or one that is further down the tube line so that you
+						would be travelling towards central London.
 					</p>
 				</section>
 
