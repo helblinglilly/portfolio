@@ -6,14 +6,18 @@ on:
             - develop
 
 jobs:
-    docker:
-        name: Push Docker Image
+    clean:
+        name: Clean workspace
         runs-on: self-hosted
         if: github.event_name == 'pull_request'
         steps:
             - name: Tidy
               uses: AutoModality/action-clean@v1
-
+    docker:
+        name: Push Docker Image
+        runs-on: self-hosted
+        if: github.event_name == 'pull_request'
+        steps:
             - name: Checkout repo
               uses: actions/checkout@v2
               with:
