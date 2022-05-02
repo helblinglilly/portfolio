@@ -157,6 +157,15 @@ img.right-aligned {
 	transform: translateY(+30%);
 }
 
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+	color: inherit;
+}
+
 /* Narrow desktop but not yet mobile */
 @media (min-width: 769px) and (max-width: 1030px) {
 	.tweetAuthor {
@@ -180,19 +189,23 @@ img.right-aligned {
 	.mobileHidden {
 		display: none;
 	}
-	
+
 	img.left-aligned {
 		margin: 0;
 		margin-bottom: 2vw;
 		float: none;
 		display: block;
 	}
-	
+
 	img.right-aligned {
 		margin: 0;
 		margin-bottom: 2vw;
 		float: none;
 		display: block;
+	}
+
+	article.is-half#article {
+		width: 100%;
 	}
 }
 
@@ -205,5 +218,18 @@ img.right-aligned {
 	.extraSpaceDesktop {
 		margin-top: 2vw;
 		margin-bottom: 2vw;
+	}
+
+	/* Blog placeholder - only display when bigger than square */
+	@media (max-aspect-ratio: 5/4) {
+		#blogMargin {
+			display: none;
+			visibility: hidden;
+			clear: both;
+		}
+	}
+
+	article {
+		width: 50%;
 	}
 }

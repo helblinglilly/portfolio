@@ -74,15 +74,31 @@ sudo service apache2 reload`;
 					</a>
 				</div>
 			</div>
-			<div className="column">
-				<p className="title is-1">R has a problem</p>
-				<hr className="mb-1"></hr>
-				<p>
-					<i>22 February 2022, Joel Helbling</i>
-				</p>
 
-				<div className="mt-4" id="introduction">
-					<p className="title is-3 mb-2">Intro</p>
+			<article className="column">
+				<section className="postoverview mt-4">
+					<h1 className="title is-1">R has a problem</h1>
+					<hr className="mb-1"></hr>
+					<div className="post-meta">
+						<i>
+							<address className="author">
+								<time pubdate="true" dateTime="2022-02-22">
+									22 February 2022
+								</time>
+								,
+								<a
+									rel="author"
+									href="https://helbling.uk"
+									className="ml-1"
+								>
+									Joel Helbling
+								</a>
+							</address>
+						</i>
+					</div>
+				</section>
+				<section className="mt-4" id="introduction">
+					<h3 className="title is-3 mb-2">Intro</h3>
 					<p>
 						During my rotation on the Pathways team, I got assigned a project
 						where I had to bring a dashboard, written in R, to the cloud.
@@ -94,17 +110,16 @@ sudo service apache2 reload`;
 						<br />
 						The target platform was our existing cloud infrastructure on AWS.
 					</p>
-				</div>
-
-				<div className="mt-5" id="pipeline">
-					<p className="title is-3 mb-1">Pipeline</p>
+				</section>
+				<section className="mt-4" id="pipeline">
+					<h3 className="title is-3 mb-2">Pipeline</h3>
 					<p>
 						For those uninstantiated on what responsibilities each{" "}
 						{"<insert buzzword here>"} is responsible for and how this would
 						affect our final deployment, allow me to break it down:
 					</p>
 
-					<p className="title is-5 mt-2 mb-2">GitLab</p>
+					<h5 className="title is-5 mt-2 mb-2">GitLab</h5>
 					<p>
 						GitLab is a source control management platform, very similar to
 						GitHub. Without going into too much detail, the idea is that a
@@ -118,7 +133,7 @@ sudo service apache2 reload`;
 						environment.
 					</p>
 
-					<p className="title is-5 mt-2 mb-2">Jenkins</p>
+					<h5 className="title is-5 mt-2 mb-2">Jenkins</h5>
 					<p>
 						Jenkins will pick up any changes to the git repo and start the
 						pipeline as desired. The "Pipeline" is orchestrated on this
@@ -130,7 +145,7 @@ sudo service apache2 reload`;
 						scripts in order or parallel as desired.
 					</p>
 
-					<p className="title is-5 mt-2 mb-2">Terraform</p>
+					<h5 className="title is-5 mt-2 mb-2">Terraform</h5>
 					<p>
 						Deploying to the cloud might be easy to say, but cloud networking
 						is hell. Especially when you have to consider existing
@@ -145,7 +160,7 @@ sudo service apache2 reload`;
 						all the fields, but in code.
 					</p>
 
-					<p className="title is-5 mt-2 mb-2">Docker</p>
+					<h5 className="title is-5 mt-2 mb-2">Docker</h5>
 					<p>
 						Docker Images are a way to save the state of your applications and
 						spin up <i>n</i> amount of containers that are all the same. Shiny
@@ -157,7 +172,7 @@ sudo service apache2 reload`;
 						will store our Docker Images in AWS' Elastic Container Registry.
 					</p>
 
-					<p className="title is-5 mt-2 mb-2">Kubernetes</p>
+					<h5 className="title is-5 mt-2 mb-2">Kubernetes</h5>
 					<p>
 						Kubernetes applications are deployed into clusters, consisting of
 						'Pods'. Each pod will be based on our Docker image created
@@ -175,63 +190,76 @@ sudo service apache2 reload`;
 						assumption to assume it would behave like most languages I dealt
 						with so far.
 					</p>
-				</div>
+				</section>
+				<section className="mt-4" id="r-studio">
+					<h3 className="title is-3 mb-2">Tools</h3>
 
-				<div className="mt-5" id="r-studio">
-					<p className="title is-3 mb-1">Tools</p>
-					<img
-						src="/images/posts/r-has-a-problem/r-studio.png"
-						className="right-aligned"
-						width="286"
-						height="396"
-						alt="R Studio publish"
-					/>
-					R Studio is the preferred IDE used by our developers and behind it
-					sits a company maintaining it. Unlike most companies that we might be
-					used to, the free version of R-Studio offers a very limited feature
-					set. They also found it necessary to compare the feature set of an
-					IDE, to the feature set of their server software? Perhaps I am
-					misunderstanding, but feel free to check for yourself{" "}
-					<a
-						href="https://www.rstudio.com/products/rstudio/download/"
-						target="_blank"
-						rel="noreferrer"
-					>
-						https://www.rstudio.com/products/rstudio/download/
-					</a>
-					.
-					<br />
-					For example, how would you see "Enterprise security" in an IDE, and
-					how is "Version Control" nowhere to be seen? As a software engineer, I
-					find that disturbing. If you manage to install R into your environment
-					so that you can run R scripts directly in the terminal, I would
-					strongly recommend getting used to{" "}
-					<a
-						href="https://code.visualstudio.com/"
-						target="_blank"
-						rel="noreferrer"
-					>
-						Visual Studio Code
-					</a>{" "}
-					with the
-					<a href="https://marketplace.visualstudio.com/items?itemName=Ikuyadeu.r">
-						{" "}
-						R extension
-					</a>{" "}
-					installed. This will give you syntax highlighting, you can run your
-					code directly from the terminal and view it in a web browser, view
-					your database (requires further extensions), and most importantly will
-					allow you to use git.
-					<br />
-					The only time that I would recommend using R Studio is if you are a
-					single developer in your team, and are financially able to deploy your
-					app directly through the IDE. We are well past the days of backing up
-					your progress before trying something that might not work, sending
-					your progress via E-Mail with different version tags etc.
-				</div>
+					<div className="columns">
+						<div className="column is-one-third">
+							<Image
+								src="/images/posts/r-has-a-problem/r-studio.png"
+								className="right-aligned"
+								width="286"
+								height="396"
+								alt="R Studio publish"
+							/>
+						</div>
 
-				<div className="mt-5" id="paywall">
-					<p className="title is-3 mb-1">Integrated Paywalls</p>
+						<div className="column">
+							<p>
+								R Studio is the preferred IDE used by our developers and
+								behind it sits a company maintaining it. Unlike most
+								companies that we might be used to, the free version of
+								R-Studio offers a very limited feature set. They also
+								found it necessary to compare the feature set of an IDE,
+								to the feature set of their server software? Perhaps I am
+								misunderstanding, but feel free to check for yourself{" "}
+								<a
+									href="https://www.rstudio.com/products/rstudio/download/"
+									target="_blank"
+									rel="noreferrer"
+								>
+									https://www.rstudio.com/products/rstudio/download/
+								</a>
+								.
+								<br />
+								For example, how would you see "Enterprise security" in an
+								IDE, and how is "Version Control" nowhere to be seen? As a
+								software engineer, I find that disturbing. If you manage
+								to install R into your environment so that you can run R
+								scripts directly in the terminal, I would strongly
+								recommend getting used to{" "}
+								<a
+									href="https://code.visualstudio.com/"
+									target="_blank"
+									rel="noreferrer"
+								>
+									Visual Studio Code
+								</a>{" "}
+								with the
+								<a href="https://marketplace.visualstudio.com/items?itemName=Ikuyadeu.r">
+									{" "}
+									R extension
+								</a>{" "}
+								installed. This will give you syntax highlighting, you can
+								run your code directly from the terminal and view it in a
+								web browser, view your database (requires further
+								extensions), and most importantly will allow you to use
+								git.
+							</p>
+						</div>
+					</div>
+					<p>
+						The only time that I would recommend using R Studio is if you are
+						a single developer in your team, and are financially able to
+						deploy your app directly through the IDE. We are well past the
+						days of backing up your progress before trying something that
+						might not work, sending your progress via E-Mail with different
+						version tags etc.
+					</p>
+				</section>
+				<section className="mt-4" id="paywall">
+					<h3 className="title is-3 mb-2">Integrated Paywalls</h3>
 					<p>
 						Sadly for R, the same company that maintains R Studio also
 						maintains the documentation. While the language itself is
@@ -271,13 +299,12 @@ sudo service apache2 reload`;
 						that (setting up a reverse proxy yourself), see the instructions
 						below for a Linux deployment with a self-signed (free but not
 						trusted) certificate.
-						<ShellScriptBlock code={shell}></ShellScriptBlock>
-						<ApacheCodeBlock code={apacheconfig}></ApacheCodeBlock>
 					</p>
-				</div>
-
-				<div className="mt-2" id="documentation">
-					<p className="title is-3 mb-1">Poor documentation</p>
+					<ShellScriptBlock code={shell}></ShellScriptBlock>
+					<ApacheCodeBlock code={apacheconfig}></ApacheCodeBlock>
+				</section>
+				<section className="mt-4" id="documentation">
+					<h3 className="title is-3 mb-2">Poor Documentation</h3>
 					<p>
 						If you've followed the link to the official documentation above,
 						you might have noticed that it's quite bare-bones compared to
@@ -341,10 +368,9 @@ sudo service apache2 reload`;
 						making by using that gap in the market I will put it down to
 						neglect.
 					</p>
-				</div>
-
-				<div className="mt-5" id="deployment">
-					<p className="title is-3 mb-1">Deployment implications</p>
+				</section>{" "}
+				<section className="mt-4" id="deployment">
+					<h3 className="title is-3 mb-2">Deployment implications</h3>
 					<p>
 						I mentioned the pipeline used on this piece of work for context,
 						because the implications of those complaints mentioned earlier
@@ -376,10 +402,9 @@ sudo service apache2 reload`;
 						of an issue, but with the obscure undocumented design decisions
 						made by the R-Studio team extra complexity is added.
 					</p>
-				</div>
-
-				<div className="mt-5" id="conclusion">
-					<p className="title is-3 mb-1">Conclusion</p>
+				</section>
+				<section className="mt-4" id="conclusion">
+					<h3 className="title is-3 mb-2">Conclusion</h3>
 					<p>
 						R and its maintainers are a perfect example as to why open-source
 						platforms are not always the be-all and end-all. As much as they
@@ -398,9 +423,10 @@ sudo service apache2 reload`;
 						same black hole as legacy languages from the 70s and 80s in the
 						Computer Science space.
 					</p>
-				</div>
-			</div>
-			<div className="column is-one-fifth" />
+				</section>
+			</article>
+
+			<div className="column is-one-quarter" id="blogMargin" />
 		</Layout>
 	);
 }
