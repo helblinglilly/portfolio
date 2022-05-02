@@ -10,7 +10,7 @@ export default function RScriptBlock({ code }) {
 	else codeHtml = "<p>Empty R script</p>";
 
 	return (
-		<div className="codeContainer mt-3">
+		<div className="column codeContainer mt-3">
 			<pre>
 				<p className="codeFilename">{code.filename}</p>
 				<code dangerouslySetInnerHTML={{ __html: codeHtml }} />

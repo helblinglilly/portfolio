@@ -29,7 +29,7 @@ export function PostSummaries() {
 			"r-shiny.png"
 		).toObject
 	);
-	/*
+
 	posts.push(
 		new PostPreview(
 			"aws-summit-2022",
@@ -44,7 +44,6 @@ export function PostSummaries() {
 			"aws-summit.png"
 		).toObject
 	);
-	*/
 
 	// Return by newest first
 	return posts.sort((a, b) => (a.date > b.date ? 1 : -1));

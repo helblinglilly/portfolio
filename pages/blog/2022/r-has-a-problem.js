@@ -80,26 +80,23 @@ sudo service apache2 reload`;
 					<h1 className="title is-1">R has a problem</h1>
 					<hr className="mb-1"></hr>
 					<div className="post-meta">
-						<p>
-							<i>
-								<address class="author">
-									<time pubdate dateTime="2022-02-22">
-										22 February 2022
-									</time>
-									,
-									<a
-										rel="author"
-										href="https://helbling.uk"
-										className="ml-1"
-									>
-										Joel Helbling
-									</a>
-								</address>
-							</i>
-						</p>
+						<i>
+							<address className="author">
+								<time pubdate="true" dateTime="2022-02-22">
+									22 February 2022
+								</time>
+								,
+								<a
+									rel="author"
+									href="https://helbling.uk"
+									className="ml-1"
+								>
+									Joel Helbling
+								</a>
+							</address>
+						</i>
 					</div>
 				</section>
-
 				<section className="mt-4" id="introduction">
 					<h3 className="title is-3 mb-2">Intro</h3>
 					<p>
@@ -114,7 +111,6 @@ sudo service apache2 reload`;
 						The target platform was our existing cloud infrastructure on AWS.
 					</p>
 				</section>
-
 				<section className="mt-4" id="pipeline">
 					<h3 className="title is-3 mb-2">Pipeline</h3>
 					<p>
@@ -195,55 +191,65 @@ sudo service apache2 reload`;
 						with so far.
 					</p>
 				</section>
-
 				<section className="mt-4" id="r-studio">
 					<h3 className="title is-3 mb-2">Tools</h3>
-					<img
-						src="/images/posts/r-has-a-problem/r-studio.png"
-						className="right-aligned"
-						width="286"
-						height="396"
-						alt="R Studio publish"
-					/>
+
+					<div className="columns">
+						<div className="column is-one-third">
+							<Image
+								src="/images/posts/r-has-a-problem/r-studio.png"
+								className="right-aligned"
+								width="286"
+								height="396"
+								alt="R Studio publish"
+							/>
+						</div>
+
+						<div className="column">
+							<p>
+								R Studio is the preferred IDE used by our developers and
+								behind it sits a company maintaining it. Unlike most
+								companies that we might be used to, the free version of
+								R-Studio offers a very limited feature set. They also
+								found it necessary to compare the feature set of an IDE,
+								to the feature set of their server software? Perhaps I am
+								misunderstanding, but feel free to check for yourself{" "}
+								<a
+									href="https://www.rstudio.com/products/rstudio/download/"
+									target="_blank"
+									rel="noreferrer"
+								>
+									https://www.rstudio.com/products/rstudio/download/
+								</a>
+								.
+								<br />
+								For example, how would you see "Enterprise security" in an
+								IDE, and how is "Version Control" nowhere to be seen? As a
+								software engineer, I find that disturbing. If you manage
+								to install R into your environment so that you can run R
+								scripts directly in the terminal, I would strongly
+								recommend getting used to{" "}
+								<a
+									href="https://code.visualstudio.com/"
+									target="_blank"
+									rel="noreferrer"
+								>
+									Visual Studio Code
+								</a>{" "}
+								with the
+								<a href="https://marketplace.visualstudio.com/items?itemName=Ikuyadeu.r">
+									{" "}
+									R extension
+								</a>{" "}
+								installed. This will give you syntax highlighting, you can
+								run your code directly from the terminal and view it in a
+								web browser, view your database (requires further
+								extensions), and most importantly will allow you to use
+								git.
+							</p>
+						</div>
+					</div>
 					<p>
-						{" "}
-						R Studio is the preferred IDE used by our developers and behind it
-						sits a company maintaining it. Unlike most companies that we might
-						be used to, the free version of R-Studio offers a very limited
-						feature set. They also found it necessary to compare the feature
-						set of an IDE, to the feature set of their server software?
-						Perhaps I am misunderstanding, but feel free to check for yourself{" "}
-						<a
-							href="https://www.rstudio.com/products/rstudio/download/"
-							target="_blank"
-							rel="noreferrer"
-						>
-							https://www.rstudio.com/products/rstudio/download/
-						</a>
-						.
-						<br />
-						For example, how would you see "Enterprise security" in an IDE,
-						and how is "Version Control" nowhere to be seen? As a software
-						engineer, I find that disturbing. If you manage to install R into
-						your environment so that you can run R scripts directly in the
-						terminal, I would strongly recommend getting used to{" "}
-						<a
-							href="https://code.visualstudio.com/"
-							target="_blank"
-							rel="noreferrer"
-						>
-							Visual Studio Code
-						</a>{" "}
-						with the
-						<a href="https://marketplace.visualstudio.com/items?itemName=Ikuyadeu.r">
-							{" "}
-							R extension
-						</a>{" "}
-						installed. This will give you syntax highlighting, you can run
-						your code directly from the terminal and view it in a web browser,
-						view your database (requires further extensions), and most
-						importantly will allow you to use git.
-						<br />
 						The only time that I would recommend using R Studio is if you are
 						a single developer in your team, and are financially able to
 						deploy your app directly through the IDE. We are well past the
@@ -252,7 +258,6 @@ sudo service apache2 reload`;
 						version tags etc.
 					</p>
 				</section>
-
 				<section className="mt-4" id="paywall">
 					<h3 className="title is-3 mb-2">Integrated Paywalls</h3>
 					<p>
@@ -294,11 +299,10 @@ sudo service apache2 reload`;
 						that (setting up a reverse proxy yourself), see the instructions
 						below for a Linux deployment with a self-signed (free but not
 						trusted) certificate.
-						<ShellScriptBlock code={shell}></ShellScriptBlock>
-						<ApacheCodeBlock code={apacheconfig}></ApacheCodeBlock>
 					</p>
+					<ShellScriptBlock code={shell}></ShellScriptBlock>
+					<ApacheCodeBlock code={apacheconfig}></ApacheCodeBlock>
 				</section>
-
 				<section className="mt-4" id="documentation">
 					<h3 className="title is-3 mb-2">Poor Documentation</h3>
 					<p>
@@ -364,8 +368,7 @@ sudo service apache2 reload`;
 						making by using that gap in the market I will put it down to
 						neglect.
 					</p>
-				</section>
-
+				</section>{" "}
 				<section className="mt-4" id="deployment">
 					<h3 className="title is-3 mb-2">Deployment implications</h3>
 					<p>
@@ -400,7 +403,6 @@ sudo service apache2 reload`;
 						made by the R-Studio team extra complexity is added.
 					</p>
 				</section>
-
 				<section className="mt-4" id="conclusion">
 					<h3 className="title is-3 mb-2">Conclusion</h3>
 					<p>
@@ -424,7 +426,7 @@ sudo service apache2 reload`;
 				</section>
 			</article>
 
-			<div className="column is-one-fifth"></div>
+			<div className="column is-one-quarter" id="blogMargin" />
 		</Layout>
 	);
 }
