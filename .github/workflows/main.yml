@@ -53,8 +53,12 @@ jobs:
                   username: ${{ secrets.DOCKER_USERNAME }}
                   password: ${{ secrets.DOCKER_PASSWORD }}
             - name: Stop running container
-              run: docker stop portfolio || true && docker rm portfolio || true
-            - name: Start container off latest
+              run: docker stop portfolio
+            - name: Delete old container
+              run: docker rm -rf portfolio
+            - name: Pull latest image
+              run: docker pull helblingjoel/portfolio:latest
+            - name: Start container
               run:
                   docker run -p 3000:3000 -d --name portfolio --restart unless-stopped -e
                   ${{ secrets.TWITTER_TOKEN }} helblingjoel/portfolio:latest
