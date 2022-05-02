@@ -37,6 +37,7 @@ jobs:
 
             - name: Set current date as env variable
               run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+              run: echo ${{ steps.date.outputs.date }}
             - name: Build and push
               uses: docker/build-push-action@v2
               with:
