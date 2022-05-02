@@ -35,7 +35,7 @@ export function PostSummaries() {
 			"aws-summit-2022",
 			"AWS Summit London 2022",
 			"My first conference that I was able to attend. There were talks to attend, companies to be learnt about, merchandise to be collected and new connections to be made. In this post I summarise my experience, try to capture everything I've learnt, and what I would do differently next time",
-			new Date("01 May 2022"),
+			new Date("02 May 2022"),
 			[
 				{ name: "Event", color: "is-success" },
 				{ name: "AWS", color: "is-warning" },

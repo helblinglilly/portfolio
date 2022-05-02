@@ -41,8 +41,8 @@ export default function Post() {
 					<div className="post-meta">
 						<i>
 							<address className="author">
-								<time pubdate="true" dateTime="2022-05-01">
-									01 May 2022
+								<time pubdate="true" dateTime="2022-05-02">
+									02 May 2022
 								</time>
 								,
 								<a
