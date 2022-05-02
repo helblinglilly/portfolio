@@ -52,26 +52,18 @@ export default function Layout({ children }) {
 				<meta property="og:description" content={description} />
 				<meta
 					property="og:image"
-					content="/images/social_previews/1200x630.png"
+					content="https://helbling.uk/images/social_previews/1200x630.png"
 				/>
+				<meta property="og:image:type" content="image/png" />
 
 				<meta property="twitter:url" content="https://helbling.uk/" />
 				<meta property="twitter:title" content="Homepage" />
 				<meta property="twitter:description" content={description} />
 				<meta
 					property="twitter:image"
-					content="/images/social_previews/1200x630.png"
-				/>
-
-				<meta name="og:description" content={description} />
-				<meta property="og:type" content="website" />
-				<meta property="og:url" content="https://helbling.uk" />
-				<meta property="og:title" content="Homepage" />
-				<meta
-					property="og:image"
 					content="https://helbling.uk/images/social_previews/1200x630.png"
 				/>
-				<meta property="og:image:type" content="image/png" />
+
 				<meta name="twitter:card" content="summary_large_image" />
 				<meta name="twitter:creator" content="@_helblingjoel" />
 			</Head>
