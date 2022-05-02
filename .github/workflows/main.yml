@@ -5,13 +5,19 @@ on:
             - main
 
 jobs:
-    docker:
-        name: Push Docker Image
+    clean:
+        name: Clean workspace
         runs-on: self-hosted
         if: github.event_name == 'pull_request'
         steps:
             - name: Tidy
-            - uses: AutoModality/action-clean@v1
+              uses: AutoModality/action-clean@v1
+    docker:
+        needs: clean
+        name: Push Docker Image
+        runs-on: self-hosted
+        if: github.event_name == 'pull_request'
+        steps:
             - name: Checkout repo
               uses: actions/checkout@v2
               with:
@@ -28,11 +34,13 @@ jobs:
               id: buildx
               uses: docker/setup-buildx-action@v1
 
+            - name: Set current date as env variable
+              run: echo "MY_DATE=$(date +%Y%m%d%H%M)" >> $GITHUB_ENV
             - name: Build and push
               uses: docker/build-push-action@v2
               with:
                   push: true
-                  tags: helblingjoel/portfolio:latest
+                  tags: helblingjoel/portfolio:${{ env.MY_DATE }}
 
     restart:
         needs: docker
@@ -46,8 +54,12 @@ jobs:
                   username: ${{ secrets.DOCKER_USERNAME }}
                   password: ${{ secrets.DOCKER_PASSWORD }}
             - name: Stop running container
-              run: docker stop portfolio || true && docker rm portfolio || true
-            - name: Start container off latest
+              run: docker stop portfolio
+            - name: Delete old container
+              run: docker rm -f portfolio
+            - name: Pull latest image
+              run: docker pull helblingjoel/portfolio:latest
+            - name: Start container
               run:
                   docker run -p 3000:3000 -d --name portfolio --restart unless-stopped -e
                   ${{ secrets.TWITTER_TOKEN }} helblingjoel/portfolio:latest
