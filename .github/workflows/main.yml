@@ -40,7 +40,13 @@ jobs:
               uses: docker/build-push-action@v2
               with:
                   push: true
-                  tags: helblingjoel/portfolio:${{ env.MY_DATE }}
+                  tags: ${{ secrets.DOCKER_USERNAME }}/portfolio:${{ env.MY_DATE }}
+                  cache-from:
+                      type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME
+                      }}/portfolio:buildcache
+                  ache-to:
+                      type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME
+                      }}/portfolio:buildcache,mode=max
 
     restart:
         needs: docker
@@ -60,6 +66,7 @@ jobs:
             - name: Pull latest image
               run: docker pull helblingjoel/portfolio:latest
             - name: Start container
+              options: --e {{ secrets.TWITTER_TOKEN }}
               run:
                   docker run -p 3000:3000 -d --name portfolio --restart unless-stopped -e
-                  ${{ secrets.TWITTER_TOKEN }} helblingjoel/portfolio:latest
+                  $TWITTER_TOKEN helblingjoel/portfolio:latest
