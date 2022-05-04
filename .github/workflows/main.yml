@@ -66,8 +66,6 @@ jobs:
 
             - name: Stop running container
               run: docker stop portfolio || true && docker rm portfolio || true
-            - name: Pull latest image
-              run: docker pull helblingjoel/portfolio:${{ steps.date.outputs.date }}
             - name: Start container
               run:
                   docker run -p 3000:3000 -d --name portfolio --restart unless-stopped helblingjoel/portfolio:${{ steps.date.outputs.date }}
