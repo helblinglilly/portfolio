@@ -64,8 +64,7 @@ jobs:
                   password: ${{ secrets.DOCKER_PASSWORD }}
 
             - name: Stop running container
-              run:
-                  docker ps -q --filter "name=portfolio" | grep -q . && docker stop portfolio && docker rm -fv portfolio
+              run: docker stop portfolio || true && docker rm portfolio || true
             - name: Pull latest image
               run: docker pull helblingjoel/portfolio:${BUILDSTAMP}
             - name: Start container
