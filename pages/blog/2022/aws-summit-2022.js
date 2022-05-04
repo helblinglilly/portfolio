@@ -29,10 +29,7 @@ export default function Post() {
 					I was relatively early to arrive, so the images shown below are
 					probably as empty as it was for the entire day. On the bottom layer,
 					there were 2 floors, and most of the interesting stands to me were
-					below where I stood along one big wall. In the future, I would visit
-					those first because it was so overcrowded along that stretch for the
-					rest of the day that I didn't feel comfortable enough to visit them.
-					Lots of stalls next to each other - visit those first.
+					below where I stood along one big wall.
 				</p>
 				<div className="columns mt-2">
 					<div className="column is-two-thirds">
@@ -59,9 +56,7 @@ export default function Post() {
 				<p>
 					I was pleasantly surprised when I saw they had cloakrooms available.
 					As I was staying in a hotel the night before so the backpack I was
-					carrying with me was quite heavy. Next time I will look to take a
-					second bag with me just with the essentials and perhaps a tote bag
-					inside to carry the extra merchandise.
+					carrying with me was quite heavy.
 				</p>
 				<p>
 					With the relatively tight schedule between the different talks,
@@ -198,8 +193,8 @@ export default function Post() {
 				<h3 className="title is-3 mb-2">Travel</h3>
 				<p>
 					A first for me, my employer was covering all travel, and accommodation
-					expenses as well as some food costs. I was allowed to travel to London
-					the afternoon before so that I could be well-rested for the big day.
+					expenses. I was allowed to travel to London the afternoon before so
+					that I could be well-rested for the big day.
 				</p>
 				<div className="columns mt-1">
 					<div className="column">
