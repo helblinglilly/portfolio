@@ -70,7 +70,7 @@ jobs:
                   docker ps -q --filter "name=portfolio" | grep -q . && docker stop
                   portfolio && docker rm -fv portfolio
             - name: Pull latest image
-              run: docker pull helblingjoel/portfolio:latest
+              run: docker pull helblingjoel/portfolio:${BUILDSTAMP}
             - name: Start container
               run:
                   docker run -p 3000:3000 -d --name portfolio --restart unless-stopped
