@@ -48,7 +48,7 @@ jobs:
                       "TWITTER_TOKEN=${{ secrets.TWITTER_TOKEN }}"
                   cache-from:
                       type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME}}/portfolio:buildcache
-                  ache-to:
+                  cache-to:
                       type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME}}/portfolio:buildcache,mode=max
 
     restart:
@@ -66,7 +66,7 @@ jobs:
             - name: Stop running container
               run: docker stop portfolio || true && docker rm portfolio || true
             - name: Pull latest image
-              run: docker pull helblingjoel/portfolio:${BUILDSTAMP}
+              run: docker pull ${{ secrets.DOCKER_USERNAME }}/portfolio:${{ env.BUILDSTAMP }}
             - name: Start container
               run:
-                  docker run -p 3000:3000 -d --name portfolio --restart unless-stopped helblingjoel/portfolio:${BUILDSTAMP}
+                  docker run -p 3000:3000 -d --name portfolio --restart unless-stopped ${{ secrets.DOCKER_USERNAME }}/portfolio:${{ env.BUILDSTAMP }}
