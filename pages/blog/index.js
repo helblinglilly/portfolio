@@ -176,10 +176,19 @@ export async function getStaticProps() {
 			"https://api.twitter.com/2/users/1397471686371467266/tweets?tweet.fields=created_at&max_results=5",
 			config
 		);
-		tweets = tweets.data.data;
+
+		if (tweets.data.errors) {
+			tweets = [
+				{
+					created_at: new Date().toISOString(),
+					id: "1492283279768231937",
+					text: "Currently on private",
+				},
+			];
+		} else {
+			tweets = tweets.data.data;
+		}
 	} catch (err) {
-		console.log("Error fetching tweet", err);
-		console.log("Twitter API Key", token);
 		tweets = [
 			{
 				created_at: new Date().toISOString(),
