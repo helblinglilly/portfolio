@@ -164,7 +164,7 @@ function filterPosts(posts, searchTerm, tags, years) {
 	});
 }
 
-export async function getServerSideProp() {
+export async function getStaticProps() {
 	const token = process.env.TWITTER_TOKEN;
 	const config = {
 		headers: { Authorization: `Bearer ${token}` },
