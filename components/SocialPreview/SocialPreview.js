@@ -7,7 +7,7 @@ export default function SocialPreview(props) {
 	const author = props.author ? props.author : "Joel Helbling";
 	const previewImage = props.previewImage
 		? props.previewImage
-		: "https://helbling.uk/images/icon-white.png";
+		: "https://helbling.uk/images/social_preview.png";
 	const themeColor = props.themeColor ? props.themeColor : "#8D0370";
 	console.log(title, author);
 	return (
