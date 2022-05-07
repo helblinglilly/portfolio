@@ -1,7 +1,8 @@
 import BlogLayout from "../../../components/Layout/BlogPost";
+import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-
+import SocialPreview from "../../../components/SocialPreview/SocialPreview";
 export default function Post() {
 	const toc = [];
 	toc.push({ title: "Travel", id: "travel" });
@@ -16,6 +17,7 @@ export default function Post() {
 				description="My first conference that I was able to attend. There were talks to attend, companies to be learnt about, merchandise to be collected and new connections to be made. In this post I summarise my experience, try to capture everything I've learnt, and what I would do differently next time"
 				previewImage="/images/posts/2022/cover.jpeg"
 			></SocialPreview>
+
 			<section className="mt-4" id="overview">
 				<h3 className="title is-3 mb-2">Overview</h3>
 				<p>

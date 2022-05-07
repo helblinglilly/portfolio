@@ -10,34 +10,6 @@ export default function BlogLayout({ children, ...pageProps }) {
 
 	return (
 		<Layout home>
-			<Head>
-				<title>{meta.title}</title>
-				<meta name="title" content={`Blog - ${meta.title}`} />
-				<meta name="description" content={meta.preview} />
-
-				<meta
-					property="og:url"
-					content={`https://helbling.uk/blog/${meta.link}`}
-				/>
-				<meta property="og:title" content={`Blog - ${meta.title}`} />
-				<meta property="og:description" content={meta.preview} />
-				<meta
-					property="og:image"
-					content={`https://helbling.uk/${meta.thumbnail}`}
-				/>
-
-				<meta
-					property="twitter:url"
-					content={`https://helbling.uk/blog/${meta.link}`}
-				/>
-				<meta property="twitter:title" content={meta.title} />
-				<meta property="twitter:description" content={meta.preview} />
-				<meta
-					property="twitter:image"
-					content={`https://helbling.uk/${meta.thumbnail}`}
-				/>
-			</Head>
-
 			<div className="column is-one-quarter">
 				<TableOfContents entries={pageProps.toc}></TableOfContents>
 				<div id="backToTopContainer" className="">

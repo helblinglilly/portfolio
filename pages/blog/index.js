@@ -15,7 +15,7 @@ export default function Blog(props) {
 	return (
 		<Layout home>
 			<SocialPreview
-				title="Blog - JH"
+				title="Blog - Joel Helbling"
 				description="Blog homepage of Joel Helbling. View the collection of blog posts, search for specific ones, filter by tags or by publishing year"
 			></SocialPreview>
 			<div className="column is-one-quarter">
