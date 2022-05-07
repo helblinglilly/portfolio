@@ -2,6 +2,7 @@ FROM node:latest
 ENV NODE_ENV=production
 RUN --mount=type=secret,id=TWITTER_TOKEN
 RUN export TWITTER_TOKEN=$(cat /run/secrets/TWITTER_TOKEN)
+RUN export GA_KEY=$(cat /run/secrets/GA_KEY)
 
 COPY . ./
 RUN npm ci
