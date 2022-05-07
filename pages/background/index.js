@@ -1,5 +1,5 @@
 import Layout from "../../components/Layout/Layout";
-import Head from "next/head";
+import SocialPreview from "../../components/SocialPreview/SocialPreview";
 import Menu from "../../components/Background/Menu";
 import NHSDigital from "../../components/Background/NHSDigital";
 import Waitrose from "../../components/Background/Waitrose";
@@ -10,9 +10,10 @@ import RoyalHarbour from "../../components/Background/RoyalHarbourAcademy";
 export default function Home() {
 	return (
 		<Layout home>
-			<Head>
-				<title>Background</title>
-			</Head>
+			<SocialPreview
+				title="Background - Joel Helbling"
+				description="Background information about my previous roles, education and how those influenced me as a person"
+			></SocialPreview>
 			<div className="column is-one-quarter">
 				<Menu></Menu>
 				<div id="backToTopContainer">

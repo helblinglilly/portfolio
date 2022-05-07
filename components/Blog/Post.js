@@ -9,7 +9,8 @@ export class PostPreview {
 		preview,
 		date,
 		tags = [{ name: "Misc", color: "is-light" }],
-		thumbnail = "default.png"
+		thumbnail = "default.png",
+		titleImage = null
 	) {
 		this.link = link;
 		this.title = title;
@@ -18,6 +19,7 @@ export class PostPreview {
 		this.thumbnail = thumbnail;
 		this.tags = tags;
 		if (typeof date === "object") this.date = date;
+		this.titleImage = titleImage;
 	}
 
 	get toObject() {
@@ -34,8 +36,16 @@ export class PostPreview {
 			tags: tags,
 			thumbnail:
 				this.thumbnail === "default.png"
-					? `/images/thumbnails/default.png`
-					: `/images/thumbnails/${this.date.getFullYear()}/${this.thumbnail}`,
+					? `/images/default-post-thumbnail.png`
+					: `/images/posts/${this.date.getFullYear()}/${this.link}/${
+							this.thumbnail
+					  }`,
+			titleImage:
+				this.titleImage === null
+					? null
+					: `/images/posts/${this.date.getFullYear()}/${this.link}/${
+							this.titleImage
+					  }`,
 			date: formatDate(this.date),
 		};
 	}
