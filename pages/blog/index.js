@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Layout from "../../components/Layout/Layout";
-import Head from "next/head";
 import LatestTweets from "../../components/Tweets/LatestTweets";
 import AllPosts, { PostSummaries } from "../../components/Blog/AllPosts";
+import SocialPreview from "../../components/SocialPreview/SocialPreview";
 
 export default function Blog(props) {
 	const [searchTerm, setSearchTerm] = useState();
@@ -14,10 +14,10 @@ export default function Blog(props) {
 
 	return (
 		<Layout home>
-			<Head>
-				<title>Blog - Joel Helbling</title>
-			</Head>
-
+			<SocialPreview
+				title="Blog - JH"
+				description="Blog homepage of Joel Helbling. View the collection of blog posts, search for specific ones, filter by tags or by publishing year"
+			></SocialPreview>
 			<div className="column is-one-quarter">
 				{search(setSearchTerm, setTags, setYears)}
 				<div id="backToTopContainer" className="">
