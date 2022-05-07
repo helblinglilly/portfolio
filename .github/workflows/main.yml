@@ -67,6 +67,9 @@ jobs:
               id: date
             - name: Stop running container
               run: docker stop portfolio || true && docker rm portfolio || true
+            - name: Remove existing image
+              run:
+                  docker image rm helblingjoel/portfolio:${{steps.date.outputs.date }} || true
             - name: Start container
               run:
                   docker run -p 3000:3000 -d --name portfolio --restart unless-stopped -e
