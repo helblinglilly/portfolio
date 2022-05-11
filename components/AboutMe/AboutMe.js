@@ -10,6 +10,9 @@ export default function AboutMe() {
 					width={250}
 					height={250}
 					alt="Profile Picture"
+					priority={true}
+					placeholder={"blur"}
+					blurDataURL={"images/icon-transparent.png"}
 				/>
 			</figure>
 			<div className="pt-4">

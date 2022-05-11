@@ -39,27 +39,27 @@ export default function RoyalHarbour() {
 					Grades followed a scheme of 1-7, the higher the better, with a passing
 					grade of 4, proportionately spread around the passing grade.<br></br>
 					This diploma was composed of a few different elements:
-					<ul>
-						<li>
-							(6) IT in a Global Society<br></br>
-							Ethical implications of new technologies, i.e. GPS tracking at
-							hospitals
-						</li>
-						<li>
-							(5) Maths Studies<br></br>
-							More advanced than GCSE but not on-par with A-Level Maths
-						</li>
-						<li>
-							Japanese<br></br>
-							Exploring japanese culture and learning basic phrases
-						</li>
-						<li>
-							50h community service<br></br>
-							Most of this was covered by volunteering at safety events for
-							Year 6 students going into secondary school
-						</li>
-					</ul>
 				</p>
+				<ul>
+					<li>
+						(6) IT in a Global Society<br></br>
+						Ethical implications of new technologies, i.e. GPS tracking at
+						hospitals
+					</li>
+					<li>
+						(5) Maths Studies<br></br>
+						More advanced than GCSE but not on-par with A-Level Maths
+					</li>
+					<li>
+						Japanese<br></br>
+						Exploring japanese culture and learning basic phrases
+					</li>
+					<li>
+						50h community service<br></br>
+						Most of this was covered by volunteering at safety events for Year
+						6 students going into secondary school
+					</li>
+				</ul>
 			</div>
 		</>
 	);

@@ -13,7 +13,7 @@ import { ThemeProvider } from "next-themes";
 
 export default function App({ Component, pageProps }) {
 	useEffect(() => {
-		hljs.initHighlighting();
+		hljs.highlightAll();
 	}, []);
 	return (
 		<ThemeProvider>

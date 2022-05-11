@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Layout from "../../components/Layout/Layout";
-import Head from "next/head";
 import LatestTweets from "../../components/Tweets/LatestTweets";
 import AllPosts, { PostSummaries } from "../../components/Blog/AllPosts";
+import SocialPreview from "../../components/SocialPreview/SocialPreview";
 
 export default function Blog(props) {
 	const [searchTerm, setSearchTerm] = useState();
@@ -14,10 +14,10 @@ export default function Blog(props) {
 
 	return (
 		<Layout home>
-			<Head>
-				<title>Blog - Joel Helbling</title>
-			</Head>
-
+			<SocialPreview
+				title="Blog - Joel Helbling"
+				description="Blog homepage of Joel Helbling. View the collection of blog posts, search for specific ones, filter by tags or by publishing year"
+			></SocialPreview>
 			<div className="column is-one-quarter">
 				{search(setSearchTerm, setTags, setYears)}
 				<div id="backToTopContainer" className="">
@@ -164,7 +164,7 @@ function filterPosts(posts, searchTerm, tags, years) {
 	});
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
 	const token = process.env.TWITTER_TOKEN;
 	const config = {
 		headers: { Authorization: `Bearer ${token}` },
@@ -176,10 +176,19 @@ export async function getStaticProps() {
 			"https://api.twitter.com/2/users/1397471686371467266/tweets?tweet.fields=created_at&max_results=5",
 			config
 		);
-		tweets = tweets.data.data;
+
+		if (tweets.data.errors) {
+			tweets = [
+				{
+					created_at: new Date().toISOString(),
+					id: "1492283279768231937",
+					text: "Currently on private",
+				},
+			];
+		} else {
+			tweets = tweets.data.data;
+		}
 	} catch (err) {
-		console.log("Error fetching tweet", err);
-		console.log("Twitter API Key", token);
 		tweets = [
 			{
 				created_at: new Date().toISOString(),

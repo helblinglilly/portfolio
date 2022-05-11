@@ -9,7 +9,8 @@ export class PostPreview {
 		preview,
 		date,
 		tags = [{ name: "Misc", color: "is-light" }],
-		thumbnail = "default.png"
+		thumbnail = "default.png",
+		titleImage = null
 	) {
 		this.link = link;
 		this.title = title;
@@ -18,6 +19,7 @@ export class PostPreview {
 		this.thumbnail = thumbnail;
 		this.tags = tags;
 		if (typeof date === "object") this.date = date;
+		this.titleImage = titleImage;
 	}
 
 	get toObject() {
@@ -32,7 +34,18 @@ export class PostPreview {
 			title: this.title,
 			preview: this.preview,
 			tags: tags,
-			thumbnail: this.thumbnail === "default.png" ? `/images/thumbnails/default.png`: `/images/thumbnails/${this.date.getFullYear()}/${this.thumbnail}`,
+			thumbnail:
+				this.thumbnail === "default.png"
+					? `/images/default-post-thumbnail.png`
+					: `/images/posts/${this.date.getFullYear()}/${this.link}/${
+							this.thumbnail
+					  }`,
+			titleImage:
+				this.titleImage === null
+					? null
+					: `/images/posts/${this.date.getFullYear()}/${this.link}/${
+							this.titleImage
+					  }`,
 			date: formatDate(this.date),
 		};
 	}
@@ -55,6 +68,9 @@ export function Post(post) {
 								alt="Post Icon"
 								width={200}
 								height={200}
+								priority={true}
+								placeholder={"blur"}
+								blurDataURL={"images/icon-transparent.png"}
 							/>
 						</div>
 						<div className="column accented">

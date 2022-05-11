@@ -12,7 +12,6 @@ export default function TableOfContents({ entries }) {
 }
 
 function item(title, id) {
-	console.log()
 	return (
 		<li key={id}>
 			<a href={"#" + id}>{title}</a>
