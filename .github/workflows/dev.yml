@@ -37,6 +37,7 @@ jobs:
               uses: docker/build-push-action@v2
               with:
                   push: true
+                  platforms: linux/amd64,linux/arm/v7
                   tags: helblingjoel/portfolio:dev-${{ steps.date.outputs.date }}
                   cache-from: type=registry,ref=helblingjoel/portfolio:buildcache
                   cache-to: type=registry,ref=helblingjoel/portfolio:buildcache,mode=max
