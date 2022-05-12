@@ -5,19 +5,14 @@ on:
             - develop
 
 jobs:
-    clean:
-        name: Clean workspace
-        runs-on: raspberry
+    docker:
+        needs: clean
+        name: Push Docker Image
+        runs-on: high-performance
         if: github.event_name == 'pull_request'
         steps:
             - name: Tidy
               uses: AutoModality/action-clean@v1
-    docker:
-        needs: clean
-        name: Push Docker Image
-        runs-on: raspberry
-        if: github.event_name == 'pull_request'
-        steps:
             - name: Checkout repo
               uses: actions/checkout@v2
               with:
@@ -37,8 +32,6 @@ jobs:
             - name: Set current date as env variable
               run: echo "::set-output name=date::$(date +'%Y%m%d')"
               id: date
-            - name: Output var
-              run: echo "tags are:${{ steps.date.outputs.date }}"
             - name: Build and push
               uses: docker/build-push-action@v2
               with:
