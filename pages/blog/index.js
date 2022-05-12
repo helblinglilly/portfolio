@@ -20,11 +20,6 @@ export default function Blog(props) {
 			></SocialPreview>
 			<div className="column is-one-quarter">
 				{search(setSearchTerm, setTags, setYears)}
-				<div id="backToTopContainer" className="">
-					<a className="button hidden" id="backToTopButton" href="#navbar">
-						Back to top
-					</a>
-				</div>
 			</div>
 			<div className="column is-two-third" id="main-content">
 				<AllPosts
