@@ -6,7 +6,6 @@ on:
 
 jobs:
     docker:
-        needs: clean
         name: Push Docker Image
         runs-on: high-performance
         if: github.event_name == 'pull_request'
