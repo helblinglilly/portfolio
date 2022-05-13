@@ -17,9 +17,17 @@ export default function AboutMe() {
 			</figure>
 			<div className="pt-4">
 				<p className="title">About me</p>
-				<p>{biography}</p>
-				<div id="socialLinks" className="pt-3 pb-0">
-					<p className="subtitle">Socials</p>
+				<p>
+					Hi, I'm Joel, a 21 year old Swiss software engineer currently working
+					in Leeds, United Kingdom. I've lived in the UK since 2016 and studied
+					Computer Science in Canterbury, Kent.
+					<br />
+					My current role at NHS Digital is as part of the Primary Care Team
+					doing a combination of analytical work as well as rewriting
+					proprietary analytical tools in Python.
+				</p>
+				<div id="socialLinks" className="pt-3 pb-3">
+					<p className="title is-4 mb-2">Socials</p>
 					<div className="socialContainer" id="git">
 						<Image
 							src="/icons/git.svg"
@@ -97,8 +105,3 @@ export default function AboutMe() {
 		</div>
 	);
 }
-
-const biography = `Hi, I'm Joel and I'm currently 21 years old. 
-I'm a Swiss software engineer working in Leeds after having studied at the 
-University of Kent.\n
-In my current team at NHS Digital I was mostly focused on Cloud Devops work and writing new software in NodeJS.`;
