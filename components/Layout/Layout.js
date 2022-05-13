@@ -1,7 +1,5 @@
-import Head from "next/head";
 import Navbar from "../Navbar/Navbar";
 import { useEffect } from "react";
-import Script from "next/script";
 
 export default function Layout({ children }) {
 	useEffect(() => {
@@ -39,6 +37,11 @@ export default function Layout({ children }) {
 			<div>
 				<main className="p-6">
 					<div className="columns">{children}</div>
+					<div id="backToTopContainer">
+						<a className="button hidden" id="backToTopButton" href="#navbar">
+							Back to top
+						</a>
+					</div>
 				</main>
 			</div>
 		</div>

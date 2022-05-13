@@ -12,11 +12,6 @@ export default function BlogLayout({ children, ...pageProps }) {
 		<Layout home>
 			<div className="column is-one-quarter">
 				<TableOfContents entries={pageProps.toc}></TableOfContents>
-				<div id="backToTopContainer" className="">
-					<a className="button hidden" id="backToTopButton" href="#navbar">
-						Back to top
-					</a>
-				</div>
 			</div>
 
 			<article className="column">

@@ -16,11 +16,6 @@ export default function Home() {
 			></SocialPreview>
 			<div className="column is-one-quarter">
 				<Menu></Menu>
-				<div id="backToTopContainer">
-					<a className="button hidden" id="backToTopButton" href="#navbar">
-						Back to top
-					</a>
-				</div>
 			</div>
 			<div className="column mb-4" id="main-content">
 				<NHSDigital></NHSDigital>

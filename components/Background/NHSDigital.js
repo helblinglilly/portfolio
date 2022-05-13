@@ -28,14 +28,18 @@ export default function NHSDigital() {
 			<div className="pt-3" id="pathways">
 				<p className="title is-4 mb-2">Pathways</p>
 				<p>
-					During my first placement, I was in a product development role. My
-					role included the maintenance of existing products in sprints and
-					following Jira tickets. Besides maintaining existing products, I was
-					deploying a new product to the cloud. A fellow graduate of the
-					reporting team developed a dashboard to which I set up the surrounding
-					infrastructure. In this process, I completed different training
-					materials for AWS, learnt to integrate into a Kubernetes cluster, and
-					wrote IaC using Terraform.
+					During my first placement, I was in a product development role. I had
+					two main responsibilities: keep maintaining our existing products and
+					developing a new product that would be supporting an internal team. On
+					the maintenance side, I was using C# in an ASP.NET context, while the
+					new product was mostly devops work - building a new pipeline around
+					our existing infrastructure. I went from not having any devops
+					experience to becoming the expert in my team and giving presentations
+					around different elements of it towards the end. As the other team was
+					mostly waiting for the backbones of the application to be built and
+					being the lead developer on this project, I also learnt basi c product
+					management skills, managing stakeholder expectations and leading
+					meetings.
 				</p>
 			</div>
 		</>

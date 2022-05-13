@@ -11,12 +11,7 @@ export default function Navbar() {
 			<div className="navbar-brand">
 				<Link href="/">
 					<a className="navbar-item">
-						<Image
-							src="/images/is-light.png"
-							width={250}
-							height={50}
-							alt="Website Logo"
-						/>
+						<Image src="/images/is-light.png" width={250} height={50} />
 					</a>
 				</Link>
 				<a
