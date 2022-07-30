@@ -38,7 +38,11 @@ export default function Layout({ children }) {
 				<main className="p-6">
 					<div className="columns">{children}</div>
 					<div id="backToTopContainer">
-						<a className="button hidden" id="backToTopButton" href="#navbar">
+						<a
+							className="button hidden"
+							id="backToTopButton"
+							href="#navbar"
+						>
 							Back to top
 						</a>
 					</div>

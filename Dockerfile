@@ -3,6 +3,7 @@ ENV NODE_ENV=production
 RUN --mount=type=secret,id=TWITTER_TOKEN
 RUN export TWITTER_TOKEN=$(cat /run/secrets/TWITTER_TOKEN)
 RUN export GA_KEY=$(cat /run/secrets/GA_KEY)
+RUN export FETCHPREVIEW_TOKEN=$(cat /run/secrets/FETCHPREVIEW_TOKEN)
 
 COPY . ./
 RUN npm ci

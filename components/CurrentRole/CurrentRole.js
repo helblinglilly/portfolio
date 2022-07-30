@@ -2,32 +2,24 @@ export default function CurrentRole() {
 	return (
 		<div className="currentRole">
 			<p className="title">Current Role</p>
-			<p style={{ display: "inline" }}>Currently, I'm working on </p>
-			<a
-				href="https://digital.nhs.uk/services/nhs-pathways"
-				rel="noreferrer"
-				target="_blank"
-				style={{ display: "inline" }}
-			>
-				NHS Pathways
-			</a>
 			<p style={{ display: "inline" }}>
-				. This is about 50/50 between maintaining the existing products and
-				deploying a new product to the cloud.
+				I'm currently enrolled on the NHS Digital Graduate Scheme where
+				over the course of 2 years, I get to spend 6 months in different
+				teams across the organisation. So far I have been part of the
+				Pathways Development team where I did a lot of Software
+				Engineering and Devops work. I was maintaining C# web
+				applications while leading a project that gave me the
+				opportunity to learn more about AWS, CI/CD pipelines and
+				Infrastructure as Code.
 			</p>
 			<p>
-				The existing products are mostly built using C# utilising ASP.NET and I'm
-				working as part of a team. After learning the ropes, the service team that
-				has maintained them for the past 2 years have departed and a new team has
-				joined. This has caused a sudden change in dynamic, and I find myself
-				helping the new team get started.
-			</p>
-			<p>
-				The new product is being developed by the reporting team, and it is my
-				responsibility to deploy it to the cloud. We have existing infrastructure
-				in place, so I'm learning how to integrate it into an existing Kubernetes
-				cluster. At the same time, I'm learning to use Terraform to provision the
-				required AWS resources.
+				But since May I have been part of the Primary Care Analytical
+				team where I have been mostly concerned with GP Appointment
+				Data. I'm involved in improving data quality, carrying out
+				specific analytical pieces for external stakeholders, to
+				supporting the creation of some of our publications carrying out
+				specific analytical work, to supporting the creation of our
+				publications.
 			</p>
 		</div>
 	);
