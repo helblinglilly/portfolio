@@ -54,6 +54,11 @@ p {
 	overflow: hidden;
 }
 
+div.card-header-title {
+	background-color: var(--accent);
+	color: var(--secondary);
+}
+
 p.card-header-title {
 	color: var(--secondary);
 }

@@ -12,5 +12,5 @@ export default function LatestPost() {
 
 function latestPost() {
 	let posts = PostSummaries();
-	return posts.sort((a, b) => (a.date > b.date ? 1 : -1))[0];
+	return posts.sort((a, b) => (a.date < b.date ? 1 : -1))[0];
 }
