@@ -4,6 +4,11 @@ ENV NODE_ENV=production
 RUN --mount=type=secret,id=TWITTER_TOKEN
 RUN --mount=type=secret,id=GA_KEY
 RUN --mount=type=secret,id=FETCHPREVIEW_TOKEN
+RUN echo $(ls /usr/src/app)
+RUN echo $(ls /usr/src/)
+RUN echo $(ls /usr/)
+RUN mkdir /usr/src/app
+RUN touch /usr/src/app/.env
 RUN echo TWITTER_TOKEN=$(cat /run/secrets/TWITTER_TOKEN) >> /usr/src/app/.env
 RUN echo GA_KEY=$(cat /run/secrets/GA_KEY) >> /usr/src/app/.env
 RUN echo FETCHPREVIEW_TOKEN=$(cat /run/secrets/FETCHPREVIEW_TOKEN) >> /usr/src/app/.env
