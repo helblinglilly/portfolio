@@ -13,7 +13,7 @@ export default function Post({ ...props }) {
 	return (
 		<BlogLayout name={"homeserver-pi"} toc={toc}>
 			<SocialPreview
-				title="Homeserver - Blog Post"
+				title="Pi Homeserver - Blog"
 				description="A place to write custom apps on the network, block ads, run sponsorblock for my Chromecast devices, store a plex library and use it as local network storage. Find out how I've harnessed the power of Docker and a Raspberry Pi 3B+ to enjoy all the flexibility in a tiny, power-efficient, quiet package."
 			></SocialPreview>
 

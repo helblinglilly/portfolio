@@ -13,7 +13,7 @@ export default function Post() {
 	return (
 		<BlogLayout name={"aws-summit-2022"} toc={toc}>
 			<SocialPreview
-				title="AWS Summit 2022 - Blog Post"
+				title="AWS Summit 2022 - Blog"
 				description="My first conference that I was able to attend. There were talks to attend, companies to be learnt about, merchandise to be collected and new connections to be made. In this post I summarise my experience, try to capture everything I've learnt, and what I would do differently next time"
 				previewImage="https://helbling.uk/images/posts/2022/aws-summit-2022/cover.jpeg"
 			></SocialPreview>

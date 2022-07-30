@@ -64,7 +64,7 @@ sudo service apache2 reload`;
 	return (
 		<BlogLayout name={"r-has-a-problem"} toc={toc}>
 			<SocialPreview
-				title="R has a problem - Joel Helbling"
+				title="R has a problem - Blog"
 				description="In my work I had to deploy an R Shiny application. Familiar with more traditional programming languages I thought adapting to R-Shiny would be a smooth transition, especially as I would not have much involvement with it. However, the further we got in the project the more obvious its flaws became."
 			></SocialPreview>
 			<section className="mt-4" id="introduction">
