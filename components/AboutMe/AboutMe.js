@@ -1,6 +1,10 @@
 import Image from "next/image";
 
 export default function AboutMe() {
+	const ageDiff = Date.now() - new Date("11 April 2001");
+	const ageDate = new Date(ageDiff);
+	const age = Math.abs(ageDate.getUTCFullYear() - 1970);
+
 	return (
 		<div className="sidebar">
 			<figure className="image has-text-centered">
@@ -18,13 +22,14 @@ export default function AboutMe() {
 			<div className="pt-4">
 				<p className="title">About me</p>
 				<p>
-					Hi, I'm Joel, a 21 year old Swiss software engineer currently working
-					in Leeds, United Kingdom. I've lived in the UK since 2016 and studied
-					Computer Science in Canterbury, Kent.
+					Hi, I'm Joel, a {age} year old Swiss software engineer
+					currently working in Leeds, United Kingdom. I've lived in
+					the UK since 2016 and studied Computer Science in
+					Canterbury, Kent.
 					<br />
-					My current role at NHS Digital is as part of the Primary Care Team
-					doing a combination of analytical work as well as rewriting
-					proprietary analytical tools in Python.
+					My current role at NHS Digital is as part of the Primary
+					Care Team doing a combination of analytical work as well as
+					rewriting proprietary analytical tools in Python.
 				</p>
 				<div id="socialLinks" className="pt-3 pb-3">
 					<p className="title is-4 mb-2">Socials</p>

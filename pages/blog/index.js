@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import Layout from "../../components/Layout/Layout";
 import LatestTweets from "../../components/Tweets/LatestTweets";
 import AllPosts, { PostSummaries } from "../../components/Blog/AllPosts";
@@ -87,10 +86,15 @@ function searchCard(setSearchTerm, setTags, setYears) {
 										type="checkbox"
 										onChange={(event) => {
 											if (event.target.checked)
-												setYears((years) => [...years, year]);
+												setYears((years) => [
+													...years,
+													year,
+												]);
 											else
 												setYears((years) =>
-													years.filter((item) => item !== year)
+													years.filter(
+														(item) => item !== year
+													)
 												);
 										}}
 									/>
@@ -112,10 +116,15 @@ function searchCard(setSearchTerm, setTags, setYears) {
 										type="checkbox"
 										onChange={(event) => {
 											if (event.target.checked)
-												setTags((tags) => [...tags, tag]);
+												setTags((tags) => [
+													...tags,
+													tag,
+												]);
 											else
 												setTags((tags) =>
-													tags.filter((item) => item !== tag)
+													tags.filter(
+														(item) => item !== tag
+													)
 												);
 										}}
 									/>

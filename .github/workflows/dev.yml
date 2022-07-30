@@ -63,3 +63,11 @@ jobs:
               run:
                   docker run -p 3001:3000 -d --name dev-portfolio --stop-timeout 7200 --rm
                   helblingjoel/portfolio:dev-${{ steps.date.outputs.date }}
+    stop:
+        needs: restart
+        name: Send stop command
+        runs-on: pineapple
+        if: github.event_name == 'pull_request'
+        steps:
+            - name: Send stop command
+              run: docker stop dev-portfolio &

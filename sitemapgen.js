@@ -64,8 +64,12 @@ function main() {
 			}</lastmod><priority>${entry.priority}</priority></url>`;
 		});
 		writeString += xmlFoot;
-		fs.writeFileSync(__dirname + "/public/sitemap.xml", writeString, "utf-8");
-		console.log("done");
+		fs.writeFileSync(
+			__dirname + "/public/sitemap.xml",
+			writeString,
+			"utf-8"
+		);
+		console.log("Generated sitemap");
 	});
 }
 main();
