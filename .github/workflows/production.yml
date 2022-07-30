@@ -3,7 +3,6 @@ on:
     pull_request:
         branches:
             - main
-
 jobs:
     clean:
         name: Clean workspace
@@ -71,6 +70,6 @@ jobs:
                   true
             - name: Start container
               run:
-                  docker run -p 3000:3000 -d --name portfolio --restart unless-stopped -e
+                  docker run -p 3000:3000 -d --name portfolio --restart unless-stopped -
                   TWITTER_TOKEN=${{ secrets.TWITTER_TOKEN }} -e FETCHPREVIEW_TOKEN=${{ secrets.FETCHPREVIEW_TOKEN}} helblingjoel/portfolio:${{
                   steps.date.outputs.date }}

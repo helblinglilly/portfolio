@@ -2,7 +2,6 @@ import BlogLayout from "../../../components/Layout/BlogPost";
 import SocialPreview from "../../../components/SocialPreview/SocialPreview";
 import Preview from "../../../components/LinkPreview";
 import Image from "next/image";
-import Link from "next/link";
 
 export default function Post({ ...props }) {
 	const toc = [];
@@ -69,7 +68,7 @@ export default function Post({ ...props }) {
 						</p>
 					</div>
 					<div className="column is-half">
-						<a href={props.url} target="_blank">
+						<a href={props.url} target="_blank" rel="noreferrer">
 							<div className="card m-5">
 								<div className="card-header">
 									<div className="card-header-title">
@@ -119,7 +118,11 @@ export default function Post({ ...props }) {
 				<h4 className="title is-4 mb-2 mt-3">Pihole</h4>
 				<p>
 					An absolute must-have.{" "}
-					<a href="https://pi-hole.net/" target="_blank">
+					<a
+						href="https://pi-hole.net/"
+						target="_blank"
+						rel="noreferrer"
+					>
 						Pihole
 					</a>{" "}
 					is an easy-to-use method of setting up ad-blocking on your
@@ -175,7 +178,11 @@ export default function Post({ ...props }) {
 				</div>
 				<h4 className="title is-4 mb-2 mt-3">Plex</h4>
 				<p>
-					<a href="https://www.plex.tv/" target="_blank">
+					<a
+						href="https://www.plex.tv/"
+						target="_blank"
+						rel="noreferrer"
+					>
 						Plex
 					</a>{" "}
 					allows you to store media on your NAS and watch it anywhere

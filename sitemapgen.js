@@ -69,7 +69,7 @@ function main() {
 			writeString,
 			"utf-8"
 		);
-		console.log("done");
+		console.log("Generated sitemap");
 	});
 }
 main();
