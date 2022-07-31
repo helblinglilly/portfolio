@@ -7,7 +7,7 @@ on:
 jobs:
     docker:
         name: Push Docker Image
-        runs-on: pineapple
+        runs-on: build-server
         if: github.event_name == 'pull_request'
         steps:
             - name: Tidy
@@ -38,7 +38,6 @@ jobs:
                   tags: helblingjoel/portfolio:dev-${{ steps.date.outputs.date }}
                   cache-from: type=registry,ref=helblingjoel/portfolio:buildcache
                   cache-to: type=registry,ref=helblingjoel/portfolio:buildcache,mode=max
-
     restart:
         needs: docker
         name: Redeploy
