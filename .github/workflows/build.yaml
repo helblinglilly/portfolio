@@ -1,0 +1,26 @@
+name: Main
+
+on:
+    pull_request:
+        branches:
+            - develop
+
+jobs:
+    validate:
+        name: Attempt to build
+        runs-on: pineapple
+        if: github.event_name == 'pull_request'
+        steps:
+            - name: Install dependencies
+              run: npm ci
+            - name: Install sharp
+              run: npm install sharp -g
+            - name: Try to build
+              run: npm run build
+    tidy:
+        name: Tidy up
+        runs-on: pineapple
+        needs: validate
+        steps:
+            - name: Delete directory contents
+              run: rm -rf .
