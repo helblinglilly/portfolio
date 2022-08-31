@@ -51,6 +51,17 @@ posts.push(
 	).toObject
 );
 
+posts.push(
+	new PostPreview(
+		"vercel",
+		"Moving to Vercel",
+		"With Heroku making the news recently about removing their free-tier plan, I thought it would be interesting to look into the Platform as a service space. Much to my surprise, it was a lot easier than I anticipated.",
+		new Date("2022-08-31"),
+		[{ name: "Cloud", color: "cloud" }],
+		"thumbnail.png"
+	).toObject
+);
+
 export default function AllPosts({ posts }) {
 	return (
 		<>
