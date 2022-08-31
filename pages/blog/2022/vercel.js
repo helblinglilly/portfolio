@@ -40,7 +40,7 @@ fi`;
 					<a
 						href="https://twitter.com/heroku/status/1562817050565054469?s=20&t=SBRFdmRRi4_JFPvtUIH_wg"
 						target="_blank"
-						referrer="none"
+						rel="noreferrer"
 					>
 						removed their free tier plan
 					</a>{" "}
@@ -53,7 +53,7 @@ fi`;
 					<a
 						href="https://vercel.com/"
 						target="_blank"
-						referrer="none"
+						rel="noreferrer"
 					>
 						Vercel
 					</a>
