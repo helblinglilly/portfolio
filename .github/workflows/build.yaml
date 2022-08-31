@@ -1,4 +1,4 @@
-name: Main
+name: Build site
 
 on:
     pull_request:
@@ -23,4 +23,4 @@ jobs:
         needs: validate
         steps:
             - name: Delete directory contents
-              run: rm -rf .
+              run: rm -r *
