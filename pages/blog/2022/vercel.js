@@ -46,10 +46,10 @@ fi`;
 					</a>{" "}
 					and while I wasn't a customer with them, it seems like lots
 					of people on my Twitter feed were. Because of that, more of
-					these "Hosting as a service" providers started to come to my
-					attention. I thought it can't hurt to see what all the noise
-					was about and as my website is built with NextJS I thought
-					it would be good to take a look at{" "}
+					these "Platform as a service" providers started to come to
+					my attention. I thought it can't hurt to see what all the
+					noise was about and as my website is built with NextJS I
+					thought it would be good to take a look at{" "}
 					<a
 						href="https://vercel.com/"
 						target="_blank"
