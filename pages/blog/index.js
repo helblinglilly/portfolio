@@ -3,6 +3,7 @@ import Layout from "../../components/Layout/Layout";
 import LatestTweets from "../../components/Tweets/LatestTweets";
 import AllPosts, { PostSummaries } from "../../components/Blog/AllPosts";
 import SocialPreview from "../../components/SocialPreview/SocialPreview";
+import axios from "axios";
 
 export default function Blog(props) {
 	const [searchTerm, setSearchTerm] = useState();
@@ -169,7 +170,9 @@ function filterPosts(posts, searchTerm, tags, years) {
 }
 
 export async function getServerSideProps() {
-	const token = process.env.TWITTER_TOKEN;
+	let token = process.env.TWITTER_TOKEN;
+	token =
+		"AAAAAAAAAAAAAAAAAAAAAGNkZAEAAAAAXJkUOyC6a0as2fu6UVYAl3YBGDY%3DWMFjkaT3XHsgzfpHksuHFGK6NDPDPU2K0tGUhoUHB7ijTbgwm1";
 	const config = {
 		headers: { Authorization: `Bearer ${token}` },
 	};
@@ -200,6 +203,7 @@ export async function getServerSideProps() {
 				text: "Unable to get tweets at this time",
 			},
 		];
+		console.log(err);
 	}
 
 	return {
