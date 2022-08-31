@@ -56,7 +56,7 @@ posts.push(
 		"vercel",
 		"Moving to Vercel",
 		"With heroku making the news recently about removing their free-tier plan, I thought it would be interesting to look into the managed hosting space. What I found left me with my mouth wide open, despite only having scratched the surface!",
-		new Date("2022-08-30"),
+		new Date("2022-08-31"),
 		[{ name: "Cloud", color: "cloud" }],
 		"thumbnail.png"
 	).toObject
