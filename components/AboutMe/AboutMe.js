@@ -27,9 +27,8 @@ export default function AboutMe() {
 					the UK since 2016 and studied Computer Science in
 					Canterbury, Kent.
 					<br />
-					My current role at NHS Digital is as part of the Primary
-					Care Team doing a combination of analytical work as well as
-					rewriting proprietary analytical tools in Python.
+					At the moment, I'm part of NHS Pathways where I'm working as
+					a Graduate Software Developer
 				</p>
 				<div id="socialLinks" className="pt-3 pb-3">
 					<p className="title is-4 mb-2">Socials</p>
