@@ -5,21 +5,24 @@ export default function CurrentRole() {
 			<p style={{ display: "inline" }}>
 				I'm currently enrolled on the NHS Digital Graduate Scheme where
 				over the course of 2 years, I get to spend 6 months in different
-				teams across the organisation. So far I have been part of the
-				Pathways Development team where I did a lot of Software
-				Engineering and Devops work. I was maintaining C# web
-				applications while leading a project that gave me the
-				opportunity to learn more about AWS, CI/CD pipelines and
-				Infrastructure as Code.
+				teams across the organisation. After spending 8 weeks in a
+				Javascript boot camp, I joined the Pathways development team as
+				a Software Engineer maintaining C# applications, carrying out QA
+				duties, and leading a project where I got to learn about AWS,
+				DevOps and Infrastructure as Code. In May 2022 I joined the
+				Primary Care Domain team as an Information Analyst where I
+				supported the team by improving data quality and carrying out
+				one-off analytical tasks for external stakeholders. I also
+				supported the upskilling of the team with Git and Python as well
+				as producing publications for the NHS Digital website.
 			</p>
 			<p>
-				But since May I have been part of the Primary Care Analytical
-				team where I have been mostly concerned with GP Appointment
-				Data. I'm involved in improving data quality, carrying out
-				specific analytical pieces for external stakeholders, to
-				supporting the creation of some of our publications carrying out
-				specific analytical work, to supporting the creation of our
-				publications.
+				In October I rejoined the Pathways team in my previous role. I'm
+				leading that same project again which had to be put on hold in
+				my absence and supporting the move of our existing products to
+				AWS. My previous experience in the team has enabled me to slot
+				back in with next to no delay - I am actively contributing to
+				projects and supporting other developers as well as the QA team.
 			</p>
 		</div>
 	);
