@@ -6,8 +6,6 @@ import TableOfContents from "../Blog/tableOfContents";
 import { toMMDDYYY } from "../../utils";
 
 export default function BlogLayout({ children, ...pageProps }) {
-	const meta = GetPostMetadata(pageProps.name);
-
 	return (
 		<Layout home>
 			<div className="column is-one-quarter">
@@ -15,9 +13,9 @@ export default function BlogLayout({ children, ...pageProps }) {
 			</div>
 
 			<article className="column">
-				{meta.titleImage ? (
+				{pageProps.thumbnail ? (
 					<Image
-						src={meta.titleImage}
+						src={pageProps.thumbnail}
 						layout="responsive"
 						width="1280"
 						height="720"
@@ -31,7 +29,7 @@ export default function BlogLayout({ children, ...pageProps }) {
 				)}
 
 				<section className="postoverview mt-4">
-					<h1 className="title is-1">{meta.title}</h1>
+					<h1 className="title is-1">{pageProps.title}</h1>
 					<hr className="mb-1"></hr>
 					<div className="post-meta">
 						<i>
@@ -39,10 +37,12 @@ export default function BlogLayout({ children, ...pageProps }) {
 								<time
 									pubdate="true"
 									dateTime={
-										toMMDDYYY(meta.date).toISOString().split("T")[0]
+										new Date(pageProps.date)
+											.toISOString()
+											.split("T")[0]
 									}
 								>
-									{meta.date}
+									{new Date(pageProps.date).toISOString()}
 								</time>
 								,
 								<a

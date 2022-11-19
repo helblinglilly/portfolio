@@ -1,14 +1,14 @@
+import React from "react";
 import Head from "next/head";
 import Script from "next/script";
+import { BlogMetaInfo } from "../Blog/Types";
 
-export default function SocialPreview(props) {
-	const title = props.title;
-	const description = props.description;
-	const author = props.author ? props.author : "Joel Helbling";
-	const previewImage = props.previewImage
-		? props.previewImage
+export default function SocialPreview(metaInfo: BlogMetaInfo) {
+	const themeColor = "#8D0370";
+	const previewImage = metaInfo.cover
+		? metaInfo.cover
 		: "https://helbling.uk/images/social_preview.png";
-	const themeColor = props.themeColor ? props.themeColor : "#8D0370";
+
 	return (
 		<>
 			<Script
@@ -32,22 +32,25 @@ export default function SocialPreview(props) {
 					content="width=device-width,initial-scale=1,maximum-scale=2,shrink-to-fit=no"
 				/>
 
-				<title>{title}</title>
-				<meta name="author" content={author} />
+				<title>{metaInfo.title}</title>
+				<meta name="author" content={metaInfo.authorName} />
 				<meta name="theme-color" content={themeColor} />
-				<meta name="title" content={title} />
-				<meta name="description" content={description} />
+				<meta name="title" content={metaInfo.title} />
+				<meta name="description" content={metaInfo.summary} />
 
-				<meta property="og:title" content={title} />
-				<meta property="og:description" content={description} />
+				<meta property="og:title" content={metaInfo.title} />
+				<meta property="og:description" content={metaInfo.summary} />
 				<meta property="og:type" content="website" />
 				<meta property="og:url" content="https://helbling.uk/" />
 				<meta property="og:image" content={previewImage} />
 				<meta property="og:image:type" content="image/png" />
 
 				<meta property="twitter:url" content="https://helbling.uk/" />
-				<meta property="twitter:title" content={title} />
-				<meta property="twitter:description" content={description} />
+				<meta property="twitter:title" content={metaInfo.title} />
+				<meta
+					property="twitter:description"
+					content={metaInfo.summary}
+				/>
 				<meta property="twitter:image" content={previewImage} />
 				<meta name="twitter:card" content="summary_large_image" />
 			</Head>

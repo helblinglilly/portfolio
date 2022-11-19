@@ -2,20 +2,42 @@ import BlogLayout from "../../../components/Layout/BlogPost";
 import SocialPreview from "../../../components/SocialPreview/SocialPreview";
 import Preview from "../../../components/LinkPreview";
 import Image from "next/image";
+import React from "react";
+import { BlogMetaInfo } from "../../../components/Blog/Types";
 
-export default function Post({ ...props }) {
-	const toc = [];
-	toc.push({ title: "Motivation", id: "motivation" });
-	toc.push({ title: "Setup", id: "setup" });
-	toc.push({ title: "Applications", id: "applications" });
-	toc.push({ title: "Limitations", id: "limitations" });
+export const HomeserverPiMeta: BlogMetaInfo = {
+	link: "/blog/2022/homeserver-pi",
+	title: "My Pi home server",
+	summary: `A place to write custom apps on the network, block ads, run sponsorblock for my Chromecast devices, store a plex library and use it as local network storage. Find out how I've harnessed the power of Docker and a Raspberry Pi 3B+ to enjoy all the flexibility in a tiny, power-efficient, quiet package.`,
+	created: JSON.parse(JSON.stringify(new Date("2022-07-30"))),
+	thumbnail: "/images/posts/2022/homeserver-pi/thumbnail.png",
+	authorName: "Joel Helbling",
+	authorLink: "https://helbling.uk",
+	tags: [
+		{ name: "Raspberry Pi", color: "pi" },
+		{ name: "Docker", color: "docker" },
+	],
+	tableOfContents: [
+		{ title: "Motivation", id: "motivation" },
+		{ title: "Setup", id: "setup" },
+		{ title: "Applications", id: "applications" },
+		{ title: "Limitations", id: "limitations" },
+	],
+	cover: null,
+};
 
+export default function HomeserverPi({ ...props }) {
 	return (
-		<BlogLayout name={"homeserver-pi"} toc={toc}>
+		<BlogLayout
+			title={props.meta.title}
+			toc={props.meta.tableOfContents}
+			date={props.meta.created}
+			thumbnail={props.meta.thumbnail}
+		>
 			<SocialPreview
 				title="Pi Homeserver - Blog"
-				description="A place to write custom apps on the network, block ads, run sponsorblock for my Chromecast devices, store a plex library and use it as local network storage. Find out how I've harnessed the power of Docker and a Raspberry Pi 3B+ to enjoy all the flexibility in a tiny, power-efficient, quiet package."
-			></SocialPreview>
+				description={props.meta.summary}
+			/>
 
 			<section className="mt-4" id="motivation">
 				<h3 className="title is-3 mb-2">Motivation</h3>
@@ -68,7 +90,11 @@ export default function Post({ ...props }) {
 						</p>
 					</div>
 					<div className="column is-half">
-						<a href={props.url} target="_blank" rel="noreferrer">
+						<a
+							href={props.preview.url}
+							target="_blank"
+							rel="noreferrer"
+						>
 							<div className="card m-5">
 								<div className="card-header">
 									<div className="card-header-title">
@@ -78,7 +104,7 @@ export default function Post({ ...props }) {
 								<div className="card-image">
 									<figure className="image is-2by1">
 										<img
-											src={props.image}
+											src={props.preview.image}
 											alt="Placeholder image"
 											width={1200}
 											height={600}
@@ -86,7 +112,7 @@ export default function Post({ ...props }) {
 									</figure>
 								</div>
 								<div className="card-content">
-									<p>{props.description}</p>
+									<p>{props.preview.description}</p>
 								</div>
 							</div>
 						</a>
@@ -432,10 +458,15 @@ export async function getStaticProps() {
 
 	return {
 		props: {
-			title: preview.title,
-			description: preview.description,
-			image: preview.image,
-			url: preview.url,
+			preview: {
+				title: preview.title,
+				description: preview.description,
+				image: preview.image,
+				url: preview.url,
+			},
+			meta: {
+				...HomeserverPiMeta,
+			},
 		},
 	};
 }

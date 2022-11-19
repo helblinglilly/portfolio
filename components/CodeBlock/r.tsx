@@ -1,5 +1,6 @@
 import hljs from "highlight.js";
 import r from "highlight.js/lib/languages/r";
+import React from "react";
 
 hljs.registerLanguage("r", r);
 

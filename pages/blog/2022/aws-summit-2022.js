@@ -1,5 +1,4 @@
 import BlogLayout from "../../../components/Layout/BlogPost";
-import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import SocialPreview from "../../../components/SocialPreview/SocialPreview";
@@ -125,20 +124,16 @@ export default function Post() {
 					micro-services, and how to manage your containers. They even
 					gave a demonstration of using{" "}
 					<Link href="https://aws.amazon.com/eks/">
-						<a>Elastic Kubernetes Service (EKS)</a>
+						Elastic Kubernetes Service (EKS)
 					</Link>
 					. I already have experience with using a Kubernetes cluster,
 					so while I was already familiar with most of the content, I
 					did get to have that validation that I was using it
 					correctly and got a run-down that was much more approachable
 					than any training materials I covered on{" "}
-					<Link href="https://www.pluralsight.com/">
-						<a>Pluralsight</a>
-					</Link>{" "}
+					<Link href="https://www.pluralsight.com/">Pluralsight</Link>{" "}
 					and{" "}
-					<Link href="https://www.aws.training/">
-						<a>AWS' training</a>
-					</Link>{" "}
+					<Link href="https://www.aws.training/">AWS' training</Link>{" "}
 					resources.
 				</p>
 				<h5 className="title is-5 mb-2">
@@ -148,7 +143,7 @@ export default function Post() {
 					This talk was effectively my vindication of a conversation I
 					had with my manager. In my research, I stumbled across{" "}
 					<Link href="https://aws.amazon.com/dms/">
-						<a>AWS Data Migration Service (DMS)</a>
+						AWS Data Migration Service (DMS)
 					</Link>{" "}
 					which fits the bill perfectly for a task that we had to do.
 					Because we decided against using DMS, we had to manually
@@ -170,17 +165,15 @@ export default function Post() {
 					This talk has blown me away, but it was also the biggest
 					disappointment. We got introduced to{" "}
 					<Link href="https://aws.amazon.com/amplify/">
-						<a>AWS Amplify</a>
+						AWS Amplify
 					</Link>
 					. While not of the most use to existing companies, this
 					would be fantastic for a startup.
 					<br />
 					Effectively, you can take an existing mockup from{" "}
-					<Link href="https://www.figma.com/">
-						<a>Figma</a>
-					</Link>
-					, and Amplify will turn it into a ReactJS application for
-					you. As a developer, you only need to be concerned with the
+					<Link href="https://www.figma.com/">Figma</Link>, and
+					Amplify will turn it into a ReactJS application for you. As
+					a developer, you only need to be concerned with the
 					front-end. Amplify will build a whole pipeline with
 					different environments for you so you can develop, perform
 					QA and eventually deploy to production without ever having
@@ -189,7 +182,7 @@ export default function Post() {
 					can just directly store your JS objects and retrieve them
 					from a datastore. Under the hood, Amplify will set up a{" "}
 					<Link href="https://aws.amazon.com/dynamodb/">
-						<a>DynamoDB</a>
+						DynamoDB
 					</Link>{" "}
 					database for you. So while it is important to know what
 					Amplify will do under the hood, it can still reduce the Time

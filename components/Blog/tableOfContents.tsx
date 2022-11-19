@@ -1,10 +1,14 @@
+import React from "react";
+
 export default function TableOfContents({ entries }) {
 	return (
 		<aside className="menu">
 			<ul className="menu-list">
 				<p className="menu-label">Table of Contents</p>
 				<li>
-					<ul>{entries.map((entry) => item(entry.title, entry.id))}</ul>
+					<ul>
+						{entries.map((entry) => item(entry.title, entry.id))}
+					</ul>
 				</li>
 			</ul>
 		</aside>
