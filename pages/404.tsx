@@ -1,9 +1,9 @@
-import Layout from "../components/Layout/Layout";
+import Layout from "../Layouts/Layout";
 import Head from "next/head";
 
 export default function Custom404() {
 	return (
-		<Layout home>
+		<Layout>
 			<Head>
 				<title>Page not found</title>
 				<meta name="title" content="This page does not exist" />

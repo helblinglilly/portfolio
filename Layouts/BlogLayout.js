@@ -1,25 +1,25 @@
 import Layout from "./Layout";
-import { GetPostMetadata } from "../Blog/AllPosts";
-import Head from "next/head";
 import Image from "next/image";
-import TableOfContents from "../Blog/tableOfContents";
-import { toMMDDYYY } from "../../utils";
+import TableOfContents from "../components/Blog/tableOfContents";
 
 export default function BlogLayout({ children, ...pageProps }) {
+	const meta = pageProps.metaInfo;
 	return (
 		<Layout home>
 			<div className="column is-one-quarter">
-				<TableOfContents entries={pageProps.toc}></TableOfContents>
+				<TableOfContents
+					entries={meta.tableOfContents}
+				></TableOfContents>
 			</div>
 
 			<article className="column">
-				{pageProps.thumbnail ? (
+				{meta.cover ? (
 					<Image
-						src={pageProps.thumbnail}
+						src={meta.cover}
 						layout="responsive"
 						width="1280"
 						height="720"
-						alt="Keynote Start"
+						alt="Blog Post cover image"
 						priority={true}
 						placeholder={"blur"}
 						blurDataURL={"/../../images/icon-transparent.png"}
@@ -29,28 +29,26 @@ export default function BlogLayout({ children, ...pageProps }) {
 				)}
 
 				<section className="postoverview mt-4">
-					<h1 className="title is-1">{pageProps.title}</h1>
+					<h1 className="title is-1">{meta.title}</h1>
 					<hr className="mb-1"></hr>
 					<div className="post-meta">
 						<i>
 							<address className="author">
 								<time
 									pubdate="true"
-									dateTime={
-										new Date(pageProps.date)
-											.toISOString()
-											.split("T")[0]
-									}
+									dateTime={meta.created.split("T")[0]}
 								>
-									{new Date(pageProps.date).toISOString()}
+									{new Date(
+										meta.created
+									).toLocaleDateString()}
 								</time>
 								,
 								<a
 									rel="author"
-									href="https://helbling.uk"
+									href={meta.authorLink}
 									className="ml-1"
 								>
-									Joel Helbling
+									{meta.authorName}
 								</a>
 							</address>
 						</i>

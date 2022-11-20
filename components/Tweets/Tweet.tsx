@@ -1,6 +1,7 @@
 import { formatDate } from "../../utils";
+import { Tweet } from "../Blog/Types";
 
-export function Tweet(tweet) {
+export function Tweet(tweet: Tweet) {
 	const link = `https://twitter.com/_helblingjoel/status/${tweet.id}`;
 
 	return (
@@ -17,7 +18,10 @@ export function Tweet(tweet) {
 				<p>{tweet.text}</p>
 			</div>
 			<a href={link} target="_blank" rel="noreferrer">
-				<div className="card-footer has-text-centred" key={"link" + tweet.id}>
+				<div
+					className="card-footer has-text-centred"
+					key={"link" + tweet.id}
+				>
 					<div className="card-footer-item accented tweet">
 						<p>View on Twitter</p>
 					</div>

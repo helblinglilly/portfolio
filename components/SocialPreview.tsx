@@ -1,12 +1,13 @@
 import React from "react";
 import Head from "next/head";
 import Script from "next/script";
-import { BlogMetaInfo } from "../Blog/Types";
+import { MetaInfoProps } from "./Blog/Types";
 
-export default function SocialPreview(metaInfo: BlogMetaInfo) {
+export default function SocialPreview({ ...metaInfo }: MetaInfoProps) {
+	const meta = metaInfo.metaInfo;
 	const themeColor = "#8D0370";
-	const previewImage = metaInfo.cover
-		? metaInfo.cover
+	const previewImage = meta.cover
+		? meta.cover
 		: "https://helbling.uk/images/social_preview.png";
 
 	return (
@@ -32,24 +33,24 @@ export default function SocialPreview(metaInfo: BlogMetaInfo) {
 					content="width=device-width,initial-scale=1,maximum-scale=2,shrink-to-fit=no"
 				/>
 
-				<title>{metaInfo.title}</title>
-				<meta name="author" content={metaInfo.authorName} />
+				<title>{meta.title}</title>
+				<meta name="author" content={meta.authorName} />
 				<meta name="theme-color" content={themeColor} />
-				<meta name="title" content={metaInfo.title} />
-				<meta name="description" content={metaInfo.summary} />
+				<meta name="title" content={meta.title} />
+				<meta name="description" content={meta.socialSummary} />
 
-				<meta property="og:title" content={metaInfo.title} />
-				<meta property="og:description" content={metaInfo.summary} />
+				<meta property="og:title" content={meta.title} />
+				<meta property="og:description" content={meta.socialSummary} />
 				<meta property="og:type" content="website" />
 				<meta property="og:url" content="https://helbling.uk/" />
 				<meta property="og:image" content={previewImage} />
 				<meta property="og:image:type" content="image/png" />
 
 				<meta property="twitter:url" content="https://helbling.uk/" />
-				<meta property="twitter:title" content={metaInfo.title} />
+				<meta property="twitter:title" content={meta.title} />
 				<meta
 					property="twitter:description"
-					content={metaInfo.summary}
+					content={meta.socialSummary}
 				/>
 				<meta property="twitter:image" content={previewImage} />
 				<meta name="twitter:card" content="summary_large_image" />

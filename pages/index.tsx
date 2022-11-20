@@ -1,34 +1,37 @@
-import Layout from "../components/Layout/Layout";
+import Layout from "../Layouts/Layout";
 import LatestPost from "../components/Blog/LatestPost";
-import SocialPreview from "../components/SocialPreview/SocialPreview";
+import SocialPreview from "../components/SocialPreview";
 import Image from "next/image";
+import React from "react";
+import { MetaInfo } from "../components/Blog/Types";
 
 export default function Home() {
 	const description =
 		"Joel Helbling, Graduate Developer at NHS Digital based in the UK. Computer Science graduate from Uni of Kent";
-	const ageDiff = Date.now() - new Date("11 April 2001");
+	const ageDiff = Date.now() - new Date("11 April 2001").valueOf();
 	const ageDate = new Date(ageDiff);
 	const age = Math.abs(ageDate.getUTCFullYear() - 1970);
 	const previousLocation = `Previously, I lived in Kent during my studies and before moving to the UK I lived in Schaffhausen, Switzerland`;
 
+	const metaInfo: MetaInfo = {
+		title: "Joel Helbling",
+		authorName: "Joel Helbling",
+		socialSummary: description,
+		cover: null,
+	};
+
 	return (
-		<Layout home>
-			<SocialPreview
-				title="Joel Helbling"
-				description={description}
-			></SocialPreview>
+		<Layout>
+			<SocialPreview metaInfo={metaInfo} />
 			<div className="column is-one-quarter" id="main-content">
 				<div className="sidebar">
 					<figure className="image has-text-centered">
 						<Image
 							src="/images/professional.jpg"
+							alt="Profile picture"
+							width="250"
+							height="250"
 							id="profile"
-							width={250}
-							height={250}
-							alt="Profile Picture"
-							priority={true}
-							placeholder={"blur"}
-							blurDataURL={"images/icon-transparent.png"}
 						/>
 					</figure>
 					<div className="pt-4">

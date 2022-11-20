@@ -1,38 +1,50 @@
-import BlogLayout from "../../../components/Layout/BlogPost";
-import SocialPreview from "../../../components/SocialPreview/SocialPreview";
+import BlogLayout from "../../../Layouts/BlogLayout";
+import SocialPreview from "../../../components/SocialPreview";
 import BashCodeBlock from "../../../components/CodeBlock/bash";
 import Image from "next/image";
 import Link from "next/link";
+import { BlogMetaInfo, BlogProps } from "../../../components/Blog/Types";
 
-export default function Post({ ...props }) {
-	const toc = [];
-	toc.push({ title: "Background", id: "background" });
-	toc.push({ title: "Setup", id: "setup" });
-	toc.push({ title: "Build what you need", id: "build-what-you-need" });
-	toc.push({ title: "Moving to production", id: "production" });
+export const VercelMeta: BlogMetaInfo = {
+	link: "/blog/2022/vercel",
+	title: "Move to Vercel",
+	socialSummary: `With Heroku making the news recently about removing their free-tier plan, I thought it would be interesting to look into the Platform as a service space. Much to my surprise, it was a lot easier than I anticipated.`,
+	blogSummary: `My shockingly easy experience with the move to Vercel"`,
+	created: JSON.parse(JSON.stringify(new Date("2022-08-31"))),
+	thumbnail: "",
+	authorName: "Joel Helbling",
+	authorLink: "https://helbling.uk",
+	tags: [{ name: "Cloud", color: "cloud" }],
+	tableOfContents: [
+		{ title: "Background", id: "background" },
+		{ title: "Setup", id: "setup" },
+		{ title: "Build what you need", id: "build-what-you-need" },
+		{ title: "Moving to production", id: "production" },
+	],
+	cover: null,
+};
 
-	const vercelScript = {};
-	vercelScript.filename = "vercel.sh";
-	vercelScript.code = `#!/bin/bash
+export default function Post() {
+	const vercelScript = {
+		filename: "vercel.sh",
+		code: `#!/bin/bash
 echo "VERCEL_GIT_COMMIT_REF: $VERCEL_GIT_COMMIT_REF"
 
 if [ "$VERCEL_GIT_COMMIT_REF" == "main" ]; then
-  echo "✅ - Building and deploying to helbling.uk"
-  exit 1;
+	echo "✅ - Building and deploying to helbling.uk"
+	exit 1;
 elif [ "$VERCEL_GIT_COMMIT_REF" == "develop" ]; then
-  echo "✅ - Building and deploying to dev.helbling.uk"
-  exit 1;
+	echo "✅ - Building and deploying to dev.helbling.uk"
+	exit 1;
 else
-  echo "🛑 - Build cancelled"
-  exit 0;
-fi`;
+	echo "🛑 - Build cancelled"
+	exit 0;
+fi`,
+	};
 
 	return (
-		<BlogLayout name={"vercel"} toc={toc}>
-			<SocialPreview
-				title="Move to Vercel - Blog"
-				description="My shockingly easy experience with the move to Vercel"
-			></SocialPreview>
+		<BlogLayout metaInfo={VercelMeta}>
+			<SocialPreview metaInfo={VercelMeta}></SocialPreview>
 
 			<section className="mt-4" id="intro">
 				<p>

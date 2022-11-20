@@ -1,14 +1,15 @@
-import BlogLayout from "../../../components/Layout/BlogPost";
-import SocialPreview from "../../../components/SocialPreview/SocialPreview";
-import Preview from "../../../components/LinkPreview";
-import Image from "next/image";
 import React from "react";
-import { BlogMetaInfo } from "../../../components/Blog/Types";
+import Image from "next/image";
+import BlogLayout from "../../../Layouts/BlogLayout";
+import SocialPreview from "../../../components/SocialPreview";
+import Preview from "../../../components/LinkPreview";
+import { BlogMetaInfo, BlogProps } from "../../../components/Blog/Types";
 
 export const HomeserverPiMeta: BlogMetaInfo = {
 	link: "/blog/2022/homeserver-pi",
 	title: "My Pi home server",
-	summary: `A place to write custom apps on the network, block ads, run sponsorblock for my Chromecast devices, store a plex library and use it as local network storage. Find out how I've harnessed the power of Docker and a Raspberry Pi 3B+ to enjoy all the flexibility in a tiny, power-efficient, quiet package.`,
+	socialSummary: `A place to write custom apps on the network, block ads, run sponsorblock for my Chromecast devices, store a plex library and use it as local network storage. Find out how I've harnessed the power of Docker and a Raspberry Pi 3B+ to enjoy all the flexibility in a tiny, power-efficient, quiet package.`,
+	blogSummary: `A place to write custom apps on the network, block ads, run sponsorblock for my Chromecast devices, store a plex library and use it as local network storage. Find out how I've harnessed the power of Docker and a Raspberry Pi 3B+ to enjoy all the flexibility in a tiny, power-efficient, quiet package.`,
 	created: JSON.parse(JSON.stringify(new Date("2022-07-30"))),
 	thumbnail: "/images/posts/2022/homeserver-pi/thumbnail.png",
 	authorName: "Joel Helbling",
@@ -26,18 +27,10 @@ export const HomeserverPiMeta: BlogMetaInfo = {
 	cover: null,
 };
 
-export default function HomeserverPi({ ...props }) {
+export default function HomeserverPi({ ...props }: BlogProps) {
 	return (
-		<BlogLayout
-			title={props.meta.title}
-			toc={props.meta.tableOfContents}
-			date={props.meta.created}
-			thumbnail={props.meta.thumbnail}
-		>
-			<SocialPreview
-				title="Pi Homeserver - Blog"
-				description={props.meta.summary}
-			/>
+		<BlogLayout metaInfo={props.meta}>
+			<SocialPreview metaInfo={props.meta} />
 
 			<section className="mt-4" id="motivation">
 				<h3 className="title is-3 mb-2">Motivation</h3>
@@ -91,7 +84,7 @@ export default function HomeserverPi({ ...props }) {
 					</div>
 					<div className="column is-half">
 						<a
-							href={props.preview.url}
+							href={props.preview?.url}
 							target="_blank"
 							rel="noreferrer"
 						>
@@ -104,7 +97,7 @@ export default function HomeserverPi({ ...props }) {
 								<div className="card-image">
 									<figure className="image is-2by1">
 										<img
-											src={props.preview.image}
+											src={props.preview?.image}
 											alt="Placeholder image"
 											width={1200}
 											height={600}
@@ -112,7 +105,7 @@ export default function HomeserverPi({ ...props }) {
 									</figure>
 								</div>
 								<div className="card-content">
-									<p>{props.preview.description}</p>
+									<p>{props.preview?.description}</p>
 								</div>
 							</div>
 						</a>
@@ -453,9 +446,8 @@ export default function HomeserverPi({ ...props }) {
 	);
 }
 
-export async function getStaticProps() {
+export async function getStaticProps(): Promise<{ props: BlogProps }> {
 	const preview = await Preview("https://github.com/helblingjoel/piserver");
-
 	return {
 		props: {
 			preview: {

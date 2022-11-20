@@ -1,19 +1,23 @@
-import Layout from "../../components/Layout/Layout";
-import SocialPreview from "../../components/SocialPreview/SocialPreview";
+import Layout from "../../Layouts/Layout";
+import SocialPreview from "../../components/SocialPreview";
 import Menu from "../../components/Background/Menu";
 import NHSDigital from "../../components/Background/NHSDigital";
 import Waitrose from "../../components/Background/Waitrose";
 import Kent from "../../components/Background/Kent";
 import McDonalds from "../../components/Background/McDonalds";
 import RoyalHarbour from "../../components/Background/RoyalHarbourAcademy";
+import { MetaInfo } from "../../components/Blog/Types";
 
 export default function Home() {
+	const metaInfo: MetaInfo = {
+		title: "Background - Joel Helbling",
+		authorName: "Joel Helbling",
+		socialSummary: `Background information about my previous roles, education and how those influenced me as a person`,
+		cover: null,
+	};
 	return (
-		<Layout home>
-			<SocialPreview
-				title="Background - Joel Helbling"
-				description="Background information about my previous roles, education and how those influenced me as a person"
-			></SocialPreview>
+		<Layout>
+			<SocialPreview metaInfo={metaInfo} />
 			<div className="column is-one-quarter">
 				<Menu></Menu>
 			</div>

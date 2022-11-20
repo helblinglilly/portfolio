@@ -16,6 +16,16 @@
 		"incremental": true,
 		"noUncheckedIndexedAccess": true
 	},
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.cjs", "**/*.mjs"],
+	"include": [
+		"pages/_app.js",
+		"components/Navbar/Navbar.js",
+		"components/Tweets/LatestTweets.js",
+		"next-env.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		"**/*.cjs",
+		"**/*.mjs",
+		"Layouts/BlogLayout.js"
+	],
 	"exclude": ["node_modules"]
 }

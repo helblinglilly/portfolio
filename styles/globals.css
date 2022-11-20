@@ -241,8 +241,39 @@ img.right-aligned {
 
 #profile {
 	border-radius: 50%;
+	max-width: 250px;
+	max-height: 250px;
+	margin: auto;
 }
 
 .socialContainer {
 	margin-bottom: 0.5rem;
+}
+
+div.tags {
+	background-color: var(--accent);
+}
+
+.postImage {
+	border-radius: 5px;
+}
+
+span.tag.aws {
+	color: rgb(243, 243, 243);
+	background-color: #fd9a00;
+}
+
+span.tag.pi {
+	color: rgb(243, 243, 243);
+	background-color: #bb1141;
+}
+
+span.tag.docker {
+	color: rgb(243, 243, 243);
+	background-color: #2495eb;
+}
+
+span.tag.cloud {
+	color: rgb(243, 243, 243);
+	background-color: rgb(173, 132, 220);
 }
