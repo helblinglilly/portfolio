@@ -9,10 +9,7 @@ import {
 	TweetsAndBlogProps,
 	Tags,
 } from "../../components/Blog/Types";
-import {
-	AllPostPreviews,
-	AllPosts,
-} from "../../components/Blog/AllPostPreviews";
+import { AllPosts, PostPreviews } from "../../components/Blog/PostPreviews";
 
 export default function Blog({ ...props }: TweetsAndBlogProps) {
 	const metaInfo: MetaInfo = {
@@ -22,17 +19,42 @@ export default function Blog({ ...props }: TweetsAndBlogProps) {
 		cover: null,
 	};
 
-	const [visiblePosts, setVisiblePosts] = useState<BlogMetaInfo[]>([]);
+	const [visiblePosts, setVisiblePosts] = useState<BlogMetaInfo[]>(
+		props.posts
+	);
 	const [isSearchVisible, setSearchVisibility] = useState<boolean>(false);
+	const [searchTerm, setSearchTerm] = useState<RegExp>(/.*/);
+
 	const toggleMobileSearchVisibility = () => {
 		setSearchVisibility(!isSearchVisible);
 	};
 
-	const [searchTerm, setSearchTerm] = useState("");
-	const [tags, setTags] = useState<Tags[]>([]);
-	const [years, setYears] = useState<number[]>([]);
+	const updateSearchTerm = (term: string) => {
+		if (term === undefined || term.length === 0) setSearchTerm(/.*/);
+		else setSearchTerm(new RegExp(term.toLocaleLowerCase()));
+		refreshVisiblePosts();
+	};
 
-	if (searchTerm === undefined || searchTerm === "") setSearchTerm(".*");
+	const refreshVisiblePosts = () => {
+		const postsToDisplay: BlogMetaInfo[] = [];
+		props.posts.forEach((post) => {
+			const searchMatches = [];
+			searchMatches.push(searchTerm.test(post.authorName.toLowerCase()));
+			searchMatches.push(searchTerm.test(post.blogSummary.toLowerCase()));
+			searchMatches.push(searchTerm.test(post.link.toLowerCase()));
+			searchMatches.push(searchTerm.test(post.title.toLowerCase()));
+			post.tableOfContents.forEach((entry) => {
+				searchMatches.push(searchTerm.test(entry.title.toLowerCase()));
+			});
+			post.tags.forEach((tag) => {
+				searchMatches.push(searchTerm.test(tag.name.toLowerCase()));
+			});
+
+			if (searchMatches.includes(true)) postsToDisplay.push(post);
+		});
+
+		setVisiblePosts(postsToDisplay);
+	};
 
 	return (
 		<Layout>
@@ -42,71 +64,38 @@ export default function Blog({ ...props }: TweetsAndBlogProps) {
 				<div className="desktop title">
 					<p className="is-3">Filter</p>
 				</div>
-				// Think I changed when it's visible now?
+
 				<div
-					className={
-						"card mobile mb-2 " + isSearchVisible
-							? ""
-							: "mobileHidden"
-					}
+					className="card mb-2 mobile"
+					onClick={toggleMobileSearchVisibility}
 				>
 					<div className="card-header">
-						<p className="card-header-title primary">
-							Toggle filters
-						</p>
-						<button
-							className="card-header-icon"
-							onClick={toggleMobileSearchVisibility}
-							aria-label="more options"
-						>
-							<span className="icon">
-								<p>▽</p>
-							</span>
-						</button>
+						<div className="card-header-title pimrary">
+							<p>{isSearchVisible ? "Hide" : "Show"} Filters</p>
+						</div>
+					</div>
+				</div>
+
+				<div className={isSearchVisible ? "card" : "card mobileHidden"}>
+					<div className="card-content">
+						<input
+							className="input"
+							placeholder="Search term..."
+							onChange={(event) => {
+								updateSearchTerm(event.target.value);
+							}}
+						></input>
 					</div>
 				</div>
 			</div>
 			<div className="column is-two-third" id="main-content">
-				<AllPostPreviews posts={props.posts} />
+				<PostPreviews posts={visiblePosts} />
 			</div>
 			<div className="column is-one-quarter">
 				<LatestTweets tweets={props.tweets}></LatestTweets>
 			</div>
 		</Layout>
 	);
-}
-
-function search() {
-	return (
-		<>
-			<div className="desktop title">
-				<p className="is-3">Filter</p>
-			</div>
-
-			<div className="card mobile mb-2">
-				<div className="card-header">
-					<p className="card-header-title primary">Toggle filters</p>
-					<button
-						className="card-header-icon"
-						onClick={toggleMobileSearch}
-						aria-label="more options"
-					>
-						<span className="icon">
-							<p>▽</p>
-						</span>
-					</button>
-				</div>
-			</div>
-			{searchCard(setSearchTerm, setTags, setYears, posts)}
-		</>
-	);
-}
-
-function toggleMobileSearch() {
-	// TODO Mobile Blog post search toggle
-	console.log("Toogle mobile search");
-
-	// document.querySelector("#search").classList.toggle("mobileHidden");
 }
 
 function searchCard(
@@ -191,45 +180,6 @@ function searchCard(
 			</div>
 		</div>
 	);
-}
-
-function filterPosts(
-	posts: Array<BlogMetaInfo>,
-	searchTerm: string | RegExp | undefined,
-	tags: string | any[],
-	years: any[]
-): Array<BlogMetaInfo> {
-	return posts.filter((post) => {
-		const searchRegex = new RegExp(
-			searchTerm ? searchTerm.toString() : ".*",
-			"gim"
-		);
-		const searchMatched = searchRegex.test(
-			`${post.title} ${post.blogSummary}`
-		);
-
-		let tagsMatched = tags.length === 0 ? true : false;
-		if (!tagsMatched) {
-			post.tags.forEach((tag: { name: any }) => {
-				if (tags.includes(tag.name)) {
-					tagsMatched = true;
-					return;
-				}
-			});
-		}
-
-		let yearsMatched = years.length === 0 ? true : false;
-		if (!yearsMatched) {
-			years.forEach((year: any) => {
-				if (new Date(post.created).getFullYear() === year) {
-					yearsMatched = true;
-					return;
-				}
-			});
-		}
-
-		if (searchMatched && tagsMatched && yearsMatched) return post;
-	});
 }
 
 export async function getServerSideProps(): Promise<TweetsAndBlogProps> {

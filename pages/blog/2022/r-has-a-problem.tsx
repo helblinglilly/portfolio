@@ -12,7 +12,7 @@ export const RHasAProblemMeta: BlogMetaInfo = {
 	socialSummary: `In my work I had to deploy an R Shiny application. Familiar with more traditional programming languages I thought adapting to R-Shiny would be a smooth transition, especially as I would not have much involvement with it. However, the further we got in the project the more obvious its flaws became.`,
 	blogSummary: `In my work I had to deploy an R Shiny application. Familiar with more traditional programming languages I thought adapting to R-Shiny would be a smooth transition, especially as I would not have much involvement with it. However, the further we got in the project the more obvious its flaws became.`,
 	created: JSON.parse(JSON.stringify(new Date("2022-02-05"))),
-	thumbnail: "/images/posts/2022/r-has-a-problem/thumbnail.jpeg",
+	thumbnail: "/images/posts/2022/r-has-a-problem/thumbnail.png",
 	authorName: "Joel Helbling",
 	authorLink: "https://helbling.uk",
 	tags: [{ name: "Cloud", color: "cloud" }],

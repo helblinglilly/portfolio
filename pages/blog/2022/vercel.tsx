@@ -11,7 +11,7 @@ export const VercelMeta: BlogMetaInfo = {
 	socialSummary: `With Heroku making the news recently about removing their free-tier plan, I thought it would be interesting to look into the Platform as a service space. Much to my surprise, it was a lot easier than I anticipated.`,
 	blogSummary: `My shockingly easy experience with the move to Vercel"`,
 	created: JSON.parse(JSON.stringify(new Date("2022-08-31"))),
-	thumbnail: "",
+	thumbnail: "/images/posts/2022/vercel/thumbnail.png",
 	authorName: "Joel Helbling",
 	authorLink: "https://helbling.uk",
 	tags: [{ name: "Cloud", color: "cloud" }],
