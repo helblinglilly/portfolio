@@ -1,7 +1,7 @@
 export interface BlogMetaInfo extends MetaInfo {
 	link: string;
 	blogSummary: string;
-	created: any;
+	created: Date;
 	thumbnail: string;
 	authorName: string;
 	authorLink: string;

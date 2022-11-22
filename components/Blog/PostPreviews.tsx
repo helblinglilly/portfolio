@@ -22,17 +22,37 @@ export function PostPreviews({ ...posts }: PostProps) {
 	return (
 		<>
 			<p className="title is-3">Blog Posts</p>
-			{posts.posts.map((post) => {
-				return (
-					<>
-						<Link href={post.link} key={post.title}>
-							<div className="card mb-6" key={post.title}>
-								<p className="title is-4 pt-4 pl-5 mb-0">
+			{posts.posts.length === 0 ? (
+				<>
+					<p>No posts match search criteria.</p>
+					<p>Try adjusting your filters to find matching posts.</p>
+				</>
+			) : (
+				posts.posts.map((post) => {
+					return (
+						<Link href={post.link} key={`${post.title}link`}>
+							<div
+								className="card mb-6"
+								key={`${post.title}card`}
+							>
+								<p
+									className="title is-4 pt-4 pl-5 mb-0"
+									key={`${post.title}title`}
+								>
 									{post.title}
 								</p>
-								<div className="card-content">
-									<div className="columns accented">
-										<div className="column is-one-fifth level-item has-text-centered accented">
+								<div
+									className="card-content"
+									key={`${post.title}cardContent`}
+								>
+									<div
+										className="columns accented"
+										key={`${post.title}columns`}
+									>
+										<div
+											className="column is-one-fifth level-item has-text-centered accented"
+											key={`${post.title}thumbnailContainer`}
+										>
 											<Image
 												src={post.thumbnail}
 												className="is-inline postImage"
@@ -44,32 +64,52 @@ export function PostPreviews({ ...posts }: PostProps) {
 												blurDataURL={
 													"images/icon-transparent.png"
 												}
+												key={`${post.title}thumbnailImage`}
 											/>
 										</div>
-										<div className="column accented">
-											<p className="accented">
+
+										<div
+											className="column accented"
+											key={`${post.title}summaryContainer`}
+										>
+											<p
+												className="accented"
+												key={`${post.title}summaryContent`}
+											>
 												{post.blogSummary}
 											</p>
 										</div>
 									</div>
 
-									<div className="columns accented">
-										<div className="column tags are-medium accented mb-0">
+									<div
+										className="columns accented"
+										key={`${post.title}footer`}
+									>
+										<div
+											className="column tags are-medium accented mb-0"
+											key={`${post.title}tags`}
+										>
 											{post.tags.map((tag) => {
 												return (
 													<span
 														className={
 															"tag " + tag.color
 														}
-														key={tag.name}
+														key={
+															post.title +
+															tag.name
+														}
 													>
 														{tag.name}
 													</span>
 												);
 											})}
 										</div>
-										<div className="column accented has-text-right">
-											<i>
+										<div
+											className="column accented has-text-right"
+											key={`${post.title}date`}
+										>
+											<i key={`${post.title}dateItalics`}>
 												Posted:{" "}
 												{new Date(
 													post.created
@@ -80,9 +120,9 @@ export function PostPreviews({ ...posts }: PostProps) {
 								</div>
 							</div>
 						</Link>
-					</>
-				);
-			})}
+					);
+				})
+			)}
 		</>
 	);
 }

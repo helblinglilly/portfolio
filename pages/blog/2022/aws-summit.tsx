@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import SocialPreview from "../../../components/SocialPreview";
 import { BlogMetaInfo } from "../../../components/Blog/Types";
+import Tags from "../../../components/Blog/Tags";
 
 export const AWSSummit22Meta: BlogMetaInfo = {
 	link: "/blog/2022/aws-summit",
@@ -13,7 +14,7 @@ export const AWSSummit22Meta: BlogMetaInfo = {
 	thumbnail: "/images/posts/2022/aws-summit-2022/cover.jpeg",
 	authorName: "Joel Helbling",
 	authorLink: "https://helbling.uk",
-	tags: [],
+	tags: [Tags.aws, Tags.cloud],
 	tableOfContents: [
 		{ title: "Travel", id: "travel" },
 		{ title: "Expo", id: "expo" },

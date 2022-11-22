@@ -4,6 +4,7 @@ import BashCodeBlock from "../../../components/CodeBlock/bash";
 import Image from "next/image";
 import Link from "next/link";
 import { BlogMetaInfo, BlogProps } from "../../../components/Blog/Types";
+import Tags from "../../../components/Blog/Tags";
 
 export const VercelMeta: BlogMetaInfo = {
 	link: "/blog/2022/vercel",
@@ -14,7 +15,7 @@ export const VercelMeta: BlogMetaInfo = {
 	thumbnail: "/images/posts/2022/vercel/thumbnail.png",
 	authorName: "Joel Helbling",
 	authorLink: "https://helbling.uk",
-	tags: [{ name: "Cloud", color: "cloud" }],
+	tags: [Tags.cloud],
 	tableOfContents: [
 		{ title: "Background", id: "background" },
 		{ title: "Setup", id: "setup" },

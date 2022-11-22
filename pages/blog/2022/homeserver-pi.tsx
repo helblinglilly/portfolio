@@ -4,6 +4,7 @@ import BlogLayout from "../../../Layouts/BlogLayout";
 import SocialPreview from "../../../components/SocialPreview";
 import Preview from "../../../components/LinkPreview";
 import { BlogMetaInfo, BlogProps } from "../../../components/Blog/Types";
+import Tags from "../../../components/Blog/Tags";
 
 export const HomeserverPiMeta: BlogMetaInfo = {
 	link: "/blog/2022/homeserver-pi",
@@ -14,10 +15,7 @@ export const HomeserverPiMeta: BlogMetaInfo = {
 	thumbnail: "/images/posts/2022/homeserver-pi/thumbnail.png",
 	authorName: "Joel Helbling",
 	authorLink: "https://helbling.uk",
-	tags: [
-		{ name: "Raspberry Pi", color: "pi" },
-		{ name: "Docker", color: "docker" },
-	],
+	tags: [Tags.pi, Tags.docker],
 	tableOfContents: [
 		{ title: "Motivation", id: "motivation" },
 		{ title: "Setup", id: "setup" },
