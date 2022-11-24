@@ -271,7 +271,6 @@ function searchCard(
 
 				<div className="pt-4 accented">
 					<p className="title is-5 mb-2">Tags</p>
-					// TODO needs attention
 					{getTags(posts).map((tag) => {
 						return (
 							<div className="mb-2 accented" key={tag.name}>
