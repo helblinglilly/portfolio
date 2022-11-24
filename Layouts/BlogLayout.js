@@ -4,6 +4,7 @@ import TableOfContents from "../components/Blog/tableOfContents";
 
 export default function BlogLayout({ children, ...pageProps }) {
 	const meta = pageProps.metaInfo;
+
 	return (
 		<Layout home>
 			<div className="column is-one-quarter">
@@ -21,8 +22,8 @@ export default function BlogLayout({ children, ...pageProps }) {
 						height="720"
 						alt="Blog Post cover image"
 						priority={true}
-						placeholder={"blur"}
-						blurDataURL={"/../../images/icon-transparent.png"}
+						placeholder="blur"
+						blurDataURL="/images/placeholder.jpeg"
 					/>
 				) : (
 					<></>

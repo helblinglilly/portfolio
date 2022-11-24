@@ -35,6 +35,7 @@ export interface BlogProps {
 export interface Tags {
 	name: string;
 	color: string;
+	backgroundColor: string;
 }
 
 type TableOfContentEntry = {
@@ -59,4 +60,9 @@ export interface TweetsAndBlogProps {
 
 export interface PostProps {
 	posts: BlogMetaInfo[];
+}
+
+export interface TableOfContent {
+	title: string;
+	id: string;
 }

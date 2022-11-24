@@ -5,6 +5,7 @@ import ShellScriptBlock from "../../../components/CodeBlock/shell";
 import ApacheCodeBlock from "../../../components/CodeBlock/apache";
 import RScriptBlock from "../../../components/CodeBlock/r";
 import { BlogMetaInfo } from "../../../components/Blog/Types";
+import Tags from "../../../components/Blog/Tags";
 
 export const RHasAProblemMeta: BlogMetaInfo = {
 	link: "/blog/2022/r-has-a-problem",
@@ -15,7 +16,7 @@ export const RHasAProblemMeta: BlogMetaInfo = {
 	thumbnail: "/images/posts/2022/r-has-a-problem/thumbnail.png",
 	authorName: "Joel Helbling",
 	authorLink: "https://helbling.uk",
-	tags: [{ name: "Cloud", color: "cloud" }],
+	tags: [Tags.cloud],
 	tableOfContents: [
 		{ title: "Intro", id: "introduction" },
 		{ title: "Pipeline", id: "pipeline" },
@@ -191,6 +192,8 @@ sudo service apache2 reload`,
 							width="286"
 							height="396"
 							alt="R Studio publish"
+							placeholder="blur"
+							blurDataURL="/images/placeholder.jpeg"
 						/>
 					</div>
 

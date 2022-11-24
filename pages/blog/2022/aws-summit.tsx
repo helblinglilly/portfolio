@@ -14,7 +14,7 @@ export const AWSSummit22Meta: BlogMetaInfo = {
 	thumbnail: "/images/posts/2022/aws-summit-2022/cover.jpeg",
 	authorName: "Joel Helbling",
 	authorLink: "https://helbling.uk",
-	tags: [Tags.aws, Tags.cloud],
+	tags: [Tags.aws, Tags.cloud, Tags.event],
 	tableOfContents: [
 		{ title: "Travel", id: "travel" },
 		{ title: "Expo", id: "expo" },
@@ -58,8 +58,8 @@ export default function Post() {
 							width="639"
 							height="359"
 							alt="Expo Floor"
-							placeholder={"blur"}
-							blurDataURL={"/../../images/icon-transparent.png"}
+							placeholder="blur"
+							blurDataURL="/images/placeholder.jpeg"
 						/>
 					</div>
 					<div className="column">
@@ -68,8 +68,8 @@ export default function Post() {
 							width="252"
 							height="336"
 							alt="Excel Entrance"
-							placeholder={"blur"}
-							blurDataURL={"/../../images/icon-transparent.png"}
+							placeholder="blur"
+							blurDataURL="/images/placeholder.jpeg"
 						/>
 					</div>
 				</div>
@@ -227,8 +227,8 @@ export default function Post() {
 							width="378"
 							height="504"
 							alt="Canning Town DLR station"
-							placeholder={"blur"}
-							blurDataURL={"/../../images/icon-transparent.png"}
+							placeholder="blur"
+							blurDataURL="/images/placeholder.jpeg"
 						/>{" "}
 					</div>
 					<div className="column">

@@ -11,7 +11,7 @@ import {
 } from "../../components/Blog/Types";
 import { AllPosts, PostPreviews } from "../../components/Blog/PostPreviews";
 
-export default function Blog({ ...props }: TweetsAndBlogProps) {
+export default function Blog(props: TweetsAndBlogProps) {
 	const metaInfo: MetaInfo = {
 		title: "Blog - Joel Helbling",
 		socialSummary: `Blog homepage of Joel Helbling. View the collection of blog posts, search for specific ones, filter by tags or by publishing year`,
@@ -210,6 +210,7 @@ export default function Blog({ ...props }: TweetsAndBlogProps) {
 				</div>
 			</div>
 			<div className="column is-two-third" id="main-content">
+				<p className="title is-3">Blog Posts</p>
 				<PostPreviews posts={visiblePosts} />
 			</div>
 			<div className="column is-one-quarter">
@@ -303,7 +304,9 @@ function searchCard(
 	);
 }
 
-export async function getServerSideProps(): Promise<TweetsAndBlogProps> {
+export async function getServerSideProps(): Promise<{
+	props: TweetsAndBlogProps;
+}> {
 	let token = process.env.TWITTER_TOKEN;
 	token =
 		"AAAAAAAAAAAAAAAAAAAAAGNkZAEAAAAAXJkUOyC6a0as2fu6UVYAl3YBGDY%3DWMFjkaT3XHsgzfpHksuHFGK6NDPDPU2K0tGUhoUHB7ijTbgwm1";

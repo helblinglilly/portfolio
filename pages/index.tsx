@@ -1,5 +1,5 @@
 import Layout from "../Layouts/Layout";
-import LatestPost from "../components/Blog/LatestPost";
+import { PostPreviews, AllPosts } from "../components/Blog/PostPreviews";
 import SocialPreview from "../components/SocialPreview";
 import Image from "next/image";
 import React from "react";
@@ -32,6 +32,9 @@ export default function Home() {
 							width="250"
 							height="250"
 							id="profile"
+							placeholder="blur"
+							blurDataURL="/images/placeholder.jpeg"
+							priority={true}
 						/>
 					</figure>
 					<div className="pt-4">
@@ -124,7 +127,8 @@ export default function Home() {
 				</div>
 			</div>
 			<div className="column is-two-third">
-				<LatestPost></LatestPost>
+				<PostPreviews posts={new Array(AllPosts[0])} />
+
 				<div className="currentRole">
 					<p className="title">Current Role</p>
 					<p style={{ display: "inline" }}>

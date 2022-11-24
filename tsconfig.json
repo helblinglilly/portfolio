@@ -17,7 +17,7 @@
 		"noUncheckedIndexedAccess": true
 	},
 	"include": [
-		"pages/_app.js",
+		"pages/_app.tsx",
 		"components/Navbar/Navbar.js",
 		"components/Tweets/LatestTweets.js",
 		"next-env.d.ts",

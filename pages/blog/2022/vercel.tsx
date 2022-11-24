@@ -3,14 +3,14 @@ import SocialPreview from "../../../components/SocialPreview";
 import BashCodeBlock from "../../../components/CodeBlock/bash";
 import Image from "next/image";
 import Link from "next/link";
-import { BlogMetaInfo, BlogProps } from "../../../components/Blog/Types";
+import { BlogMetaInfo } from "../../../components/Blog/Types";
 import Tags from "../../../components/Blog/Tags";
 
 export const VercelMeta: BlogMetaInfo = {
 	link: "/blog/2022/vercel",
-	title: "Move to Vercel",
-	socialSummary: `With Heroku making the news recently about removing their free-tier plan, I thought it would be interesting to look into the Platform as a service space. Much to my surprise, it was a lot easier than I anticipated.`,
-	blogSummary: `My shockingly easy experience with the move to Vercel"`,
+	title: "Moving to Vercel",
+	socialSummary: `My shockingly easy experience with the move to Vercel`,
+	blogSummary: `With Heroku making the news recently about removing their free-tier plan, I thought it would be interesting to look into the Platform as a service space. Much to my surprise, it was a lot easier than I anticipated.`,
 	created: JSON.parse(JSON.stringify(new Date("2022-08-31"))),
 	thumbnail: "/images/posts/2022/vercel/thumbnail.png",
 	authorName: "Joel Helbling",
@@ -32,14 +32,14 @@ export default function Post() {
 echo "VERCEL_GIT_COMMIT_REF: $VERCEL_GIT_COMMIT_REF"
 
 if [ "$VERCEL_GIT_COMMIT_REF" == "main" ]; then
-	echo "✅ - Building and deploying to helbling.uk"
-	exit 1;
+  echo "✅ - Building and deploying to helbling.uk"
+  exit 1;
 elif [ "$VERCEL_GIT_COMMIT_REF" == "develop" ]; then
-	echo "✅ - Building and deploying to dev.helbling.uk"
-	exit 1;
+  echo "✅ - Building and deploying to dev.helbling.uk"
+  exit 1;
 else
-	echo "🛑 - Build cancelled"
-	exit 0;
+  echo "🛑 - Build cancelled"
+  exit 0;
 fi`,
 	};
 
@@ -148,6 +148,8 @@ fi`,
 					alt="Screenshot of the 'Ignored Build Step' script option"
 					width={2436}
 					height={1066}
+					placeholder="blur"
+					blurDataURL="/images/placeholder.jpeg"
 				/>
 				<p>
 					This script gets run every time a new deployment is queued.

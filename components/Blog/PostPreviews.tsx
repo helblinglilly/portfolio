@@ -21,7 +21,6 @@ export const AllPosts = visiblePosts;
 export function PostPreviews({ ...posts }: PostProps) {
 	return (
 		<>
-			<p className="title is-3">Blog Posts</p>
 			{posts.posts.length === 0 ? (
 				<>
 					<p>No posts match search criteria.</p>
@@ -62,7 +61,7 @@ export function PostPreviews({ ...posts }: PostProps) {
 												priority={true}
 												placeholder={"blur"}
 												blurDataURL={
-													"images/icon-transparent.png"
+													"images/placeholder.jpeg"
 												}
 												key={`${post.title}thumbnailImage`}
 											/>
@@ -92,9 +91,12 @@ export function PostPreviews({ ...posts }: PostProps) {
 											{post.tags.map((tag) => {
 												return (
 													<span
-														className={
-															"tag " + tag.color
-														}
+														style={{
+															color: tag.color,
+															backgroundColor:
+																tag.backgroundColor,
+														}}
+														className={"tag "}
 														key={
 															post.title +
 															tag.name

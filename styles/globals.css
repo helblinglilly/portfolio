@@ -258,22 +258,118 @@ div.tags {
 	border-radius: 5px;
 }
 
-span.tag.aws {
-	color: rgb(243, 243, 243);
-	background-color: #fd9a00;
+.uniResults {
+	width: 95%;
 }
 
-span.tag.pi {
-	color: rgb(243, 243, 243);
-	background-color: #bb1141;
+a.navbar-item {
+	background-color: var(--navbar);
+	color: var(--secondary);
 }
 
-span.tag.docker {
-	color: rgb(243, 243, 243);
-	background-color: #2495eb;
+a.navbar-item:hover {
+	background-color: var(--primary);
+	color: var(--secondary);
 }
 
-span.tag.cloud {
-	color: rgb(243, 243, 243);
-	background-color: rgb(173, 132, 220);
+.navbar {
+	background-color: var(--navbar);
+	color: var(--secondary);
+	z-index: 0;
+}
+
+.navbar-menu {
+	background-color: var(--navbar);
+	color: var(--secondary);
+	z-index: 0;
+}
+
+.navbar-item {
+	background-color: var(--navbar);
+	color: var(--secondary);
+	z-index: 0;
+}
+
+div.navbar-start {
+	background-color: var(--navbar);
+	color: var(--secondary);
+	z-index: 0;
+}
+
+div.navbar-brand {
+	background-color: var(--navbar);
+	color: var(--secondary);
+	z-index: 0;
+}
+
+div.navbar-end {
+	background-color: var(--navbar);
+	color: var(--secondary);
+	z-index: 0;
+}
+
+.menu-label {
+	color: var(--secondary);
+}
+
+.menu-list a {
+	color: var(--secondary);
+}
+
+a.is-active {
+	color: var(--primary);
+}
+
+.hidden {
+	opacity: 0;
+}
+
+#backToTopContainer {
+	background-color: rgba(255, 255, 255, 0);
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	transition: opacity 0.6s linear;
+	z-index: 1;
+}
+
+#backToTopButton {
+	margin-bottom: 4vw;
+	margin-left: 4vw;
+	background-color: var(--secondary);
+	color: var(--primary);
+}
+
+#nhsd-menu {
+	background: linear-gradient(90deg, #0a5bba 80%, #fff 20%);
+	border: 1px solid black;
+}
+
+#kent-menu {
+	background: linear-gradient(90deg, #043a84 80%, #fff 20%);
+	border: 1px solid black;
+}
+
+#waitrose-menu {
+	background: linear-gradient(90deg, #578626 80%, #04462f 20%);
+	border: 1px solid black;
+}
+
+#mcd-menu {
+	background: linear-gradient(90deg, #d40007 80%, #febc0c 20%);
+	border: 1px solid black;
+}
+
+#rha-menu {
+	background: linear-gradient(90deg, #ad033b 80%, #fff 20%);
+	border: 1px solid black;
+}
+
+.tweet:hover {
+	cursor: pointer;
+}
+
+.icon {
+	height: 20px;
+	width: 20px;
 }

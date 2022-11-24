@@ -1,19 +1,28 @@
 export const Tags = {
 	cloud: {
 		name: "Cloud",
-		color: "cloud",
+		color: "#fff",
+		backgroundColor: "#ad84dc",
 	},
 	pi: {
 		name: "Raspberry Pi",
-		color: "pi",
+		color: "#fff",
+		backgroundColor: "#bb1141",
 	},
 	docker: {
 		name: "Docker",
-		color: "docker",
+		color: "#fff",
+		backgroundColor: "#2495eb",
 	},
 	aws: {
 		name: "AWS",
-		color: "aws",
+		color: "#fff",
+		backgroundColor: "#fd9a00",
+	},
+	event: {
+		name: "Event",
+		color: "#fff",
+		backgroundColor: "#48C78E",
 	},
 };
 

@@ -178,8 +178,8 @@ export default function HomeserverPi({ ...props }: BlogProps) {
 							width="1680"
 							height="1080"
 							alt="Pihole screenshot"
-							placeholder={"blur"}
-							blurDataURL={"/../../images/icon-transparent.png"}
+							placeholder="blur"
+							blurDataURL="/images/placeholder.jpeg"
 						/>
 					</div>
 					<div className="column">
@@ -188,8 +188,8 @@ export default function HomeserverPi({ ...props }: BlogProps) {
 							width="752"
 							height="768"
 							alt="Pihole Docker-compose screenshot"
-							placeholder={"blur"}
-							blurDataURL={"/../../images/icon-transparent.png"}
+							placeholder="blur"
+							blurDataURL="/images/placeholder.jpeg"
 						/>
 					</div>
 				</div>
@@ -221,8 +221,8 @@ export default function HomeserverPi({ ...props }: BlogProps) {
 					width="1474"
 					height="582"
 					alt="Plex Docker-compose screenshot"
-					placeholder={"blur"}
-					blurDataURL={"/../../images/icon-transparent.png"}
+					placeholder="blur"
+					blurDataURL="/images/placeholder.jpeg"
 					className="mt-3"
 				/>
 				<h4 className="title is-4 mb-2 mt-3">Filebrowser</h4>
@@ -249,8 +249,8 @@ export default function HomeserverPi({ ...props }: BlogProps) {
 							width="1680"
 							height="1146"
 							alt="Fileserver screenshot"
-							placeholder={"blur"}
-							blurDataURL={"/../../images/icon-transparent.png"}
+							placeholder="blur"
+							blurDataURL="/images/placeholder.jpeg"
 						/>
 					</div>
 					<div className="column">
@@ -259,8 +259,8 @@ export default function HomeserverPi({ ...props }: BlogProps) {
 							width="848"
 							height="436"
 							alt="Fileserver Docker-compose screenshot"
-							placeholder={"blur"}
-							blurDataURL={"/../../images/icon-transparent.png"}
+							placeholder="blur"
+							blurDataURL="/images/placeholder.jpeg"
 						/>
 					</div>
 				</div>
@@ -307,8 +307,8 @@ export default function HomeserverPi({ ...props }: BlogProps) {
 							width="582"
 							height="266"
 							alt="Castblock Docker-compose screenshot"
-							placeholder={"blur"}
-							blurDataURL={"/../../images/icon-transparent.png"}
+							placeholder="blur"
+							blurDataURL="/images/placeholder.jpeg"
 						/>
 					</div>
 				</div>
@@ -394,8 +394,8 @@ export default function HomeserverPi({ ...props }: BlogProps) {
 							width="1680"
 							height="1340"
 							alt="Dashboard screenshot"
-							placeholder={"blur"}
-							blurDataURL={"/../../images/icon-transparent.png"}
+							placeholder="blur"
+							blurDataURL="/images/placeholder.jpeg"
 						/>
 					</div>
 					<div className="column">
@@ -404,8 +404,8 @@ export default function HomeserverPi({ ...props }: BlogProps) {
 							width="744"
 							height="334"
 							alt="Dashboard Docker-compose screenshot"
-							placeholder={"blur"}
-							blurDataURL={"/../../images/icon-transparent.png"}
+							placeholder="blur"
+							blurDataURL="/images/placeholder.jpeg"
 						/>
 					</div>
 				</div>
