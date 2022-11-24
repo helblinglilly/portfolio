@@ -9,10 +9,15 @@ export default function Navbar() {
 		<nav className="navbar is-spaced" id="navbar">
 			<Script src="/js/navbar.js"></Script>
 			<div className="navbar-brand">
-				<Link href="/">
-					<a className="navbar-item">
-						<Image src="/images/is-light.png" width={250} height={50} />
-					</a>
+				<Link href="/" className="navbar-item">
+					{/* <div className="navbar-item"> */}
+					<Image
+						src="/images/is-light.png"
+						width={140}
+						height={28}
+						alt="Personal logo"
+					/>
+					{/* </div> */}
 				</Link>
 				<a
 					onClick={toggleNavbar}
@@ -31,13 +36,13 @@ export default function Navbar() {
 			<div className="navbar-menu">
 				<div className="navbar-start">
 					<Link href="/">
-						<a className="navbar-item">Home</a>
+						<div className="navbar-item">Home</div>
 					</Link>
 					<Link href="/blog">
-						<a className="navbar-item">Blog</a>
+						<div className="navbar-item">Blog</div>
 					</Link>
 					<Link href="/background">
-						<a className="navbar-item">Background</a>
+						<div className="navbar-item">Background</div>
 					</Link>
 				</div>
 				<div className="navbar-end">
