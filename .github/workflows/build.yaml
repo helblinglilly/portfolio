@@ -15,5 +15,7 @@ jobs:
               run: npm ci
             - name: Install sharp
               run: npm install sharp
+            - name: Lint
+              run: npm run lint
             - name: Try to build
               run: npm run build
