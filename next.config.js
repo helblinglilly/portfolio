@@ -3,4 +3,7 @@ module.exports = {
 	devIndicators: {
 		buildActivity: false,
 	},
+	images: {
+		domains: ["opengraph.githubassets.com"],
+	},
 };
