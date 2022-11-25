@@ -4,7 +4,7 @@ on:
         branches:
             - develop
 jobs:
-    validate:
+    build:
         name: Attempt to build
         runs-on: pineapple
         if: github.event_name == 'pull_request'
@@ -24,11 +24,27 @@ jobs:
             - name: Install dependencies
               run: npm ci
 
-            # - name: Install sharp
-            #   run: npm install sharp
-
-            - name: Lint
-              run: next lint --max-warnings=0
-
             - name: Try to build
               run: npm run build
+    lint:
+      name: Lint codebase
+      runs-on: pineapple
+        if: github.event_name == 'pull_request'
+        steps:
+            - uses: actions/checkout@v2
+            - name: Extract branch name
+              shell: bash
+              run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+              id: extract_branch
+
+            - name: Checkout repo
+              uses: actions/checkout@v2
+              with:
+                  fetch-depth: 0
+                  ref: ${{ steps.extract_branch.outputs.branch }}
+
+            - name: Install dependencies
+              run: npm install
+
+            - name: Lint
+              run: npm run lint
