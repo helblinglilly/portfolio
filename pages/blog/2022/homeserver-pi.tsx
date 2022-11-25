@@ -94,12 +94,18 @@ export default function HomeserverPi({ ...props }: BlogProps) {
 								</div>
 								<div className="card-image">
 									<figure className="image is-2by1">
-										<img
-											src={props.preview?.image}
-											alt="Placeholder image"
-											width={1200}
-											height={600}
-										/>
+										{props.preview?.image ? (
+											<Image
+												src={props.preview.image}
+												alt="Placeholder image"
+												width={1200}
+												height={600}
+												placeholder="blur"
+												blurDataURL="/images/placeholder.jpeg"
+											/>
+										) : (
+											<></>
+										)}
 									</figure>
 								</div>
 								<div className="card-content">

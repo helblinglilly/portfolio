@@ -127,7 +127,9 @@ export default function Home() {
 				</div>
 			</div>
 			<div className="column is-two-third">
-				<PostPreviews posts={new Array(AllPosts[0])} />
+				<PostPreviews
+					posts={AllPosts[0] ? new Array(AllPosts[0]) : []}
+				/>
 
 				<div className="currentRole">
 					<p className="title">Current Role</p>

@@ -10,14 +10,12 @@ export default function Navbar() {
 			<Script src="/js/navbar.js"></Script>
 			<div className="navbar-brand">
 				<Link href="/" className="navbar-item">
-					{/* <div className="navbar-item"> */}
 					<Image
 						src="/images/is-light.png"
 						width={140}
 						height={28}
 						alt="Personal logo"
 					/>
-					{/* </div> */}
 				</Link>
 				<a
 					onClick={toggleNavbar}

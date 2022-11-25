@@ -25,7 +25,12 @@
 		"**/*.tsx",
 		"**/*.cjs",
 		"**/*.mjs",
-		"Layouts/BlogLayout.js"
+		"Layouts/BlogLayout.js",
+		"components/CodeBlock/shell.js",
+		"components/CodeBlock/r.js",
+		"components/CodeBlock/js.js",
+		"components/CodeBlock/bash.js",
+		"components/CodeBlock/apache.js"
 	],
 	"exclude": ["node_modules"]
 }
