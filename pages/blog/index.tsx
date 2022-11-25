@@ -307,8 +307,7 @@ export async function getServerSideProps(): Promise<{
 	props: TweetsAndBlogProps;
 }> {
 	let token = process.env.TWITTER_TOKEN;
-	token =
-		"AAAAAAAAAAAAAAAAAAAAAGNkZAEAAAAAXJkUOyC6a0as2fu6UVYAl3YBGDY%3DWMFjkaT3XHsgzfpHksuHFGK6NDPDPU2K0tGUhoUHB7ijTbgwm1";
+
 	const config = {
 		headers: { Authorization: `Bearer ${token}` },
 	};
@@ -368,5 +367,3 @@ const getTags = (posts: BlogMetaInfo[]): Tags[] => {
 	});
 	return tags;
 };
-
-const reevaluateVisiblePosts = () => {};
