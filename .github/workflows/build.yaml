@@ -1,4 +1,4 @@
-name: Ensure lint and build
+name: Developer checks
 on:
     pull_request:
         branches:
