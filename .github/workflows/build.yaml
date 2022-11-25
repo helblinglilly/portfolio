@@ -6,7 +6,7 @@ on:
 jobs:
     build:
         name: Attempt to build
-        runs-on: pineapple
+        runs-on: ubuntu-latest
         if: github.event_name == 'pull_request'
         steps:
             - uses: actions/checkout@v2
@@ -28,7 +28,7 @@ jobs:
               run: npm run build
     lint:
         name: Lint codebase
-        runs-on: pineapple
+        runs-on: ubuntu-latest
         if: github.event_name == 'pull_request'
         steps:
             - uses: actions/checkout@v2
