@@ -10,7 +10,7 @@ export default function Navbar() {
 			<Script src="/js/navbar.js"></Script>
 			<div className="navbar-brand">
 				<Link href="/" className="navbar-item">
-					<img
+					<Image
 						src="/images/is-light.png"
 						width={140}
 						height={28}
