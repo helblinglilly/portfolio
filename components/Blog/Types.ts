@@ -66,3 +66,8 @@ export interface TableOfContent {
 	title: string;
 	id: string;
 }
+
+export interface CodeBlock {
+	code: string;
+	filename: string;
+}
