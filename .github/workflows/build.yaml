@@ -54,7 +54,7 @@ jobs:
               run: npm run lint
 
     await-deployment:
-        runs-on: ubuntu-18.04
+        runs-on: ubuntu-latest
         steps:
             - name: Retrieve deployment URL (example on how to set an ENV var)
               run: "echo VERCEL_DEPLOYMENT_URL=dev.helbling.uk >> $GITHUB_ENV"
