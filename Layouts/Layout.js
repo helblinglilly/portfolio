@@ -36,7 +36,8 @@ export default function Layout({ children }) {
 
 			<p>spike/cypress</p>
 
-			{process.env.NODE_ENV === "production" ? null : (
+			{process.env.NODE_ENV === "production" &&
+			process.env.VERCEL_ENV === "production" ? null : (
 				<div className="notification is-warning mb-0">
 					<p>This is a {process.env.NODE_ENV} environment</p>
 				</div>
