@@ -54,7 +54,7 @@ jobs:
               run: npm run lint
 
     await-deployment:
-        name: Wait for deployment
+        name: Await vercel deployment
         runs-on: ubuntu-latest
         steps:
             - uses: SFDigitalServices/wait-for-deployment-action@v2
@@ -65,3 +65,11 @@ jobs:
                   timeout: 120
             - name: Print
               run: echo "Deployed to ${{ steps.deployment.outputs.url }}"
+
+    regression:
+        name: Run regression tests
+        runs-on: ubuntu-latest
+        depends-on: await-deployment
+        steps:
+            - name: Hello world
+              run: echoc "Hello world"
