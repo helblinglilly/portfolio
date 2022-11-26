@@ -60,7 +60,7 @@ jobs:
             - uses: SFDigitalServices/wait-for-deployment-action@v1
               id: deployment
               with:
-                token: ${{ github.token }}
-                environment: Preview
+                  token: ${{ github.token }}
+                  environment: Preview
             - name: Print
-              run: echo "Deployed to: ${{ steps.deployment.outputs.url }}"
+              run: echo "Deployed to ${{ steps.deployment.outputs.url }}"
