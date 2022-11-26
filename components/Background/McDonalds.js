@@ -1,3 +1,4 @@
+import Image from "next/image";
 export default function McDonalds() {
 	return (
 		<>
@@ -10,12 +11,14 @@ export default function McDonalds() {
 				</p>
 				<div id="canterbury" className="mt-2">
 					<p className="title is-4 mb-2">Canterbury</p>
-					<img
+					<Image
 						src="/images/background/mcdonalds.jpeg"
 						width="307"
 						height="410"
 						className="right-aligned"
 						alt="Getting star of the shift"
+						placeholder="blur"
+						blurDataURL="/images/placeholder.jpeg"
 					/>
 					After moving to Canterbury for University to cut down my
 					commute, I made the hard decision to transfer to a new

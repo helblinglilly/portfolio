@@ -1,5 +1,6 @@
 import hljs from "highlight.js";
 import shell from "highlight.js/lib/languages/shell";
+import React from "react";
 
 hljs.registerLanguage("shell", shell);
 

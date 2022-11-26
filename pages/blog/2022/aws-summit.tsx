@@ -1,22 +1,33 @@
-import BlogLayout from "../../../components/Layout/BlogPost";
-import Head from "next/head";
+import BlogLayout from "../../../Layouts/BlogLayout";
 import Link from "next/link";
 import Image from "next/image";
-import SocialPreview from "../../../components/SocialPreview/SocialPreview";
-export default function Post() {
-	const toc = [];
-	toc.push({ title: "Travel", id: "travel" });
-	toc.push({ title: "Expo", id: "expo" });
-	toc.push({ title: "Talks", id: "talks-attended" });
-	toc.push({ title: "Lessons for next time", id: "next-time" });
+import SocialPreview from "../../../components/SocialPreview";
+import { BlogMetaInfo } from "../../../support/Types";
+import Tags from "../../../support/Tags";
 
+export const AWSSummit22Meta: BlogMetaInfo = {
+	link: "/blog/2022/aws-summit",
+	title: "AWS Summit 2022",
+	socialSummary: `My first conference that I was able to attend. There were talks to attend, companies to be learnt about, merchandise to be collected and new connections to be made. In this post I summarise my experience, try to capture everything I've learnt, and what I would do differently next time"`,
+	blogSummary: `My first conference that I was able to attend. There were talks to attend, companies to be learnt about, merchandise to be collected and new connections to be made. In this post I summarise my experience, try to capture everything I've learnt, and what I would do differently next time`,
+	created: JSON.parse(JSON.stringify(new Date("2022-05-05"))),
+	thumbnail: "/images/posts/2022/aws-summit-2022/cover.jpeg",
+	authorName: "Joel Helbling",
+	authorLink: "https://helbling.uk",
+	tags: [Tags.aws, Tags.cloud, Tags.event],
+	tableOfContents: [
+		{ title: "Travel", id: "travel" },
+		{ title: "Expo", id: "expo" },
+		{ title: "Talks", id: "talks-attended" },
+		{ title: "Lessons for next time", id: "next-time" },
+	],
+	cover: "/images/posts/2022/aws-summit-2022/cover.jpeg",
+};
+
+export default function Post() {
 	return (
-		<BlogLayout name={"aws-summit-2022"} toc={toc}>
-			<SocialPreview
-				title="AWS Summit 2022 - Blog"
-				description="My first conference that I was able to attend. There were talks to attend, companies to be learnt about, merchandise to be collected and new connections to be made. In this post I summarise my experience, try to capture everything I've learnt, and what I would do differently next time"
-				previewImage="https://helbling.uk/images/posts/2022/aws-summit-2022/cover.jpeg"
-			></SocialPreview>
+		<BlogLayout metaInfo={AWSSummit22Meta}>
+			<SocialPreview metaInfo={AWSSummit22Meta} />
 
 			<section className="mt-4" id="overview">
 				<h3 className="title is-3 mb-2">Overview</h3>
@@ -47,8 +58,8 @@ export default function Post() {
 							width="639"
 							height="359"
 							alt="Expo Floor"
-							placeholder={"blur"}
-							blurDataURL={"/../../images/icon-transparent.png"}
+							placeholder="blur"
+							blurDataURL="/images/placeholder.jpeg"
 						/>
 					</div>
 					<div className="column">
@@ -57,8 +68,8 @@ export default function Post() {
 							width="252"
 							height="336"
 							alt="Excel Entrance"
-							placeholder={"blur"}
-							blurDataURL={"/../../images/icon-transparent.png"}
+							placeholder="blur"
+							blurDataURL="/images/placeholder.jpeg"
 						/>
 					</div>
 				</div>
@@ -125,20 +136,16 @@ export default function Post() {
 					micro-services, and how to manage your containers. They even
 					gave a demonstration of using{" "}
 					<Link href="https://aws.amazon.com/eks/">
-						<a>Elastic Kubernetes Service (EKS)</a>
+						Elastic Kubernetes Service (EKS)
 					</Link>
 					. I already have experience with using a Kubernetes cluster,
 					so while I was already familiar with most of the content, I
 					did get to have that validation that I was using it
 					correctly and got a run-down that was much more approachable
 					than any training materials I covered on{" "}
-					<Link href="https://www.pluralsight.com/">
-						<a>Pluralsight</a>
-					</Link>{" "}
+					<Link href="https://www.pluralsight.com/">Pluralsight</Link>{" "}
 					and{" "}
-					<Link href="https://www.aws.training/">
-						<a>AWS' training</a>
-					</Link>{" "}
+					<Link href="https://www.aws.training/">AWS' training</Link>{" "}
 					resources.
 				</p>
 				<h5 className="title is-5 mb-2">
@@ -148,7 +155,7 @@ export default function Post() {
 					This talk was effectively my vindication of a conversation I
 					had with my manager. In my research, I stumbled across{" "}
 					<Link href="https://aws.amazon.com/dms/">
-						<a>AWS Data Migration Service (DMS)</a>
+						AWS Data Migration Service (DMS)
 					</Link>{" "}
 					which fits the bill perfectly for a task that we had to do.
 					Because we decided against using DMS, we had to manually
@@ -170,17 +177,15 @@ export default function Post() {
 					This talk has blown me away, but it was also the biggest
 					disappointment. We got introduced to{" "}
 					<Link href="https://aws.amazon.com/amplify/">
-						<a>AWS Amplify</a>
+						AWS Amplify
 					</Link>
 					. While not of the most use to existing companies, this
 					would be fantastic for a startup.
 					<br />
 					Effectively, you can take an existing mockup from{" "}
-					<Link href="https://www.figma.com/">
-						<a>Figma</a>
-					</Link>
-					, and Amplify will turn it into a ReactJS application for
-					you. As a developer, you only need to be concerned with the
+					<Link href="https://www.figma.com/">Figma</Link>, and
+					Amplify will turn it into a ReactJS application for you. As
+					a developer, you only need to be concerned with the
 					front-end. Amplify will build a whole pipeline with
 					different environments for you so you can develop, perform
 					QA and eventually deploy to production without ever having
@@ -189,7 +194,7 @@ export default function Post() {
 					can just directly store your JS objects and retrieve them
 					from a datastore. Under the hood, Amplify will set up a{" "}
 					<Link href="https://aws.amazon.com/dynamodb/">
-						<a>DynamoDB</a>
+						DynamoDB
 					</Link>{" "}
 					database for you. So while it is important to know what
 					Amplify will do under the hood, it can still reduce the Time
@@ -222,8 +227,8 @@ export default function Post() {
 							width="378"
 							height="504"
 							alt="Canning Town DLR station"
-							placeholder={"blur"}
-							blurDataURL={"/../../images/icon-transparent.png"}
+							placeholder="blur"
+							blurDataURL="/images/placeholder.jpeg"
 						/>{" "}
 					</div>
 					<div className="column">

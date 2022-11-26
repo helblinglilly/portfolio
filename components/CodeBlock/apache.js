@@ -1,5 +1,6 @@
 import hljs from "highlight.js";
 import apache from "highlight.js/lib/languages/apache";
+import React from "react";
 
 hljs.registerLanguage("apache", apache);
 

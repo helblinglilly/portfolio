@@ -1,21 +1,39 @@
-import BlogLayout from "../../../components/Layout/BlogPost";
-import SocialPreview from "../../../components/SocialPreview/SocialPreview";
-import Preview from "../../../components/LinkPreview";
+import React from "react";
 import Image from "next/image";
+import BlogLayout from "../../../Layouts/BlogLayout";
+import SocialPreview from "../../../components/SocialPreview";
+import Preview from "../../../support/LinkPreview";
+import { BlogMetaInfo, ExternalLinkPreview } from "../../../support/Types";
+import Tags from "../../../support/Tags";
 
-export default function Post({ ...props }) {
-	const toc = [];
-	toc.push({ title: "Motivation", id: "motivation" });
-	toc.push({ title: "Setup", id: "setup" });
-	toc.push({ title: "Applications", id: "applications" });
-	toc.push({ title: "Limitations", id: "limitations" });
+export const HomeserverPiMeta: BlogMetaInfo = {
+	link: "/blog/2022/homeserver-pi",
+	title: "My Pi home server",
+	socialSummary: `A place to write custom apps on the network, block ads, run sponsorblock for my Chromecast devices, store a plex library and use it as local network storage. Find out how I've harnessed the power of Docker and a Raspberry Pi 3B+ to enjoy all the flexibility in a tiny, power-efficient, quiet package.`,
+	blogSummary: `A place to write custom apps on the network, block ads, run sponsorblock for my Chromecast devices, store a plex library and use it as local network storage. Find out how I've harnessed the power of Docker and a Raspberry Pi 3B+ to enjoy all the flexibility in a tiny, power-efficient, quiet package.`,
+	created: JSON.parse(JSON.stringify(new Date("2022-07-30"))),
+	thumbnail: "/images/posts/2022/homeserver-pi/thumbnail.png",
+	authorName: "Joel Helbling",
+	authorLink: "https://helbling.uk",
+	tags: [Tags.pi, Tags.docker],
+	tableOfContents: [
+		{ title: "Motivation", id: "motivation" },
+		{ title: "Setup", id: "setup" },
+		{ title: "Applications", id: "applications" },
+		{ title: "Limitations", id: "limitations" },
+	],
+	cover: null,
+};
 
+export default function HomeserverPi({
+	...props
+}: {
+	meta: BlogMetaInfo;
+	preview: ExternalLinkPreview | null;
+}) {
 	return (
-		<BlogLayout name={"homeserver-pi"} toc={toc}>
-			<SocialPreview
-				title="Pi Homeserver - Blog"
-				description="A place to write custom apps on the network, block ads, run sponsorblock for my Chromecast devices, store a plex library and use it as local network storage. Find out how I've harnessed the power of Docker and a Raspberry Pi 3B+ to enjoy all the flexibility in a tiny, power-efficient, quiet package."
-			></SocialPreview>
+		<BlogLayout metaInfo={props.meta}>
+			<SocialPreview metaInfo={props.meta} />
 
 			<section className="mt-4" id="motivation">
 				<h3 className="title is-3 mb-2">Motivation</h3>
@@ -68,7 +86,11 @@ export default function Post({ ...props }) {
 						</p>
 					</div>
 					<div className="column is-half">
-						<a href={props.url} target="_blank" rel="noreferrer">
+						<a
+							href={props.preview?.url}
+							target="_blank"
+							rel="noreferrer"
+						>
 							<div className="card m-5">
 								<div className="card-header">
 									<div className="card-header-title">
@@ -77,16 +99,22 @@ export default function Post({ ...props }) {
 								</div>
 								<div className="card-image">
 									<figure className="image is-2by1">
-										<img
-											src={props.image}
-											alt="Placeholder image"
-											width={1200}
-											height={600}
-										/>
+										{props.preview?.image ? (
+											<Image
+												src={props.preview.image}
+												alt="Placeholder image"
+												width={1200}
+												height={600}
+												placeholder="blur"
+												blurDataURL="/images/placeholder.jpeg"
+											/>
+										) : (
+											<></>
+										)}
 									</figure>
 								</div>
 								<div className="card-content">
-									<p>{props.description}</p>
+									<p>{props.preview?.description}</p>
 								</div>
 							</div>
 						</a>
@@ -161,8 +189,8 @@ export default function Post({ ...props }) {
 							width="1680"
 							height="1080"
 							alt="Pihole screenshot"
-							placeholder={"blur"}
-							blurDataURL={"/../../images/icon-transparent.png"}
+							placeholder="blur"
+							blurDataURL="/images/placeholder.jpeg"
 						/>
 					</div>
 					<div className="column">
@@ -171,8 +199,8 @@ export default function Post({ ...props }) {
 							width="752"
 							height="768"
 							alt="Pihole Docker-compose screenshot"
-							placeholder={"blur"}
-							blurDataURL={"/../../images/icon-transparent.png"}
+							placeholder="blur"
+							blurDataURL="/images/placeholder.jpeg"
 						/>
 					</div>
 				</div>
@@ -204,8 +232,8 @@ export default function Post({ ...props }) {
 					width="1474"
 					height="582"
 					alt="Plex Docker-compose screenshot"
-					placeholder={"blur"}
-					blurDataURL={"/../../images/icon-transparent.png"}
+					placeholder="blur"
+					blurDataURL="/images/placeholder.jpeg"
 					className="mt-3"
 				/>
 				<h4 className="title is-4 mb-2 mt-3">Filebrowser</h4>
@@ -232,8 +260,8 @@ export default function Post({ ...props }) {
 							width="1680"
 							height="1146"
 							alt="Fileserver screenshot"
-							placeholder={"blur"}
-							blurDataURL={"/../../images/icon-transparent.png"}
+							placeholder="blur"
+							blurDataURL="/images/placeholder.jpeg"
 						/>
 					</div>
 					<div className="column">
@@ -242,8 +270,8 @@ export default function Post({ ...props }) {
 							width="848"
 							height="436"
 							alt="Fileserver Docker-compose screenshot"
-							placeholder={"blur"}
-							blurDataURL={"/../../images/icon-transparent.png"}
+							placeholder="blur"
+							blurDataURL="/images/placeholder.jpeg"
 						/>
 					</div>
 				</div>
@@ -290,8 +318,8 @@ export default function Post({ ...props }) {
 							width="582"
 							height="266"
 							alt="Castblock Docker-compose screenshot"
-							placeholder={"blur"}
-							blurDataURL={"/../../images/icon-transparent.png"}
+							placeholder="blur"
+							blurDataURL="/images/placeholder.jpeg"
 						/>
 					</div>
 				</div>
@@ -377,8 +405,8 @@ export default function Post({ ...props }) {
 							width="1680"
 							height="1340"
 							alt="Dashboard screenshot"
-							placeholder={"blur"}
-							blurDataURL={"/../../images/icon-transparent.png"}
+							placeholder="blur"
+							blurDataURL="/images/placeholder.jpeg"
 						/>
 					</div>
 					<div className="column">
@@ -387,8 +415,8 @@ export default function Post({ ...props }) {
 							width="744"
 							height="334"
 							alt="Dashboard Docker-compose screenshot"
-							placeholder={"blur"}
-							blurDataURL={"/../../images/icon-transparent.png"}
+							placeholder="blur"
+							blurDataURL="/images/placeholder.jpeg"
 						/>
 					</div>
 				</div>
@@ -427,15 +455,21 @@ export default function Post({ ...props }) {
 	);
 }
 
-export async function getStaticProps() {
+export async function getStaticProps(): Promise<{
+	props: { meta: BlogMetaInfo; preview: ExternalLinkPreview | null };
+}> {
 	const preview = await Preview("https://github.com/helblingjoel/piserver");
-
 	return {
 		props: {
-			title: preview.title,
-			description: preview.description,
-			image: preview.image,
-			url: preview.url,
+			preview: {
+				title: preview.title,
+				description: preview.description,
+				image: preview.image,
+				url: preview.url,
+			},
+			meta: {
+				...HomeserverPiMeta,
+			},
 		},
 	};
 }
