@@ -2,8 +2,8 @@ import BlogLayout from "../../../Layouts/BlogLayout";
 import Link from "next/link";
 import Image from "next/image";
 import SocialPreview from "../../../components/SocialPreview";
-import { BlogMetaInfo } from "../../../components/Blog/Types";
-import Tags from "../../../components/Blog/Tags";
+import { BlogMetaInfo } from "../../../support/Types";
+import Tags from "../../../support/Tags";
 
 export const AWSSummit22Meta: BlogMetaInfo = {
 	link: "/blog/2022/aws-summit",

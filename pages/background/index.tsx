@@ -6,7 +6,7 @@ import Waitrose from "../../components/Background/Waitrose";
 import Kent from "../../components/Background/Kent";
 import McDonalds from "../../components/Background/McDonalds";
 import RoyalHarbour from "../../components/Background/RoyalHarbourAcademy";
-import { MetaInfo } from "../../components/Blog/Types";
+import { MetaInfo } from "../../support/Types";
 
 export default function Home() {
 	const metaInfo: MetaInfo = {
