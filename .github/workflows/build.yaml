@@ -65,4 +65,4 @@ jobs:
                   VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
               with:
                   deployment-url: https://dev.helbling.uk
-                  timeout: 10 # Wait for 10 seconds before failing
+                  timeout: 60 # Wait for 10 seconds before failing
