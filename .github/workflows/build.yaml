@@ -59,7 +59,7 @@ jobs:
             - uses: mikefrancis/vercel-cypress@v1
               with:
                   vercel-token: ${{ secrets.VERCEL_TOKEN }}
-                  repo: portfolio
+                  repo: helblingjoel/portfolio
 
     # await-deployment:
     #     name: Wait for deployment
