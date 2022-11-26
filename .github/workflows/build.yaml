@@ -56,14 +56,10 @@ jobs:
     await-deployment:
         runs-on: ubuntu-latest
         steps:
-            - name: Retrieve deployment URL (example on how to set an ENV var)
-              run: "echo VERCEL_DEPLOYMENT_URL=dev.helbling.uk >> $GITHUB_ENV"
+          - uses: SFDigitalServices/wait-for-deployment-action@v1
+            id: deployment
+            with:
+              token: ${{ github.token }}
+              environment: Preview
 
-            - uses: UnlyEd/github-action-await-vercel@v1.2.14
-              id: await-vercel
-              env:
-                  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-
-              with:
-                  deployment-url: https://dev.helbling.uk
-                  timeout: 60 # Wait for 10 seconds before failing
+          - run: echo "Deployed to: ${{ steps.deployment.outputs.url }}"
