@@ -62,5 +62,6 @@ jobs:
               with:
                   github-token: ${{ github.token }}
                   environment: Preview
+                  timeout: 120
             - name: Print
               run: echo "Deployed to ${{ steps.deployment.outputs.url }}"
