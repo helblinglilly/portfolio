@@ -33,6 +33,13 @@ export default function Layout({ children }) {
 			<a className="access-skipnav" href="#main-content">
 				Skip Navigation
 			</a>
+
+			{process.env.NODE_ENV === "production" ? null : (
+				<div className="notification is-warning mb-0">
+					<p>This is a {process.env.NODE_ENV} environment</p>
+				</div>
+			)}
+
 			<Navbar></Navbar>
 			<div>
 				<main className="p-6">
