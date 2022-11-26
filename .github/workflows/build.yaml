@@ -53,22 +53,14 @@ jobs:
             - name: Lint
               run: npm run lint
 
-    regression:
+    await-deployment:
+        name: Wait for deployment
         runs-on: ubuntu-latest
         steps:
-            - uses: mikefrancis/vercel-cypress@v1
+            - uses: SFDigitalServices/wait-for-deployment-action@v2
+              id: deployment
               with:
-                  vercel-token: ${{ secrets.VERCEL_TOKEN }}
-                  repo: helblingjoel/portfolio
-
-    # await-deployment:
-    #     name: Wait for deployment
-    #     runs-on: ubuntu-latest
-    #     steps:
-    #         - uses: SFDigitalServices/wait-for-deployment-action@v2
-    #           id: deployment
-    #           with:
-    #               token: ${{ github.token }}
-    #               environment: Preview
-    #         - name: Print
-    #           run: echo "Deployed to ${{ steps.deployment.outputs.url }}"
+                  github-token: ${{ github.token }}
+                  environment: Preview
+            - name: Print
+              run: echo "Deployed to ${{ steps.deployment.outputs.url }}"
