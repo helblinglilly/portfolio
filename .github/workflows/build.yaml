@@ -69,7 +69,7 @@ jobs:
     regression:
         name: Run regression tests
         runs-on: ubuntu-latest
-        depends-on: await-deployment
+        needs: await-deployment
         steps:
             - name: Hello world
               run: echoc "Hello world"
