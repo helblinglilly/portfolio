@@ -3,7 +3,7 @@ import { PostPreviews, AllPosts } from "../components/Blog/PostPreviews";
 import SocialPreview from "../components/SocialPreview";
 import Image from "next/image";
 import React from "react";
-import { MetaInfo } from "../components/Blog/Types";
+import { MetaInfo } from "../support/Types";
 
 export default function Home() {
 	const description =

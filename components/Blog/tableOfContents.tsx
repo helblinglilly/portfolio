@@ -1,5 +1,5 @@
 import React from "react";
-import { TableOfContent } from "./Types";
+import { TableOfContent } from "../../support/Types";
 
 export default function TableOfContents({ entries }: any) {
 	return (
@@ -8,20 +8,14 @@ export default function TableOfContents({ entries }: any) {
 				<p className="menu-label">Table of Contents</p>
 				<li>
 					<ul>
-						{entries.map((entry: TableOfContent) =>
-							item(entry.title, entry.id)
-						)}
+						{entries.map((entry: TableOfContent) => (
+							<li key={entry.id}>
+								<a href={`#${entry.id}`}>{entry.title}</a>
+							</li>
+						))}
 					</ul>
 				</li>
 			</ul>
 		</aside>
-	);
-}
-
-function item(title: string, id: string) {
-	return (
-		<li key={id}>
-			<a href={"#" + id}>{title}</a>
-		</li>
 	);
 }

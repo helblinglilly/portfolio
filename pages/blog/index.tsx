@@ -1,17 +1,15 @@
 import React, { useState } from "react";
 import Layout from "../../Layouts/Layout";
-import LatestTweets from "../../components/Tweets/LatestTweets";
 import SocialPreview from "../../components/SocialPreview";
 import axios from "axios";
-import {
-	BlogMetaInfo,
-	MetaInfo,
-	TweetsAndBlogProps,
-	Tags,
-} from "../../components/Blog/Types";
+import { BlogMetaInfo, MetaInfo, Tags, Tweet } from "../../support/Types";
 import { AllPosts, PostPreviews } from "../../components/Blog/PostPreviews";
+import Tweets from "../../components/Tweet";
 
-export default function Blog(props: TweetsAndBlogProps) {
+export default function Blog(props: {
+	tweets: Tweet[];
+	posts: BlogMetaInfo[];
+}) {
 	const metaInfo: MetaInfo = {
 		title: "Blog - Joel Helbling",
 		socialSummary: `Blog homepage of Joel Helbling. View the collection of blog posts, search for specific ones, filter by tags or by publishing year`,
@@ -214,97 +212,15 @@ export default function Blog(props: TweetsAndBlogProps) {
 				<PostPreviews posts={visiblePosts} />
 			</div>
 			<div className="column is-one-quarter">
-				<LatestTweets tweets={props.tweets}></LatestTweets>
+				<p className="title is-3">Latest Tweets</p>
+				<Tweets tweets={props.tweets}></Tweets>
 			</div>
 		</Layout>
 	);
 }
 
-function searchCard(
-	setSearchTerm: (arg0: string) => void,
-	setTags: (arg0: { (tags: any): any[]; (tags: any): any }) => void,
-	setYears: (arg0: { (years: any): any[]; (years: any): any }) => void,
-	posts: BlogMetaInfo[]
-) {
-	return (
-		<div className="card search mobileHidden" id="search">
-			<div className="card-content">
-				<input
-					className="input"
-					placeholder="Search term..."
-					onChange={(event) => {
-						setSearchTerm(event.target.value);
-					}}
-				></input>
-
-				<div className="pt-4 accented">
-					<p className="title is-5 mb-2">Posted in year</p>
-
-					{getYears(posts).map((year) => {
-						return (
-							<div className="pt-2 accented" key={year}>
-								<label className="checkbox">
-									<input
-										className="mr-2"
-										type="checkbox"
-										onChange={(event) => {
-											if (event.target.checked)
-												setYears((years: any) => [
-													...years,
-													year,
-												]);
-											else
-												setYears((years: any[]) =>
-													years.filter(
-														(item: any) =>
-															item !== year
-													)
-												);
-										}}
-									/>
-									{year}
-								</label>
-							</div>
-						);
-					})}
-				</div>
-
-				<div className="pt-4 accented">
-					<p className="title is-5 mb-2">Tags</p>
-					{getTags(posts).map((tag) => {
-						return (
-							<div className="mb-2 accented" key={tag.name}>
-								<label className="checkbox">
-									<input
-										className="mr-2"
-										type="checkbox"
-										onChange={(event) => {
-											if (event.target.checked)
-												setTags((tags: Tags[]) => [
-													...tags,
-													tag,
-												]);
-											else
-												setTags((tags: Tags[]) =>
-													tags.filter(
-														(item) => item !== tag
-													)
-												);
-										}}
-									/>
-									{tag.name}
-								</label>
-							</div>
-						);
-					})}
-				</div>
-			</div>
-		</div>
-	);
-}
-
 export async function getServerSideProps(): Promise<{
-	props: TweetsAndBlogProps;
+	props: { tweets: Tweet[]; posts: BlogMetaInfo[] };
 }> {
 	let token = process.env.TWITTER_TOKEN;
 

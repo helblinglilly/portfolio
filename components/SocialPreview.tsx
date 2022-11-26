@@ -1,10 +1,10 @@
 import React from "react";
 import Head from "next/head";
 import Script from "next/script";
-import { MetaInfoProps } from "./Blog/Types";
+import { MetaInfo } from "../support/Types";
 
-export default function SocialPreview({ ...metaInfo }: MetaInfoProps) {
-	const meta = metaInfo.metaInfo;
+export default function SocialPreview(props: { metaInfo: MetaInfo }) {
+	const meta = props.metaInfo;
 	const themeColor = "#8D0370";
 	const previewImage = meta.cover
 		? meta.cover

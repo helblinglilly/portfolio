@@ -2,9 +2,9 @@ import React from "react";
 import Image from "next/image";
 import BlogLayout from "../../../Layouts/BlogLayout";
 import SocialPreview from "../../../components/SocialPreview";
-import Preview from "../../../components/LinkPreview";
-import { BlogMetaInfo, BlogProps } from "../../../components/Blog/Types";
-import Tags from "../../../components/Blog/Tags";
+import Preview from "../../../support/LinkPreview";
+import { BlogMetaInfo, ExternalLinkPreview } from "../../../support/Types";
+import Tags from "../../../support/Tags";
 
 export const HomeserverPiMeta: BlogMetaInfo = {
 	link: "/blog/2022/homeserver-pi",
@@ -25,7 +25,12 @@ export const HomeserverPiMeta: BlogMetaInfo = {
 	cover: null,
 };
 
-export default function HomeserverPi({ ...props }: BlogProps) {
+export default function HomeserverPi({
+	...props
+}: {
+	meta: BlogMetaInfo;
+	preview: ExternalLinkPreview | null;
+}) {
 	return (
 		<BlogLayout metaInfo={props.meta}>
 			<SocialPreview metaInfo={props.meta} />
@@ -450,7 +455,9 @@ export default function HomeserverPi({ ...props }: BlogProps) {
 	);
 }
 
-export async function getStaticProps(): Promise<{ props: BlogProps }> {
+export async function getStaticProps(): Promise<{
+	props: { meta: BlogMetaInfo; preview: ExternalLinkPreview | null };
+}> {
 	const preview = await Preview("https://github.com/helblingjoel/piserver");
 	return {
 		props: {

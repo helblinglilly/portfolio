@@ -1,4 +1,4 @@
-import { ExternalLinkPreview } from "./Blog/Types";
+import { ExternalLinkPreview } from "./Types";
 
 export default async function Preview(
 	link: string

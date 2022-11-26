@@ -18,7 +18,7 @@
 	},
 	"include": [
 		"pages/_app.tsx",
-		"components/Navbar/Navbar.js",
+		"components/Navbar.js",
 		"components/Tweets/LatestTweets.js",
 		"next-env.d.ts",
 		"**/*.ts",

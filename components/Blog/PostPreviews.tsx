@@ -4,7 +4,7 @@ import { AWSSummit22Meta } from "../../pages/blog/2022/aws-summit";
 import { HomeserverPiMeta } from "../../pages/blog/2022/homeserver-pi";
 import { RHasAProblemMeta } from "../../pages/blog/2022/r-has-a-problem";
 import { VercelMeta } from "../../pages/blog/2022/vercel";
-import { BlogMetaInfo, PostProps } from "./Types";
+import { BlogMetaInfo } from "../../support/Types";
 
 let visiblePosts: Array<BlogMetaInfo> = [];
 // 2022
@@ -18,16 +18,16 @@ visiblePosts = visiblePosts.sort((a, b) => (a.created < b.created ? 1 : -1));
 
 export const AllPosts = visiblePosts;
 
-export function PostPreviews({ ...posts }: PostProps) {
+export function PostPreviews(props: { posts: BlogMetaInfo[] }) {
 	return (
 		<>
-			{posts.posts.length === 0 ? (
+			{props.posts.length === 0 ? (
 				<>
 					<p>No posts match search criteria.</p>
 					<p>Try adjusting your filters to find matching posts.</p>
 				</>
 			) : (
-				posts.posts.map((post) => {
+				props.posts.map((post) => {
 					return (
 						<Link href={post.link} key={`${post.title}link`}>
 							<div

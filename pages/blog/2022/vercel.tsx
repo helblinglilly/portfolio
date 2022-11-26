@@ -3,8 +3,8 @@ import SocialPreview from "../../../components/SocialPreview";
 import BashCodeBlock from "../../../components/CodeBlock/bash";
 import Image from "next/image";
 import Link from "next/link";
-import { BlogMetaInfo } from "../../../components/Blog/Types";
-import Tags from "../../../components/Blog/Tags";
+import { BlogMetaInfo } from "../../../support/Types";
+import Tags from "../../../support/Tags";
 
 export const VercelMeta: BlogMetaInfo = {
 	link: "/blog/2022/vercel",

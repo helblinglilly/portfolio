@@ -4,8 +4,8 @@ import Image from "next/image";
 import ShellScriptBlock from "../../../components/CodeBlock/shell";
 import ApacheCodeBlock from "../../../components/CodeBlock/apache";
 import RScriptBlock from "../../../components/CodeBlock/r";
-import { BlogMetaInfo } from "../../../components/Blog/Types";
-import Tags from "../../../components/Blog/Tags";
+import { BlogMetaInfo } from "../../../support/Types";
+import Tags from "../../../support/Tags";
 
 export const RHasAProblemMeta: BlogMetaInfo = {
 	link: "/blog/2022/r-has-a-problem",
