@@ -34,8 +34,6 @@ export default function Layout({ children }) {
 				Skip Navigation
 			</a>
 
-			<p>spike/cypress</p>
-
 			{process.env.NODE_ENV === "production" &&
 			process.env.VERCEL_ENV === "production" ? null : (
 				<div className="notification is-warning mb-0">
