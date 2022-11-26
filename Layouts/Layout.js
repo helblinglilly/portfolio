@@ -39,7 +39,13 @@ export default function Layout({ children }) {
 			{process.env.NODE_ENV === "production" &&
 			process.env.VERCEL_ENV === "production" ? null : (
 				<div className="notification is-warning mb-0">
-					<p>This is a {process.env.NODE_ENV} environment</p>
+					<p>
+						This is a{" "}
+						{process.env.VERCEL_ENV
+							? process.env.VERCEL_ENV
+							: "development"}{" "}
+						environment
+					</p>
 				</div>
 			)}
 
