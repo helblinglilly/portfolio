@@ -9,7 +9,7 @@ export default function Navbar() {
 		<nav className="navbar is-spaced" id="navbar">
 			<Script src="/js/navbar.js"></Script>
 			<div className="navbar-brand">
-				<Link href="/" className="navbar-item" id="navbar-logo">
+				<Link href="/" className="navbar-item" data-cy="navbar-logo">
 					<Image
 						src="/images/is-light.png"
 						width={140}
@@ -34,17 +34,20 @@ export default function Navbar() {
 			<div className="navbar-menu">
 				<div className="navbar-start">
 					<Link href="/">
-						<div className="navbar-item" id="navbar-home">
+						<div className="navbar-item" data-cy="navbar-home">
 							Home
 						</div>
 					</Link>
 					<Link href="/blog">
-						<div className="navbar-item" id="navbar-blog">
+						<div className="navbar-item" data-cy="navbar-blog">
 							Blog
 						</div>
 					</Link>
 					<Link href="/background">
-						<div className="navbar-item" id="navbar-background">
+						<div
+							className="navbar-item"
+							data-cy="navbar-background"
+						>
 							Background
 						</div>
 					</Link>
@@ -66,6 +69,7 @@ export default function Navbar() {
 						}}
 						className="navbar-item"
 						id="navbar-theme"
+						data-cy="navbar-theme"
 					>
 						Change Theme
 					</a>
