@@ -58,11 +58,12 @@ export function PostPreviews(props: { posts: BlogMetaInfo[] }) {
 										>
 											<Image
 												src={post.thumbnail}
-												className="is-inline postImage"
+												className="is-inline"
 												alt="Blog post thumbnail"
 												width={200}
 												height={200}
 												priority={true}
+												style={{ borderRadius: "5px" }}
 												placeholder={"blur"}
 												blurDataURL={
 													"images/placeholder.jpeg"
