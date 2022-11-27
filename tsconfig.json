@@ -14,7 +14,8 @@
 		"isolatedModules": true,
 		"jsx": "preserve",
 		"incremental": true,
-		"noUncheckedIndexedAccess": true
+		"noUncheckedIndexedAccess": true,
+		"types": ["cypress", "node"]
 	},
 	"include": [
 		"pages/_app.tsx",
