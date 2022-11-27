@@ -7,17 +7,17 @@ export default defineConfig({
 			on("before:browser:launch", (browser, launchOptions) => {
 				if (browser.family === "chromium") {
 					if (browser.name === "electron") {
-						launchOptions.preferences.theme = "Dark";
+						launchOptions.preferences.theme = "Light";
 					} else {
 						launchOptions.args.push(
-							"--enable-features=WebContentsForceDark"
+							"--enable-features=WebContentsForceLight"
 						);
 					}
 				}
 				if (browser.family === "firefox") {
 					launchOptions.preferences[
 						"layout.css.prefers-color-scheme.content-override"
-					] = 0;
+					] = 1;
 				}
 
 				return launchOptions;

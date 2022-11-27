@@ -101,7 +101,7 @@ describe("Navbar - Desktop", () => {
 		});
 	});
 
-	it.only("Dark theme to light", () => {
+	it.only("Ligh theme to dark", () => {
 		// Browsers (other than Electron) are configured to launch in dark mode by default
 		cy.viewport(1920, 1080);
 		cy.visit("/");
@@ -112,7 +112,7 @@ describe("Navbar - Desktop", () => {
 		cy.get("[data-cy=navbar-theme]").should(
 			"have.css",
 			"background-color",
-			`${darkTheme}`
+			`${lightTheme}`
 		);
 
 		cy.get("[data-cy=navbar-theme]").click();
@@ -120,7 +120,7 @@ describe("Navbar - Desktop", () => {
 		cy.get("[data-cy=navbar-theme]").should(
 			"have.css",
 			"background-color",
-			`${lightTheme}`
+			`${darkTheme}`
 		);
 	});
 });
