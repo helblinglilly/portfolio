@@ -112,7 +112,7 @@ describe("Navbar - Desktop", () => {
 		cy.get("[data-cy=navbar-theme]").should(
 			"have.css",
 			"background-color",
-			`${lightTheme}`
+			`${darkTheme}`
 		);
 
 		cy.get("[data-cy=navbar-theme]").click();
@@ -120,7 +120,7 @@ describe("Navbar - Desktop", () => {
 		cy.get("[data-cy=navbar-theme]").should(
 			"have.css",
 			"background-color",
-			`${darkTheme}`
+			`${lightTheme}`
 		);
 	});
 });
