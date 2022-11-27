@@ -5,7 +5,8 @@
 		"dev": "next dev",
 		"build": "node sitemapgen.js && next build",
 		"start": "next start",
-		"lint": "next lint --max-warnings=0"
+		"lint": "next lint --max-warnings=0",
+		"test": "npx cypress open"
 	},
 	"dependencies": {
 		"axios": "^0.27.2",

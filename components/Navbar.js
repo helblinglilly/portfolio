@@ -9,7 +9,7 @@ export default function Navbar() {
 		<nav className="navbar is-spaced" id="navbar">
 			<Script src="/js/navbar.js"></Script>
 			<div className="navbar-brand">
-				<Link href="/" className="navbar-item">
+				<Link href="/" className="navbar-item" id="navbar-logo">
 					<Image
 						src="/images/is-light.png"
 						width={140}
@@ -34,13 +34,19 @@ export default function Navbar() {
 			<div className="navbar-menu">
 				<div className="navbar-start">
 					<Link href="/">
-						<div className="navbar-item">Home</div>
+						<div className="navbar-item" id="navbar-home">
+							Home
+						</div>
 					</Link>
 					<Link href="/blog">
-						<div className="navbar-item">Blog</div>
+						<div className="navbar-item" id="navbar-blog">
+							Blog
+						</div>
 					</Link>
 					<Link href="/background">
-						<div className="navbar-item">Background</div>
+						<div className="navbar-item" id="navbar-background">
+							Background
+						</div>
 					</Link>
 				</div>
 				<div className="navbar-end">
@@ -59,6 +65,7 @@ export default function Navbar() {
 							else setTheme("light");
 						}}
 						className="navbar-item"
+						id="navbar-theme"
 					>
 						Change Theme
 					</a>

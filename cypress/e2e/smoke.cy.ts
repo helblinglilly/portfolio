@@ -1,4 +1,4 @@
-describe.skip("All pages can load successfully", () => {
+describe("All pages can load successfully", () => {
 	it("/", () => {
 		cy.visit(`${Cypress.config("baseUrl")}`);
 	});
@@ -27,7 +27,8 @@ describe.skip("All pages can load successfully", () => {
 		});
 
 		it("/2022 redirects to root", () => {
-			// TODO
+			cy.visit(`${Cypress.config("baseUrl")}/blog/2022`);
+			cy.url().should("not.contain", `${Cypress.config("baseUrl")}/2022`);
 		});
 	});
 	it("/background", () => {
@@ -59,5 +60,51 @@ describe("Homepage checks", () => {
 					});
 				}
 			});
+	});
+
+	it("A blog post is shown", () => {
+		cy.get(".column.is-two-third").find(".blogPost");
+	});
+});
+
+describe("Navbar - Desktop", () => {
+	it("Logo", () => {
+		cy.viewport(1920, 1080);
+		cy.visit(`${Cypress.config("baseUrl")}/blog`);
+		cy.get("#navbar-logo").click();
+		cy.location("pathname").then((location) => {
+			location === `${Cypress.config("baseUrl")}/`;
+		});
+	});
+
+	it("Home", () => {
+		cy.viewport(1920, 1080);
+		cy.get("#navbar-home").click();
+		cy.location("pathname").then((location) => {
+			location === `${Cypress.config("baseUrl")}/`;
+		});
+	});
+
+	it("Blog", () => {
+		cy.viewport(1920, 1080);
+		cy.get("#navbar-blog").click();
+		cy.location("pathname").then((location) => {
+			location === `${Cypress.config("baseUrl")}/blog`;
+		});
+	});
+
+	it("Background", () => {
+		cy.viewport(1920, 1080);
+		cy.get("#navbar-background").click();
+		cy.location("pathname").then((location) => {
+			location === `${Cypress.config("baseUrl")}/background`;
+		});
+	});
+
+	it("Change Theme", () => {
+		cy.viewport(1920, 1080);
+		cy.get("#navbar-theme").click();
+
+		// TODO Make sure certain colours have changed
 	});
 });
