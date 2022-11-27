@@ -27,6 +27,8 @@ describe("All pages can load successfully", () => {
 		});
 
 		it("/2022 redirects to root", () => {
+			// TODO This test is currently broken, but expected behaviour needs evaluating
+			// Reference issues/42 #42 about this
 			cy.visit(`${Cypress.config("baseUrl")}/blog/2022`);
 			cy.url().should("not.contain", `${Cypress.config("baseUrl")}/2022`);
 		});
@@ -42,16 +44,14 @@ describe("Homepage checks", () => {
 	});
 
 	it("Sidebar contains basic information", () => {
-		const aboutMeSidebar = cy.get(".sidebar");
-		aboutMeSidebar.contains("About me");
+		cy.get("[data-cy=sidebar]").contains("About me");
 	});
 
 	it("Social Media links all work", () => {
-		const socials = cy.get("#socialLinks");
-		socials.contains("Socials");
+		cy.get("[data-cy=socialLinks]").contains("Social");
 
-		cy.get("#socialLinks")
-			.find(".icon-text")
+		cy.get("[data-cy=socialLinks]")
+			.find("[data-cy=socialLink]")
 			.each((link) => {
 				if (link.prop("href")) {
 					cy.request({
@@ -71,7 +71,7 @@ describe("Navbar - Desktop", () => {
 	it("Logo", () => {
 		cy.viewport(1920, 1080);
 		cy.visit(`${Cypress.config("baseUrl")}/blog`);
-		cy.get("#navbar-logo").click();
+		cy.get("[data-cy=navbar-logo").click();
 		cy.location("pathname").then((location) => {
 			location === `${Cypress.config("baseUrl")}/`;
 		});
@@ -79,7 +79,7 @@ describe("Navbar - Desktop", () => {
 
 	it("Home", () => {
 		cy.viewport(1920, 1080);
-		cy.get("#navbar-home").click();
+		cy.get("[data-cy=navbar-home").click();
 		cy.location("pathname").then((location) => {
 			location === `${Cypress.config("baseUrl")}/`;
 		});
@@ -87,7 +87,7 @@ describe("Navbar - Desktop", () => {
 
 	it("Blog", () => {
 		cy.viewport(1920, 1080);
-		cy.get("#navbar-blog").click();
+		cy.get("[data-cy=navbar-blog").click();
 		cy.location("pathname").then((location) => {
 			location === `${Cypress.config("baseUrl")}/blog`;
 		});
@@ -95,16 +95,32 @@ describe("Navbar - Desktop", () => {
 
 	it("Background", () => {
 		cy.viewport(1920, 1080);
-		cy.get("#navbar-background").click();
+		cy.get("[data-cy=navbar-background").click();
 		cy.location("pathname").then((location) => {
 			location === `${Cypress.config("baseUrl")}/background`;
 		});
 	});
 
-	it("Change Theme", () => {
+	it.only("Dark theme to light", () => {
+		// Browsers (other than Electron) are configured to launch in dark mode by default
 		cy.viewport(1920, 1080);
-		cy.get("#navbar-theme").click();
+		cy.visit("/");
 
-		// TODO Make sure certain colours have changed
+		const lightTheme = "rgb(255, 255, 255)";
+		const darkTheme = "rgb(0, 0, 0)";
+
+		cy.get("[data-cy=navbar-theme]").should(
+			"have.css",
+			"background-color",
+			`${darkTheme}`
+		);
+
+		cy.get("[data-cy=navbar-theme]").click();
+
+		cy.get("[data-cy=navbar-theme]").should(
+			"have.css",
+			"background-color",
+			`${lightTheme}`
+		);
 	});
 });
