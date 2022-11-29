@@ -34,7 +34,7 @@ export default function Layout({ children }) {
 				Skip Navigation
 			</a>
 
-			<p>{process.env.NEXT_ENV}</p>
+			<p>{process.env.NEXT_PUBLIC_VERCEL_ENV}</p>
 			<Navbar></Navbar>
 			<div>
 				<main className="p-6">
