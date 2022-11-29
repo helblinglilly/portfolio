@@ -3,9 +3,7 @@ on:
     pull_request:
         branches:
             - develop
-    push:
-        branches:
-            - spike/cypress
+            - main
 jobs:
     regression:
         name: Run regression tests
