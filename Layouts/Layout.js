@@ -1,6 +1,8 @@
 import Navbar from "../components/Navbar";
 import { useEffect } from "react";
 
+const vercel_env = process.env.VERCEL_ENV;
+
 export default function Layout({ children }) {
 	useEffect(() => {
 		document.addEventListener(
@@ -47,7 +49,7 @@ export default function Layout({ children }) {
 				</div>
 			)}
 
-			<p>VERCEL_ENV: {process.env.VERCEL_ENV}</p>
+			<p>VERCEL_ENV: {vercel_env}</p>
 			<p>NODE_ENV: {process.env.NODE_ENV}</p>
 			<p>VERCEL: {process.env.VERCEL}</p>
 			<p>VERCEL_URL: {process.env.VERCEL_URL}</p>
