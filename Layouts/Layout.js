@@ -1,10 +1,14 @@
 import Navbar from "../components/Navbar";
 import { useEffect } from "react";
 
-const displayDevBanner =
-	process.env.NODE_ENV !== "production" &&
-	process.env.VERCEL_ENV !== "production";
-const bannerText = `This is a ${process.env.NODE_ENV} deployment running on ${process.env.VERCEL_ENV}`;
+const displayDevBanner = !(
+	process.env.NODE_ENV === "production" &&
+	process.env.VERCEL_ENV === "production"
+);
+
+const bannerText = `This is a ${process.env.NODE_ENV} deployment running on ${
+	process.env.VERCEL_ENV ? process.env.VERCEL_ENV : "local"
+}`;
 
 export default function Layout({ children }) {
 	useEffect(() => {
