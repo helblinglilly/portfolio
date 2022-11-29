@@ -1,7 +1,7 @@
 import Navbar from "../components/Navbar";
 import { useEffect } from "react";
 
-const vercel_env = process.env.VERCEL_ENV;
+let vercel_env;
 
 export default function Layout({ children }) {
 	useEffect(() => {
@@ -28,6 +28,8 @@ export default function Layout({ children }) {
 			},
 			{ passive: true }
 		);
+
+		vercel_env = process.env.VERCEL_ENV;
 	});
 
 	return (
