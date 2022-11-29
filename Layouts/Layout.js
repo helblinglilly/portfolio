@@ -47,10 +47,10 @@ export default function Layout({ children }) {
 				</div>
 			)}
 			<p>Vars</p>
-			<p>VERCEL_ENV: {process.VERCEL_ENV}</p>
-			<p>NODE_ENV: {process.NODE_ENV}</p>
-			<p>VERCEL: {process.VERCEL}</p>
-			<p>VERCEL_URL: {process.VERCEL_URL}</p>
+			<p>VERCEL_ENV: {process.env.VERCEL_ENV}</p>
+			<p>NODE_ENV: {process.env.NODE_ENV}</p>
+			<p>VERCEL: {process.env.VERCEL}</p>
+			<p>VERCEL_URL: {process.env.VERCEL_URL}</p>
 
 			<Navbar></Navbar>
 			<div>
