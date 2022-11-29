@@ -10,7 +10,7 @@ export default function App({ Component, pageProps }) {
 		hljs.highlightAll();
 	}, []);
 	return (
-		<ThemeProvider>
+		<ThemeProvider defaultTheme="system">
 			<Component {...pageProps} />
 		</ThemeProvider>
 	);
