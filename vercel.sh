@@ -7,6 +7,9 @@ if [ "$VERCEL_GIT_COMMIT_REF" == "main" ]; then
 elif [ "$VERCEL_GIT_COMMIT_REF" == "develop" ]; then
   echo "✅ - Building and deploying to dev.helbling.uk"
   exit 1;
+elif [ "${VERCEL_GIT_COMMIT_REF:0:7}" == "vercel/" ]; then
+  echo "✅ - Building and deploying to dev.helbling.uk"
+  exit 1;
 else
   echo "🛑 - Build cancelled"
   exit 0;
