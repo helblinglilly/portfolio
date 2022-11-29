@@ -64,7 +64,6 @@ export default function Blog(props: {
 	};
 
 	const updateSearchTerm = (term: string) => {
-		console.log(term);
 		if (!term) setSearchTerm(/.*/);
 		else setSearchTerm(new RegExp(term.toLocaleLowerCase()));
 		refreshVisiblePosts();
