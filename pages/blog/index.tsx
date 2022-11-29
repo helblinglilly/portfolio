@@ -44,7 +44,7 @@ export default function Blog(props: {
 			});
 		});
 
-		return realTabs;
+		return realTabs.sort((a, b) => (a.name > b.name ? 1 : -1));
 	};
 
 	const uniqueYears = (): number[] => {
@@ -53,7 +53,7 @@ export default function Blog(props: {
 			if (!years.includes(new Date(post.created).getFullYear()))
 				years.push(new Date(post.created).getFullYear());
 		});
-		return years;
+		return years.sort((a, b) => (a < b ? 1 : -1));
 	};
 
 	const [selectedTags, setSelectedTags] = useState<Tags[]>([]);
@@ -152,7 +152,7 @@ export default function Blog(props: {
 				</div>
 
 				<div className={isSearchVisible ? "card" : "card mobileHidden"}>
-					<div className="card-content">
+					<div className="card-content" data-cy="blogSearchCard">
 						<input
 							className="input"
 							placeholder="Search term..."
@@ -162,30 +162,40 @@ export default function Blog(props: {
 						></input>
 
 						<p className="title is-5 mb-2 pt-4">Posted in year</p>
-						{uniqueYears().map((year) => {
-							return (
-								<div className="pt-2 accented" key={year}>
-									<label className="checkbox">
-										<input
-											key={year}
-											className="mr-2"
-											type="checkbox"
-											onChange={(event) =>
-												updateYears(
-													year,
-													event.target.checked
-												)
-											}
-										/>
-										{year}
-									</label>
-								</div>
-							);
-						})}
+						{uniqueYears()
+							.sort()
+							.map((year) => {
+								return (
+									<div
+										className="pt-2 accented"
+										key={year}
+										data-cy="yearLabels"
+									>
+										<label className="checkbox">
+											<input
+												key={year}
+												className="mr-2"
+												type="checkbox"
+												onChange={(event) =>
+													updateYears(
+														year,
+														event.target.checked
+													)
+												}
+											/>
+											{year}
+										</label>
+									</div>
+								);
+							})}
 						<p className="title is-5 mb-2 pt-4">Tags</p>
 						{uniqueTagLabels().map((tag) => {
 							return (
-								<div className="pt-2 accented" key={tag.name}>
+								<div
+									className="pt-2 accented"
+									key={tag.name}
+									data-cy="postCategoryLabels"
+								>
 									<label className="checkbox">
 										<input
 											key={tag.name}
@@ -265,22 +275,3 @@ export async function getServerSideProps(): Promise<{
 		},
 	};
 }
-
-const getYears = (posts: BlogMetaInfo[]): number[] => {
-	const years: number[] = [];
-	posts.forEach((post) => {
-		const postYear = new Date(post.created).getFullYear();
-		if (!years.includes(postYear)) years.push(postYear);
-	});
-	return years;
-};
-
-const getTags = (posts: BlogMetaInfo[]): Tags[] => {
-	const tags: Tags[] = [];
-	posts.forEach((post) => {
-		post.tags.forEach((tag) => {
-			if (!tags.includes(tag)) tags.push(tag);
-		});
-	});
-	return tags;
-};
