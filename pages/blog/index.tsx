@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Layout from "../../Layouts/Layout";
 import SocialPreview from "../../components/SocialPreview";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { BlogMetaInfo, MetaInfo, Tags, Tweet } from "../../support/Types";
 import { AllPosts, PostPreviews } from "../../components/Blog/PostPreviews";
 import Tweets from "../../components/Tweet";
@@ -64,7 +64,6 @@ export default function Blog(props: {
 	};
 
 	const updateSearchTerm = (term: string) => {
-		console.log(term);
 		if (!term) setSearchTerm(/.*/);
 		else setSearchTerm(new RegExp(term.toLocaleLowerCase()));
 		refreshVisiblePosts();
@@ -246,7 +245,7 @@ export async function getServerSideProps(): Promise<{
 		} else {
 			tweets = tweets.data.data;
 		}
-	} catch (err) {
+	} catch (err: AxiosError | any) {
 		tweets = [
 			{
 				created_at: new Date().toISOString(),
@@ -254,7 +253,9 @@ export async function getServerSideProps(): Promise<{
 				text: "Unable to get tweets at this time",
 			},
 		];
-		console.log(err);
+
+		if (axios.isAxiosError(err)) console.log(err.status);
+		else console.log(err);
 	}
 
 	return {
