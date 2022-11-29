@@ -36,3 +36,7 @@ yarn-error.log*
 .vscode
 .env
 public/sitemap.xml
+
+cypress/downloads
+cypress/screenshots
+cypress/videos
