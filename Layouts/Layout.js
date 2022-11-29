@@ -47,6 +47,8 @@ export default function Layout({ children }) {
 				</div>
 			)}
 
+			{process.env}
+
 			<Navbar></Navbar>
 			<div>
 				<main className="p-6">
