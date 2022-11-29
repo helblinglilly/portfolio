@@ -1,15 +1,6 @@
 import Navbar from "../components/Navbar";
 import { useEffect } from "react";
 
-const displayDevBanner = !(
-	process.env.NODE_ENV === "production" &&
-	process.env.VERCEL_ENV === "production"
-);
-
-const bannerText = `This is a ${process.env.NODE_ENV} deployment running on ${
-	process.env.VERCEL_ENV ? process.env.VERCEL_ENV : "local"
-}`;
-
 export default function Layout({ children }) {
 	useEffect(() => {
 		document.addEventListener(
@@ -43,11 +34,7 @@ export default function Layout({ children }) {
 				Skip Navigation
 			</a>
 
-			{displayDevBanner ? (
-				<div className="notification is-warning mb-0">
-					<p>{bannerText}</p>
-				</div>
-			) : null}
+			<p>{process.env.NEXT_ENV}</p>
 			<Navbar></Navbar>
 			<div>
 				<main className="p-6">

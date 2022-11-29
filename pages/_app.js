@@ -5,7 +5,9 @@ import { useEffect } from "react";
 
 import { ThemeProvider } from "next-themes";
 
-export default function App({ Component, pageProps }) {
+export default function MyApp({ Component, pageProps }) {
+	console.log(Component, pageProps);
+
 	useEffect(() => {
 		hljs.highlightAll();
 	}, []);
