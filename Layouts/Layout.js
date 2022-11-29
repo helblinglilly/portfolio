@@ -41,8 +41,8 @@ export default function Layout({ children }) {
 						This is a{" "}
 						{process.env.VERCEL_ENV
 							? process.env.VERCEL_ENV
-							: "development"}{" "}
-						environment
+							: "local"}{" "}
+						instance running in {process.env.NODE_ENV} mode
 					</p>
 				</div>
 			)}
