@@ -46,11 +46,12 @@ export default function Layout({ children }) {
 					</p>
 				</div>
 			)}
-			<p>Vars</p>
+
 			<p>VERCEL_ENV: {process.env.VERCEL_ENV}</p>
 			<p>NODE_ENV: {process.env.NODE_ENV}</p>
 			<p>VERCEL: {process.env.VERCEL}</p>
 			<p>VERCEL_URL: {process.env.VERCEL_URL}</p>
+			<p>ENVIRONMENT: {process.env.ENVIRONMENT}</p>
 
 			<Navbar></Navbar>
 			<div>
