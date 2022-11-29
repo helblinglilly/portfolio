@@ -4,7 +4,10 @@ on:
         branches-ignore:
             - develop
             - main
-            - spike/cypress
+    pull_reqest:
+        branches:
+            - develop
+            - main
 jobs:
     build:
         name: Attempt to build
