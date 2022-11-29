@@ -79,6 +79,7 @@ describe("Navbar - Desktop", () => {
 
 	it("Home", () => {
 		cy.viewport(1920, 1080);
+		cy.visit(`${Cypress.config("baseUrl")}/blog`);
 		cy.get("[data-cy=navbar-home").click();
 		cy.location("pathname").then((location) => {
 			location === `${Cypress.config("baseUrl")}/`;
@@ -87,6 +88,7 @@ describe("Navbar - Desktop", () => {
 
 	it("Blog", () => {
 		cy.viewport(1920, 1080);
+		cy.visit(`${Cypress.config("baseUrl")}/`);
 		cy.get("[data-cy=navbar-blog").click();
 		cy.location("pathname").then((location) => {
 			location === `${Cypress.config("baseUrl")}/blog`;
@@ -95,6 +97,7 @@ describe("Navbar - Desktop", () => {
 
 	it("Background", () => {
 		cy.viewport(1920, 1080);
+		cy.visit(`${Cypress.config("baseUrl")}/blog`);
 		cy.get("[data-cy=navbar-background").click();
 		cy.location("pathname").then((location) => {
 			location === `${Cypress.config("baseUrl")}/background`;
