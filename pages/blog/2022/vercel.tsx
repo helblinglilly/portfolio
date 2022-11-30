@@ -3,27 +3,9 @@ import SocialPreview from "../../../components/SocialPreview";
 import BashCodeBlock from "../../../components/CodeBlock/bash";
 import Image from "next/image";
 import Link from "next/link";
-import { BlogMetaInfo } from "../../../support/Types";
-import Tags from "../../../support/Tags";
+import { FindPost } from "../../../components/Blog/AllPosts";
 
-export const VercelMeta: BlogMetaInfo = {
-	link: "/blog/2022/vercel",
-	title: "Moving to Vercel",
-	socialSummary: `My shockingly easy experience with the move to Vercel`,
-	blogSummary: `With Heroku making the news recently about removing their free-tier plan, I thought it would be interesting to look into the Platform as a service space. Much to my surprise, it was a lot easier than I anticipated.`,
-	created: JSON.parse(JSON.stringify(new Date("2022-08-31"))),
-	thumbnail: "/images/posts/2022/vercel/thumbnail.png",
-	authorName: "Joel Helbling",
-	authorLink: "https://helbling.uk",
-	tags: [Tags.cloud],
-	tableOfContents: [
-		{ title: "Background", id: "background" },
-		{ title: "Setup", id: "setup" },
-		{ title: "Build what you need", id: "build-what-you-need" },
-		{ title: "Moving to production", id: "production" },
-	],
-	cover: null,
-};
+const VercelMeta = FindPost("/blog/2022/vercel");
 
 export default function Post() {
 	const vercelScript = {
@@ -42,6 +24,8 @@ else
   exit 0;
 fi`,
 	};
+
+	if (!VercelMeta) return <p>Could not find information about post</p>;
 
 	return (
 		<BlogLayout metaInfo={VercelMeta}>

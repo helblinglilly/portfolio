@@ -2,35 +2,15 @@ import BlogLayout from "../../../Layouts/BlogLayout";
 import SocialPreview from "../../../components/SocialPreview";
 import Image from "next/image";
 import { BlogMetaInfo, CodeSection } from "../../../support/Types";
-import Tags from "../../../support/Tags";
 import { useEffect } from "react";
 import shell from "highlight.js/lib/languages/shell";
 import apache from "highlight.js/lib/languages/apache";
 import r from "highlight.js/lib/languages/r";
 import hljs from "highlight.js/lib/core";
 import Code from "../../../components/CodeBlock/codeblock";
+import { FindPost } from "../../../components/Blog/AllPosts";
 
-export const RHasAProblemMeta: BlogMetaInfo = {
-	link: "/blog/2022/r-has-a-problem",
-	title: "R has a problem",
-	socialSummary: `In my work I had to deploy an R Shiny application. Familiar with more traditional programming languages I thought adapting to R-Shiny would be a smooth transition, especially as I would not have much involvement with it. However, the further we got in the project the more obvious its flaws became.`,
-	blogSummary: `In my work I had to deploy an R Shiny application. Familiar with more traditional programming languages I thought adapting to R-Shiny would be a smooth transition, especially as I would not have much involvement with it. However, the further we got in the project the more obvious its flaws became.`,
-	created: JSON.parse(JSON.stringify(new Date("2022-02-05"))),
-	thumbnail: "/images/posts/2022/r-has-a-problem/thumbnail.png",
-	authorName: "Joel Helbling",
-	authorLink: "https://helbling.uk",
-	tags: [Tags.cloud],
-	tableOfContents: [
-		{ title: "Intro", id: "introduction" },
-		{ title: "Pipeline", id: "pipeline" },
-		{ title: "Tools", id: "r-studio" },
-		{ title: "Paywalls", id: "paywall" },
-		{ title: "Documentation", id: "documentation" },
-		{ title: "Deployment implications", id: "deployment" },
-		{ title: "Conclusion", id: "conclusion" },
-	],
-	cover: null,
-};
+const RHasAProblemMeta = FindPost("/blog/2022/r-has-a-problem");
 
 export default function Post() {
 	const apacheProxySetup: CodeSection = {
@@ -87,6 +67,8 @@ sudo service apache2 reload`,
 	useEffect(() => {
 		hljs.highlightAll();
 	}, []);
+
+	if (!RHasAProblemMeta) return <p>Could not find information about post</p>;
 
 	return (
 		<BlogLayout metaInfo={RHasAProblemMeta}>

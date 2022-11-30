@@ -3,7 +3,8 @@ import Layout from "../../Layouts/Layout";
 import SocialPreview from "../../components/SocialPreview";
 import axios, { AxiosError } from "axios";
 import { BlogMetaInfo, MetaInfo, Tags, Tweet } from "../../support/Types";
-import { AllPosts, PostPreviews } from "../../components/Blog/PostPreviews";
+import { PostPreviews } from "../../components/Blog/PostPreviews";
+import AllPosts from "../../components/Blog/AllPosts";
 import Tweets from "../../components/Tweet";
 
 export default function Blog(props: {
