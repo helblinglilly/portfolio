@@ -1,11 +1,14 @@
 import BlogLayout from "../../../Layouts/BlogLayout";
 import SocialPreview from "../../../components/SocialPreview";
 import Image from "next/image";
-import ShellScriptBlock from "../../../components/CodeBlock/shell";
-import ApacheCodeBlock from "../../../components/CodeBlock/apache";
-import RScriptBlock from "../../../components/CodeBlock/r";
-import { BlogMetaInfo } from "../../../support/Types";
+import { BlogMetaInfo, CodeSection } from "../../../support/Types";
 import Tags from "../../../support/Tags";
+import { useEffect } from "react";
+import shell from "highlight.js/lib/languages/shell";
+import apache from "highlight.js/lib/languages/apache";
+import r from "highlight.js/lib/languages/r";
+import hljs from "highlight.js/lib/core";
+import Code from "../../../components/CodeBlock/codeblock";
 
 export const RHasAProblemMeta: BlogMetaInfo = {
 	link: "/blog/2022/r-has-a-problem",
@@ -30,7 +33,9 @@ export const RHasAProblemMeta: BlogMetaInfo = {
 };
 
 export default function Post() {
-	const shell = {
+	const apacheProxySetup: CodeSection = {
+		language: shell,
+		filename: `Apache Proxy Server setup`,
 		code: `#Perform system updates first
 sudo apt update && sudo apt upgrade -y
 #Install apache web server
@@ -55,10 +60,11 @@ nano shiny.conf
 sudo a2ensite shiny.conf
 #Reload apache2 to apply the changes
 sudo service apache2 reload`,
-		filename: `Apache Proxy Server setup`,
 	};
 
-	const apacheconfig = {
+	const apacheConfig: CodeSection = {
+		language: apache,
+		filename: "shiny.conf",
 		code: `<VirtualHost _default:443>
 	ProxyPreserveHost On
 	ProxyPass /* http://localhost:3838/shinyapps/$1
@@ -70,13 +76,17 @@ sudo service apache2 reload`,
 <VirtualHost *:80>
 	Redirect / https://localhost/
 </VirtualHost>`,
-		filename: `shiny.conf`,
 	};
 
-	const sysEnv = {
+	const environmentVariables: CodeSection = {
+		language: r,
+		filename: "Get environment variables",
 		code: `Sys.getenv()["VariableName"]`,
-		filename: "Get environment variable",
 	};
+
+	useEffect(() => {
+		hljs.highlightAll();
+	}, []);
 
 	return (
 		<BlogLayout metaInfo={RHasAProblemMeta}>
@@ -295,8 +305,8 @@ sudo service apache2 reload`,
 					instructions below for a Linux deployment with a self-signed
 					(free but not trusted) certificate.
 				</p>
-				<ShellScriptBlock code={shell}></ShellScriptBlock>
-				<ApacheCodeBlock code={apacheconfig}></ApacheCodeBlock>
+				<Code info={apacheProxySetup} />
+				<Code info={apacheConfig} />
 			</section>
 			<section className="mt-4" id="documentation">
 				<h3 className="title is-3 mb-2">Poor Documentation</h3>
@@ -322,7 +332,7 @@ sudo service apache2 reload`,
 					returns a 'vector' which seems to be similar to an
 					associative array.
 				</p>
-				<RScriptBlock code={sysEnv}></RScriptBlock>
+				<Code info={environmentVariables} />
 				<p>
 					After working out the syntax from unofficial sources, I
 					realised that my variables weren't being read correctly.
