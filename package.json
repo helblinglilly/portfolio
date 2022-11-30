@@ -10,6 +10,7 @@
 		"test:open": "npx cypress open"
 	},
 	"dependencies": {
+		"@types/highlight.js": "^10.1.0",
 		"axios": "^0.27.2",
 		"bulma": "^0.9.3",
 		"fetch": "^1.1.0",
@@ -19,6 +20,7 @@
 		"react": "^18.0.2"
 	},
 	"devDependencies": {
+		"@next/bundle-analyzer": "^13.0.5",
 		"@types/mocha": "^10.0.0",
 		"@types/node": "^18.11.9",
 		"@types/react": "^18.0.25",
