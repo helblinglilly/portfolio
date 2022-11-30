@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Layout from "../../Layouts/Layout";
 import SocialPreview from "../../components/SocialPreview";
-import axios, { AxiosError } from "axios";
 import { BlogMetaInfo, MetaInfo, Tags, Tweet } from "../../support/Types";
 import { AllPosts, PostPreviews } from "../../components/Blog/PostPreviews";
 import Tweets from "../../components/Tweet";
@@ -231,42 +230,24 @@ export default function Blog(props: {
 export async function getServerSideProps(): Promise<{
 	props: { tweets: Tweet[]; posts: BlogMetaInfo[] };
 }> {
-	let token = process.env.TWITTER_TOKEN;
-
-	const config = {
-		headers: { Authorization: `Bearer ${token}` },
-	};
-
-	let tweets;
-	try {
-		tweets = await axios.get(
-			"https://api.twitter.com/2/users/1397471686371467266/tweets?tweet.fields=created_at&max_results=5",
-			config
-		);
-
-		if (tweets.data.errors) {
-			tweets = [
-				{
-					created_at: new Date().toISOString(),
-					id: "1492283279768231937",
-					text: "Currently on private",
-				},
-			];
-		} else {
-			tweets = tweets.data.data;
+	const tweets = await fetch(
+		"https://api.twitter.com/2/users/1397471686371467266/tweets?tweet.fields=created_at&max_results=5",
+		{
+			headers: { Authorization: `Bearer ${process.env.TWITTER_TOKEN}` },
 		}
-	} catch (err: AxiosError | any) {
-		tweets = [
+	)
+		.then(async (response) => {
+			if (response.status !== 200) throw new Error();
+			const body = await response.json();
+			return body.data;
+		})
+		.catch(() => [
 			{
 				created_at: new Date().toISOString(),
 				id: "1492283279768231937",
 				text: "Unable to get tweets at this time",
 			},
-		];
-
-		if (axios.isAxiosError(err)) console.log(err.status);
-		else console.log(err);
-	}
+		]);
 
 	return {
 		props: {
