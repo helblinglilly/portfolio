@@ -10,9 +10,7 @@
 		"test:open": "npx cypress open"
 	},
 	"dependencies": {
-		"axios": "^0.27.2",
 		"bulma": "^0.9.3",
-		"fetch": "^1.1.0",
 		"highlight.js": "^11.4.0",
 		"next": "^13.0.4",
 		"next-themes": "^0.2.1",
