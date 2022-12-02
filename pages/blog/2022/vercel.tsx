@@ -1,15 +1,19 @@
 import BlogLayout from "../../../Layouts/BlogLayout";
 import SocialPreview from "../../../components/SocialPreview";
-import BashCodeBlock from "../../../components/CodeBlock/bash";
 import Image from "next/image";
 import Link from "next/link";
 import { FindPost } from "../../../components/Blog/AllPosts";
+import { CodeSection } from "../../../support/Types";
+import Code from "../../../components/CodeBlock";
+import "highlight.js/styles/monokai-sublime.css";
 
 const VercelMeta = FindPost("/blog/2022/vercel");
 
 export default function Post() {
-	const vercelScript = {
+	const vercelScript: CodeSection = {
 		filename: "vercel.sh",
+		languageName: "bash",
+		languageFn: require("highlight.js/lib/languages/bash"),
 		code: `#!/bin/bash
 echo "VERCEL_GIT_COMMIT_REF: $VERCEL_GIT_COMMIT_REF"
 
@@ -153,7 +157,7 @@ fi`,
 					primarily be handled through a GUI. Advanced users could
 					then still create their own scripts if they wish to.
 				</p>
-				<BashCodeBlock code={vercelScript}></BashCodeBlock>
+				<Code info={vercelScript} />
 			</section>
 
 			<section className="mt-4" id="production">

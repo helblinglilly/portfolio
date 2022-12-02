@@ -1,49 +1,46 @@
 import BlogLayout from "../../../Layouts/BlogLayout";
 import SocialPreview from "../../../components/SocialPreview";
 import Image from "next/image";
-import { BlogMetaInfo, CodeSection } from "../../../support/Types";
-import { useEffect } from "react";
-import shell from "highlight.js/lib/languages/shell";
-import apache from "highlight.js/lib/languages/apache";
-import r from "highlight.js/lib/languages/r";
-import hljs from "highlight.js/lib/core";
-import Code from "../../../components/CodeBlock/codeblock";
+import { CodeSection } from "../../../support/Types";
+import Code from "../../../components/CodeBlock";
 import { FindPost } from "../../../components/Blog/AllPosts";
+import "highlight.js/styles/monokai-sublime.css";
 
 const RHasAProblemMeta = FindPost("/blog/2022/r-has-a-problem");
 
 export default function Post() {
-	const apacheProxySetup: CodeSection = {
-		language: shell,
-		filename: `Apache Proxy Server setup`,
-		code: `#Perform system updates first
-sudo apt update && sudo apt upgrade -y
-#Install apache web server
+	const apacheSetup1: CodeSection = {
+		languageName: "shell",
+		languageFn: require("highlight.js/lib/languages/shell"),
+		filename: `Update system and install apache`,
+		code: `sudo apt update
+sudo apt upgrade -y
 sudo apt install apache2
-#Install the extra packages required for proxies
 sudo a2enmod ssl
-sudo systemctl restart apache2
+sudo systemctl restart apache2`,
+	};
 
-#Generate SSL certificate
-sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/apache-selfsigned.key -out /etc/ssl/certs/apache-selfsigned.crt
-
-#cd to the apache directory
+	const apacheSetup2: CodeSection = {
+		languageName: "shell",
+		languageFn: apacheSetup1.languageFn,
+		filename: `Generate SSL Certificate and edit Apache config`,
+		code: `sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/apache-selfsigned.key -out /etc/ssl/certs/apache-selfsigned.crt
 cd /etc/apache2/sites-available
-#Disable the default page
 sudo a2dissite 000-default.conf
-#Create a new conf file
-nano shiny.conf
+nano shiny.conf`,
+	};
 
-#Paste the shiny.conf example into nano, save and exit with ctrl+c, y
-
-#Enable the shiny page
-sudo a2ensite shiny.conf
-#Reload apache2 to apply the changes
+	const apacheSetup3: CodeSection = {
+		languageName: "shell",
+		languageFn: apacheSetup1.languageFn,
+		filename: `Point to shiny.conf and reload Apache`,
+		code: `sudo a2ensite shiny.conf
 sudo service apache2 reload`,
 	};
 
 	const apacheConfig: CodeSection = {
-		language: apache,
+		languageName: "apache",
+		languageFn: require("highlight.js/lib/languages/apache"),
 		filename: "shiny.conf",
 		code: `<VirtualHost _default:443>
 	ProxyPreserveHost On
@@ -59,14 +56,11 @@ sudo service apache2 reload`,
 	};
 
 	const environmentVariables: CodeSection = {
-		language: r,
+		languageName: "r",
+		languageFn: require("highlight.js/lib/languages/r"),
 		filename: "Get environment variables",
 		code: `Sys.getenv()["VariableName"]`,
 	};
-
-	useEffect(() => {
-		hljs.highlightAll();
-	}, []);
 
 	if (!RHasAProblemMeta) return <p>Could not find information about post</p>;
 
@@ -287,8 +281,10 @@ sudo service apache2 reload`,
 					instructions below for a Linux deployment with a self-signed
 					(free but not trusted) certificate.
 				</p>
-				<Code info={apacheProxySetup} />
+				<Code info={apacheSetup1} />
+				<Code info={apacheSetup2} />
 				<Code info={apacheConfig} />
+				<Code info={apacheSetup3} />
 			</section>
 			<section className="mt-4" id="documentation">
 				<h3 className="title is-3 mb-2">Poor Documentation</h3>

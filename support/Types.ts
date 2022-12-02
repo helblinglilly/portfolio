@@ -50,5 +50,6 @@ export interface TableOfContent {
 export interface CodeSection {
 	code: string;
 	filename: string;
-	language: LanguageFn;
+	languageName: string;
+	languageFn: LanguageFn;
 }
