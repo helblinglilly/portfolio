@@ -1,30 +1,14 @@
 import BlogLayout from "../../../Layouts/BlogLayout";
+import SocialPreview from "../../../components/SocialPreview";
 import Link from "next/link";
 import Image from "next/image";
-import SocialPreview from "../../../components/SocialPreview";
-import { BlogMetaInfo } from "../../../support/Types";
-import Tags from "../../../support/Tags";
+import { FindPost } from "../../../components/Blog/AllPosts";
 
-export const AWSSummit22Meta: BlogMetaInfo = {
-	link: "/blog/2022/aws-summit",
-	title: "AWS Summit 2022",
-	socialSummary: `My first conference that I was able to attend. There were talks to attend, companies to be learnt about, merchandise to be collected and new connections to be made. In this post I summarise my experience, try to capture everything I've learnt, and what I would do differently next time"`,
-	blogSummary: `My first conference that I was able to attend. There were talks to attend, companies to be learnt about, merchandise to be collected and new connections to be made. In this post I summarise my experience, try to capture everything I've learnt, and what I would do differently next time`,
-	created: JSON.parse(JSON.stringify(new Date("2022-05-05"))),
-	thumbnail: "/images/posts/2022/aws-summit-2022/cover.jpeg",
-	authorName: "Joel Helbling",
-	authorLink: "https://helbling.uk",
-	tags: [Tags.aws, Tags.cloud, Tags.event],
-	tableOfContents: [
-		{ title: "Travel", id: "travel" },
-		{ title: "Expo", id: "expo" },
-		{ title: "Talks", id: "talks-attended" },
-		{ title: "Lessons for next time", id: "next-time" },
-	],
-	cover: "/images/posts/2022/aws-summit-2022/cover.jpeg",
-};
+const AWSSummit22Meta = FindPost("/blog/2022/aws-summit");
 
 export default function Post() {
+	if (!AWSSummit22Meta) return <p>Could not find information about post</p>;
+
 	return (
 		<BlogLayout metaInfo={AWSSummit22Meta}>
 			<SocialPreview metaInfo={AWSSummit22Meta} />

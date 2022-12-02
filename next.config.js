@@ -1,4 +1,8 @@
-module.exports = {
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+	enabled: process.env.ANALYZE === "true",
+});
+
+module.exports = withBundleAnalyzer({
 	reactStrictMode: true,
 	devIndicators: {
 		buildActivity: false,
@@ -12,4 +16,4 @@ module.exports = {
 		// your project has ESLint errors.
 		ignoreDuringBuilds: true,
 	},
-};
+});

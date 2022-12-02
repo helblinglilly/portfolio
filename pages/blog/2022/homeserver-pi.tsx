@@ -3,37 +3,21 @@ import Image from "next/image";
 import BlogLayout from "../../../Layouts/BlogLayout";
 import SocialPreview from "../../../components/SocialPreview";
 import Preview from "../../../support/LinkPreview";
-import { BlogMetaInfo, ExternalLinkPreview } from "../../../support/Types";
-import Tags from "../../../support/Tags";
+import { ExternalLinkPreview } from "../../../support/Types";
+import { FindPost } from "../../../components/Blog/AllPosts";
 
-export const HomeserverPiMeta: BlogMetaInfo = {
-	link: "/blog/2022/homeserver-pi",
-	title: "My Pi home server",
-	socialSummary: `A place to write custom apps on the network, block ads, run sponsorblock for my Chromecast devices, store a plex library and use it as local network storage. Find out how I've harnessed the power of Docker and a Raspberry Pi 3B+ to enjoy all the flexibility in a tiny, power-efficient, quiet package.`,
-	blogSummary: `A place to write custom apps on the network, block ads, run sponsorblock for my Chromecast devices, store a plex library and use it as local network storage. Find out how I've harnessed the power of Docker and a Raspberry Pi 3B+ to enjoy all the flexibility in a tiny, power-efficient, quiet package.`,
-	created: JSON.parse(JSON.stringify(new Date("2022-07-30"))),
-	thumbnail: "/images/posts/2022/homeserver-pi/thumbnail.png",
-	authorName: "Joel Helbling",
-	authorLink: "https://helbling.uk",
-	tags: [Tags.pi, Tags.docker],
-	tableOfContents: [
-		{ title: "Motivation", id: "motivation" },
-		{ title: "Setup", id: "setup" },
-		{ title: "Applications", id: "applications" },
-		{ title: "Limitations", id: "limitations" },
-	],
-	cover: null,
-};
+const HomeserverPiMeta = FindPost("/blog/2022/homeserver-pi");
 
 export default function HomeserverPi({
 	...props
 }: {
-	meta: BlogMetaInfo;
 	preview: ExternalLinkPreview | null;
 }) {
+	if (!HomeserverPiMeta) return <p>Could not find information about post</p>;
+
 	return (
-		<BlogLayout metaInfo={props.meta}>
-			<SocialPreview metaInfo={props.meta} />
+		<BlogLayout metaInfo={HomeserverPiMeta}>
+			<SocialPreview metaInfo={HomeserverPiMeta} />
 
 			<section className="mt-4" id="motivation">
 				<h3 className="title is-3 mb-2">Motivation</h3>
@@ -456,7 +440,7 @@ export default function HomeserverPi({
 }
 
 export async function getStaticProps(): Promise<{
-	props: { meta: BlogMetaInfo; preview: ExternalLinkPreview | null };
+	props: { preview: ExternalLinkPreview | null };
 }> {
 	const preview = await Preview("https://github.com/helblingjoel/piserver");
 	return {
@@ -466,9 +450,6 @@ export async function getStaticProps(): Promise<{
 				description: preview.description,
 				image: preview.image,
 				url: preview.url,
-			},
-			meta: {
-				...HomeserverPiMeta,
 			},
 		},
 	};

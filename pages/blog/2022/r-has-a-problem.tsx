@@ -1,64 +1,47 @@
 import BlogLayout from "../../../Layouts/BlogLayout";
 import SocialPreview from "../../../components/SocialPreview";
 import Image from "next/image";
-import ShellScriptBlock from "../../../components/CodeBlock/shell";
-import ApacheCodeBlock from "../../../components/CodeBlock/apache";
-import RScriptBlock from "../../../components/CodeBlock/r";
-import { BlogMetaInfo } from "../../../support/Types";
-import Tags from "../../../support/Tags";
+import { CodeSection } from "../../../support/Types";
+import Code from "../../../components/CodeBlock";
+import { FindPost } from "../../../components/Blog/AllPosts";
+import "highlight.js/styles/monokai-sublime.css";
 
-export const RHasAProblemMeta: BlogMetaInfo = {
-	link: "/blog/2022/r-has-a-problem",
-	title: "R has a problem",
-	socialSummary: `In my work I had to deploy an R Shiny application. Familiar with more traditional programming languages I thought adapting to R-Shiny would be a smooth transition, especially as I would not have much involvement with it. However, the further we got in the project the more obvious its flaws became.`,
-	blogSummary: `In my work I had to deploy an R Shiny application. Familiar with more traditional programming languages I thought adapting to R-Shiny would be a smooth transition, especially as I would not have much involvement with it. However, the further we got in the project the more obvious its flaws became.`,
-	created: JSON.parse(JSON.stringify(new Date("2022-02-05"))),
-	thumbnail: "/images/posts/2022/r-has-a-problem/thumbnail.png",
-	authorName: "Joel Helbling",
-	authorLink: "https://helbling.uk",
-	tags: [Tags.cloud],
-	tableOfContents: [
-		{ title: "Intro", id: "introduction" },
-		{ title: "Pipeline", id: "pipeline" },
-		{ title: "Tools", id: "r-studio" },
-		{ title: "Paywalls", id: "paywall" },
-		{ title: "Documentation", id: "documentation" },
-		{ title: "Deployment implications", id: "deployment" },
-		{ title: "Conclusion", id: "conclusion" },
-	],
-	cover: null,
-};
+const RHasAProblemMeta = FindPost("/blog/2022/r-has-a-problem");
 
 export default function Post() {
-	const shell = {
-		code: `#Perform system updates first
-sudo apt update && sudo apt upgrade -y
-#Install apache web server
+	const apacheSetup1: CodeSection = {
+		languageName: "shell",
+		languageFn: require("highlight.js/lib/languages/shell"),
+		filename: `Update system and install apache`,
+		code: `sudo apt update
+sudo apt upgrade -y
 sudo apt install apache2
-#Install the extra packages required for proxies
 sudo a2enmod ssl
-sudo systemctl restart apache2
-
-#Generate SSL certificate
-sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/apache-selfsigned.key -out /etc/ssl/certs/apache-selfsigned.crt
-
-#cd to the apache directory
-cd /etc/apache2/sites-available
-#Disable the default page
-sudo a2dissite 000-default.conf
-#Create a new conf file
-nano shiny.conf
-
-#Paste the shiny.conf example into nano, save and exit with ctrl+c, y
-
-#Enable the shiny page
-sudo a2ensite shiny.conf
-#Reload apache2 to apply the changes
-sudo service apache2 reload`,
-		filename: `Apache Proxy Server setup`,
+sudo systemctl restart apache2`,
 	};
 
-	const apacheconfig = {
+	const apacheSetup2: CodeSection = {
+		languageName: "shell",
+		languageFn: apacheSetup1.languageFn,
+		filename: `Generate SSL Certificate and edit Apache config`,
+		code: `sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/apache-selfsigned.key -out /etc/ssl/certs/apache-selfsigned.crt
+cd /etc/apache2/sites-available
+sudo a2dissite 000-default.conf
+nano shiny.conf`,
+	};
+
+	const apacheSetup3: CodeSection = {
+		languageName: "shell",
+		languageFn: apacheSetup1.languageFn,
+		filename: `Point to shiny.conf and reload Apache`,
+		code: `sudo a2ensite shiny.conf
+sudo service apache2 reload`,
+	};
+
+	const apacheConfig: CodeSection = {
+		languageName: "apache",
+		languageFn: require("highlight.js/lib/languages/apache"),
+		filename: "shiny.conf",
 		code: `<VirtualHost _default:443>
 	ProxyPreserveHost On
 	ProxyPass /* http://localhost:3838/shinyapps/$1
@@ -70,13 +53,16 @@ sudo service apache2 reload`,
 <VirtualHost *:80>
 	Redirect / https://localhost/
 </VirtualHost>`,
-		filename: `shiny.conf`,
 	};
 
-	const sysEnv = {
+	const environmentVariables: CodeSection = {
+		languageName: "r",
+		languageFn: require("highlight.js/lib/languages/r"),
+		filename: "Get environment variables",
 		code: `Sys.getenv()["VariableName"]`,
-		filename: "Get environment variable",
 	};
+
+	if (!RHasAProblemMeta) return <p>Could not find information about post</p>;
 
 	return (
 		<BlogLayout metaInfo={RHasAProblemMeta}>
@@ -295,8 +281,10 @@ sudo service apache2 reload`,
 					instructions below for a Linux deployment with a self-signed
 					(free but not trusted) certificate.
 				</p>
-				<ShellScriptBlock code={shell}></ShellScriptBlock>
-				<ApacheCodeBlock code={apacheconfig}></ApacheCodeBlock>
+				<Code info={apacheSetup1} />
+				<Code info={apacheSetup2} />
+				<Code info={apacheConfig} />
+				<Code info={apacheSetup3} />
 			</section>
 			<section className="mt-4" id="documentation">
 				<h3 className="title is-3 mb-2">Poor Documentation</h3>
@@ -322,7 +310,7 @@ sudo service apache2 reload`,
 					returns a 'vector' which seems to be similar to an
 					associative array.
 				</p>
-				<RScriptBlock code={sysEnv}></RScriptBlock>
+				<Code info={environmentVariables} />
 				<p>
 					After working out the syntax from unofficial sources, I
 					realised that my variables weren't being read correctly.

@@ -1,22 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { AWSSummit22Meta } from "../../pages/blog/2022/aws-summit";
-import { HomeserverPiMeta } from "../../pages/blog/2022/homeserver-pi";
-import { RHasAProblemMeta } from "../../pages/blog/2022/r-has-a-problem";
-import { VercelMeta } from "../../pages/blog/2022/vercel";
 import { BlogMetaInfo } from "../../support/Types";
-
-let visiblePosts: Array<BlogMetaInfo> = [];
-// 2022
-visiblePosts.push(RHasAProblemMeta);
-visiblePosts.push(AWSSummit22Meta);
-visiblePosts.push(HomeserverPiMeta);
-visiblePosts.push(VercelMeta);
-
-// sort the posts in chronological order
-visiblePosts = visiblePosts.sort((a, b) => (a.created < b.created ? 1 : -1));
-
-export const AllPosts = visiblePosts;
 
 export function PostPreviews(props: { posts: BlogMetaInfo[] }) {
 	return (

@@ -1,3 +1,5 @@
+import { LanguageFn } from "highlight.js";
+
 export interface BlogMetaInfo extends MetaInfo {
 	link: string;
 	blogSummary: string;
@@ -45,7 +47,9 @@ export interface TableOfContent {
 	id: string;
 }
 
-export interface CodeBlock {
+export interface CodeSection {
 	code: string;
 	filename: string;
+	languageName: string;
+	languageFn: LanguageFn;
 }

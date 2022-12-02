@@ -1,5 +1,6 @@
 import Layout from "../Layouts/Layout";
-import { PostPreviews, AllPosts } from "../components/Blog/PostPreviews";
+import { PostPreviews } from "../components/Blog/PostPreviews";
+import AllPosts from "../components/Blog/AllPosts";
 import SocialPreview from "../components/SocialPreview";
 import Image from "next/image";
 import React from "react";
