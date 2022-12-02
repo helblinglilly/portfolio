@@ -77,19 +77,6 @@ export const AllPosts: BlogMetaInfo[] = [
 		],
 		cover: null,
 	},
-	{
-		link: "/blog/2022/code-test",
-		title: "Code test",
-		socialSummary: ``,
-		blogSummary: `Code test`,
-		created: JSON.parse(JSON.stringify(new Date("2022-11-30"))),
-		thumbnail: "/images/posts/2022/vercel/thumbnail.png",
-		authorName: "Joel Helbling",
-		authorLink: "https://helbling.uk",
-		tags: [Tags.cloud],
-		tableOfContents: [{ title: "Intro", id: "introduction" }],
-		cover: null,
-	},
 ];
 
 export function FindPost(postLink: string) {
