@@ -14,7 +14,8 @@
 		"isolatedModules": true,
 		"jsx": "preserve",
 		"incremental": true,
-		"noUncheckedIndexedAccess": true
+		"noUncheckedIndexedAccess": true,
+		"types": ["cypress", "node"]
 	},
 	"include": [
 		"pages/_app.tsx",
@@ -32,5 +33,5 @@
 		"components/CodeBlock/bash.js",
 		"components/CodeBlock/apache.js"
 	],
-	"exclude": ["node_modules"]
+	"exclude": ["node_modules", "cypress"]
 }

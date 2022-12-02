@@ -3,11 +3,11 @@ on:
     pull_request:
         branches:
             - develop
+            - main
 jobs:
     build:
         name: Attempt to build
         runs-on: ubuntu-latest
-        if: github.event_name == 'pull_request'
         steps:
             - uses: actions/checkout@v2
             - name: Extract branch name
@@ -21,15 +21,15 @@ jobs:
                   fetch-depth: 0
                   ref: ${{ steps.extract_branch.outputs.branch }}
 
-            - name: Install dependencies
-              run: npm ci
+            - name: Install typescript
+              run: npm install --save-dev typescript @types/react @types/node
 
             - name: Try to build
               run: npm run build
+
     lint:
         name: Lint codebase
         runs-on: ubuntu-latest
-        if: github.event_name == 'pull_request'
         steps:
             - uses: actions/checkout@v2
             - name: Extract branch name
@@ -44,7 +44,7 @@ jobs:
                   ref: ${{ steps.extract_branch.outputs.branch }}
 
             - name: Install dependencies
-              run: npm install
+              run: npm install --save-dev eslint
 
             - name: Lint
               run: npm run lint

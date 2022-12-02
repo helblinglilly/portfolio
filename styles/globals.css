@@ -254,10 +254,6 @@ div.tags {
 	background-color: var(--accent);
 }
 
-.postImage {
-	border-radius: 5px;
-}
-
 .uniResults {
 	width: 95%;
 }

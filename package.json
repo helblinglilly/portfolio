@@ -2,32 +2,32 @@
 	"name": "portfolio",
 	"private": true,
 	"scripts": {
-		"dev": "next dev",
+		"analyze": "ANALYZE=true next build",
 		"build": "node sitemapgen.js && next build",
+		"dev": "next dev",
+		"lint": "next lint --max-warnings=0",
 		"start": "next start",
-		"lint": "next lint --max-warnings=0"
+		"test": "npx cypress run",
+		"test:open": "npx cypress open"
 	},
 	"dependencies": {
-		"axios": "^0.27.2",
 		"bulma": "^0.9.3",
-		"classnames": "^2.3.1",
-		"fetch": "^1.1.0",
-		"fs": "^0.0.1-security",
 		"highlight.js": "^11.4.0",
 		"next": "^13.0.4",
-		"next-themes": "^0.0.15",
-		"prismjs": "^1.27.0",
-		"react": "^18.0.2",
-		"react-dom": "^18.0.2",
-		"response": "^0.1.0"
+		"next-themes": "^0.2.1",
+		"react": "^18.0.2"
 	},
 	"devDependencies": {
+		"@next/bundle-analyzer": "^13.0.5",
+		"@types/mocha": "^10.0.0",
 		"@types/node": "^18.11.9",
 		"@types/react": "^18.0.25",
 		"@types/react-dom": "^18.0.9",
-		"eslint": "^8.7.0",
+		"cypress": "^11.2.0",
+		"eslint": "^8.28.0",
 		"eslint-config-next": "12.0.8",
 		"eslint-config-prettier": "^8.3.0",
+		"eslint-plugin-cypress": "^2.12.1",
 		"prettier": "^2.5.1",
 		"typescript": "^4.9.3"
 	}

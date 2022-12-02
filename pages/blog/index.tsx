@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Layout from "../../Layouts/Layout";
 import SocialPreview from "../../components/SocialPreview";
-import axios from "axios";
 import { BlogMetaInfo, MetaInfo, Tags, Tweet } from "../../support/Types";
-import { AllPosts, PostPreviews } from "../../components/Blog/PostPreviews";
+import { PostPreviews } from "../../components/Blog/PostPreviews";
+import AllPosts from "../../components/Blog/AllPosts";
 import Tweets from "../../components/Tweet";
 
 export default function Blog(props: {
@@ -44,7 +44,7 @@ export default function Blog(props: {
 			});
 		});
 
-		return realTabs;
+		return realTabs.sort((a, b) => (a.name > b.name ? 1 : -1));
 	};
 
 	const uniqueYears = (): number[] => {
@@ -53,7 +53,7 @@ export default function Blog(props: {
 			if (!years.includes(new Date(post.created).getFullYear()))
 				years.push(new Date(post.created).getFullYear());
 		});
-		return years;
+		return years.sort((a, b) => (a < b ? 1 : -1));
 	};
 
 	const [selectedTags, setSelectedTags] = useState<Tags[]>([]);
@@ -64,7 +64,6 @@ export default function Blog(props: {
 	};
 
 	const updateSearchTerm = (term: string) => {
-		console.log(term);
 		if (!term) setSearchTerm(/.*/);
 		else setSearchTerm(new RegExp(term.toLocaleLowerCase()));
 		refreshVisiblePosts();
@@ -153,7 +152,7 @@ export default function Blog(props: {
 				</div>
 
 				<div className={isSearchVisible ? "card" : "card mobileHidden"}>
-					<div className="card-content">
+					<div className="card-content" data-cy="blogSearchCard">
 						<input
 							className="input"
 							placeholder="Search term..."
@@ -163,30 +162,40 @@ export default function Blog(props: {
 						></input>
 
 						<p className="title is-5 mb-2 pt-4">Posted in year</p>
-						{uniqueYears().map((year) => {
-							return (
-								<div className="pt-2 accented" key={year}>
-									<label className="checkbox">
-										<input
-											key={year}
-											className="mr-2"
-											type="checkbox"
-											onChange={(event) =>
-												updateYears(
-													year,
-													event.target.checked
-												)
-											}
-										/>
-										{year}
-									</label>
-								</div>
-							);
-						})}
+						{uniqueYears()
+							.sort()
+							.map((year) => {
+								return (
+									<div
+										className="pt-2 accented"
+										key={year}
+										data-cy="yearLabels"
+									>
+										<label className="checkbox">
+											<input
+												key={year}
+												className="mr-2"
+												type="checkbox"
+												onChange={(event) =>
+													updateYears(
+														year,
+														event.target.checked
+													)
+												}
+											/>
+											{year}
+										</label>
+									</div>
+								);
+							})}
 						<p className="title is-5 mb-2 pt-4">Tags</p>
 						{uniqueTagLabels().map((tag) => {
 							return (
-								<div className="pt-2 accented" key={tag.name}>
+								<div
+									className="pt-2 accented"
+									key={tag.name}
+									data-cy="postCategoryLabels"
+								>
 									<label className="checkbox">
 										<input
 											key={tag.name}
@@ -222,40 +231,24 @@ export default function Blog(props: {
 export async function getServerSideProps(): Promise<{
 	props: { tweets: Tweet[]; posts: BlogMetaInfo[] };
 }> {
-	let token = process.env.TWITTER_TOKEN;
-
-	const config = {
-		headers: { Authorization: `Bearer ${token}` },
-	};
-
-	let tweets;
-	try {
-		tweets = await axios.get(
-			"https://api.twitter.com/2/users/1397471686371467266/tweets?tweet.fields=created_at&max_results=5",
-			config
-		);
-
-		if (tweets.data.errors) {
-			tweets = [
-				{
-					created_at: new Date().toISOString(),
-					id: "1492283279768231937",
-					text: "Currently on private",
-				},
-			];
-		} else {
-			tweets = tweets.data.data;
+	const tweets = await fetch(
+		"https://api.twitter.com/2/users/1397471686371467266/tweets?tweet.fields=created_at&max_results=5",
+		{
+			headers: { Authorization: `Bearer ${process.env.TWITTER_TOKEN}` },
 		}
-	} catch (err) {
-		tweets = [
+	)
+		.then(async (response) => {
+			if (response.status !== 200) throw new Error();
+			const body = await response.json();
+			return body.data;
+		})
+		.catch(() => [
 			{
 				created_at: new Date().toISOString(),
 				id: "1492283279768231937",
 				text: "Unable to get tweets at this time",
 			},
-		];
-		console.log(err);
-	}
+		]);
 
 	return {
 		props: {
@@ -264,22 +257,3 @@ export async function getServerSideProps(): Promise<{
 		},
 	};
 }
-
-const getYears = (posts: BlogMetaInfo[]): number[] => {
-	const years: number[] = [];
-	posts.forEach((post) => {
-		const postYear = new Date(post.created).getFullYear();
-		if (!years.includes(postYear)) years.push(postYear);
-	});
-	return years;
-};
-
-const getTags = (posts: BlogMetaInfo[]): Tags[] => {
-	const tags: Tags[] = [];
-	posts.forEach((post) => {
-		post.tags.forEach((tag) => {
-			if (!tags.includes(tag)) tags.push(tag);
-		});
-	});
-	return tags;
-};

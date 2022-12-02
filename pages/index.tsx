@@ -1,5 +1,6 @@
 import Layout from "../Layouts/Layout";
-import { PostPreviews, AllPosts } from "../components/Blog/PostPreviews";
+import { PostPreviews } from "../components/Blog/PostPreviews";
+import AllPosts from "../components/Blog/AllPosts";
 import SocialPreview from "../components/SocialPreview";
 import Image from "next/image";
 import React from "react";
@@ -24,7 +25,7 @@ export default function Home() {
 		<Layout>
 			<SocialPreview metaInfo={metaInfo} />
 			<div className="column is-one-quarter" id="main-content">
-				<div className="sidebar">
+				<div className="sidebar" data-cy="sidebar">
 					<figure className="image has-text-centered">
 						<Image
 							src="/images/professional.jpg"
@@ -48,7 +49,11 @@ export default function Home() {
 							At the moment, I'm part of NHS Pathways where I'm
 							working as a Graduate Software Developer
 						</p>
-						<div id="socialLinks" className="pt-3 pb-3">
+						<div
+							id="socialLinks"
+							className="pt-3 pb-3"
+							data-cy="socialLinks"
+						>
 							<p className="title is-4 mb-2">Socials</p>
 							<div className="socialContainer" id="git">
 								<Image
@@ -60,10 +65,11 @@ export default function Home() {
 								/>
 
 								<a
-									className="ml-1 icon-text"
+									className="ml-1"
 									href="https://github.com/helblingjoel"
 									target="_blank"
 									rel="noreferrer"
+									data-cy="socialLink"
 								>
 									github.com/helblingjoel
 								</a>
@@ -78,10 +84,11 @@ export default function Home() {
 								/>
 
 								<a
-									className="ml-1 icon-text"
+									className="ml-1"
 									href="https://twitter.com/_helblingjoel"
 									target="_blank"
 									rel="noreferrer"
+									data-cy="socialLink"
 								>
 									twitter.com/_helblingjoel
 								</a>
@@ -96,10 +103,11 @@ export default function Home() {
 								/>
 
 								<a
-									className="ml-1 icon-text"
+									className="ml-1"
 									href="https://instagram.com/helblingjoel"
 									target="_blank"
 									rel="noreferrer"
+									data-cy="socialLink"
 								>
 									instagram.com/helblingjoel
 								</a>
@@ -114,10 +122,11 @@ export default function Home() {
 								/>
 
 								<a
-									className="ml-1 icon-text"
+									className="ml-1"
 									href="https://www.linkedin.com/in/joel-helbling-707ba0171"
 									target="_blank"
 									rel="noreferrer"
+									data-cy="socialLink"
 								>
 									linkedin.com/joel-helblingjoel
 								</a>

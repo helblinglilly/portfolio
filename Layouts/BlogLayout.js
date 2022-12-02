@@ -17,7 +17,6 @@ export default function BlogLayout({ children, ...pageProps }) {
 				{meta.cover ? (
 					<Image
 						src={meta.cover}
-						layout="responsive"
 						width="1280"
 						height="720"
 						alt="Blog Post cover image"
