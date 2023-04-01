@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { useTheme } from "next-themes";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function GithubStats() {
 	const { theme, setTheme } = useTheme();
@@ -15,6 +15,8 @@ export default function GithubStats() {
 	const [mostRecentRepoURL, setMostRecentRepo] = useState(
 		`https://github-readme-stats.vercel.app/api/pin/?username=helblingjoel&repo=pokewiki&theme=buefy`
 	);
+	const repoUsername = useRef();
+	const repoName = useRef();
 
 	useEffect(() => {
 		const statsTheme = theme === "light" ? "buefy" : "dark";
@@ -35,6 +37,8 @@ export default function GithubStats() {
 				if (responseBody[0]?.repo?.name) {
 					const username = responseBody[0].repo.name.split("/")[0];
 					const repo = responseBody[0].repo.name.split("/")[1];
+					repoUsername.current = username;
+					repoName.current = repo;
 					setMostRecentRepo(
 						`https://github-readme-stats.vercel.app/api/pin/?username=${username}&repo=${repo}&theme=${statsTheme}`
 					);
@@ -64,12 +68,18 @@ export default function GithubStats() {
 			/>
 
 			<p className="title is-5 pt-3 mb-3">Most recent contribution</p>
-			<img
-				src={mostRecentRepoURL}
-				width={450}
-				height={164}
-				alt="Overall statistics overview"
-			/>
+			<a
+				href={`https://github.com/${repoUsername.current}/${repoName.current}`}
+				target="_blank"
+				rel="noreferrer"
+			>
+				<img
+					src={mostRecentRepoURL}
+					width={450}
+					height={164}
+					alt="Overall statistics overview"
+				/>
+			</a>
 			{/* Not using Image for now as there's issues with image optimisation, preventing them from loading in a deployed env
 			<Image
 				src={overviewURL}
