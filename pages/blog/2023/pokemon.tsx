@@ -1,12 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import BlogLayout from "../../../Layouts/BlogLayout";
 import SocialPreview from "../../../components/SocialPreview";
-import Link from "next/link";
 import Image from "next/image";
 import { FindPost } from "../../../components/Blog/AllPosts";
 import Code from "../../../components/CodeBlock";
 import { CodeSection, ExternalLinkPreview } from "../../../support/Types";
-import Preview from "../../../support/LinkPreview";
 
 const PostMeta = FindPost("/blog/2023/pokemon");
 
@@ -40,30 +38,26 @@ export default function Post({
 				<div className="columns">
 					<div className="column">
 						<a
-							href={props.sitePreview?.url}
+							href="https://pokemon.helbling.uk"
 							target="_blank"
 							rel="noreferrer"
 						>
 							<div className="card">
 								<div className="card-header">
 									<div className="card-header-title">
-										<p>helblingjoel/piserver</p>
+										<p>pokemon.helbling.uk</p>
 									</div>
 								</div>
 								<div className="card-image">
 									<figure className="image is-2by1">
-										{props.sitePreview?.image ? (
-											<img
-												src={props.sitePreview.image}
-												alt="Placeholder image"
-												width={1200}
-												height={600}
-												// placeholder="blur"
-												// blurDataURL="/images/placeholder.jpeg"
-											/>
-										) : (
-											<></>
-										)}
+										<img
+											src="/images/posts/2023/pokemon/generic.png"
+											alt="Placeholder image"
+											width={1200}
+											height={600}
+											// placeholder="blur"
+											// blurDataURL="/images/placeholder.jpeg"
+										/>
 									</figure>
 								</div>
 							</div>
@@ -71,7 +65,7 @@ export default function Post({
 					</div>
 					<div className="column">
 						<a
-							href={props.gitPreview?.url}
+							href="https://github.com/helblingjoel/pokewiki"
 							target="_blank"
 							rel="noreferrer"
 						>
@@ -83,18 +77,14 @@ export default function Post({
 								</div>
 								<div className="card-image">
 									<figure className="image is-2by1">
-										{props.gitPreview?.image ? (
-											<img
-												src={props.gitPreview.image}
-												alt="Placeholder image"
-												width={1200}
-												height={600}
-												// placeholder="blur"
-												// blurDataURL="/images/placeholder.jpeg"
-											/>
-										) : (
-											<></>
-										)}
+										<img
+											src="/images/posts/2023/pokemon/gitrepo.png"
+											alt="Placeholder image"
+											width={1200}
+											height={600}
+											// placeholder="blur"
+											// blurDataURL="/images/placeholder.jpeg"
+										/>
 									</figure>
 								</div>
 							</div>
@@ -313,32 +303,4 @@ export default function Post({
 			</section>
 		</BlogLayout>
 	);
-}
-
-export async function getStaticProps(): Promise<{
-	props: {
-		gitPreview: ExternalLinkPreview | null;
-		sitePreview: ExternalLinkPreview | null;
-	};
-}> {
-	const sitePreview = await Preview("https://pokemon.helbling.uk");
-	const gitPreview = await Preview(
-		"https://github.com/helblingjoel/pokewiki"
-	);
-	return {
-		props: {
-			sitePreview: {
-				title: sitePreview.title,
-				description: sitePreview.description,
-				image: sitePreview.image,
-				url: sitePreview.url,
-			},
-			gitPreview: {
-				title: gitPreview.title,
-				description: gitPreview.description,
-				image: gitPreview.image,
-				url: gitPreview.url,
-			},
-		},
-	};
 }
