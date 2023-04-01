@@ -3,7 +3,7 @@ import { useTheme } from "next-themes";
 import { useEffect, useRef, useState } from "react";
 
 export default function GithubStats() {
-	const { theme, setTheme } = useTheme();
+	const { theme } = useTheme();
 
 	const [overviewURL, setOverviewURL] = useState(
 		`https://github-readme-stats.vercel.app/api?username=helblingjoel&theme=buefy&hide=stars&hide_border=true`

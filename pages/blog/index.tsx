@@ -1,10 +1,15 @@
 import { useState } from "react";
 import Layout from "../../Layouts/Layout";
-import SocialPreview from "../../components/SocialPreview";
-import { BlogMetaInfo, MetaInfo, Tags, Tweet } from "../../support/Types";
-import { PostPreviews } from "../../components/Blog/PostPreviews";
+import SocialPreview from "../../components/App/SocialPreview/SocialPreview";
+import {
+	BlogMetaInfo,
+	MetaInfo,
+	Tags,
+} from "../../components/Blog/PostPreviews/PostPreviews.Types";
+import PostPreviews from "../../components/Blog/PostPreviews/PostPreviews";
 import AllPosts from "../../components/Blog/AllPosts";
-import Tweets from "../../components/Tweet";
+import Tweets from "../../components/App/Tweet/Tweet";
+import { Tweet } from "../../components/App/Tweet/Tweet.Types";
 
 export default function Blog(props: {
 	tweets: Tweet[];

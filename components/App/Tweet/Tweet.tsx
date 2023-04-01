@@ -1,5 +1,4 @@
-import { formatDate } from "../utils";
-import { Tweet } from "../support/Types";
+import { Tweet } from "./Tweet.Types";
 
 export default function Tweets(props: { tweets: Tweet[] }) {
 	return (
@@ -9,7 +8,9 @@ export default function Tweets(props: { tweets: Tweet[] }) {
 					<div className="card mb-6" key={tweet.id}>
 						<div className="card-header">
 							<p className="card-header-title">
-								{formatDate(new Date(tweet.created_at))}
+								{new Date(tweet.created_at).toLocaleDateString(
+									"en-GB"
+								)}
 							</p>
 							<div className="tweetAuthor accented">
 								<p className="pr-4 pt-3">_helblingjoel</p>

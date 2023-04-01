@@ -1,10 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import BlogLayout from "../../../Layouts/BlogLayout";
-import SocialPreview from "../../../components/SocialPreview";
+import SocialPreview from "../../../components/App/SocialPreview/SocialPreview";
 import Image from "next/image";
 import { FindPost } from "../../../components/Blog/AllPosts";
-import Code from "../../../components/CodeBlock";
-import { CodeSection, ExternalLinkPreview } from "../../../support/Types";
+import Code from "../../../components/App/Code/Code";
+import { CodeSection } from "../../../components/App/Code/Code.Types";
+import { ExternalLinkPreview } from "../../../components/App/SocialPreview/SocialPreview.Types";
 
 const PostMeta = FindPost("/blog/2023/pokemon");
 
@@ -21,12 +22,12 @@ export default function Post({
 		languageFn: require("highlight.js/lib/languages/json"),
 		filename: "vercel.json",
 		code: `{
-	"rewrites": [
-		{
-			"source": "/(.*)",
-			"destination": "/api/app"
-		}
-	]
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/api/app"
+    }
+  ]
 }`,
 	};
 	return (

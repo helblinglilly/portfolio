@@ -1,8 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import { BlogMetaInfo } from "../../support/Types";
+import { BlogMetaInfo } from "./PostPreviews.Types";
 
-export function PostPreviews(props: { posts: BlogMetaInfo[] }) {
+export default function PostPreviews(props: { posts: BlogMetaInfo[] }) {
 	return (
 		<>
 			{props.posts.length === 0 ? (

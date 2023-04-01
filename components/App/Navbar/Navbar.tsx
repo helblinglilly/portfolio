@@ -1,13 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
-import Script from "next/script";
 import { useTheme } from "next-themes";
+import { useState } from "react";
+import styles from "./Navbar.module.css";
 
 export default function Navbar() {
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const { theme, setTheme } = useTheme();
+
+	const toggleTheme = () => {
+		const newTheme = theme === "light" ? "dark" : "light";
+		setTheme(newTheme);
+	};
+
 	return (
 		<nav className="navbar is-spaced" id="navbar">
-			<Script src="/js/navbar.js"></Script>
 			<div className="navbar-brand">
 				<Link href="/" className="navbar-item" data-cy="navbar-logo">
 					<Image
@@ -18,20 +25,31 @@ export default function Navbar() {
 					/>
 				</Link>
 				<a
-					onClick={toggleNavbar}
+					onClick={() => {
+						setIsMenuOpen(!isMenuOpen);
+					}}
 					role="button"
 					id="navBurger"
-					className="navbar-burger"
+					className={`navbar-burger ${isMenuOpen ? "is-active" : ""}`}
 					aria-label="menu"
-					aria-expanded="false"
+					aria-expanded="true"
 					data-target="navMenu"
 				>
-					<span aria-hidden="true"></span>
-					<span aria-hidden="true"></span>
-					<span aria-hidden="true"></span>
+					<span
+						aria-hidden="true"
+						className={styles.navbarBurgerElement}
+					></span>
+					<span
+						aria-hidden="true"
+						className={styles.navbarBurgerElement}
+					></span>
+					<span
+						aria-hidden="true"
+						className={styles.navbarBurgerElement}
+					></span>
 				</a>
 			</div>
-			<div className="navbar-menu">
+			<div className={`navbar-menu ${isMenuOpen ? "is-active" : ""}`}>
 				<div className="navbar-start">
 					<Link href="/">
 						<div className="navbar-item" data-cy="navbar-home">
@@ -54,19 +72,7 @@ export default function Navbar() {
 				</div>
 				<div className="navbar-end">
 					<a
-						onClick={() => {
-							if (
-								theme === "light" ||
-								localStorage.getItem("theme") === "light"
-							)
-								setTheme("dark");
-							else if (
-								theme === "dark" ||
-								localStorage.getItem("theme") === "dark"
-							)
-								setTheme("light");
-							else setTheme("light");
-						}}
+						onClick={toggleTheme}
 						className="navbar-item"
 						id="navbar-theme"
 						data-cy="navbar-theme"
@@ -77,9 +83,4 @@ export default function Navbar() {
 			</div>
 		</nav>
 	);
-}
-
-function toggleNavbar() {
-	document.querySelector(".navbar-menu").classList.toggle("is-active");
-	document.querySelector(".navbar-burger").classList.toggle("is-active");
 }

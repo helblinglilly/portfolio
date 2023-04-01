@@ -1,6 +1,6 @@
 import Layout from "./Layout";
 import Image from "next/image";
-import TableOfContents from "../components/Blog/tableOfContents";
+import TableOfContents from "../components/Blog/TableOfContents/TableOfContents";
 
 export default function BlogLayout({ children, ...pageProps }) {
 	const meta = pageProps.metaInfo;

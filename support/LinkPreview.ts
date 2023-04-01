@@ -1,4 +1,4 @@
-import { ExternalLinkPreview } from "./Types";
+import { ExternalLinkPreview } from "../components/App/SocialPreview/SocialPreview.Types";
 
 export default async function Preview(
 	link: string

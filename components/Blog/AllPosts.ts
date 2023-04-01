@@ -1,5 +1,5 @@
 import Tags from "../../support/Tags";
-import { BlogMetaInfo } from "../../support/Types";
+import { BlogMetaInfo } from "./PostPreviews/PostPreviews.Types";
 
 export const AllPosts: BlogMetaInfo[] = [
 	{

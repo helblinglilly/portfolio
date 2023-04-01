@@ -1,11 +1,11 @@
-import Layout from "../Layouts/Layout";
-import { PostPreviews } from "../components/Blog/PostPreviews";
-import AllPosts from "../components/Blog/AllPosts";
-import SocialPreview from "../components/SocialPreview";
-import Image from "next/image";
 import React from "react";
-import { MetaInfo } from "../support/Types";
-import GithubStats from "../components/GithubStats";
+import Layout from "../Layouts/Layout";
+import AllPosts from "../components/Blog/AllPosts";
+import PostPreviews from "../components/Blog/PostPreviews/PostPreviews";
+import SocialPreview from "../components/App/SocialPreview/SocialPreview";
+import Image from "next/image";
+import { MetaInfo } from "../components/Blog/PostPreviews/PostPreviews.Types";
+import GithubStats from "../components/App/GithubStats";
 
 export default function Home() {
 	const description =
