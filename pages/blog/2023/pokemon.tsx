@@ -29,6 +29,16 @@ export default function Post() {
 			<SocialPreview metaInfo={PostMeta} />
 
 			<section className="mt-4" id="introduction">
+				<p className="title is-4">
+					This article is about{" "}
+					<a
+						href="https://pokemon.helbling.uk"
+						target="_blank"
+						rel="noreferrer"
+					>
+						pokemon.helbling.uk
+					</a>
+				</p>
 				<h3 className="title is-3 mb-2">Introduction</h3>
 				<p>
 					I recently got back into Pokémon when the Diamond/Pearl
