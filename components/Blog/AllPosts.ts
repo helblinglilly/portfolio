@@ -94,7 +94,7 @@ export const AllPosts: BlogMetaInfo[] = [
 			{ title: "A word about data quality", id: "data-quality" },
 			{ title: "Scaling for users and complexity", id: "scaling" },
 		],
-		cover: "/images/posts/2023/pokemon/socialpreview.png",
+		cover: null,
 	},
 ];
 
