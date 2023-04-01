@@ -26,11 +26,23 @@ describe("All pages can load successfully", () => {
 			});
 		});
 
+		describe("2023 Posts", () => {
+			it("Pokecompanion", () => {
+				cy.visit(`${Cypress.config("baseUrl")}/blog/2023/pokemon`);
+			});
+		});
+
 		it("/2022 redirects to root", () => {
 			// TODO This test is currently broken, but expected behaviour needs evaluating
 			// Reference issues/42 #42 about this
 			cy.visit(`${Cypress.config("baseUrl")}/blog/2022`);
 			cy.url().should("not.contain", `${Cypress.config("baseUrl")}/2022`);
+		});
+		it("/2023 redirects to root", () => {
+			// TODO This test is currently broken, but expected behaviour needs evaluating
+			// Reference issues/42 #42 about this
+			cy.visit(`${Cypress.config("baseUrl")}/blog/2023`);
+			cy.url().should("not.contain", `${Cypress.config("baseUrl")}/2023`);
 		});
 	});
 	it("/background", () => {

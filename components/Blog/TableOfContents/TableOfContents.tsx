@@ -1,5 +1,5 @@
 import React from "react";
-import { TableOfContent } from "../../support/Types";
+import { TableOfContent } from "./TableOfContents.Types";
 
 export default function TableOfContents({ entries }: any) {
 	return (

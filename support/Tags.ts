@@ -1,4 +1,9 @@
 export const Tags = {
+	project: {
+		name: "Project",
+		color: "#fff",
+		backgroundColor: "#b7b47a",
+	},
 	cloud: {
 		name: "Cloud",
 		color: "#fff",

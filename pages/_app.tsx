@@ -1,10 +1,13 @@
 import "../styles/globals.css";
 import { ThemeProvider } from "next-themes";
 
-export default function App({ Component, pageProps }) {
+export default function App(props: {
+	Component: any;
+	pageProps: any;
+}): JSX.Element {
 	return (
 		<ThemeProvider defaultTheme="system">
-			<Component {...pageProps} />
+			<props.Component {...props.pageProps} />
 		</ThemeProvider>
 	);
 }

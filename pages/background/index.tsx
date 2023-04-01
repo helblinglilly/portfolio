@@ -1,12 +1,12 @@
 import Layout from "../../Layouts/Layout";
-import SocialPreview from "../../components/SocialPreview";
+import SocialPreview from "../../components/App/SocialPreview/SocialPreview";
 import Menu from "../../components/Background/Menu";
 import NHSDigital from "../../components/Background/NHSDigital";
 import Waitrose from "../../components/Background/Waitrose";
 import Kent from "../../components/Background/Kent";
 import McDonalds from "../../components/Background/McDonalds";
 import RoyalHarbour from "../../components/Background/RoyalHarbourAcademy";
-import { MetaInfo } from "../../support/Types";
+import { MetaInfo } from "../../components/Blog/PostPreviews/PostPreviews.Types";
 
 export default function Home() {
 	const metaInfo: MetaInfo = {

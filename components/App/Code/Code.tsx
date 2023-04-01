@@ -1,6 +1,5 @@
 import hljs from "highlight.js/lib/core";
-
-import { CodeSection } from "../support/Types";
+import { CodeSection } from "./Code.Types";
 
 export default function Code(props: { info: CodeSection }) {
 	hljs.registerLanguage(props.info.languageName, props.info.languageFn);

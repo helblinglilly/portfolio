@@ -1,10 +1,11 @@
-import Layout from "../Layouts/Layout";
-import { PostPreviews } from "../components/Blog/PostPreviews";
-import AllPosts from "../components/Blog/AllPosts";
-import SocialPreview from "../components/SocialPreview";
-import Image from "next/image";
 import React from "react";
-import { MetaInfo } from "../support/Types";
+import Layout from "../Layouts/Layout";
+import AllPosts from "../components/Blog/AllPosts";
+import PostPreviews from "../components/Blog/PostPreviews/PostPreviews";
+import SocialPreview from "../components/App/SocialPreview/SocialPreview";
+import Image from "next/image";
+import { MetaInfo } from "../components/Blog/PostPreviews/PostPreviews.Types";
+import GithubStats from "../components/App/GithubStats";
 
 export default function Home() {
 	const description =
@@ -12,7 +13,6 @@ export default function Home() {
 	const ageDiff = Date.now() - new Date("11 April 2001").valueOf();
 	const ageDate = new Date(ageDiff);
 	const age = Math.abs(ageDate.getUTCFullYear() - 1970);
-	const previousLocation = `Previously, I lived in Kent during my studies and before moving to the UK I lived in Schaffhausen, Switzerland`;
 
 	const metaInfo: MetaInfo = {
 		title: "Joel Helbling",
@@ -39,15 +39,20 @@ export default function Home() {
 						/>
 					</figure>
 					<div className="pt-4">
-						<p className="title">About me</p>
+						<p className="title mb-0">About me</p>
+						<p className="mb-3">
+							Pronouns: <i>they/them</i>
+						</p>
 						<p>
-							Hi, I'm Joel, a {age} year old Swiss software
-							engineer currently working in Leeds, United Kingdom.
-							I've lived in the UK since 2016 and studied Computer
-							Science in Canterbury, Kent.
+							I'm a {age} year old software developer currently
+							based in Leeds, United Kingdom. At work, I mostly
+							use C#, while I explore different Javascript
+							frameworks in my spare time. I'm particularly
+							interested in web development in the cloud, and I'm
+							currently learning about AWS to pursue that.
 							<br />
-							At the moment, I'm part of NHS Pathways where I'm
-							working as a Graduate Software Developer
+							At the moment, I'm working at NHS England as a
+							developer on their graduate scheme.
 						</p>
 						<div
 							id="socialLinks"
@@ -136,53 +141,45 @@ export default function Home() {
 				</div>
 			</div>
 			<div className="column is-two-third">
+				<p className="title is-3">Recent blog post</p>
 				<PostPreviews
 					posts={AllPosts[0] ? new Array(AllPosts[0]) : []}
 				/>
 
 				<div className="currentRole">
 					<p className="title">Current Role</p>
-					<p style={{ display: "inline" }}>
-						I'm currently enrolled on the NHS Digital Graduate
-						Scheme where over the course of 2 years, I get to spend
-						6 months in different teams across the organisation.
-						After spending 8 weeks in a Javascript boot camp, I
-						joined the Pathways development team as a Software
-						Engineer maintaining C# applications, carrying out QA
-						duties, and leading a project where I got to learn about
-						AWS, DevOps and Infrastructure as Code. In May 2022 I
-						joined the Primary Care Domain team as an Information
-						Analyst where I supported the team by improving data
-						quality and carrying out one-off analytical tasks for
-						external stakeholders. I also supported the upskilling
-						of the team with Git and Python as well as producing
-						publications for the NHS Digital website.
+					<p>
+						At the start of the graduate scheme that I'm currently
+						enrolled on, I completed an 8 week Javascript bootcamp
+						with Northcoders. Shortly after this, I joined the
+						Pathways team where I maintained C# applications, and
+						architected a proof of concept to replace a legacy data
+						visualisation platform using AWS Aurora and R in
+						kubernetes.
 					</p>
 					<p>
-						In October I rejoined the Pathways team in my previous
-						role. I'm leading that same project again which had to
-						be put on hold in my absence and supporting the move of
-						our existing products to AWS. My previous experience in
-						the team has enabled me to slot back in with next to no
-						delay - I am actively contributing to projects and
-						supporting other developers as well as the QA team.
+						After around 6 months, I switched into an Information
+						Analyst role in the Primary Care Domain team. I worked
+						on data analysis pieces for external stakeholders, as
+						well as improving the process for regular data
+						publications. This involved a combination of SAS EG and
+						Python (Pandas and Databricks).
+					</p>
+					<p>
+						Since then, I have been supporting the cloud migration
+						of various products used by internal and external
+						stakeholders of Pathways, and developing new features
+						for our migrated products. I have gained a more in-depth
+						understanding of AWS, DevOps. Alongside the cloud
+						migrations, we are working to introduce End-to-End
+						testing into our deployment process which I have been
+						supporting on.
 					</p>
 				</div>
 			</div>
 			<div className="column is-one-quarter mb-4">
-				<div className="tiles">
-					<p className="title">Location</p>
-					<iframe
-						className="map"
-						style={{ borderRadius: 15 + "px" }}
-						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d75398.71585168022!2d-1.5837988269883614!3d53.80354915520323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48793e4ada64bd99%3A0x51adbafd0213dca9!2sLeeds!5e0!3m2!1sen!2suk!4v1644350878285!5m2!1sen!2suk"
-						width="100%"
-						height="450"
-						loading="lazy"
-					></iframe>
-					<p>{previousLocation}</p>
-					<p></p>
-				</div>
+				<p className="title is-3">GitHub Statistics</p>
+				<GithubStats />
 			</div>
 		</Layout>
 	);

@@ -1,9 +1,9 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import Image from "next/image";
 import BlogLayout from "../../../Layouts/BlogLayout";
-import SocialPreview from "../../../components/SocialPreview";
-import Preview from "../../../support/LinkPreview";
-import { ExternalLinkPreview } from "../../../support/Types";
+import SocialPreview from "../../../components/App/SocialPreview/SocialPreview";
+import { ExternalLinkPreview } from "../../../components/App/SocialPreview/SocialPreview.Types";
 import { FindPost } from "../../../components/Blog/AllPosts";
 
 const HomeserverPiMeta = FindPost("/blog/2022/homeserver-pi");
@@ -71,7 +71,7 @@ export default function HomeserverPi({
 					</div>
 					<div className="column is-half">
 						<a
-							href={props.preview?.url}
+							href="https://github.com/helblingjoel/piserver"
 							target="_blank"
 							rel="noreferrer"
 						>
@@ -83,22 +83,13 @@ export default function HomeserverPi({
 								</div>
 								<div className="card-image">
 									<figure className="image is-2by1">
-										{props.preview?.image ? (
-											<Image
-												src={props.preview.image}
-												alt="Placeholder image"
-												width={1200}
-												height={600}
-												placeholder="blur"
-												blurDataURL="/images/placeholder.jpeg"
-											/>
-										) : (
-											<></>
-										)}
+										<img
+											src="/images/posts/2022/homeserver-pi/gitrepo.png"
+											alt="Placeholder image"
+											width={1200}
+											height={600}
+										/>
 									</figure>
-								</div>
-								<div className="card-content">
-									<p>{props.preview?.description}</p>
 								</div>
 							</div>
 						</a>
@@ -437,20 +428,4 @@ export default function HomeserverPi({
 			</section>
 		</BlogLayout>
 	);
-}
-
-export async function getStaticProps(): Promise<{
-	props: { preview: ExternalLinkPreview | null };
-}> {
-	const preview = await Preview("https://github.com/helblingjoel/piserver");
-	return {
-		props: {
-			preview: {
-				title: preview.title,
-				description: preview.description,
-				image: preview.image,
-				url: preview.url,
-			},
-		},
-	};
 }
