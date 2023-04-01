@@ -148,8 +148,8 @@ export default function Post({
 			<section className="mt-4 content" id="logging-monitoring">
 				<h3 className="title is-3 mb-2">Logging and monitoring</h3>
 				<p>
-					## On my Pi, it wasn't infrequent that I would crash the
-					site because I pushed to prod without testing properly
+					On my Pi, it wasn't infrequent that I would crash the site
+					because I pushed to prod without testing properly
 					beforehand.
 				</p>
 				<p>
@@ -243,12 +243,12 @@ export default function Post({
 					Scaling for users and complexity
 				</h3>
 				<p>
-					## It's difficult to get the balance right when
-					future-proofing side projects. The fact that I had already
-					built a similar page before certainly didn't help this
-					project. Of course, it would be the dream if a few hundred
-					people would use your projects regularly, but the odds of
-					that happening are incredibly small.
+					It's difficult to get the balance right when future-proofing
+					side projects. The fact that I had already built a similar
+					page before certainly didn't help this project. Of course,
+					it would be the dream if a few hundred people would use your
+					projects regularly, but the odds of that happening are
+					incredibly small.
 				</p>
 				<p>
 					Thankfully, by re-platforming this project into a serverless
