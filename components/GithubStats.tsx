@@ -6,25 +6,29 @@ export default function GithubStats() {
 	const { theme, setTheme } = useTheme();
 
 	const [overviewURL, setOverviewURL] = useState(
-		`https://github-readme-stats.vercel.app/api?username=helblingjoel&theme=buefy&hide=stars`
+		`https://github-readme-stats.vercel.app/api?username=helblingjoel&theme=buefy&hide=stars&hide_border=true`
 	);
 	const [languageURL, setLanguageURL] = useState(
-		`https://github-readme-stats.vercel.app/api/top-langs/?username=helblingjoel&theme=buefy&layout=compact`
+		`https://github-readme-stats.vercel.app/api/top-langs/?username=helblingjoel&theme=buefy&layout=compact&hide_border=true`
 	);
 	const [mostRecentRepoURL, setMostRecentRepo] = useState(
-		`https://github-readme-stats.vercel.app/api/pin/?username=helblingjoel&repo=pokewiki&theme=buefy`
+		`https://github-readme-stats.vercel.app/api/pin/?username=helblingjoel&repo=pokewiki&theme=buefy&hide_border=true`
 	);
 	const repoUsername = useRef();
 	const repoName = useRef();
 
 	useEffect(() => {
 		const statsTheme = theme === "light" ? "buefy" : "dark";
-		setOverviewURL(
-			`https://github-readme-stats.vercel.app/api?username=helblingjoel&theme=${statsTheme}&hide=stars`
-		);
-		setLanguageURL(
-			`https://github-readme-stats.vercel.app/api/top-langs/?username=helblingjoel&theme=${statsTheme}&layout=compact`
-		);
+		let newOverviewURL = `https://github-readme-stats.vercel.app/api?username=helblingjoel&theme=${statsTheme}&hide=stars`;
+		let newLanguageURL = `https://github-readme-stats.vercel.app/api/top-langs/?username=helblingjoel&theme=${statsTheme}&layout=compact`;
+
+		if (theme === "dark") {
+			newOverviewURL += "&hide_border=true";
+			newLanguageURL += "&hide_border=true";
+		}
+
+		setOverviewURL(newOverviewURL);
+		setLanguageURL(newLanguageURL);
 
 		const getMostRecentRepo = async () => {
 			try {
@@ -38,9 +42,13 @@ export default function GithubStats() {
 					const repo = responseBody[0].repo.name.split("/")[1];
 					repoUsername.current = username;
 					repoName.current = repo;
-					setMostRecentRepo(
-						`https://github-readme-stats.vercel.app/api/pin/?username=${username}&repo=${repo}&theme=${statsTheme}`
-					);
+
+					let newRepoURL = `https://github-readme-stats.vercel.app/api/pin/?username=${username}&repo=${repo}&theme=${statsTheme}`;
+					if (theme === "dark") {
+						newRepoURL += "&hide_border=true";
+					}
+
+					setMostRecentRepo(newRepoURL);
 				}
 			} catch (e) {
 				console.error(`Failed to get most recent contribution`);
