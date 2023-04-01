@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -47,6 +48,29 @@ export default function GithubStats() {
 
 	return (
 		<>
+			<img
+				src={overviewURL}
+				width={450}
+				height={164}
+				alt="Overall statistics overview"
+				className="mb-3"
+			/>
+
+			<img
+				src={languageURL}
+				width={450}
+				height={164}
+				alt="Most usage language statistics"
+			/>
+
+			<p className="title is-5 pt-3 mb-3">Most recent contribution</p>
+			<img
+				src={mostRecentRepoURL}
+				width={450}
+				height={164}
+				alt="Overall statistics overview"
+			/>
+			{/* Not using Image for now as there's issues with image optimisation, preventing them from loading in a deployed env
 			<Image
 				src={overviewURL}
 				width={450}
@@ -74,7 +98,7 @@ export default function GithubStats() {
 				alt="Overall statistics overview"
 				placeholder="blur"
 				blurDataURL="/images/placeholder.jpeg"
-			/>
+			/> */}
 		</>
 	);
 }
