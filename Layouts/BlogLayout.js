@@ -38,9 +38,9 @@ export default function BlogLayout({ children, ...pageProps }) {
 									pubdate="true"
 									dateTime={meta.created.split("T")[0]}
 								>
-									{new Date(
-										meta.created
-									).toLocaleDateString()}
+									{new Date(meta.created).toLocaleDateString(
+										"en-GB"
+									)}
 								</time>
 								,
 								<a

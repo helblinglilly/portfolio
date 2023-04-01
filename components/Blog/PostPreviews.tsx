@@ -104,7 +104,7 @@ export function PostPreviews(props: { posts: BlogMetaInfo[] }) {
 												Posted:{" "}
 												{new Date(
 													post.created
-												).toLocaleDateString()}
+												).toLocaleDateString("en-GB")}
 											</i>
 										</div>
 									</div>
