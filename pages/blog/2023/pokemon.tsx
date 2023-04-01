@@ -4,11 +4,17 @@ import Link from "next/link";
 import Image from "next/image";
 import { FindPost } from "../../../components/Blog/AllPosts";
 import Code from "../../../components/CodeBlock";
-import { CodeSection } from "../../../support/Types";
+import { CodeSection, ExternalLinkPreview } from "../../../support/Types";
+import Preview from "../../../support/LinkPreview";
 
 const PostMeta = FindPost("/blog/2023/pokemon");
 
-export default function Post() {
+export default function Post({
+	...props
+}: {
+	sitePreview: ExternalLinkPreview | null;
+	gitPreview: ExternalLinkPreview | null;
+}) {
 	if (!PostMeta) return <p>Could not find information about post</p>;
 
 	const expressConfig: CodeSection = {
@@ -29,16 +35,71 @@ export default function Post() {
 			<SocialPreview metaInfo={PostMeta} />
 
 			<section className="mt-4" id="introduction">
-				<p className="title is-4">
-					This article is about{" "}
-					<a
-						href="https://pokemon.helbling.uk"
-						target="_blank"
-						rel="noreferrer"
-					>
-						pokemon.helbling.uk
-					</a>
-				</p>
+				<p className="title is-4 pb-0">This article is about:</p>
+				<div className="columns">
+					<div className="column">
+						<a
+							href={props.sitePreview?.url}
+							target="_blank"
+							rel="noreferrer"
+						>
+							<div className="card">
+								<div className="card-header">
+									<div className="card-header-title">
+										<p>helblingjoel/piserver</p>
+									</div>
+								</div>
+								<div className="card-image">
+									<figure className="image is-2by1">
+										{props.sitePreview?.image ? (
+											<Image
+												src={props.sitePreview.image}
+												alt="Placeholder image"
+												width={1200}
+												height={600}
+												placeholder="blur"
+												blurDataURL="/images/placeholder.jpeg"
+											/>
+										) : (
+											<></>
+										)}
+									</figure>
+								</div>
+							</div>
+						</a>
+					</div>
+					<div className="column">
+						<a
+							href={props.gitPreview?.url}
+							target="_blank"
+							rel="noreferrer"
+						>
+							<div className="card">
+								<div className="card-header">
+									<div className="card-header-title">
+										<p>helblingjoel/pokewiki</p>
+									</div>
+								</div>
+								<div className="card-image">
+									<figure className="image is-2by1">
+										{props.gitPreview?.image ? (
+											<Image
+												src={props.gitPreview.image}
+												alt="Placeholder image"
+												width={1200}
+												height={600}
+												placeholder="blur"
+												blurDataURL="/images/placeholder.jpeg"
+											/>
+										) : (
+											<></>
+										)}
+									</figure>
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
 				<h3 className="title is-3 mb-2">Introduction</h3>
 				<p>
 					I recently got back into Pokémon when the Diamond/Pearl
@@ -251,4 +312,32 @@ export default function Post() {
 			</section>
 		</BlogLayout>
 	);
+}
+
+export async function getStaticProps(): Promise<{
+	props: {
+		gitPreview: ExternalLinkPreview | null;
+		sitePreview: ExternalLinkPreview | null;
+	};
+}> {
+	const sitePreview = await Preview("https://pokemon.helbling.uk");
+	const gitPreview = await Preview(
+		"https://github.com/helblingjoel/pokewiki"
+	);
+	return {
+		props: {
+			sitePreview: {
+				title: sitePreview.title,
+				description: sitePreview.description,
+				image: sitePreview.image,
+				url: sitePreview.url,
+			},
+			gitPreview: {
+				title: gitPreview.title,
+				description: gitPreview.description,
+				image: gitPreview.image,
+				url: gitPreview.url,
+			},
+		},
+	};
 }
