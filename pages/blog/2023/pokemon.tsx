@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import BlogLayout from "../../../Layouts/BlogLayout";
 import SocialPreview from "../../../components/SocialPreview";
 import Link from "next/link";
@@ -52,13 +53,13 @@ export default function Post({
 								<div className="card-image">
 									<figure className="image is-2by1">
 										{props.sitePreview?.image ? (
-											<Image
+											<img
 												src={props.sitePreview.image}
 												alt="Placeholder image"
 												width={1200}
 												height={600}
-												placeholder="blur"
-												blurDataURL="/images/placeholder.jpeg"
+												// placeholder="blur"
+												// blurDataURL="/images/placeholder.jpeg"
 											/>
 										) : (
 											<></>
@@ -83,13 +84,13 @@ export default function Post({
 								<div className="card-image">
 									<figure className="image is-2by1">
 										{props.gitPreview?.image ? (
-											<Image
+											<img
 												src={props.gitPreview.image}
 												alt="Placeholder image"
 												width={1200}
 												height={600}
-												placeholder="blur"
-												blurDataURL="/images/placeholder.jpeg"
+												// placeholder="blur"
+												// blurDataURL="/images/placeholder.jpeg"
 											/>
 										) : (
 											<></>
