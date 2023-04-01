@@ -8,7 +8,7 @@ module.exports = withBundleAnalyzer({
 		buildActivity: false,
 	},
 	images: {
-		domains: ["opengraph.githubassets.com"],
+		domains: ["opengraph.githubassets.com", "pokemon.helbling.uk"],
 	},
 
 	eslint: {
