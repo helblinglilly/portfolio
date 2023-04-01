@@ -39,7 +39,10 @@ export default function Home() {
 						/>
 					</figure>
 					<div className="pt-4">
-						<p className="title">About me</p>
+						<p className="title mb-0">About me</p>
+						<p className="mb-3">
+							Pronouns: <i>they/them</i>
+						</p>
 						<p>
 							I'm a {age} year old software developer currently
 							based in Leeds, United Kingdom. At work, I mostly
