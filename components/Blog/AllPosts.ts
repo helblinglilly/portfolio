@@ -79,7 +79,7 @@ export const AllPosts: BlogMetaInfo[] = [
 	},
 	{
 		link: "/blog/2023/pokemon",
-		title: "Replatforming my Pokémon companion to the cloud",
+		title: "Moving my Pokémon companion to the cloud",
 		socialSummary: `The journey of replatforming a private app to the cloud with observability in mind. `,
 		blogSummary: `My process, decisions, and lessons learnt from replatforming my first application into the cloud. With considerations such as time to market, system observability and the managing of technical debt, this post covers a few areas where the path of least resistance can be the right, and sometimes wrong decision.`,
 		created: JSON.parse(JSON.stringify(new Date("2023-04-02"))),

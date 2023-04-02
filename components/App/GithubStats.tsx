@@ -6,13 +6,19 @@ export default function GithubStats() {
 	const { theme } = useTheme();
 
 	const [overviewURL, setOverviewURL] = useState(
-		`https://github-readme-stats.vercel.app/api?username=helblingjoel&theme=buefy&hide=stars&hide_border=true`
+		`https://github-readme-stats.vercel.app/api?username=helblingjoel&theme=buefy&hide=stars${
+			theme !== "light" ? "?&hide_border=true" : ""
+		}`
 	);
 	const [languageURL, setLanguageURL] = useState(
-		`https://github-readme-stats.vercel.app/api/top-langs/?username=helblingjoel&theme=buefy&layout=compact&hide_border=true`
+		`https://github-readme-stats.vercel.app/api/top-langs/?username=helblingjoel&theme=buefy&layout=compact${
+			theme !== "light" ? "?&hide_border=true" : ""
+		}`
 	);
 	const [mostRecentRepoURL, setMostRecentRepo] = useState(
-		`https://github-readme-stats.vercel.app/api/pin/?username=helblingjoel&repo=pokewiki&theme=buefy&hide_border=true`
+		`https://github-readme-stats.vercel.app/api/pin/?username=helblingjoel&repo=pokewiki&theme=buefy${
+			theme !== "light" ? "?&hide_border=true" : ""
+		}`
 	);
 	const repoUsername = useRef();
 	const repoName = useRef();
@@ -22,7 +28,7 @@ export default function GithubStats() {
 		let newOverviewURL = `https://github-readme-stats.vercel.app/api?username=helblingjoel&theme=${statsTheme}&hide=stars`;
 		let newLanguageURL = `https://github-readme-stats.vercel.app/api/top-langs/?username=helblingjoel&theme=${statsTheme}&layout=compact`;
 
-		if (theme === "dark") {
+		if (theme !== "light") {
 			newOverviewURL += "&hide_border=true";
 			newLanguageURL += "&hide_border=true";
 		}
@@ -44,7 +50,7 @@ export default function GithubStats() {
 					repoName.current = repo;
 
 					let newRepoURL = `https://github-readme-stats.vercel.app/api/pin/?username=${username}&repo=${repo}&theme=${statsTheme}`;
-					if (theme === "dark") {
+					if (theme !== "light") {
 						newRepoURL += "&hide_border=true";
 					}
 
