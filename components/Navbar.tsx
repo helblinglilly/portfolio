@@ -62,14 +62,15 @@ export default function Navbar() {
 					</Link>
 				</div>
 				<div className="navbar-end">
-					<a
+					<p
 						onClick={toggleTheme}
 						className="navbar-item"
 						id="navbar-theme"
 						data-cy="navbar-theme"
+						style={{ cursor: "pointer" }}
 					>
 						Change Theme
-					</a>
+					</p>
 				</div>
 			</div>
 		</nav>
