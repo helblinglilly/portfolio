@@ -93,35 +93,6 @@ export default function GithubStats() {
 					alt="Overall statistics overview"
 				/>
 			</a>
-			{/* Not using Image for now as there's issues with image optimisation, preventing them from loading in a deployed env
-			<Image
-				src={overviewURL}
-				width={450}
-				height={164}
-				alt="Overall statistics overview"
-				className="mb-3"
-				placeholder="blur"
-				blurDataURL="/images/placeholder.jpeg"
-			/>
-
-			<Image
-				src={languageURL}
-				width={450}
-				height={164}
-				alt="Most usage language statistics"
-				placeholder="blur"
-				blurDataURL="/images/placeholder.jpeg"
-			/>
-
-			<p className="title is-5 pt-3 mb-3">Most recent contribution</p>
-			<Image
-				src={mostRecentRepoURL}
-				width={450}
-				height={164}
-				alt="Overall statistics overview"
-				placeholder="blur"
-				blurDataURL="/images/placeholder.jpeg"
-			/> */}
 		</>
 	);
 }

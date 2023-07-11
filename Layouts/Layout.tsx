@@ -1,5 +1,5 @@
-import Navbar from "../components/App/Navbar";
 import { useEffect } from "react";
+import Navbar from "../components/App/Navbar";
 
 export default function Layout(props: { children: any }) {
 	useEffect(() => {

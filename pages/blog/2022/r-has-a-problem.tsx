@@ -1,8 +1,7 @@
 import BlogLayout from "../../../Layouts/BlogLayout";
-import SocialPreview from "../../../components/App/SocialPreview/SocialPreview";
+import SocialPreview from "../../../components/App/SocialPreview";
 import Image from "next/image";
-import { CodeSection } from "../../../components/App/Code/Code.Types";
-import Code from "../../../components/App/Code/Code";
+import Code, { CodeSection } from "../../../components/App/Code";
 import { FindPost } from "../../../components/Blog/AllPosts";
 import "highlight.js/styles/monokai-sublime.css";
 

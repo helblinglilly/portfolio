@@ -1,20 +1,14 @@
 import { useState } from "react";
 import Layout from "../../Layouts/Layout";
-import SocialPreview from "../../components/App/SocialPreview/SocialPreview";
-import {
+import SocialPreview from "../../components/App/SocialPreview";
+import PostPreviews, {
 	BlogMetaInfo,
 	MetaInfo,
 	Tags,
-} from "../../components/Blog/PostPreviews/PostPreviews.Types";
-import PostPreviews from "../../components/Blog/PostPreviews/PostPreviews";
+} from "../../components/Blog/PostPreviews";
 import AllPosts from "../../components/Blog/AllPosts";
-import Tweets from "../../components/App/Tweet/Tweet";
-import { Tweet } from "../../components/App/Tweet/Tweet.Types";
 
-export default function Blog(props: {
-	tweets: Tweet[];
-	posts: BlogMetaInfo[];
-}) {
+export default function Blog() {
 	const metaInfo: MetaInfo = {
 		title: "Blog - Joel Helbling",
 		socialSummary: `Blog homepage of Joel Helbling. View the collection of blog posts, search for specific ones, filter by tags or by publishing year`,
@@ -22,9 +16,7 @@ export default function Blog(props: {
 		cover: null,
 	};
 
-	const [visiblePosts, setVisiblePosts] = useState<BlogMetaInfo[]>(
-		props.posts
-	);
+	const [visiblePosts, setVisiblePosts] = useState<BlogMetaInfo[]>(AllPosts);
 	const [isSearchVisible, setSearchVisibility] = useState<boolean>(false);
 	const [searchTerm, setSearchTerm] = useState<RegExp>(/.*/);
 
@@ -32,7 +24,7 @@ export default function Blog(props: {
 		// TODO there must be a better way of doing this
 		// But tags don't have the same object reference to use Set... to get them unique
 		let tagNames: string[] = [];
-		props.posts.flatMap((post) => {
+		AllPosts.flatMap((post) => {
 			post.tags.forEach((tag) => {
 				if (!tagNames.includes(tag.name)) tagNames.push(tag.name);
 			});
@@ -40,7 +32,7 @@ export default function Blog(props: {
 
 		const realTabs: Tags[] = [];
 
-		props.posts.flatMap((post) => {
+		AllPosts.flatMap((post) => {
 			post.tags.forEach((tag) => {
 				if (tagNames.includes(tag.name)) {
 					tagNames.splice(tagNames.indexOf(tag.name), 1);
@@ -54,7 +46,7 @@ export default function Blog(props: {
 
 	const uniqueYears = (): number[] => {
 		const years: number[] = [];
-		props.posts.flatMap((post) => {
+		AllPosts.flatMap((post) => {
 			if (!years.includes(new Date(post.created).getFullYear()))
 				years.push(new Date(post.created).getFullYear());
 		});
@@ -100,7 +92,7 @@ export default function Blog(props: {
 
 	const refreshVisiblePosts = () => {
 		const postsToDisplay: BlogMetaInfo[] = [];
-		props.posts.forEach((post) => {
+		AllPosts.forEach((post) => {
 			const searchMatches = [];
 			let containsMatchingTag = selectedTags.length === 0;
 			let matchesYear = selectedYears.length === 0;
@@ -225,40 +217,6 @@ export default function Blog(props: {
 				<p className="title is-3">Blog Posts</p>
 				<PostPreviews posts={visiblePosts} />
 			</div>
-			<div className="column is-one-quarter">
-				<p className="title is-3">Latest Tweets</p>
-				<Tweets tweets={props.tweets}></Tweets>
-			</div>
 		</Layout>
 	);
-}
-
-export async function getServerSideProps(): Promise<{
-	props: { tweets: Tweet[]; posts: BlogMetaInfo[] };
-}> {
-	const tweets = await fetch(
-		"https://api.twitter.com/2/users/1397471686371467266/tweets?tweet.fields=created_at&max_results=5",
-		{
-			headers: { Authorization: `Bearer ${process.env.TWITTER_TOKEN}` },
-		}
-	)
-		.then(async (response) => {
-			if (response.status !== 200) throw new Error();
-			const body = await response.json();
-			return body.data;
-		})
-		.catch(() => [
-			{
-				created_at: new Date().toISOString(),
-				id: "1492283279768231937",
-				text: "Unable to get tweets at this time",
-			},
-		]);
-
-	return {
-		props: {
-			tweets: tweets,
-			posts: AllPosts,
-		},
-	};
 }

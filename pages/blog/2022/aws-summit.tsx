@@ -1,5 +1,5 @@
 import BlogLayout from "../../../Layouts/BlogLayout";
-import SocialPreview from "../../../components/App/SocialPreview/SocialPreview";
+import SocialPreview from "../../../components/App/SocialPreview";
 import Link from "next/link";
 import Image from "next/image";
 import { FindPost } from "../../../components/Blog/AllPosts";

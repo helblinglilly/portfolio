@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { useState } from "react";
-import styles from "./Navbar.module.css";
 
 export default function Navbar() {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -37,15 +36,15 @@ export default function Navbar() {
 				>
 					<span
 						aria-hidden="true"
-						className={styles.navbarBurgerElement}
+						className={"navbarBurgerElement"}
 					></span>
 					<span
 						aria-hidden="true"
-						className={styles.navbarBurgerElement}
+						className={"navbarBurgerElement"}
 					></span>
 					<span
 						aria-hidden="true"
-						className={styles.navbarBurgerElement}
+						className={"navbarBurgerElement"}
 					></span>
 				</a>
 			</div>
@@ -59,14 +58,6 @@ export default function Navbar() {
 					<Link href="/blog">
 						<div className="navbar-item" data-cy="navbar-blog">
 							Blog
-						</div>
-					</Link>
-					<Link href="/background">
-						<div
-							className="navbar-item"
-							data-cy="navbar-background"
-						>
-							Background
 						</div>
 					</Link>
 				</div>

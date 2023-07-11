@@ -1,6 +1,13 @@
 import React from "react";
 import Head from "next/head";
-import { MetaInfo } from "../../Blog/PostPreviews/PostPreviews.Types";
+import { MetaInfo } from "../Blog/PostPreviews";
+
+export interface ExternalLinkPreview {
+	title: string;
+	description: string;
+	image: string;
+	url: string;
+}
 
 export default function SocialPreview(props: { metaInfo: MetaInfo }) {
 	const meta = props.metaInfo;
