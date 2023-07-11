@@ -9,7 +9,7 @@ export default function SocialLink({
 	className,
 }: {
 	name: string;
-	image: string;
+	image?: string;
 	alt: string;
 	url: string;
 	className?: string;
@@ -31,13 +31,15 @@ export default function SocialLink({
 						width: "100%",
 					}}
 				>
-					<Image
-						src={image}
-						alt={alt}
-						width={30}
-						height={30}
-						style={{ marginRight: "5px" }}
-					/>
+					{image && (
+						<Image
+							src={image}
+							alt={alt}
+							width={30}
+							height={30}
+							style={{ marginRight: "5px" }}
+						/>
+					)}
 					<p style={{ alignSelf: "center", fontSize: "12pt" }}>
 						{name}
 					</p>

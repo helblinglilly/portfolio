@@ -1,7 +1,7 @@
 import Image from "next/image";
 import SocialLink from "./SocialLink";
 
-export default function Summary() {
+export default function Summary({ showHomepage }: { showHomepage?: boolean }) {
 	return (
 		<>
 			<figure className="image has-text-centered">
@@ -37,6 +37,14 @@ export default function Summary() {
 				>
 					<p className="title is-4 mb-2">Socials</p>
 
+					{showHomepage && (
+						<SocialLink
+							name="Homepage"
+							alt="Icon"
+							url="https://www.helbling.uk"
+							className="pt-3"
+						/>
+					)}
 					<SocialLink
 						name="Github"
 						image="/icons/git.svg"
