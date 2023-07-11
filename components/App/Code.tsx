@@ -1,5 +1,5 @@
 import hljs from "highlight.js/lib/core";
-import { CodeSection } from "./Code.Types";
+import { LanguageFn } from "highlight.js";
 
 export default function Code(props: { info: CodeSection }) {
 	hljs.registerLanguage(props.info.languageName, props.info.languageFn);
@@ -22,4 +22,11 @@ export default function Code(props: { info: CodeSection }) {
 			</pre>
 		</div>
 	);
+}
+
+export interface CodeSection {
+	code: string;
+	filename: string;
+	languageName: string;
+	languageFn: LanguageFn;
 }

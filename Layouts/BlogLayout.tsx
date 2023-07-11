@@ -1,12 +1,18 @@
 import Layout from "./Layout";
 import Image from "next/image";
-import TableOfContents from "../components/Blog/TableOfContents/TableOfContents";
+import TableOfContents from "../components/Blog/TableOfContents";
 
-export default function BlogLayout({ children, ...pageProps }) {
-	const meta = pageProps.metaInfo;
+export default function BlogLayout({
+	children,
+	metaInfo,
+}: {
+	children: React.ReactNode;
+	metaInfo: any;
+}) {
+	const meta = metaInfo;
 
 	return (
-		<Layout home>
+		<Layout>
 			<div className="column is-one-quarter">
 				<TableOfContents
 					entries={meta.tableOfContents}
@@ -35,7 +41,7 @@ export default function BlogLayout({ children, ...pageProps }) {
 						<i>
 							<address className="author">
 								<time
-									pubdate="true"
+									// pubdate="true"
 									dateTime={meta.created.split("T")[0]}
 								>
 									{new Date(meta.created).toLocaleDateString(

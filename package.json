@@ -6,9 +6,7 @@
 		"build": "node sitemapgen.js && next build",
 		"dev": "next dev",
 		"lint": "next lint --max-warnings=0",
-		"start": "next start",
-		"test": "npx cypress run",
-		"test:open": "npx cypress open"
+		"start": "next start"
 	},
 	"dependencies": {
 		"bulma": "^0.9.3",
@@ -23,7 +21,6 @@
 		"@types/node": "^18.11.9",
 		"@types/react": "^18.0.25",
 		"@types/react-dom": "^18.0.9",
-		"cypress": "^11.2.0",
 		"eslint": "^8.28.0",
 		"eslint-config-next": "12.0.8",
 		"eslint-config-prettier": "^8.3.0",

@@ -1,11 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import BlogLayout from "../../../Layouts/BlogLayout";
-import SocialPreview from "../../../components/App/SocialPreview/SocialPreview";
+import SocialPreview, {
+	ExternalLinkPreview,
+} from "../../../components/App/SocialPreview";
 import Image from "next/image";
 import { FindPost } from "../../../components/Blog/AllPosts";
-import Code from "../../../components/App/Code/Code";
-import { CodeSection } from "../../../components/App/Code/Code.Types";
-import { ExternalLinkPreview } from "../../../components/App/SocialPreview/SocialPreview.Types";
+import Code, { CodeSection } from "../../../components/App/Code";
 
 const PostMeta = FindPost("/blog/2023/pokemon");
 

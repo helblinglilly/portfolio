@@ -1,5 +1,9 @@
 import React from "react";
-import { TableOfContent } from "./TableOfContents.Types";
+
+export interface TableOfContent {
+	title: string;
+	id: string;
+}
 
 export default function TableOfContents({ entries }: any) {
 	return (

@@ -170,21 +170,6 @@ img.right-aligned {
 .content h6 {
 	color: inherit;
 }
-
-/* Narrow desktop but not yet mobile */
-@media (min-width: 769px) and (max-width: 1030px) {
-	.tweetAuthor {
-		display: none;
-	}
-}
-
-/* Incredibly narrow */
-@media (max-width: 310px) {
-	.tweetAuthor {
-		display: none;
-	}
-}
-
 /* Mobile only */
 @media (max-width: 768px) {
 	.desktop {
@@ -336,36 +321,11 @@ a.is-active {
 	color: var(--primary);
 }
 
-#nhsd-menu {
-	background: linear-gradient(90deg, #0a5bba 80%, #fff 20%);
-	border: 1px solid black;
-}
-
-#kent-menu {
-	background: linear-gradient(90deg, #043a84 80%, #fff 20%);
-	border: 1px solid black;
-}
-
-#waitrose-menu {
-	background: linear-gradient(90deg, #578626 80%, #04462f 20%);
-	border: 1px solid black;
-}
-
-#mcd-menu {
-	background: linear-gradient(90deg, #d40007 80%, #febc0c 20%);
-	border: 1px solid black;
-}
-
-#rha-menu {
-	background: linear-gradient(90deg, #ad033b 80%, #fff 20%);
-	border: 1px solid black;
-}
-
-.tweet:hover {
-	cursor: pointer;
-}
-
 .icon {
 	height: 20px;
 	width: 20px;
+}
+
+span.navbarBurgerElement {
+	color: var(--secondary);
 }

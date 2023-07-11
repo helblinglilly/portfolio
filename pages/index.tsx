@@ -1,10 +1,9 @@
 import React from "react";
 import Layout from "../Layouts/Layout";
 import AllPosts from "../components/Blog/AllPosts";
-import PostPreviews from "../components/Blog/PostPreviews/PostPreviews";
-import SocialPreview from "../components/App/SocialPreview/SocialPreview";
+import PostPreviews, { MetaInfo } from "../components/Blog/PostPreviews";
+import SocialPreview from "../components/App/SocialPreview";
 import Image from "next/image";
-import { MetaInfo } from "../components/Blog/PostPreviews/PostPreviews.Types";
 import GithubStats from "../components/App/GithubStats";
 
 export default function Home() {
@@ -44,15 +43,9 @@ export default function Home() {
 							Pronouns: <i>they/them</i>
 						</p>
 						<p>
-							I'm a {age} year old software developer currently
-							based in Leeds, United Kingdom. At work, I mostly
-							use C#, while I explore different Javascript
-							frameworks in my spare time. I'm particularly
-							interested in web development in the cloud, and I'm
-							currently learning about AWS to pursue that.
-							<br />
-							At the moment, I'm working at NHS England as a
-							developer on their graduate scheme.
+							A {age} year old Swiss Software Engineer based in
+							Leeds, United Kingdom. Currently working with
+							NextJS, experienced with C# and AWS.
 						</p>
 						<div
 							id="socialLinks"
@@ -149,31 +142,14 @@ export default function Home() {
 				<div className="currentRole">
 					<p className="title">Current Role</p>
 					<p>
-						At the start of the graduate scheme that I'm currently
-						enrolled on, I completed an 8 week Javascript bootcamp
-						with Northcoders. Shortly after this, I joined the
-						Pathways team where I maintained C# applications, and
-						architected a proof of concept to replace a legacy data
-						visualisation platform using AWS Aurora and R in
-						kubernetes.
+						In May 2023 I left the (previously) NHS Digital Graduate
+						Scheme to join On the Beach as a Software Engineer. In
+						my day to day I mostly work with React (specifically
+						NextJS) in an agile frontend team.
 					</p>
 					<p>
-						After around 6 months, I switched into an Information
-						Analyst role in the Primary Care Domain team. I worked
-						on data analysis pieces for external stakeholders, as
-						well as improving the process for regular data
-						publications. This involved a combination of SAS EG and
-						Python (Pandas and Databricks).
-					</p>
-					<p>
-						Since then, I have been supporting the cloud migration
-						of various products used by internal and external
-						stakeholders of Pathways, and developing new features
-						for our migrated products. I have gained a more in-depth
-						understanding of AWS, DevOps. Alongside the cloud
-						migrations, we are working to introduce End-to-End
-						testing into our deployment process which I have been
-						supporting on.
+						Outside of work, I still enjoy working on sideprojects
+						and exploring the JS Frontend world.
 					</p>
 				</div>
 			</div>
