@@ -1,8 +1,8 @@
 import BlogLayout from "../../../Layouts/BlogLayout";
-import SocialPreview from "../../../components/App/SocialPreview";
 import Link from "next/link";
 import Image from "next/image";
 import { FindPost } from "../../../components/Blog/AllPosts";
+import SocialPreview from "../../../components/SocialPreview";
 
 const AWSSummit22Meta = FindPost("/blog/2022/aws-summit");
 

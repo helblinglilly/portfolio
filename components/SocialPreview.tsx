@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import { MetaInfo } from "../Blog/PostPreviews";
+import { MetaInfo } from "./Blog/PostPreviews";
 
 export interface ExternalLinkPreview {
 	title: string;

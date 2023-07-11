@@ -1,12 +1,12 @@
 import { useState } from "react";
 import Layout from "../../Layouts/Layout";
-import SocialPreview from "../../components/App/SocialPreview";
 import PostPreviews, {
 	BlogMetaInfo,
 	MetaInfo,
 	Tags,
 } from "../../components/Blog/PostPreviews";
 import AllPosts from "../../components/Blog/AllPosts";
+import SocialPreview from "../../components/SocialPreview";
 
 export default function Blog() {
 	const metaInfo: MetaInfo = {
@@ -133,7 +133,7 @@ export default function Blog() {
 			<SocialPreview metaInfo={metaInfo} />
 
 			<div className="column is-one-quarter">
-				<div className="desktop title">
+				<div className="desktop title sidebar">
 					<p className="is-3">Filter</p>
 				</div>
 

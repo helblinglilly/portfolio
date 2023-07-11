@@ -64,35 +64,41 @@ export default function GithubStats() {
 	}, [theme]);
 
 	return (
-		<>
-			<img
-				src={overviewURL}
-				width={450}
-				height={164}
-				alt="Overall statistics overview"
-				className="mb-3"
-			/>
-
-			<img
-				src={languageURL}
-				width={450}
-				height={164}
-				alt="Most usage language statistics"
-			/>
-
-			<p className="title is-5 pt-3 mb-3">Most recent contribution</p>
-			<a
-				href={`https://github.com/${repoUsername.current}/${repoName.current}`}
-				target="_blank"
-				rel="noreferrer"
-			>
+		<div className="columns">
+			<div className="column">
 				<img
-					src={mostRecentRepoURL}
+					src={languageURL}
+					width={450}
+					height={164}
+					alt="Most usage language statistics"
+				/>
+			</div>
+
+			<div className="column">
+				<img
+					src={overviewURL}
 					width={450}
 					height={164}
 					alt="Overall statistics overview"
+					className="mb-3"
 				/>
-			</a>
-		</>
+			</div>
+
+			<div className="column">
+				<p className="title is-5 mb-2">Most recent contribution</p>
+				<a
+					href={`https://github.com/${repoUsername.current}/${repoName.current}`}
+					target="_blank"
+					rel="noreferrer"
+				>
+					<img
+						src={mostRecentRepoURL}
+						width={450}
+						height={164}
+						alt="Overall statistics overview"
+					/>
+				</a>
+			</div>
+		</div>
 	);
 }

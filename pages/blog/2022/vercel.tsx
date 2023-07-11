@@ -1,10 +1,10 @@
 import BlogLayout from "../../../Layouts/BlogLayout";
-import SocialPreview from "../../../components/App/SocialPreview";
 import Image from "next/image";
 import Link from "next/link";
 import { FindPost } from "../../../components/Blog/AllPosts";
-import Code, { CodeSection } from "../../../components/App/Code";
+import Code, { CodeSection } from "../../../components/Code";
 import "highlight.js/styles/monokai-sublime.css";
+import SocialPreview from "../../../components/SocialPreview";
 
 const VercelMeta = FindPost("/blog/2022/vercel");
 

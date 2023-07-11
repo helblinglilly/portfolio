@@ -2,10 +2,10 @@
 import React from "react";
 import Image from "next/image";
 import BlogLayout from "../../../Layouts/BlogLayout";
+import { FindPost } from "../../../components/Blog/AllPosts";
 import SocialPreview, {
 	ExternalLinkPreview,
-} from "../../../components/App/SocialPreview";
-import { FindPost } from "../../../components/Blog/AllPosts";
+} from "../../../components/SocialPreview";
 
 const HomeserverPiMeta = FindPost("/blog/2022/homeserver-pi");
 

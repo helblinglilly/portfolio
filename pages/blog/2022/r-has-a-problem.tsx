@@ -1,9 +1,9 @@
 import BlogLayout from "../../../Layouts/BlogLayout";
-import SocialPreview from "../../../components/App/SocialPreview";
 import Image from "next/image";
-import Code, { CodeSection } from "../../../components/App/Code";
+import Code, { CodeSection } from "../../../components/Code";
 import { FindPost } from "../../../components/Blog/AllPosts";
 import "highlight.js/styles/monokai-sublime.css";
+import SocialPreview from "../../../components/SocialPreview";
 
 const RHasAProblemMeta = FindPost("/blog/2022/r-has-a-problem");
 

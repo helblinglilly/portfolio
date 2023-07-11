@@ -30,6 +30,10 @@ html {
 body {
 	background-color: var(--primary);
 	color: var(--secondary);
+	font-family: Matter, ui-sans-serif, system-ui, -apple-system,
+		BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
+		sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
+		Noto Color Emoji;
 }
 
 hr {
@@ -180,6 +184,12 @@ img.right-aligned {
 		display: none;
 	}
 
+	.socialWrapper {
+		margin-left: 5%;
+		margin-right: 5%;
+		margin-top: 5%;
+	}
+
 	img.left-aligned {
 		margin: 0;
 		margin-bottom: 2vw;
@@ -210,6 +220,12 @@ img.right-aligned {
 		margin-bottom: 2vw;
 	}
 
+	.socialWrapper {
+		margin-left: 30%;
+		margin-right: 30%;
+		margin-top: 2%;
+	}
+
 	/* Blog placeholder - only display when bigger than square */
 	@media (max-aspect-ratio: 5/4) {
 		#blogMargin {
@@ -225,7 +241,7 @@ img.right-aligned {
 }
 
 #profile {
-	border-radius: 50%;
+	border-radius: 25%;
 	max-width: 250px;
 	max-height: 250px;
 	margin: auto;

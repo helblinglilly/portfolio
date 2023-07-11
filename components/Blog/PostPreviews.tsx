@@ -39,15 +39,11 @@ export default function PostPreviews(props: { posts: BlogMetaInfo[] }) {
 					<p>Try adjusting your filters to find matching posts.</p>
 				</>
 			) : (
-				props.posts.map((post) => {
+				props.posts.map((post, i) => {
 					return (
-						<Link
-							href={post.link}
-							key={`${post.title}link`}
-							className="blogPost"
-						>
+						<Link href={post.link} key={`${post.title}link`}>
 							<div
-								className="card mb-6"
+								className={`card ${i !== 0 ? "mt-6" : ""}`}
 								key={`${post.title}card`}
 							>
 								<p
