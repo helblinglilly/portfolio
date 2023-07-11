@@ -1,10 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import BlogLayout from "../../../Layouts/BlogLayout";
-import SocialPreview from "../../../components/App/SocialPreview";
+import SocialPreview, {
+	ExternalLinkPreview,
+} from "../../../components/App/SocialPreview";
 import Image from "next/image";
 import { FindPost } from "../../../components/Blog/AllPosts";
 import Code, { CodeSection } from "../../../components/App/Code";
-import { ExternalLinkPreview } from "../../../components/App/SocialPreview/SocialPreview.Types";
 
 const PostMeta = FindPost("/blog/2023/pokemon");
 
