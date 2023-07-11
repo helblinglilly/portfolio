@@ -27,7 +27,7 @@ export default function Home() {
 				<div className="sidebar" data-cy="sidebar">
 					<figure className="image has-text-centered">
 						<Image
-							src="/images/professional.jpg"
+							src="/images/slack.jpg"
 							alt="Profile picture"
 							width="250"
 							height="250"
