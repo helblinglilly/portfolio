@@ -1,12 +1,12 @@
 @import "../node_modules/bulma/css/bulma.min.css";
 
 :root {
-	--primary: rgb(250, 250, 250);
+	--primary: rgb(243, 243, 243);
 	--secondary: rgb(24, 24, 24);
-	--accent: rgb(255, 255, 255);
+	--accent: rgb(250, 250, 250);
 	--linkcolor: #485fc7;
 	--linkhover: rgb(240, 240, 240);
-	--navbar: rgb(255, 255, 255);
+	--navbar: rgb(250, 250, 250);
 
 	background-color: var(--primary);
 	color: var(--secondary);
@@ -344,4 +344,22 @@ a.is-active {
 
 span.navbarBurgerElement {
 	color: var(--secondary);
+}
+
+button {
+	all: unset;
+	color: var(--secondary);
+	background-color: var(--accent);
+	border: 1px solid var(--secondary);
+	border-radius: 20px;
+	/* border-width: 2px; */
+	/* border-color: var(--secondary); */
+}
+
+a.buttonLink:hover {
+	background-color: var(--primary);
+}
+button:hover {
+	cursor: pointer;
+	background-color: 0;
 }

@@ -20,14 +20,14 @@ export default function SocialLink({
 				href={url}
 				target="_blank"
 				rel="noreferrer"
-				style={{ cursor: "pointer", width: "100%" }}
+				style={{ width: "100%", height: "100%" }}
+				className="buttonLink"
 			>
 				<button
 					style={{
 						display: "inline-flex",
 						height: "50px",
 						justifyContent: "center",
-						cursor: "pointer",
 						width: "100%",
 					}}
 				>
@@ -37,7 +37,7 @@ export default function SocialLink({
 							alt={alt}
 							width={30}
 							height={30}
-							style={{ marginRight: "5px" }}
+							style={{ marginRight: "5px", alignSelf: "center" }}
 						/>
 					)}
 					<p style={{ alignSelf: "center", fontSize: "12pt" }}>

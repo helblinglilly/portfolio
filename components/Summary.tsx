@@ -16,7 +16,7 @@ export default function Summary({ showHomepage }: { showHomepage?: boolean }) {
 					priority={true}
 				/>
 			</figure>
-			<div className="pt-4">
+			<div className="mt-4">
 				<p className="title is-4 mb-2">Heya 👋</p>
 				<p>
 					I'm Joel, I'm a Software Engineer based in Leeds in the UK.
@@ -42,7 +42,7 @@ export default function Summary({ showHomepage }: { showHomepage?: boolean }) {
 							name="Homepage"
 							alt="Icon"
 							url="https://www.helbling.uk"
-							className="pt-3"
+							className="mt-3"
 						/>
 					)}
 					<SocialLink
@@ -50,7 +50,7 @@ export default function Summary({ showHomepage }: { showHomepage?: boolean }) {
 						image="/icons/git.svg"
 						alt="Git Icon"
 						url="https://github.com/helblingjoel"
-						className="pt-3"
+						className="mt-3"
 					/>
 
 					<SocialLink
@@ -58,7 +58,7 @@ export default function Summary({ showHomepage }: { showHomepage?: boolean }) {
 						image="/icons/twitter.svg"
 						alt="Twitter"
 						url="https://twitter.com/_helblingjoel"
-						className="pt-3"
+						className="mt-3"
 					/>
 
 					<SocialLink
@@ -66,7 +66,7 @@ export default function Summary({ showHomepage }: { showHomepage?: boolean }) {
 						image="/icons/instagram.svg"
 						alt="Instagram"
 						url="https://instagram.com/helblingjoel"
-						className="pt-3"
+						className="mt-3"
 					/>
 
 					<SocialLink
@@ -74,7 +74,7 @@ export default function Summary({ showHomepage }: { showHomepage?: boolean }) {
 						image="/icons/linkedin.svg"
 						alt="LinkedIn"
 						url="https://www.linkedin.com/in/joel-helbling-707ba0171"
-						className="pt-3"
+						className="mt-3"
 					/>
 				</div>
 			</div>
