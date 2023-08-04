@@ -17,7 +17,7 @@ async function getFiles(path = "./pages/") {
 		.filter((file) => !file.isDirectory())
 		// Strip details
 		.map((file) => ({
-			path: (path + file.name).replace("./pages/", "").replace(".js", ""),
+			path: (path + file.name).replace("./pages/", "").replace("jsx", "").replace(".js", "").replace(".tsx", "").replace("ts", ""),
 			lastModified: fs.statSync(path + file.name).mtime,
 		}))
 		// Ignore files in ingorefiles
