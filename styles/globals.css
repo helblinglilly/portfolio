@@ -352,8 +352,6 @@ button {
 	background-color: var(--accent);
 	border: 1px solid var(--secondary);
 	border-radius: 20px;
-	/* border-width: 2px; */
-	/* border-color: var(--secondary); */
 }
 
 a.buttonLink:hover {
@@ -364,6 +362,14 @@ button:hover {
 	background-color: 0;
 }
 
+a.blogPostLink {
+	display: block;
+	max-width: 800px;
+}
 .blogPostLink > .card {
 	max-width: 800px;
+}
+
+.projectcard {
+	max-width: 300px;
 }

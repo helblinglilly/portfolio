@@ -14,7 +14,7 @@ export default function ProjectPreview({
 	console.log();
 
 	return (
-		<a href={link} target="_blank" rel="noreferrer">
+		<a href={link} target="_blank" rel="noreferrer" className="projectcard">
 			<div className="card">
 				<div className="card-header">
 					<div className="card-header-title">
