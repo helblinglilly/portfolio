@@ -1,11 +1,19 @@
 import Layout from "../../Layouts/Layout";
+import { MetaInfo } from "../../components/Blog/PostPreviews";
 import GithubStats from "../../components/GithubStats";
 import ProjectPreview from "../../components/ProjectPreview";
+import SocialPreview from "../../components/SocialPreview";
 
 export default function Projects() {
-	console.log();
+	const metaInfo: MetaInfo = {
+		title: "Projects - Joel Helbling",
+		authorName: "Joel Helbling",
+		socialSummary: "Joel Helbling, Software Engineer based in Leeds",
+		cover: null,
+	};
 	return (
 		<Layout>
+			<SocialPreview metaInfo={metaInfo} />
 			<div className="column is-one-quarter">
 				<div className="title">
 					<p className="is-3">Github Stats</p>
@@ -82,7 +90,7 @@ export default function Projects() {
 					</div>
 				</div>
 
-				<div className="columns" style={{ display: "flex" }}>
+				<div className="columns">
 					<div className="column">
 						<div className="card">
 							<div className="card-content">
