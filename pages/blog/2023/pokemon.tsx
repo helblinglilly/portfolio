@@ -6,6 +6,7 @@ import Code, { CodeSection } from "../../../components/Code";
 import SocialPreview, {
 	ExternalLinkPreview,
 } from "../../../components/SocialPreview";
+import ProjectPreview from "../../../components/ProjectPreview";
 
 const PostMeta = FindPost("/blog/2023/pokemon");
 
@@ -38,58 +39,18 @@ export default function Post({
 				<p className="title is-4 pb-0">This article is about:</p>
 				<div className="columns">
 					<div className="column">
-						<a
-							href="https://pokemon.helbling.uk"
-							target="_blank"
-							rel="noreferrer"
-						>
-							<div className="card">
-								<div className="card-header">
-									<div className="card-header-title">
-										<p>pokemon.helbling.uk</p>
-									</div>
-								</div>
-								<div className="card-image">
-									<figure className="image is-2by1">
-										<img
-											src="/images/posts/2023/pokemon/generic.png"
-											alt="Placeholder image"
-											width={1200}
-											height={600}
-											// placeholder="blur"
-											// blurDataURL="/images/placeholder.jpeg"
-										/>
-									</figure>
-								</div>
-							</div>
-						</a>
+						<ProjectPreview
+							link="https://pokemon.helbling.uk"
+							title={"Pokécompanion Site"}
+							image={"/images/posts/2023/pokemon/generic.png"}
+						/>
 					</div>
 					<div className="column">
-						<a
-							href="https://github.com/helblingjoel/pokewiki"
-							target="_blank"
-							rel="noreferrer"
-						>
-							<div className="card">
-								<div className="card-header">
-									<div className="card-header-title">
-										<p>helblingjoel/pokewiki</p>
-									</div>
-								</div>
-								<div className="card-image">
-									<figure className="image is-2by1">
-										<img
-											src="/images/posts/2023/pokemon/gitrepo.png"
-											alt="Placeholder image"
-											width={1200}
-											height={600}
-											// placeholder="blur"
-											// blurDataURL="/images/placeholder.jpeg"
-										/>
-									</figure>
-								</div>
-							</div>
-						</a>
+						<ProjectPreview
+							link="https://github.com/helblingjoel/pokewiki"
+							title={"helblingjoel/pokewiki"}
+							image={"/images/posts/2023/pokemon/gitrepo.png"}
+						/>
 					</div>
 				</div>
 				<h3 className="title is-3 mb-2">Introduction</h3>

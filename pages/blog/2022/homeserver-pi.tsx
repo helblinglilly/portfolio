@@ -6,6 +6,7 @@ import { FindPost } from "../../../components/Blog/AllPosts";
 import SocialPreview, {
 	ExternalLinkPreview,
 } from "../../../components/SocialPreview";
+import ProjectPreview from "../../../components/ProjectPreview";
 
 const HomeserverPiMeta = FindPost("/blog/2022/homeserver-pi");
 
@@ -71,29 +72,13 @@ export default function HomeserverPi({
 						</p>
 					</div>
 					<div className="column is-half">
-						<a
-							href="https://github.com/helblingjoel/piserver"
-							target="_blank"
-							rel="noreferrer"
-						>
-							<div className="card m-5">
-								<div className="card-header">
-									<div className="card-header-title">
-										<p>helblingjoel/piserver</p>
-									</div>
-								</div>
-								<div className="card-image">
-									<figure className="image is-2by1">
-										<img
-											src="/images/posts/2022/homeserver-pi/gitrepo.png"
-											alt="Placeholder image"
-											width={1200}
-											height={600}
-										/>
-									</figure>
-								</div>
-							</div>
-						</a>
+						<ProjectPreview
+							link={"https://github.com/helblingjoel/piserver"}
+							title={"helblingjoel/piserver"}
+							image={
+								"/images/posts/2022/homeserver-pi/gitrepo.png"
+							}
+						/>
 					</div>
 				</div>
 
