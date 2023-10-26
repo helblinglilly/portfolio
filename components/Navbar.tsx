@@ -60,6 +60,11 @@ export default function Navbar() {
 							Blog
 						</div>
 					</Link>
+					<Link href="/projects">
+						<div className="navbar-item" data-cy="navbar-projects">
+							Projects
+						</div>
+					</Link>
 				</div>
 				<div className="navbar-end">
 					<p

@@ -24,12 +24,6 @@ export default function Summary({ showHomepage }: { showHomepage?: boolean }) {
 					and AWS in particular. I'm also a Computer Science graduate
 					from the University of Kent and use they/them pronouns 🏳️‍🌈
 				</p>
-				{/* <p>
-					I love to learn new things and dabble around with all sorts
-					of tech in my spare time - sometimes I even write about
-					these on here! I'm part of the LGBTQ+ community and use
-					they/them pronouns 
-				</p> */}
 				<div
 					id="socialLinks"
 					className="pt-3 pb-3"

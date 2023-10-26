@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { useTheme } from "next-themes";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 export default function GithubStats() {
 	const { theme } = useTheme();
@@ -64,41 +65,46 @@ export default function GithubStats() {
 	}, [theme]);
 
 	return (
-		<div className="columns">
+		<>
 			<div className="column">
-				<img
+				<Image
 					src={languageURL}
 					width={450}
 					height={164}
 					alt="Most usage language statistics"
+					placeholder="blur"
+					blurDataURL="/images/placeholder.jpeg"
 				/>
 			</div>
 
 			<div className="column">
-				<img
+				<Image
 					src={overviewURL}
 					width={450}
 					height={164}
 					alt="Overall statistics overview"
 					className="mb-3"
+					placeholder="blur"
+					blurDataURL="/images/placeholder.jpeg"
 				/>
 			</div>
 
 			<div className="column">
-				<p className="title is-5 mb-2">Most recent contribution</p>
 				<a
 					href={`https://github.com/${repoUsername.current}/${repoName.current}`}
 					target="_blank"
 					rel="noreferrer"
 				>
-					<img
+					<Image
 						src={mostRecentRepoURL}
 						width={450}
 						height={164}
 						alt="Overall statistics overview"
+						placeholder="blur"
+						blurDataURL="/images/placeholder.jpeg"
 					/>
 				</a>
 			</div>
-		</div>
+		</>
 	);
 }
