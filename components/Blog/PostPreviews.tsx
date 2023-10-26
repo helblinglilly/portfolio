@@ -41,9 +41,13 @@ export default function PostPreviews(props: { posts: BlogMetaInfo[] }) {
 			) : (
 				props.posts.map((post, i) => {
 					return (
-						<Link href={post.link} key={`${post.title}link`}>
+						<Link
+							href={post.link}
+							key={`${post.title}link`}
+							className="blogPostLink"
+						>
 							<div
-								className={`card ${i !== 0 ? "mt-6" : ""}`}
+								className={`card${i !== 0 ? " mt-6" : ""}`}
 								key={`${post.title}card`}
 							>
 								<p

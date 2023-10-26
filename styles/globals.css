@@ -363,3 +363,7 @@ button:hover {
 	cursor: pointer;
 	background-color: 0;
 }
+
+.blogPostLink > .card {
+	max-width: 800px;
+}
