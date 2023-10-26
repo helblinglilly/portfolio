@@ -102,9 +102,7 @@ export default function Projects() {
 												"https://github.com/helblingjoel/portfolio"
 											}
 											title={"Github"}
-											image={
-												"/images/posts/2022/homeserver-pi/gitrepo.png"
-											}
+											image={"/images/portfolio.png"}
 										/>
 									</div>
 								</div>
