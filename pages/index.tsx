@@ -2,7 +2,6 @@ import React from "react";
 import Layout from "../Layouts/Layout";
 import AllPosts from "../components/Blog/AllPosts";
 import PostPreviews, { MetaInfo } from "../components/Blog/PostPreviews";
-import Image from "next/image";
 import GithubStats from "../components/GithubStats";
 import SocialPreview from "../components/SocialPreview";
 import Summary from "../components/Summary";
@@ -24,7 +23,7 @@ export default function Home() {
 				</div>
 			</div>
 			<div className="column is-three-quarters">
-				<div className="column">
+				<div className="column" style={{ padding: 0 }}>
 					<p className="title is-3">Recent blog post</p>
 					<PostPreviews
 						posts={AllPosts[0] ? new Array(AllPosts[0]) : []}

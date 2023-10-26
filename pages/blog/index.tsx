@@ -213,7 +213,7 @@ export default function Blog() {
 					</div>
 				</div>
 			</div>
-			<div className="column is-two-third" id="main-content">
+			<div className="column is-three-quarters" id="main-content">
 				<p className="title is-3">Blog Posts</p>
 				<PostPreviews posts={visiblePosts} />
 			</div>
