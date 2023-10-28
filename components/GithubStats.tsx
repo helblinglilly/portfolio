@@ -67,25 +67,23 @@ export default function GithubStats() {
 	return (
 		<>
 			<div className="column">
-				<Image
+				<img
 					src={languageURL}
 					width={450}
 					height={164}
 					alt="Most usage language statistics"
 					placeholder="blur"
-					blurDataURL="/images/placeholder.jpeg"
 				/>
 			</div>
 
 			<div className="column">
-				<Image
+				<img
 					src={overviewURL}
 					width={450}
 					height={164}
 					alt="Overall statistics overview"
 					className="mb-3"
 					placeholder="blur"
-					blurDataURL="/images/placeholder.jpeg"
 				/>
 			</div>
 
@@ -95,13 +93,12 @@ export default function GithubStats() {
 					target="_blank"
 					rel="noreferrer"
 				>
-					<Image
+					<img
 						src={mostRecentRepoURL}
 						width={450}
 						height={164}
 						alt="Overall statistics overview"
 						placeholder="blur"
-						blurDataURL="/images/placeholder.jpeg"
 					/>
 				</a>
 			</div>
