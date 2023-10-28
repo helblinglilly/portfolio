@@ -1,6 +1,6 @@
 import { ExternalLinkPreview } from "../components/SocialPreview";
 
-export default async function Preview(
+export default async function linkPreview(
 	link: string
 ): Promise<ExternalLinkPreview> {
 	const key = process.env.FETCHPREVIEW_TOKEN;

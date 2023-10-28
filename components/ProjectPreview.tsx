@@ -11,7 +11,7 @@ export default function ProjectPreview({
 	title,
 	image,
 }: IProjectPreviewProps) {
-	console.log();
+	const imageUrl = image.length > 0 ? image : "/images/placeholder.jpeg";
 
 	return (
 		<a href={link} target="_blank" rel="noreferrer" className="projectcard">
@@ -24,7 +24,7 @@ export default function ProjectPreview({
 				<div className="card-image">
 					<figure className="image is-2by1">
 						<Image
-							src={image}
+							src={imageUrl}
 							alt="Placeholder image"
 							width={1200}
 							height={600}

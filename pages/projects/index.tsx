@@ -2,9 +2,28 @@ import Layout from "../../Layouts/Layout";
 import { MetaInfo } from "../../components/Blog/PostPreviews";
 import GithubStats from "../../components/GithubStats";
 import ProjectPreview from "../../components/ProjectPreview";
-import SocialPreview from "../../components/SocialPreview";
+import SocialPreview, {
+	ExternalLinkPreview,
+} from "../../components/SocialPreview";
+import linkPreview from "../../support/LinkPreview";
 
-export default function Projects() {
+export default function Projects({
+	pokecompanionGitHub,
+	pokewikiLive,
+	pokeWikiGithub,
+	portfolio,
+	piserver,
+	pocketbase,
+	sweetaf,
+}: {
+	pokecompanionGitHub: ExternalLinkPreview;
+	pokewikiLive: ExternalLinkPreview;
+	pokeWikiGithub: ExternalLinkPreview;
+	portfolio: ExternalLinkPreview;
+	piserver: ExternalLinkPreview;
+	pocketbase: ExternalLinkPreview;
+	sweetaf: ExternalLinkPreview;
+}) {
 	const metaInfo: MetaInfo = {
 		title: "Projects - Joel Helbling",
 		authorName: "Joel Helbling",
@@ -48,9 +67,7 @@ export default function Projects() {
 												"https://github.com/helblingjoel/pokecompanion"
 											}
 											title={"Github"}
-											image={
-												"/images/pokecompanion-github.png"
-											}
+											image={pokecompanionGitHub.image}
 										/>
 									</div>
 								</div>
@@ -64,13 +81,11 @@ export default function Projects() {
 									Pokécompanion - Express
 								</p>
 								<div className="columns">
-									<div className="column">
+									<div className="column ">
 										<ProjectPreview
 											link={"https://pokemon.helbling.uk"}
 											title={"Live site"}
-											image={
-												"/images/posts/2023/pokemon/generic.png"
-											}
+											image={pokewikiLive.image}
 										/>
 									</div>
 									<div className="column">
@@ -79,9 +94,7 @@ export default function Projects() {
 												"https://github.com/helblingjoel/pokewiki"
 											}
 											title={"Github"}
-											image={
-												"/images/posts/2023/pokemon/gitrepo.png"
-											}
+											image={pokeWikiGithub.image}
 										/>
 									</div>
 								</div>
@@ -102,7 +115,7 @@ export default function Projects() {
 												"https://github.com/helblingjoel/portfolio"
 											}
 											title={"Github"}
-											image={"/images/portfolio.png"}
+											image={portfolio.image}
 										/>
 									</div>
 								</div>
@@ -121,9 +134,7 @@ export default function Projects() {
 												"https://github.com/helblingjoel/piserver"
 											}
 											title={"Pi Homeserver"}
-											image={
-												"/images/posts/2022/homeserver-pi/gitrepo.png"
-											}
+											image={piserver.image}
 										/>
 									</div>
 									<div className="column">
@@ -132,7 +143,7 @@ export default function Projects() {
 												"https://github.com/helblingjoel/aws-pocketbase"
 											}
 											title={"AWS Pocketbase Terraform"}
-											image={"/images/aws-pocketbase.png"}
+											image={pocketbase.image}
 										/>
 									</div>
 
@@ -140,7 +151,7 @@ export default function Projects() {
 										<ProjectPreview
 											link={"https://sweetaf.uk"}
 											title={"sweetaf"}
-											image={"/images/sweetaf.jpg"}
+											image={sweetaf.image}
 										/>
 									</div>
 								</div>
@@ -151,4 +162,75 @@ export default function Projects() {
 			</div>
 		</Layout>
 	);
+}
+
+export async function getStaticProps() {
+	const pokecompanionGitHub = await linkPreview(
+		"https://github.com/helblingjoel/pokecompanion"
+	);
+	await new Promise((resolve) => setTimeout(() => resolve(""), 500));
+
+	const pokewikiLive = await linkPreview("https://pokemon.helbling.uk");
+	await new Promise((resolve) => setTimeout(() => resolve(""), 500));
+
+	const pokeWikiGithub = await linkPreview(
+		"https://github.com/helblingjoel/pokewiki"
+	);
+	await new Promise((resolve) => setTimeout(() => resolve(""), 500));
+
+	const portfolio = await linkPreview(
+		"https://github.com/helblingjoel/portfolio"
+	);
+	await new Promise((resolve) => setTimeout(() => resolve(""), 500));
+
+	const piserver = await linkPreview(
+		"https://github.com/helblingjoel/piserver"
+	);
+	await new Promise((resolve) => setTimeout(() => resolve(""), 500));
+
+	const pocketbase = await linkPreview(
+		"https://github.com/helblingjoel/aws-pocketbase"
+	);
+	await new Promise((resolve) => setTimeout(() => resolve(""), 500));
+
+	const sweetaf = await linkPreview("https://sweetaf.uk");
+	await new Promise((resolve) => setTimeout(() => resolve(""), 500));
+
+	return {
+		props: {
+			pokecompanionGitHub: {
+				...pokecompanionGitHub,
+				image:
+					pokecompanionGitHub ?? "/images/pokecompanion-github.png",
+			},
+			pokewikiLive: {
+				...pokewikiLive,
+				image: pokewikiLive ?? "/images/posts/2023/pokemon/generic.png",
+			},
+			pokeWikiGithub: {
+				...pokeWikiGithub,
+				image:
+					pokeWikiGithub.image ??
+					"/images/posts/2023/pokemon/gitrepo.png",
+			},
+			portfolio: {
+				...portfolio,
+				image: portfolio.image ?? "/images/portfolio.png",
+			},
+			piserver: {
+				...piserver,
+				image:
+					piserver.image ??
+					"/images/posts/2022/homeserver-pi/gitrepo.png",
+			},
+			pocketbase: {
+				...pocketbase,
+				image: pocketbase.image ?? "/images/aws-pocketbase.png",
+			},
+			sweetaf: {
+				...sweetaf,
+				image: sweetaf.image ?? "/images/sweetaf.jpg",
+			},
+		},
+	};
 }

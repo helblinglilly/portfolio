@@ -373,3 +373,7 @@ a.blogPostLink {
 .projectcard {
 	max-width: 300px;
 }
+
+.card-content > .columns > .column {
+	background-color: var(--accent);
+}
