@@ -66,12 +66,17 @@ export default function Home({
 }
 
 export async function getStaticProps() {
+	const pocketbaseLinkPreview = await linkPreview(
+		"https://github.com/helblingjoel/aws-pocketbase"
+	);
 	return {
 		props: {
 			pocketbaseLinkPreview: {
-				...(await linkPreview(
-					"https://github.com/helblingjoel/aws-pocketbase"
-				)),
+				...pocketbaseLinkPreview,
+				image:
+					pocketbaseLinkPreview.image.length > 0
+						? pocketbaseLinkPreview.image
+						: "/images/aws-pocketbase.png",
 			},
 		},
 	};

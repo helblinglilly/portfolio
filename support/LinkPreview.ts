@@ -15,7 +15,8 @@ export default async function linkPreview(
 				url: data.url,
 			};
 		})
-		.catch(() => {
+		.catch((err) => {
+			console.error(err);
 			return {
 				title: "Error fetching preview",
 				description: "Error fetching preview",
