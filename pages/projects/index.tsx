@@ -201,35 +201,51 @@ export async function getStaticProps() {
 			pokecompanionGitHub: {
 				...pokecompanionGitHub,
 				image:
-					pokecompanionGitHub ?? "/images/pokecompanion-github.png",
+					pokecompanionGitHub.image.length > 0
+						? pokecompanionGitHub.image
+						: "/images/pokecompanion-github.png",
 			},
 			pokewikiLive: {
 				...pokewikiLive,
-				image: pokewikiLive ?? "/images/posts/2023/pokemon/generic.png",
+				image:
+					pokewikiLive.image.length > 0
+						? pokewikiLive.image
+						: "/images/posts/2023/pokemon/generic.png",
 			},
 			pokeWikiGithub: {
 				...pokeWikiGithub,
 				image:
-					pokeWikiGithub.image ??
-					"/images/posts/2023/pokemon/gitrepo.png",
+					pokeWikiGithub.image.length > 0
+						? pokeWikiGithub.image
+						: "/images/posts/2023/pokemon/gitrepo.png",
 			},
 			portfolio: {
 				...portfolio,
-				image: portfolio.image ?? "/images/portfolio.png",
+				image:
+					portfolio.image.length > 0
+						? portfolio.image
+						: "/images/portfolio.png",
 			},
 			piserver: {
 				...piserver,
 				image:
-					piserver.image ??
-					"/images/posts/2022/homeserver-pi/gitrepo.png",
+					piserver.image.length > 0
+						? piserver.image
+						: "/images/posts/2022/homeserver-pi/gitrepo.png",
 			},
 			pocketbase: {
 				...pocketbase,
-				image: pocketbase.image ?? "/images/aws-pocketbase.png",
+				image:
+					pocketbase.image.length > 0
+						? pocketbase.image
+						: "/images/aws-pocketbase.png",
 			},
 			sweetaf: {
 				...sweetaf,
-				image: sweetaf.image ?? "/images/sweetaf.jpg",
+				image:
+					sweetaf.image.length > 0
+						? sweetaf.image
+						: "/images/sweetaf.jpg",
 			},
 		},
 	};
