@@ -22,7 +22,7 @@ export default function Summary({ showHomepage }: { showHomepage?: boolean }) {
 					I'm Joel, I'm a Software Engineer based in Leeds in the UK.
 					I mostly work with frontend systems at the moment, NextJS
 					and AWS in particular. I'm also a Computer Science graduate
-					from the University of Kent and use they/them pronouns 🏳️‍🌈
+					from the University of Kent and use she/they pronouns 🏳️‍🌈
 				</p>
 				<div
 					id="socialLinks"
