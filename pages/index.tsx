@@ -2,12 +2,18 @@ import React from "react";
 import Layout from "../Layouts/Layout";
 import AllPosts from "../components/Blog/AllPosts";
 import PostPreviews, { MetaInfo } from "../components/Blog/PostPreviews";
-import GithubStats from "../components/GithubStats";
-import SocialPreview from "../components/SocialPreview";
+import SocialPreview, {
+	ExternalLinkPreview,
+} from "../components/SocialPreview";
 import Summary from "../components/Summary";
 import ProjectPreview from "../components/ProjectPreview";
+import linkPreview from "../support/LinkPreview";
 
-export default function Home() {
+export default function Home({
+	pocketbaseLinkPreview,
+}: {
+	pocketbaseLinkPreview: ExternalLinkPreview;
+}) {
 	const metaInfo: MetaInfo = {
 		title: "Joel Helbling",
 		authorName: "Joel Helbling",
@@ -26,7 +32,7 @@ export default function Home() {
 			<div className="column is-three-quarters">
 				<div className="column" style={{ padding: 0 }}>
 					<p className="title is-3">Recent projects</p>
-					<div className="columns">
+					<div className="columns homepageProjects">
 						<div className="column">
 							<ProjectPreview
 								link={"https://pokecompanion.vercel.app"}
@@ -40,7 +46,7 @@ export default function Home() {
 									"https://github.com/helblingjoel/aws-pocketbase"
 								}
 								title={"Pocketbase AWS Terraform Template"}
-								image={"/images/aws-pocketbase.png"}
+								image={pocketbaseLinkPreview.image}
 							/>
 						</div>
 					</div>
@@ -57,4 +63,21 @@ export default function Home() {
 			</div>
 		</Layout>
 	);
+}
+
+export async function getStaticProps() {
+	const pocketbaseLinkPreview = await linkPreview(
+		"https://github.com/helblingjoel/aws-pocketbase"
+	);
+	return {
+		props: {
+			pocketbaseLinkPreview: {
+				...pocketbaseLinkPreview,
+				image:
+					pocketbaseLinkPreview.image.length > 0
+						? pocketbaseLinkPreview.image
+						: "/images/aws-pocketbase.png",
+			},
+		},
+	};
 }

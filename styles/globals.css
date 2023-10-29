@@ -362,14 +362,46 @@ button:hover {
 	background-color: 0;
 }
 
-a.blogPostLink {
-	display: block;
-	max-width: 800px;
+@media (max-width: 1150px) {
+	a.blogPostLink {
+		display: block;
+		max-width: 800px;
+	}
+
+	.blogPostLink > .card {
+		max-width: 800px;
+	}
+	.homepageProjects {
+		max-width: 800px;
+	}
 }
-.blogPostLink > .card {
-	max-width: 800px;
+@media (min-width: 1150px) {
+	a.blogPostLink {
+		display: block;
+		max-width: 90%;
+	}
+
+	.blogPostLink > .card {
+		max-width: 90%;
+	}
+	.homepageProjects {
+		max-width: 83%;
+	}
+
+	.projectRow {
+		max-width: 85%;
+	}
 }
 
 .projectcard {
 	max-width: 300px;
+}
+
+.projectcard > .card > .card-image {
+	min-width: 16vw;
+	min-height: 9vw;
+}
+
+.card-content > .columns > .column {
+	background-color: var(--accent);
 }

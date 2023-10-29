@@ -12,6 +12,7 @@ module.exports = withBundleAnalyzer({
 			"opengraph.githubassets.com",
 			"github-readme-stats.vercel.app",
 			"pokemon.helbling.uk",
+			"www.sweetaf.uk",
 		],
 	},
 

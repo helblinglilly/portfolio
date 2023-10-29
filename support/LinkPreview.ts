@@ -1,6 +1,6 @@
 import { ExternalLinkPreview } from "../components/SocialPreview";
 
-export default async function Preview(
+export default async function linkPreview(
 	link: string
 ): Promise<ExternalLinkPreview> {
 	const key = process.env.FETCHPREVIEW_TOKEN;
@@ -15,7 +15,8 @@ export default async function Preview(
 				url: data.url,
 			};
 		})
-		.catch(() => {
+		.catch((err) => {
+			console.error(err);
 			return {
 				title: "Error fetching preview",
 				description: "Error fetching preview",
