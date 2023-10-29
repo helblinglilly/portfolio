@@ -32,7 +32,7 @@ export default function Home({
 			<div className="column is-three-quarters">
 				<div className="column" style={{ padding: 0 }}>
 					<p className="title is-3">Recent projects</p>
-					<div className="columns">
+					<div className="columns homepageProjects">
 						<div className="column">
 							<ProjectPreview
 								link={"https://pokecompanion.vercel.app"}

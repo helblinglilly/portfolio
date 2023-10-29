@@ -15,7 +15,7 @@ export default function ProjectPreview({
 
 	return (
 		<a href={link} target="_blank" rel="noreferrer" className="projectcard">
-			<div className="card">
+			<div className="card" style={{ height: "100%" }}>
 				<div className="card-header">
 					<div className="card-header-title">
 						<p>{title}</p>

@@ -8,17 +8,13 @@ import SocialPreview, {
 import linkPreview from "../../support/LinkPreview";
 
 export default function Projects({
-	pokecompanionGitHub,
 	pokewikiLive,
-	pokeWikiGithub,
 	portfolio,
 	piserver,
 	pocketbase,
 	sweetaf,
 }: {
-	pokecompanionGitHub: ExternalLinkPreview;
 	pokewikiLive: ExternalLinkPreview;
-	pokeWikiGithub: ExternalLinkPreview;
 	portfolio: ExternalLinkPreview;
 	piserver: ExternalLinkPreview;
 	pocketbase: ExternalLinkPreview;
@@ -33,130 +29,75 @@ export default function Projects({
 	return (
 		<Layout>
 			<SocialPreview metaInfo={metaInfo} />
-			<div className="column is-one-quarter">
+			<div className="column is-one-quarter" id="main-content">
+				<div className="sidebar">
+					<p className="title is-3">Github Stats</p>
+					<GithubStats />
+				</div>
+			</div>
+
+			{/* <div id="sidebar">
 				<div className="title">
 					<p className="is-3">Github Stats</p>
 					<GithubStats />
 				</div>
-			</div>
-			<div className="column is-three-quarters" id="main-content">
+			</div> */}
+			<div className="column is-three-quarters">
 				<p className="title is-3">Projects</p>
 
-				<div className="columns">
-					<div className="column">
-						<div className="card">
-							<div className="card-content">
-								<p className="title is-5">
-									Pokécompanion - SvelteKit
-								</p>
-								<div className="columns">
-									<div className="column">
-										<ProjectPreview
-											link={
-												"https://pokecompanion.vercel.app"
-											}
-											title={"Live site"}
-											image={
-												"/images/pokecompanion-svelte.webp"
-											}
-										/>
-									</div>
-									<div className="column">
-										<ProjectPreview
-											link={
-												"https://github.com/helblingjoel/pokecompanion"
-											}
-											title={"Github"}
-											image={pokecompanionGitHub.image}
-										/>
-									</div>
-								</div>
-							</div>
-						</div>
+				<div className="columns projectRow">
+					<div className="column" style={{ flex: 1 }}>
+						<ProjectPreview
+							link={"https://pokecompanion.vercel.app"}
+							title={"Pokécompanion SvelteKit"}
+							image={"/images/pokecompanion-svelte.webp"}
+						/>
 					</div>
-					<div className="column">
-						<div className="card">
-							<div className="card-content">
-								<p className="title is-5">
-									Pokécompanion - Express
-								</p>
-								<div className="columns">
-									<div className="column ">
-										<ProjectPreview
-											link={"https://pokemon.helbling.uk"}
-											title={"Live site"}
-											image={pokewikiLive.image}
-										/>
-									</div>
-									<div className="column">
-										<ProjectPreview
-											link={
-												"https://github.com/helblingjoel/pokewiki"
-											}
-											title={"Github"}
-											image={pokeWikiGithub.image}
-										/>
-									</div>
-								</div>
-							</div>
-						</div>
+
+					<div className="column" style={{ flex: 1 }}>
+						<ProjectPreview
+							link={"https://pokemon.helbling.uk"}
+							title={"Pokécompanion Express"}
+							image={pokewikiLive.image}
+						/>
 					</div>
 				</div>
 
-				<div className="columns">
-					<div className="column">
-						<div className="card">
-							<div className="card-content">
-								<p className="title is-5">This site</p>
-								<div className="columns">
-									<div className="column">
-										<ProjectPreview
-											link={
-												"https://github.com/helblingjoel/portfolio"
-											}
-											title={"Github"}
-											image={portfolio.image}
-										/>
-									</div>
-								</div>
-							</div>
-						</div>
+				<div className="columns projectRow">
+					<div className="column" style={{ flex: 1 }}>
+						<ProjectPreview
+							link={"https://github.com/helblingjoel/portfolio"}
+							title={"This site"}
+							image={portfolio.image}
+						/>
 					</div>
 
-					<div className="column is-three-quarters">
-						<div className="card">
-							<div className="card-content">
-								<p className="title is-5">Other</p>
-								<div className="columns">
-									<div className="column">
-										<ProjectPreview
-											link={
-												"https://github.com/helblingjoel/piserver"
-											}
-											title={"Pi Homeserver"}
-											image={piserver.image}
-										/>
-									</div>
-									<div className="column">
-										<ProjectPreview
-											link={
-												"https://github.com/helblingjoel/aws-pocketbase"
-											}
-											title={"AWS Pocketbase Terraform"}
-											image={pocketbase.image}
-										/>
-									</div>
+					<div className="column" style={{ flex: 1 }}>
+						<ProjectPreview
+							link={"https://github.com/helblingjoel/piserver"}
+							title={"Pi Homeserver"}
+							image={piserver.image}
+						/>
+					</div>
+				</div>
 
-									<div className="column">
-										<ProjectPreview
-											link={"https://sweetaf.uk"}
-											title={"sweetaf"}
-											image={sweetaf.image}
-										/>
-									</div>
-								</div>
-							</div>
-						</div>
+				<div className="columns projectRow">
+					<div className="column" style={{ flex: 1 }}>
+						<ProjectPreview
+							link={
+								"https://github.com/helblingjoel/aws-pocketbase"
+							}
+							title={"AWS Pocketbase Terraform"}
+							image={pocketbase.image}
+						/>
+					</div>
+
+					<div className="column" style={{ flex: 1 }}>
+						<ProjectPreview
+							link={"https://sweetaf.uk"}
+							title={"sweetaf"}
+							image={sweetaf.image}
+						/>
 					</div>
 				</div>
 			</div>
@@ -165,17 +106,7 @@ export default function Projects({
 }
 
 export async function getStaticProps() {
-	const pokecompanionGitHub = await linkPreview(
-		"https://github.com/helblingjoel/pokecompanion"
-	);
-	await new Promise((resolve) => setTimeout(() => resolve(""), 500));
-
 	const pokewikiLive = await linkPreview("https://pokemon.helbling.uk");
-	await new Promise((resolve) => setTimeout(() => resolve(""), 500));
-
-	const pokeWikiGithub = await linkPreview(
-		"https://github.com/helblingjoel/pokewiki"
-	);
 	await new Promise((resolve) => setTimeout(() => resolve(""), 500));
 
 	const portfolio = await linkPreview(
@@ -198,26 +129,12 @@ export async function getStaticProps() {
 
 	return {
 		props: {
-			pokecompanionGitHub: {
-				...pokecompanionGitHub,
-				image:
-					pokecompanionGitHub.image.length > 0
-						? pokecompanionGitHub.image
-						: "/images/pokecompanion-github.png",
-			},
 			pokewikiLive: {
 				...pokewikiLive,
 				image:
 					pokewikiLive.image.length > 0
 						? pokewikiLive.image
 						: "/images/posts/2023/pokemon/generic.png",
-			},
-			pokeWikiGithub: {
-				...pokeWikiGithub,
-				image:
-					pokeWikiGithub.image.length > 0
-						? pokeWikiGithub.image
-						: "/images/posts/2023/pokemon/gitrepo.png",
 			},
 			portfolio: {
 				...portfolio,
