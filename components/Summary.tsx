@@ -6,7 +6,7 @@ export default function Summary({ showHomepage }: { showHomepage?: boolean }) {
 		<>
 			<figure className="image has-text-centered">
 				<Image
-					src="/images/slack.jpg"
+					src="/images/profile.png"
 					alt="Profile picture"
 					width="350"
 					height="350"
