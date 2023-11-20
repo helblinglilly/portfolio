@@ -48,10 +48,10 @@ export default function Summary({ showHomepage }: { showHomepage?: boolean }) {
 					/>
 
 					<SocialLink
-						name="Twitter"
-						image="/icons/twitter.svg"
-						alt="Twitter"
-						url="https://twitter.com/_helblingjoel"
+						name="BlueSky"
+						image="/icons/bluesky.png"
+						alt="BlueSky"
+						url="https://bsky.app/profile/helblingjoel.bsky.social"
 						className="mt-3"
 					/>
 
