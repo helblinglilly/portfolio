@@ -6,7 +6,7 @@ export default function Summary({ showHomepage }: { showHomepage?: boolean }) {
 		<>
 			<figure className="image has-text-centered">
 				<Image
-					src="/images/slack.jpg"
+					src="/images/profile.png"
 					alt="Profile picture"
 					width="350"
 					height="350"
@@ -48,10 +48,10 @@ export default function Summary({ showHomepage }: { showHomepage?: boolean }) {
 					/>
 
 					<SocialLink
-						name="Twitter"
-						image="/icons/twitter.svg"
-						alt="Twitter"
-						url="https://twitter.com/_helblingjoel"
+						name="BlueSky"
+						image="/icons/bluesky.png"
+						alt="BlueSky"
+						url="https://bsky.app/profile/helblingjoel.bsky.social"
 						className="mt-3"
 					/>
 
