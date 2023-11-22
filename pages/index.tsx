@@ -35,7 +35,7 @@ export default function Home({
 					<div className="columns homepageProjects">
 						<div className="column">
 							<ProjectPreview
-								link={"https://pokecompanion.vercel.app"}
+								link={"https://pokecompanion.helbling.uk"}
 								title={"Pokécompanion Svelte Rewrite"}
 								image={"/images/pokecompanion-svelte.webp"}
 							/>
