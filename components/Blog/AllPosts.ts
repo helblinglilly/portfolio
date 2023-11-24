@@ -102,7 +102,7 @@ export const AllPosts: BlogMetaInfo[] = [
 		socialSummary: `Lessons and gotchas about dev-friendly PaaS products`,
 		blogSummary: `My process, decisions, and lessons learnt from replatforming my first application into the cloud. With considerations such as time to market, system observability and the managing of technical debt, this post covers a few areas where the path of least resistance can be the right, and sometimes wrong decision.`,
 		created: JSON.parse(JSON.stringify(new Date("2023-12-01"))),
-		thumbnail: `/images/posts/2023/cloudflare/cloudflare.webp`,
+		thumbnail: `/images/posts/2023/cloudflare/cloudflare.png`,
 		authorName: `Joel Helbling`,
 		authorLink: `https://helbling.uk`,
 		tags: [Tags.cloud],
