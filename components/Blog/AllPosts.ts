@@ -99,9 +99,9 @@ export const AllPosts: BlogMetaInfo[] = [
 	{
 		link: "/blog/2023/cloudflare",
 		title: "Looking towards the edge",
-		socialSummary: `Lessons and gotchas about dev-friendly PaaS products`,
-		blogSummary: `My process, decisions, and lessons learnt from replatforming my first application into the cloud. With considerations such as time to market, system observability and the managing of technical debt, this post covers a few areas where the path of least resistance can be the right, and sometimes wrong decision.`,
-		created: JSON.parse(JSON.stringify(new Date("2023-12-01"))),
+		socialSummary: `Switching platforms from Vercel to Cloudflare: Uncover serverless challenges, explore alternatives, and embrace intentional deployment choices.`,
+		blogSummary: `Discover the journey of switching platforms, from the perks of serverless to the love-hate with Vercel. Uncover Cloudflare's potential as a dynamic alternative and the excitement of mastering diverse tools for smarter development choices. `,
+		created: JSON.parse(JSON.stringify(new Date("2023-11-26"))),
 		thumbnail: `/images/posts/2023/cloudflare/cloudflare.png`,
 		authorName: `Joel Helbling`,
 		authorLink: `https://helbling.uk`,
