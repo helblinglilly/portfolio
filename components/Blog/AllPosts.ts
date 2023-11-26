@@ -96,6 +96,26 @@ export const AllPosts: BlogMetaInfo[] = [
 		],
 		cover: null,
 	},
+	{
+		link: "/blog/2023/cloudflare",
+		title: "Looking towards the edge",
+		socialSummary: `Switching platforms from Vercel to Cloudflare: Uncover serverless challenges, explore alternatives, and embrace intentional deployment choices.`,
+		blogSummary: `Discover the journey of switching platforms, from the perks of serverless to the love-hate with Vercel. Uncover Cloudflare's potential as a dynamic alternative and the excitement of mastering diverse tools for smarter development choices. `,
+		created: JSON.parse(JSON.stringify(new Date("2023-11-26"))),
+		thumbnail: `/images/posts/2023/cloudflare/cloudflare.png`,
+		authorName: `Joel Helbling`,
+		authorLink: `https://helbling.uk`,
+		tags: [Tags.cloud],
+		tableOfContents: [
+			{ title: "Introduction", id: "introduction" },
+			{ title: "Problems with serverless", id: "problems-with-serverless" },
+			{ title: "What I value about Vercel", id: "vercel-is-great" },
+			{ title: "Why I sort of dislike Vercel", id: "vercel-is-not-so-great" },
+			{ title: "So why bother with Cloudflare?", id: "why-bother" },
+			{ title: "Conclusion", id: "conclusion" },
+		],
+		cover: null,
+	},
 ];
 
 export function FindPost(postLink: string) {

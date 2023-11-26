@@ -77,6 +77,10 @@ pre code {
 	color: #fff;
 }
 
+code {
+	background-color: var(--primary);
+}
+
 p.codeFilename {
 	color: rgb(110, 110, 110);
 }
