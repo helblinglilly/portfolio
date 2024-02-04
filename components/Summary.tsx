@@ -19,10 +19,10 @@ export default function Summary({ showHomepage }: { showHomepage?: boolean }) {
 			<div className="mt-4">
 				<p className="title is-4 mb-2">Heya 👋</p>
 				<p>
-					I'm Joel, I'm a Software Engineer based in Leeds in the UK.
+					I'm Lilly, I'm a Software Engineer based in Leeds in the UK.
 					I mostly work with frontend systems at the moment, NextJS
 					and AWS in particular. I'm also a Computer Science graduate
-					from the University of Kent and use she/they pronouns 🏳️‍🌈
+					from the University of Kent and use she/they pronouns 🏳️‍⚧️
 				</p>
 				<div
 					id="socialLinks"

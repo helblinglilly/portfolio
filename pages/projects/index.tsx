@@ -21,9 +21,9 @@ export default function Projects({
 	sweetaf: ExternalLinkPreview;
 }) {
 	const metaInfo: MetaInfo = {
-		title: "Projects - Joel Helbling",
-		authorName: "Joel Helbling",
-		socialSummary: "Joel Helbling, Software Engineer based in Leeds",
+		title: "Projects - Lilly Helbling",
+		authorName: "Lilly Helbling",
+		socialSummary: "Lilly Helbling, Software Engineer based in Leeds",
 		cover: null,
 	};
 	return (

@@ -15,9 +15,9 @@ export default function Home({
 	pocketbaseLinkPreview: ExternalLinkPreview;
 }) {
 	const metaInfo: MetaInfo = {
-		title: "Joel Helbling",
-		authorName: "Joel Helbling",
-		socialSummary: "Joel Helbling, Software Engineer based in Leeds",
+		title: "Lilly Helbling",
+		authorName: "Lilly Helbling",
+		socialSummary: "Lilly Helbling, Software Engineer based in Leeds",
 		cover: null,
 	};
 
