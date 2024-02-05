@@ -242,6 +242,11 @@ img.right-aligned {
 	article {
 		width: 50%;
 	}
+
+	.homepage-wrapper {
+		padding-right: 10%;
+		max-width: 1200px;
+	}
 }
 
 #profile {
@@ -370,31 +375,27 @@ button:hover {
 	background-color: 0;
 }
 
+a.blogPostLink:hover {
+	background-color: unset;
+}
+
 @media (max-width: 1150px) {
-	a.blogPostLink {
-		display: block;
-		max-width: 800px;
-	}
 
 	.blogPostLink > .card {
-		max-width: 800px;
-	}
-	.homepageProjects {
 		max-width: 800px;
 	}
 }
-@media (min-width: 1150px) {
-	a.blogPostLink {
-		display: block;
-		max-width: 90%;
-	}
 
-	.blogPostLink > .card {
-		max-width: 90%;
-	}
-	.homepageProjects {
-		max-width: 83%;
-	}
+.homepageProjects {
+	min-width: 100%;
+}
+
+a.blogPostLink {
+	display: block;
+	min-width: 100%;
+}
+
+@media (min-width: 1150px) {
 
 	.projectRow {
 		max-width: 85%;

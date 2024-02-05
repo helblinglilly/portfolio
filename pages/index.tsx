@@ -29,7 +29,7 @@ export default function Home({
 					<Summary />
 				</div>
 			</div>
-			<div className="column is-three-quarters">
+			<div className="column is-three-quarters homepage-wrapper">
 				<div className="column" style={{ padding: 0 }}>
 					<p className="title is-3">Recent projects</p>
 					<div className="columns homepageProjects">
