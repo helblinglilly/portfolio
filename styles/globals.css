@@ -303,6 +303,10 @@ div.navbar-brand {
 	z-index: 0;
 }
 
+div.navbar-brand:hover {
+	cursor: pointer;
+}
+
 div.navbar-end {
 	background-color: var(--navbar);
 	color: var(--secondary);

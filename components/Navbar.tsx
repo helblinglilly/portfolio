@@ -17,9 +17,9 @@ export default function Navbar() {
 			<div className="navbar-brand">
 				<Link href="/" className="navbar-item" data-cy="navbar-logo">
 					<Image
-						src="/images/is-light.png"
-						width={140}
-						height={28}
+						src={`/images/is-${theme ?? 'light'}.svg`}
+						width={40}
+						height={40}
 						alt="Personal logo"
 					/>
 				</Link>
