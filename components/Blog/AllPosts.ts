@@ -83,7 +83,7 @@ export const AllPosts: BlogMetaInfo[] = [
 		socialSummary: `The journey of replatforming a private app to the cloud with observability in mind. `,
 		blogSummary: `My process, decisions, and lessons learnt from replatforming my first application into the cloud. With considerations such as time to market, system observability and the managing of technical debt, this post covers a few areas where the path of least resistance can be the right, and sometimes wrong decision.`,
 		created: JSON.parse(JSON.stringify(new Date("2023-04-02"))),
-		thumbnail: `https://pokemon.helbling.uk/static/favicon.png`,
+		thumbnail: `https://pokemon.helbling.uk/static/ms-icon-310x310.png`,
 		authorName: `Joel Helbling`,
 		authorLink: `https://helbling.uk`,
 		tags: [Tags.project, Tags.cloud],
