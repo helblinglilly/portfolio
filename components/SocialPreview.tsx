@@ -14,7 +14,7 @@ export default function SocialPreview(props: { metaInfo: MetaInfo }) {
 	const themeColor = "#8D0370";
 	const previewImage = meta.cover
 		? meta.cover
-		: "https://helbling.uk/images/social_preview.png";
+		: `https://helbling.uk/images/socialpreview-dark.png`;
 
 	return (
 		<Head>
