@@ -17,7 +17,7 @@ export default function Home({
 	const metaInfo: MetaInfo = {
 		title: "Lilly Helbling",
 		authorName: "Lilly Helbling",
-		socialSummary: "Lilly Helbling, Software Engineer based in Leeds",
+		socialSummary: "Javascript tinkerer and Pokémon enthusiast based in Leeds, UK.",
 		cover: null,
 	};
 

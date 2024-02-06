@@ -23,7 +23,7 @@ export default function Projects({
 	const metaInfo: MetaInfo = {
 		title: "Projects - Lilly Helbling",
 		authorName: "Lilly Helbling",
-		socialSummary: "Lilly Helbling, Software Engineer based in Leeds",
+		socialSummary: "Javascript tinkerer and Pokémon enthusiast based in Leeds, UK.",
 		cover: null,
 	};
 	return (

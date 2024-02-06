@@ -10,8 +10,8 @@ import SocialPreview from "../../components/SocialPreview";
 
 export default function Blog() {
 	const metaInfo: MetaInfo = {
-		title: "Blog - Lilly Helbling",
-		socialSummary: `Blog homepage of Lilly Helbling. View the collection of blog posts, search for specific ones, filter by tags or by publishing year`,
+		title: "Lilly's Blog",
+		socialSummary: `Stuff that I've written.`,
 		authorName: "Lilly Helbling",
 		cover: null,
 	};
