@@ -11,6 +11,7 @@ module.exports = withBundleAnalyzer({
 		domains: [
 			"opengraph.githubassets.com",
 			"github-readme-stats.vercel.app",
+			"pokecompanion.helbling.uk",
 			"pokemon.helbling.uk",
 			"www.sweetaf.uk",
 		],

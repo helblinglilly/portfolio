@@ -10,8 +10,10 @@ import ProjectPreview from "../components/ProjectPreview";
 import linkPreview from "../support/LinkPreview";
 
 export default function Home({
+	pokecompanion,
 	pocketbaseLinkPreview,
 }: {
+	pokecompanion: ExternalLinkPreview,
 	pocketbaseLinkPreview: ExternalLinkPreview;
 }) {
 	const metaInfo: MetaInfo = {
@@ -37,13 +39,13 @@ export default function Home({
 							<ProjectPreview
 								link={"https://pokecompanion.helbling.uk"}
 								title={"Pokécompanion Svelte Rewrite"}
-								image={"/images/pokecompanion-svelte.webp"}
+								image={pokecompanion.image}
 							/>
 						</div>
 						<div className="column">
 							<ProjectPreview
 								link={
-									"https://github.com/helblingjoel/aws-pocketbase"
+									"https://github.com/helblinglilly/aws-pocketbase"
 								}
 								title={"Pocketbase AWS Terraform Template"}
 								image={pocketbaseLinkPreview.image}
@@ -66,11 +68,21 @@ export default function Home({
 }
 
 export async function getStaticProps() {
+	const pokecompanion = await linkPreview("https://pokecompanion.helbling.uk")
+	await new Promise((resolve) => setTimeout(() => resolve(""), 500));
+
 	const pocketbaseLinkPreview = await linkPreview(
-		"https://github.com/helblingjoel/aws-pocketbase"
+		"https://github.com/helblinglilly/aws-pocketbase"
 	);
 	return {
 		props: {
+			pokecompanion: {
+				...pokecompanion,
+				image:
+				pokecompanion.image.length > 0
+						? pokecompanion.image
+						: "/images/pokecompanion-svelte.webp",
+			},
 			pocketbaseLinkPreview: {
 				...pocketbaseLinkPreview,
 				image:

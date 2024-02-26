@@ -7,17 +7,17 @@ export default function GithubStats() {
 	const { theme } = useTheme();
 
 	const [overviewURL, setOverviewURL] = useState(
-		`https://github-readme-stats.vercel.app/api?username=helblingjoel&theme=buefy&hide=stars${
+		`https://github-readme-stats.vercel.app/api?username=helblinglilly&theme=buefy&hide=stars${
 			theme !== "light" ? "?&hide_border=true" : ""
 		}`
 	);
 	const [languageURL, setLanguageURL] = useState(
-		`https://github-readme-stats.vercel.app/api/top-langs/?username=helblingjoel&theme=buefy&layout=compact${
+		`https://github-readme-stats.vercel.app/api/top-langs/?username=helblinglilly&theme=buefy&layout=compact${
 			theme !== "light" ? "?&hide_border=true" : ""
 		}`
 	);
 	const [mostRecentRepoURL, setMostRecentRepo] = useState(
-		`https://github-readme-stats.vercel.app/api/pin/?username=helblingjoel&repo=pokewiki&theme=buefy${
+		`https://github-readme-stats.vercel.app/api/pin/?username=helblinglilly&repo=pokewiki&theme=buefy${
 			theme !== "light" ? "?&hide_border=true" : ""
 		}`
 	);
@@ -26,8 +26,8 @@ export default function GithubStats() {
 
 	useEffect(() => {
 		const statsTheme = theme === "light" ? "buefy" : "dark";
-		let newOverviewURL = `https://github-readme-stats.vercel.app/api?username=helblingjoel&theme=${statsTheme}&hide=stars`;
-		let newLanguageURL = `https://github-readme-stats.vercel.app/api/top-langs/?username=helblingjoel&theme=${statsTheme}&layout=compact`;
+		let newOverviewURL = `https://github-readme-stats.vercel.app/api?username=helblinglilly&theme=${statsTheme}&hide=stars`;
+		let newLanguageURL = `https://github-readme-stats.vercel.app/api/top-langs/?username=helblinglilly&theme=${statsTheme}&layout=compact`;
 
 		if (theme !== "light") {
 			newOverviewURL += "&hide_border=true";
@@ -40,7 +40,7 @@ export default function GithubStats() {
 		const getMostRecentRepo = async () => {
 			try {
 				const result = await fetch(
-					"https://api.github.com/users/helblingjoel/events?per_page=1"
+					"https://api.github.com/users/helblinglilly/events?per_page=1"
 				);
 				const responseBody = await result.json();
 

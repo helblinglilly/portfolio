@@ -43,7 +43,7 @@ export default function Summary({ showHomepage }: { showHomepage?: boolean }) {
 						name="Github"
 						image="/icons/git.svg"
 						alt="Git Icon"
-						url="https://github.com/helblingjoel"
+						url="https://github.com/helblinglilly"
 						className="mt-3"
 					/>
 
@@ -59,7 +59,7 @@ export default function Summary({ showHomepage }: { showHomepage?: boolean }) {
 						name="Instagram"
 						image="/icons/instagram.svg"
 						alt="Instagram"
-						url="https://instagram.com/helblingjoel"
+						url="https://instagram.com/helblinglilly"
 						className="mt-3"
 					/>
 

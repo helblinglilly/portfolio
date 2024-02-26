@@ -73,8 +73,8 @@ export default function HomeserverPi({
 					</div>
 					<div className="column is-half">
 						<ProjectPreview
-							link={"https://github.com/helblingjoel/piserver"}
-							title={"helblingjoel/piserver"}
+							link={"https://github.com/helblinglilly/piserver"}
+							title={"helblinglilly/piserver"}
 							image={
 								"/images/posts/2022/homeserver-pi/gitrepo.png"
 							}

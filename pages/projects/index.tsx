@@ -8,12 +8,14 @@ import SocialPreview, {
 import linkPreview from "../../support/LinkPreview";
 
 export default function Projects({
+	pokecompanion,
 	pokewikiLive,
 	portfolio,
 	piserver,
 	pocketbase,
 	sweetaf,
 }: {
+	pokecompanion: ExternalLinkPreview;
 	pokewikiLive: ExternalLinkPreview;
 	portfolio: ExternalLinkPreview;
 	piserver: ExternalLinkPreview;
@@ -48,9 +50,9 @@ export default function Projects({
 				<div className="columns projectRow">
 					<div className="column" style={{ flex: 1 }}>
 						<ProjectPreview
-							link={"https://pokecompanion.vercel.app"}
+							link={"https://pokecompanion.helbling.uk"}
 							title={"Pokécompanion SvelteKit"}
-							image={"/images/pokecompanion-svelte.webp"}
+							image={pokecompanion.image}
 						/>
 					</div>
 
@@ -66,7 +68,7 @@ export default function Projects({
 				<div className="columns projectRow">
 					<div className="column" style={{ flex: 1 }}>
 						<ProjectPreview
-							link={"https://github.com/helblingjoel/portfolio"}
+							link={"https://github.com/helblinglilly/portfolio"}
 							title={"This site"}
 							image={portfolio.image}
 						/>
@@ -74,7 +76,7 @@ export default function Projects({
 
 					<div className="column" style={{ flex: 1 }}>
 						<ProjectPreview
-							link={"https://github.com/helblingjoel/piserver"}
+							link={"https://github.com/helblinglilly/piserver"}
 							title={"Pi Homeserver"}
 							image={piserver.image}
 						/>
@@ -85,7 +87,7 @@ export default function Projects({
 					<div className="column" style={{ flex: 1 }}>
 						<ProjectPreview
 							link={
-								"https://github.com/helblingjoel/aws-pocketbase"
+								"https://github.com/helblinglilly/aws-pocketbase"
 							}
 							title={"AWS Pocketbase Terraform"}
 							image={pocketbase.image}
@@ -106,21 +108,24 @@ export default function Projects({
 }
 
 export async function getStaticProps() {
+	const pokecompanion = await linkPreview("https://pokecompanion.helbling.uk")
+	await new Promise((resolve) => setTimeout(() => resolve(""), 500));
+
 	const pokewikiLive = await linkPreview("https://pokemon.helbling.uk");
 	await new Promise((resolve) => setTimeout(() => resolve(""), 500));
 
 	const portfolio = await linkPreview(
-		"https://github.com/helblingjoel/portfolio"
+		"https://github.com/helblinglilly/portfolio"
 	);
 	await new Promise((resolve) => setTimeout(() => resolve(""), 500));
 
 	const piserver = await linkPreview(
-		"https://github.com/helblingjoel/piserver"
+		"https://github.com/helblinglilly/piserver"
 	);
 	await new Promise((resolve) => setTimeout(() => resolve(""), 500));
 
 	const pocketbase = await linkPreview(
-		"https://github.com/helblingjoel/aws-pocketbase"
+		"https://github.com/helblinglilly/aws-pocketbase"
 	);
 	await new Promise((resolve) => setTimeout(() => resolve(""), 500));
 
@@ -129,6 +134,13 @@ export async function getStaticProps() {
 
 	return {
 		props: {
+			pokecompanion: {
+				...pokecompanion,
+				image:
+				pokecompanion.image.length > 0
+						? pokecompanion.image
+						: "/images/pokecompanion-svelte.webp",
+			},
 			pokewikiLive: {
 				...pokewikiLive,
 				image:

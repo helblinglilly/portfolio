@@ -47,8 +47,8 @@ export default function Post({
 					</div>
 					<div className="column">
 						<ProjectPreview
-							link="https://github.com/helblingjoel/pokewiki"
-							title={"helblingjoel/pokewiki"}
+							link="https://github.com/helblinglilly/pokewiki"
+							title={"helblinglilly/pokewiki"}
 							image={"/images/posts/2023/pokemon/gitrepo.png"}
 						/>
 					</div>
