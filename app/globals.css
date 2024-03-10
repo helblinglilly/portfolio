@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+	text-rendering: optimizeLegibility;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+	font-size: 1em;
+	font-weight: 400;
+	font-family: BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+@layer utilities {
+  .theme-light {
+    /* @apply text-light-primary; */
+  }
+
+  .theme-dark {
+    /* @apply text-dark-primary; */
+  }
+}

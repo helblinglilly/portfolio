@@ -1,11 +1,16 @@
 {
-	"extends": ["next/core-web-vitals", "plugin:cypress/recommended"],
+	"extends": ["eslint:recommended", "plugin:react/recommended", "next/core-web-vitals", "plugin:cypress/recommended"],
 	"rules": {
-		"react/no-unescaped-entities": "off",
-		"@next/next/link-passhref": "off"
+			"react/no-unescaped-entities": "off",
+			"@next/next/link-passhref": "off"
 	},
 	"root": true,
 	"env": {
-		"cypress/globals": true
+			"cypress/globals": true
+	},
+	"settings": {
+			"react": {
+					"version": "detect"
+			}
 	}
 }

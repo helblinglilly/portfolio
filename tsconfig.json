@@ -1,36 +1,50 @@
 {
-	"compilerOptions": {
-		"target": "es2017",
-		"lib": ["dom", "dom.iterable", "esnext"],
-		"allowJs": true,
-		"skipLibCheck": true,
-		"strict": true,
-		"forceConsistentCasingInFileNames": true,
-		"noEmit": true,
-		"esModuleInterop": true,
-		"module": "esnext",
-		"moduleResolution": "node",
-		"resolveJsonModule": true,
-		"isolatedModules": true,
-		"jsx": "preserve",
-		"incremental": true,
-		"noUncheckedIndexedAccess": true,
-		"types": ["node"]
-	},
-	"include": [
-		"pages/_app.tsx",
-		"components/Tweets/LatestTweets.js",
-		"next-env.d.ts",
-		"**/*.ts",
-		"**/*.tsx",
-		"**/*.cjs",
-		"**/*.mjs",
-		"Layouts/BlogLayout.tsx",
-		"components/CodeBlock/shell.js",
-		"components/CodeBlock/r.js",
-		"components/CodeBlock/js.js",
-		"components/CodeBlock/bash.js",
-		"components/CodeBlock/apache.js"
-	],
-	"exclude": ["node_modules"]
+  "compilerOptions": {
+    "target": "es2017",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "noUncheckedIndexedAccess": true,
+    "types": [
+      "node"
+    ],
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": [
+    "pages/_app.tsx",
+    "components/Tweets/LatestTweets.js",
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.cjs",
+    "**/*.mjs",
+    "Layouts/BlogLayout.tsx",
+    "components/CodeBlock/shell.js",
+    "components/CodeBlock/r.js",
+    "components/CodeBlock/js.js",
+    "components/CodeBlock/bash.js",
+    "components/CodeBlock/apache.js",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
