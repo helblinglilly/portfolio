@@ -1,9 +1,7 @@
-"use client"
-
-import './globals.css'
-import Navbar from "./Navbar"
-import React, { ReactNode } from 'react'
-import { Theme } from './Theme';
+import './globals.css';
+import React, { ReactNode } from 'react';
+import Navbar from './Navbar';
+import Theme from './Theme';
 
 export default function RootLayout({
   children,
@@ -15,9 +13,9 @@ export default function RootLayout({
       <body>
         <Theme>
           <Navbar />
-          <main>{children}</main>
+          <main className="m-5">{children}</main>
         </Theme>
       </body>
     </html>
-  )
+  );
 }

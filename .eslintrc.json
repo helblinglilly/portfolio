@@ -1,8 +1,16 @@
 {
-	"extends": ["eslint:recommended", "plugin:react/recommended", "next/core-web-vitals", "plugin:cypress/recommended"],
+	"extends": [
+		"eslint:recommended",
+		"plugin:react/recommended",
+		"next/core-web-vitals",
+		"plugin:cypress/recommended",
+		"airbnb"
+	],
 	"rules": {
 			"react/no-unescaped-entities": "off",
-			"@next/next/link-passhref": "off"
+			"@next/next/link-passhref": "off",
+			"react/jsx-filename-extension": [1, { "extensions": [".jsx", ".tsx"] }],
+			"import/extensions": "off"
 	},
 	"root": true,
 	"env": {
