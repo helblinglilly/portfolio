@@ -3,7 +3,7 @@
 	"private": true,
 	"scripts": {
 		"analyze": "ANALYZE=true next build",
-		"build": "node sitemapgen.js && next build",
+		"build": "next build",
 		"dev": "next dev",
 		"lint": "next lint --max-warnings=0",
 		"start": "next start"
