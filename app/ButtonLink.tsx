@@ -15,7 +15,7 @@ function ButtonLink(
     >
       <Link
         href={link}
-        className="inline-flex gap-1 items-center justify-center font-semibold text-lg w-full"
+        className="inline-flex gap-1 items-center justify-center font-semibold text-lg w-full h-full"
       >
         {children}
       </Link>

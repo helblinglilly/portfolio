@@ -9,6 +9,7 @@ import LinkedinIcon from '../atoms/Icons/LinkedIn';
 import SocialPreview from './SocialPreview';
 import QueryProvider from './QueryProvider';
 import RecentGithubContribution from './RecentGithubContribution';
+import Profile from './profile.png';
 
 function Homepage() {
   return (
@@ -16,11 +17,12 @@ function Homepage() {
       <div id="header" className="flex-col md:flex-row gap-4 mb-8 flex justify-around items-center">
         <div className="inline-flex md:grid lg:inline-flex gap-4 justify-center md:w-2/5 md:max-w-md">
           <Image
-            src="/images/profile.png"
+            src={Profile}
             alt="Profile Picture"
-            width={100}
-            height={100}
-            className="rounded-full w-auto"
+            priority
+            // width={100}
+            // height={100}
+            className="rounded-full w-5/12"
           />
           <div className="min-w-fit mt-auto mb-auto">
             <h1 className="text-2xl font-semibold">Lilly Helbling</h1>
