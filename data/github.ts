@@ -31,7 +31,7 @@ async function getMostRecentContribution(username: string) {
     .sort((a, b) => new Date(b.created_at).valueOf() - new Date(a.created_at).valueOf());
 
   return {
-    url: sortedEvents[0]?.repo.url ?? null,
+    url: sortedEvents[0] ? `https://github.com/${sortedEvents[0].repo.name}` : null,
     name: sortedEvents[0]?.repo.name ?? null,
   };
 }
