@@ -26,6 +26,10 @@ created_at: string;
 
 async function getMostRecentContribution(username: string) {
   const res = await fetch(`${baseUrl}/users/${username}/events/public`);
+  if (!res.ok) {
+    throw new Error(`Status ${res.status} - Failed to get most recent Github contribution`);
+  }
+
   const events = (await res.json()) as IGithubEvent[];
   const sortedEvents = events
     .sort((a, b) => new Date(b.created_at).valueOf() - new Date(a.created_at).valueOf());
