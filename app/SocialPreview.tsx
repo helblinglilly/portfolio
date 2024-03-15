@@ -7,25 +7,38 @@ import Link from 'next/link';
 import { useQuery } from 'react-query';
 import getSocialMetadata from '../data/socialpreview';
 
-export default function SocialPreview({ url, className = '' }: {
+export default function SocialPreview({ url: inputUrl, className = '', showRoute = false }: {
   url: string;
   className?: string
+  showRoute?: boolean;
 }) {
+  const url = new URL(inputUrl);
+
   const { data } = useQuery({
-    queryKey: [`socialpreview-${url}`],
-    queryFn: () => getSocialMetadata(url),
+    queryKey: [`socialpreview-${url.toString()}`],
+    queryFn: () => getSocialMetadata(url.toString()),
   });
 
   const placeholder = '/images/placeholder.jpeg';
 
   return (
-    <Link href={url} className={className}>
-      <img
-        src={data?.image.og ?? placeholder}
-        alt="Social media preview"
-        className="p-2 w-full h-full"
-      />
-      <p className="pb-2">{new URL(url).hostname}</p>
+    <Link href={url} className={`text-center text-slate-700 dark:text-slate-200 italic ${className}`}>
+      <div
+        className="relative flex justify-center overflow-hidden"
+        style={{
+          paddingBottom: '55%',
+        }}
+      >
+        <img
+          src={data?.image.og ?? placeholder}
+          alt="Social media preview"
+          className="absolute object-cover p-2 h-full w-auto"
+        />
+      </div>
+      <p className="pb-2">
+        {url.hostname}
+        {showRoute ? url.pathname : '' }
+      </p>
     </Link>
   );
 }

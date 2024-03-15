@@ -10,6 +10,7 @@ import SocialPreview from './SocialPreview';
 import QueryProvider from './QueryProvider';
 import RecentGithubContribution from './RecentGithubContribution';
 import Profile from './profile.png';
+import './homepage.css';
 
 function Homepage() {
   return (
@@ -20,8 +21,6 @@ function Homepage() {
             src={Profile}
             alt="Profile Picture"
             priority
-            // width={100}
-            // height={100}
             className="rounded-full w-5/12 h-5/12"
           />
           <div className="min-w-fit mt-auto mb-auto">
@@ -54,7 +53,13 @@ function Homepage() {
       <div className="flex-col md:flex-row gap-6 mb-8 flex justify-around">
         <div id="sidebar" className="md:w-2/5 md:max-w-md grid gap-3 content-baseline">
           <div>
-            <h1 className="text-3xl font-bold w-full mb-2">Hiya 👋</h1>
+            <div className="inline-flex">
+              <h1 className="text-3xl font-bold w-full mb-2">
+                Hiya
+              </h1>
+              <p className="text-3xl font-bold ml-1" id="wave">👋</p>
+
+            </div>
             <p>
               I'm a Software Engineer based in Leeds, United Kingdom.
               Professionally experienced with .NET, NextJS, and running those sites in AWS.
@@ -88,27 +93,42 @@ function Homepage() {
 
         <main className="w-full">
           <h1 className="text-3xl font-semibold w-full mb-2">Showcase</h1>
-
           <div className="grid w-full gap-3 md:flex md:justify-between">
             <div className="w-full">
-              <div className="bg-slate-200 dark:bg-slate-700 text-slate-500 dark:text-slate-200 italic rounded-sm">
-                <SocialPreview
-                  className="text-center"
-                  url="https://pokecompanion.helbling.uk"
-                />
-              </div>
-              <p className="mt-5">
+              <h2 className="text-2xl font-semibold w-full mb-2">Pokécompanion</h2>
+              <p className="mb-5">
                 My passion project, currently on its third iteration. What started off as a
                 basic frontend for the PokéAPI has lead me down countless avenues. While still
                 simple at its core, it solves the information overload problem while researching
                 for a Pokémon game like nothing else. Trust me, I'm not biased!
               </p>
 
+              <div className="bg-slate-200 dark:bg-slate-700 rounded-sm">
+                <SocialPreview
+                  url="https://pokecompanion.helbling.uk"
+                />
+              </div>
+
             </div>
 
-            <div className="w-full" style={{ border: '1px solid black' }}>
-              <h2 className="text-2xl font-semibold">Pokécompanion</h2>
+            <div className="w-full">
+              <h2 className="text-2xl font-semibold w-full mb-2">Homeserver</h2>
+              <p className="">
+                Every homelab needs a dashboard, but why would you choose a pre-made
+                one when you could integrate your own apps into it?
+                This repo stores my configurations, the code to a glorified bookmark bar,
+                as well as a timesheet app and energy bill (and usage) visualisation tool.
+                Both could be public projects in their own right - but for now, I just need
+                them to solve a problem for me.
+              </p>
+              <div className="bg-slate-200 dark:bg-slate-700 rounded-sm">
+                <SocialPreview
+                  url="https://github.com/helblinglilly/piserver"
+                  showRoute
+                />
+              </div>
             </div>
+
           </div>
 
         </main>

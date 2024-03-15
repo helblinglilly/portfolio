@@ -14,7 +14,7 @@ export default function RecentGithubContribution({ username }:{username: string}
 
   return (
     <>
-      <h2 className="text-xl font-semibold">Recent activity</h2>
+      <h2 className="text-xl font-semibold">Recent commit</h2>
       <ButtonLink link={data?.url ?? ''}>
         <GithubIcon />
         {

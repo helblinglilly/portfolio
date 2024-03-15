@@ -33,7 +33,7 @@ export default function RootLayout({
       <body>
         <Theme>
           <Navbar />
-          <main className="m-5">{children}</main>
+          <main className="m-6">{children}</main>
         </Theme>
       </body>
     </html>
