@@ -15,14 +15,14 @@ function Homepage() {
   return (
     <QueryProvider>
       <div id="header" className="flex-col md:flex-row gap-4 mb-8 flex justify-around items-center">
-        <div className="inline-flex md:grid lg:inline-flex gap-4 justify-center md:w-2/5 md:max-w-md">
+        <div className="inline-flex md:grid lg:inline-flex gap-4 justify-center md:w-2/5 md:max-w-md md:justify-items-center">
           <Image
             src={Profile}
             alt="Profile Picture"
             priority
             // width={100}
             // height={100}
-            className="rounded-full w-5/12"
+            className="rounded-full w-5/12 h-5/12"
           />
           <div className="min-w-fit mt-auto mb-auto">
             <h1 className="text-2xl font-semibold">Lilly Helbling</h1>
