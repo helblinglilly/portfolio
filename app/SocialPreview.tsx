@@ -35,7 +35,7 @@ export default function SocialPreview({ url: inputUrl, className = '', showRoute
           className="absolute object-cover p-2 h-full w-auto"
         />
       </div>
-      <p className="pb-2">
+      <p className="pl-2 pr-2 pb-2 min-w-60">
         {url.hostname}
         {showRoute ? url.pathname : '' }
       </p>

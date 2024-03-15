@@ -21,7 +21,7 @@ function Homepage() {
             src={Profile}
             alt="Profile Picture"
             priority
-            className="rounded-full w-5/12 h-5/12"
+            className="rounded-full w-4/12 h-4/12"
           />
           <div className="min-w-fit mt-auto mb-auto">
             <h1 className="text-2xl font-semibold">Lilly Helbling</h1>
@@ -91,29 +91,35 @@ function Homepage() {
           <RecentGithubContribution username="helblinglilly" />
         </div>
 
-        <main className="w-full">
-          <h1 className="text-3xl font-semibold w-full mb-2">Showcase</h1>
-          <div className="grid w-full gap-3 md:flex md:justify-between">
-            <div className="w-full">
-              <h2 className="text-2xl font-semibold w-full mb-2">Pokécompanion</h2>
-              <p className="mb-5">
-                My passion project, currently on its third iteration. What started off as a
-                basic frontend for the PokéAPI has lead me down countless avenues. While still
-                simple at its core, it solves the information overload problem while researching
-                for a Pokémon game like nothing else. Trust me, I'm not biased!
-              </p>
+        <main className="w-full grid gap-6 md:gap-0">
+          <section className="w-full">
 
-              <div className="bg-slate-200 dark:bg-slate-700 rounded-sm">
+            <h1 className="text-3xl font-semibold w-full mb-2">Showcase</h1>
+
+            <div className="grid w-full gap-3 md:flex justify-items-center md:justify-between">
+              <div>
+                <h2 className="text-2xl font-semibold mb-2">Pokécompanion</h2>
+                <p>
+                  My passion project, currently on its third iteration. What started off as a
+                  basic frontend for the PokéAPI has lead me down countless avenues. While still
+                  simple at its core, it solves the information overload problem while researching
+                  for a Pokémon game like nothing else. Trust me, I'm not biased!
+                </p>
+              </div>
+
+              <div className="bg-slate-200 dark:bg-slate-700 hover:bg-violet-100 dark:hover:bg-slate-600 rounded-sm h-fit w-4/5 max-w-80">
                 <SocialPreview
                   url="https://pokecompanion.helbling.uk"
                 />
               </div>
 
             </div>
+          </section>
 
-            <div className="w-full">
-              <h2 className="text-2xl font-semibold w-full mb-2">Homeserver</h2>
-              <p className="">
+          <section className="w-full">
+            <h2 className="text-2xl font-semibold mb-2">Homeserver</h2>
+            <div className="grid w-full gap-3 md:flex justify-items-center md:justify-between md:flex-row-reverse">
+              <p>
                 Every homelab needs a dashboard, but why would you choose a pre-made
                 one when you could integrate your own apps into it?
                 This repo stores my configurations, the code to a glorified bookmark bar,
@@ -121,16 +127,15 @@ function Homepage() {
                 Both could be public projects in their own right - but for now, I just need
                 them to solve a problem for me.
               </p>
-              <div className="bg-slate-200 dark:bg-slate-700 rounded-sm">
+
+              <div className="bg-slate-200 dark:bg-slate-700 hover:bg-violet-100 dark:hover:bg-slate-600 rounded-sm h-fit w-4/5 max-w-80">
                 <SocialPreview
                   url="https://github.com/helblinglilly/piserver"
                   showRoute
                 />
               </div>
             </div>
-
-          </div>
-
+          </section>
         </main>
       </div>
 
