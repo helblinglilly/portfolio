@@ -2,11 +2,14 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
 
-module.exports = withBundleAnalyzer({
+const withMDX = require('@next/mdx')();
+
+module.exports = withMDX(withBundleAnalyzer({
   reactStrictMode: true,
   devIndicators: {
     buildActivity: false,
   },
+  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   images: {
     domains: [
       'opengraph.githubassets.com',
@@ -28,4 +31,4 @@ module.exports = withBundleAnalyzer({
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
-});
+}));

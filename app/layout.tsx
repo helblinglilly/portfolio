@@ -4,9 +4,11 @@ import { Metadata } from 'next';
 import Navbar from './Navbar';
 import Theme from './Theme';
 
+const description = 'Software Engineer and Pokémon enthusiast based in Leeds, UK';
+
 export const metadata: Metadata = {
   title: 'Lilly Helbling',
-  description: 'Software Engineer and Pokémon enthusiast based in Leeds, UK',
+  description,
   creator: 'Lilly Helbling',
   keywords: ['Software Engineer', 'Leeds'],
   openGraph: {
@@ -17,6 +19,16 @@ export const metadata: Metadata = {
     locale: 'en-GB',
     url: 'https://helbling.uk',
     countryName: 'United Kingdom',
+    description,
+    images: {
+      url: 'https://helbling.uk/images/profile.png',
+    },
+  },
+  twitter: {
+    card: 'summary',
+    site: 'https://helbling.uk',
+    title: 'Lilly Helbling',
+    description,
     images: {
       url: 'https://helbling.uk/images/profile.png',
     },
