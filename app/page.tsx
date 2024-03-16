@@ -119,11 +119,9 @@ function Homepage() {
                 </p>
               </div>
 
-              <div className="bg-slate-200 dark:bg-slate-700 hover:bg-violet-100 dark:hover:bg-slate-600 rounded-sm h-fit w-4/5 max-w-80">
-                <SocialPreview
-                  url="https://pokecompanion.helbling.uk"
-                />
-              </div>
+              <SocialPreview
+                url="https://pokecompanion.helbling.uk"
+              />
 
             </div>
           </section>
@@ -142,12 +140,10 @@ function Homepage() {
                 them to solve a problem for me.
               </p>
 
-              <div className="bg-slate-200 dark:bg-slate-700 hover:bg-violet-100 dark:hover:bg-slate-600 rounded-sm h-fit w-4/5 max-w-80">
-                <SocialPreview
-                  url="https://github.com/helblinglilly/piserver"
-                  showRoute
-                />
-              </div>
+              <SocialPreview
+                url="https://github.com/helblinglilly/piserver"
+                showRoute
+              />
             </div>
           </section>
         </main>

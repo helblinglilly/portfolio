@@ -43,29 +43,21 @@ function Project() {
               the way should allow me to turn ideas into products quicker.
             </p>
             <div className="grid md:flex gap-2">
-              <div className="bg-slate-200 dark:bg-slate-700 hover:bg-violet-100 dark:hover:bg-slate-600 rounded-sm h-fit w-4/5 max-w-80 justify-self-center">
-                <SocialPreview
-                  url="https://pokecompanion.helbling.uk"
-                />
-              </div>
-              <div className="bg-slate-200 dark:bg-slate-700 hover:bg-violet-100 dark:hover:bg-slate-600 rounded-sm h-fit w-4/5 max-w-80 justify-self-center">
-                <SocialPreview
-                  url="https://github.com/helblinglilly/pokecompanion"
-                />
-              </div>
+              <SocialPreview
+                url="https://pokecompanion.helbling.uk"
+              />
+              <SocialPreview
+                url="https://github.com/helblinglilly/pokecompanion"
+              />
             </div>
 
             <div className="grid md:flex gap-2">
-              <div className="bg-slate-200 dark:bg-slate-700 hover:bg-violet-100 dark:hover:bg-slate-600 rounded-sm h-fit w-4/5 max-w-80 justify-self-center">
-                <SocialPreview
-                  url="https://github.com/helblinglilly/pokecompanion-lambda"
-                />
-              </div>
-              <div className="bg-slate-200 dark:bg-slate-700 hover:bg-violet-100 dark:hover:bg-slate-600 rounded-sm h-fit w-4/5 max-w-80 justify-self-center">
-                <SocialPreview
-                  url="https://github.com/helblinglilly/aws-pocketbase"
-                />
-              </div>
+              <SocialPreview
+                url="https://github.com/helblinglilly/pokecompanion-lambda"
+              />
+              <SocialPreview
+                url="https://github.com/helblinglilly/aws-pocketbase"
+              />
             </div>
 
           </div>
@@ -86,16 +78,12 @@ function Project() {
               approach would make more interactive UI messier.
             </p>
             <div className="grid md:flex gap-2">
-              <div className="bg-slate-200 dark:bg-slate-700 hover:bg-violet-100 dark:hover:bg-slate-600 rounded-sm h-fit w-4/5 max-w-80 justify-self-center">
-                <SocialPreview
-                  url="https://pokewiki-zeta.vercel.app/"
-                />
-              </div>
-              <div className="bg-slate-200 dark:bg-slate-700 hover:bg-violet-100 dark:hover:bg-slate-600 rounded-sm h-fit w-4/5 max-w-80 justify-self-center">
-                <SocialPreview
-                  url="https://github.com/helblinglilly/pokewiki"
-                />
-              </div>
+              <SocialPreview
+                url="https://pokewiki-zeta.vercel.app/"
+              />
+              <SocialPreview
+                url="https://github.com/helblinglilly/pokewiki"
+              />
             </div>
           </div>
 
@@ -116,16 +104,12 @@ function Project() {
               to keep my own forum for expression open.
             </p>
             <div className="grid md:flex gap-2">
-              <div className="bg-slate-200 dark:bg-slate-700 hover:bg-violet-100 dark:hover:bg-slate-600 rounded-sm h-fit w-4/5 max-w-80">
-                <SocialPreview
-                  url="https://helbling.uk"
-                />
-              </div>
-              <div className="bg-slate-200 dark:bg-slate-700 hover:bg-violet-100 dark:hover:bg-slate-600 rounded-sm h-fit w-4/5 max-w-80">
-                <SocialPreview
-                  url="https://github.com/helblinglilly/portfolio"
-                />
-              </div>
+              <SocialPreview
+                url="https://helbling.uk"
+              />
+              <SocialPreview
+                url="https://github.com/helblinglilly/portfolio"
+              />
             </div>
           </div>
 
@@ -147,11 +131,9 @@ function Project() {
               around anyway. Then once it's setup, I prefer not to touch it again.
             </p>
             <div className="grid md:flex gap-2">
-              <div className="bg-slate-200 dark:bg-slate-700 hover:bg-violet-100 dark:hover:bg-slate-600 rounded-sm h-fit w-4/5 max-w-80">
-                <SocialPreview
-                  url="https://github.com/helblinglilly/piserver"
-                />
-              </div>
+              <SocialPreview
+                url="https://github.com/helblinglilly/piserver"
+              />
             </div>
 
           </div>
