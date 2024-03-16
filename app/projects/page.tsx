@@ -102,11 +102,10 @@ function Project() {
         </section>
 
         <section className="w-full">
-
           <Link href="#portfolio">
             <h1 id="portfolio" className="text-3xl font-semibold mb-2 hover:underline decoration-violet-300">Portfolio</h1>
           </Link>
-          <div className="grid gap-3">
+          <div className="grid gap-3 mb-3">
             <p>
               This site, built with NextJS and tailwind deployed using
               {' '}
@@ -116,14 +115,18 @@ function Project() {
               With the downfall of Twitter/X, and no suitable replacement on the market, it's handy
               to keep my own forum for expression open.
             </p>
-            <div className="grid md:flex gap-2  justify-center">
+            <div className="grid md:flex gap-2">
+              <div className="bg-slate-200 dark:bg-slate-700 hover:bg-violet-100 dark:hover:bg-slate-600 rounded-sm h-fit w-4/5 max-w-80">
+                <SocialPreview
+                  url="https://helbling.uk"
+                />
+              </div>
               <div className="bg-slate-200 dark:bg-slate-700 hover:bg-violet-100 dark:hover:bg-slate-600 rounded-sm h-fit w-4/5 max-w-80">
                 <SocialPreview
                   url="https://github.com/helblinglilly/portfolio"
                 />
               </div>
             </div>
-
           </div>
 
           <Link href="#piserver">
@@ -131,9 +134,19 @@ function Project() {
           </Link>
           <div className="grid gap-3">
             <p>
-              WIP
+              A mix of server configurations and a NextJS app with a timesheet and energy usage
+              interface. I didn't want to keep lots of bookmarks around, so having a dashboard
+              helps me and my partner to access services more easily.
+              I'm sure there's
+              {' '}
+              <Link href="https://www.ansible.com/" className="underline decoration-violet-300">
+                better solutions to storing repeatable server configurations
+              </Link>
+              ,
+              but realistically every time that I have to set up again I end up moving things
+              around anyway. Then once it's setup, I prefer not to touch it again.
             </p>
-            <div className="grid md:flex gap-2  justify-center">
+            <div className="grid md:flex gap-2">
               <div className="bg-slate-200 dark:bg-slate-700 hover:bg-violet-100 dark:hover:bg-slate-600 rounded-sm h-fit w-4/5 max-w-80">
                 <SocialPreview
                   url="https://github.com/helblinglilly/piserver"
