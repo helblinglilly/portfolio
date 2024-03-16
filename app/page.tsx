@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import GithubIcon from '../atoms/Icons/Github';
 import ButtonLink from './ButtonLink';
 import InstgramIcon from '../atoms/Icons/Instagram';
@@ -71,7 +72,11 @@ function Homepage() {
           </div>
 
           <div className="grid gap-3">
-            <h2 className="text-xl font-semibold">Recent Blog post</h2>
+
+            <Link href="#recent-blog">
+              <h2 id="recent-blog" className="text-xl font-semibold hover:underline decoration-violet-300">Recent Blog post</h2>
+            </Link>
+
             <p>
               If your frontend sites barely have any backend interactions,
               should you look beyond serverless?
@@ -98,10 +103,17 @@ function Homepage() {
 
             <div className="grid w-full gap-3 md:flex justify-items-center md:justify-between">
               <div>
-                <h2 className="text-2xl font-semibold mb-2">Pokécompanion</h2>
+                <Link href="#pokecompanion">
+                  <h2 id="pokecompanion" className="text-2xl font-semibold mb-2 hover:underline decoration-violet-300">Pokécompanion</h2>
+                </Link>
+
                 <p>
                   My passion project, currently on its third iteration. What started off as a
-                  basic frontend for the PokéAPI has lead me down countless avenues. While still
+                  basic frontend for the
+                  {' '}
+                  <Link href="https://pokeapi.co" className="underline decoration-violet-300">PokéAPI</Link>
+                  {' '}
+                  has lead me down countless avenues. While still
                   simple at its core, it solves the information overload problem while researching
                   for a Pokémon game like nothing else. Trust me, I'm not biased!
                 </p>
@@ -117,7 +129,9 @@ function Homepage() {
           </section>
 
           <section className="w-full">
-            <h2 className="text-2xl font-semibold mb-2">Homeserver</h2>
+            <Link href="#homeserver">
+              <h2 id="homeserver" className="text-2xl font-semibold mb-2 hover:underline decoration-violet-300">Homeserver</h2>
+            </Link>
             <div className="grid w-full gap-3 md:flex justify-items-center md:justify-between md:flex-row-reverse">
               <p>
                 Every homelab needs a dashboard, but why would you choose a pre-made
