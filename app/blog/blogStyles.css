@@ -1,8 +1,17 @@
 #blogWrapper h1 {
 	font-weight: 600;
+	margin-bottom: 0.5rem;
+	/* Tailwind 2xl */
 	font-size: 1.5rem;
 	line-height: 2rem;
-	margin-bottom: 0.5rem;
+}
+
+#blogWrapper h2 {
+	font-weight: 600;
+	margin-bottom: 0.3rem;
+	/* Tailwind xl */
+	font-size: 1.25rem; 
+	line-height: 1.75rem; 
 }
 
 #blogWrapper a {
@@ -12,12 +21,6 @@
 
 #blogWrapper > h1:not(:first-child){
 	margin-top: 0.5rem;
-}
-
-#blogWrapper code {
-	color: #da1039;
-	font-weight: 400;
-	padding: .25em .5em;
 }
 
 #blogWrapper p {
@@ -35,3 +38,24 @@
 	margin-top: auto;
 	margin-bottom: auto;
 }
+
+#blogWrapper > ul {
+	list-style: disc outside;
+	margin-left: 2em;
+	margin-top: 1em;
+}
+
+/* Need to work out styling */
+#blogWrapper code {
+	color: #da1039;
+	font-weight: 400;
+	padding: .25em .5em;
+} 
+
+/* #blogHeader > pre {
+
+}
+
+#blogHeader > pre > code {
+
+} */
