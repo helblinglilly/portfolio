@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import QueryProvider from '../../QueryProvider';
 
+export const runtime = 'edge';
+
 interface IPostMetadata {
   title: string;
   description: string;
