@@ -26,7 +26,7 @@ export const metadata = {
   },
 };
 
-export default function Cloudflare() {
+export default function Vercel() {
   return (
     <>
       <h1 className="text-3xl font-semibold mb-2">{metadata.title?.toString() ?? ''}</h1>
