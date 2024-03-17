@@ -81,7 +81,7 @@ function Homepage() {
               If your frontend sites barely have any backend interactions,
               should you look beyond serverless?
             </p>
-            <ButtonLink link="/blog/2023/cloudflare" className="h-fit">
+            <ButtonLink link="/blog/2023-cloudflare" className="h-fit">
               <Image
                 src="/images/posts/2023/cloudflare/cloudflare.png"
                 width={96}
