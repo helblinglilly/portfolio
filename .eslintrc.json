@@ -8,10 +8,11 @@
 	],
 	"rules": {
 		"react/require-default-props": "off",
-			"react/no-unescaped-entities": "off",
-			"@next/next/link-passhref": "off",
-			"react/jsx-filename-extension": [1, { "extensions": [".jsx", ".tsx"] }],
-			"import/extensions": "off"
+		"react/no-unescaped-entities": "off",
+		"@next/next/link-passhref": "off",
+		"react/jsx-filename-extension": [1, { "extensions": [".jsx", ".tsx"] }],
+		"import/extensions": "off",
+		"no-unused-vars": ["error", { "argsIgnorePattern": "^_" }]
 	},
 	"root": true,
 	"env": {

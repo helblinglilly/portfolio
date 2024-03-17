@@ -1,8 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import BlogPost, {
-  title, description, publishedTime, modifiedTime, tags,
-} from '../../../../blog/vercel.mdx';
+  title, description, tags, publishedTime, modifiedTime,
+} from './vercel.mdx';
 
 export const metadata = {
   description,
