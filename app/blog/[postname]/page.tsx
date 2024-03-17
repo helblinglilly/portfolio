@@ -5,7 +5,7 @@ import QueryProvider from '../../QueryProvider';
 
 export const runtime = 'edge';
 
-interface IPostMetadata {
+export interface IPostMetadata {
   title: string;
   description: string;
   tags: string[];
@@ -15,6 +15,7 @@ interface IPostMetadata {
     name?: string;
     url?: string;
   }
+  url: string;
 }
 
 const formatMetadata = (metadata: Partial<IPostMetadata>) => ({
@@ -27,6 +28,7 @@ const formatMetadata = (metadata: Partial<IPostMetadata>) => ({
     name: metadata.author?.name ?? 'Lilly Helbling',
     url: metadata.author?.url ?? 'https://helbling.uk',
   },
+  url: 'https://helbling.uk/blog/404',
 });
 
 // notFound throws
@@ -62,6 +64,7 @@ export async function generateMetadata({ params: { postname } }: {
       authors: postMeta.author,
       openGraph: {
         title: postMeta.title,
+        url: postMeta.url,
         description: postMeta.description,
         publishedTime: postMeta.publishedTime,
         modifiedTime: postMeta.modifiedTime,

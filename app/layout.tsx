@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   description,
   creator: 'Lilly Helbling',
   keywords: ['Software Engineer', 'Leeds'],
+  metadataBase: new URL('https://helbling.uk'),
   openGraph: {
     type: 'profile',
     firstName: 'Lilly',
