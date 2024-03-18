@@ -2,7 +2,7 @@ import './globals.css';
 import React, { ReactNode } from 'react';
 import { Metadata } from 'next';
 import Navbar from './Navbar';
-import Theme from './Theme';
+import Theme from '../providers/Theme';
 
 const description = 'Software Engineer and Pokémon enthusiast based in Leeds, UK';
 

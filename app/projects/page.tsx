@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import React from 'react';
 import { Metadata } from 'next';
-import SocialPreview from '../SocialPreview';
-import QueryProvider from '../QueryProvider';
+import SocialPreview from '../../components/SocialPreview';
+import QueryProvider from '../../providers/QueryProvider';
 
 export const metadata: Metadata = {
   title: 'Projects - Lilly Helbling',
