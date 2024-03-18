@@ -15,7 +15,7 @@ function Blog() {
             className="p-4 bg-slate-200 rounded-md hover:bg-violet-100 dark:bg-slate-700 dark:hover:bg-violet-400"
           >
             <div className="mb-3">
-              <h2 className="h2" style={{ marginBottom: 0 }}>{post.title}</h2>
+              <h2 className="h2 underline decoration-violet-300" style={{ marginBottom: 0 }}>{post.title}</h2>
               <i>
                 Published:
                 {' '}
