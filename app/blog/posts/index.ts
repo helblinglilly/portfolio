@@ -1,4 +1,4 @@
-import { IPostMetadata } from '../[postname]/page';
+import formatMetadata, { IPostMetadata } from '../helpers';
 import * as Homeserver2022 from './2022-homeserver.mdx';
 import * as Vercel2022 from './2022-vercel.mdx';
 import * as Cloudflare2023 from './2023-cloudflare.mdx';
@@ -11,13 +11,6 @@ const AllPosts: IPostMetadata[] = [
   Pokewiki2023,
 ].sort((a, b) => (new Date(a.publishedTime).valueOf() < new Date(b.publishedTime).valueOf()
   ? 1
-  : -1)).map((entry) => {
-  const copy = { ...entry };
-
-  // @ts-ignore
-  delete copy.default;
-
-  return copy;
-});
+  : -1)).map((entry) => formatMetadata(entry));
 
 export default AllPosts;
