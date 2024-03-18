@@ -79,7 +79,7 @@ export default async function Post({ params: { postname } } : {
     const Content = await getPostData(postname);
     const postMeta = formatMetadata(Content);
     return (
-      <>
+      <div id="blogWrapper">
         <h1 className="text-3xl font-semibold mb-2">{Content.title}</h1>
 
         <span id="blogHeader">
@@ -95,7 +95,7 @@ export default async function Post({ params: { postname } } : {
         <QueryProvider>
           <Content.BlogPost />
         </QueryProvider>
-      </>
+      </div>
     );
   } catch {
     notFound();

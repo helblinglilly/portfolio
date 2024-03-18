@@ -25,3 +25,19 @@ body {
 
   }
 }
+
+.h1 {
+  font-weight: 600;
+	margin-bottom: 0.5rem;
+	/* Tailwind 2xl */
+	font-size: 1.5rem;
+	line-height: 2rem;
+}
+
+.h2 {
+  font-weight: 600;
+	margin-bottom: 0.3rem;
+	/* Tailwind xl */
+	font-size: 1.25rem; 
+	line-height: 1.75rem; 
+}

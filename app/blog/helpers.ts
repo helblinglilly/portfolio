@@ -21,7 +21,7 @@ const formatMetadata = (metadata: Partial<IPostMetadata>) => ({
     name: metadata.author?.name ?? 'Lilly Helbling',
     url: metadata.author?.url ?? 'https://helbling.uk',
   },
-  url: 'https://helbling.uk/blog/404',
+  url: metadata.url ?? '/blog/404',
 });
 
 export default formatMetadata;

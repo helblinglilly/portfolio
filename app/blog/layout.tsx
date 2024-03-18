@@ -7,6 +7,6 @@ export default function RootLayout({
   children: ReactNode
 }) {
   return (
-    <div id="blogWrapper" className="md:max-w-screen-sm md:ml-auto md:mr-auto">{children}</div>
+    <div className="md:max-w-screen-sm md:ml-auto md:mr-auto">{children}</div>
   );
 }
