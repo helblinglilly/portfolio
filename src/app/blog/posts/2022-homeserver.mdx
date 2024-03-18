@@ -81,16 +81,15 @@ additional latency. New DNS requests sometimes have a notable stutter, I would e
 around 200ms more than usual. But successful responses are usually cached on the client 
 anyway, so it isn't that noticeable after the first week of use.
 
-<img 
-	src="/images/posts/2022/homeserver-pi/pihole.jpeg" 
+<img
+	src="/images/posts/2022/homeserver-pi/pihole.jpeg"
 	className="mt-3 mb-3"
 />
 
-<Code info={{
-	languageName: 'yaml',
-	languageFn: require('highlight.js/lib/languages/yaml'),
-	filename: 'docker-compose.yaml',
-	code: `services:
+<Code 
+filename="docker-compose.yaml"
+languageName='yaml'
+code={`services:
 	pihole:
 		container_name: pihole
 		image: pihole/pihole:latest
@@ -116,8 +115,8 @@ anyway, so it isn't that noticeable after the first week of use.
 volumes:
 	- pihole-data
 	- pihole-dns
-`
-}} />
+`}
+/>
 
 ## Plex
 
@@ -133,9 +132,30 @@ certain content. Compression is strongly favoured, and I keep my files at 720p.
 I'm hoping that when Pi 4s are available again, I'll be able to upgrade and 
 increase this to 1080p.
 
-<img 
-	src="/images/posts/2022/homeserver-pi/plex-compose.jpeg" 
-	className="mt-3 mb-3"
+<Code 
+	filename="docker-compose.yaml"
+	languageName='yaml'
+	code={`services:
+	plex:
+		container_name: plex
+		image: lscr.io/linuxserver/plex:latest
+		network_mode: host
+		restart: unless-stopped
+		environment:
+			- PUID=100
+			- PGID=1000
+			- VERSION=docker
+		volumes:
+			- /home/lilly/filebrowser/files/plex/config:/config
+			- /home/lilly/filebrowser/files/plex/tvshows:/tv
+			- /home/lilly/filebrowser/files/plex/movies:/movies
+			- /home/lilly/filebrowser/files/plex/music:/music
+			- /home/lilly/filebrowser/files/plex/videos:/videos
+			- plexappstate:/var/lib/plexmediaserver/Library/Application Support/Plex Media Server
+
+volumes:
+	- plexappstate
+`}
 />
 
 ## Filebrowser
@@ -151,13 +171,28 @@ try to push another monthly subscription onto you. This means that we are in
 charge of backups, maintenance and increasing storage capacity, but it's exactly 
 the straightforward solution we were looking for.
 
-<img 
-	src="/images/posts/2022/homeserver-pi/fileserver.jpeg" 
+<img
+	src="/images/posts/2022/homeserver-pi/fileserver.jpeg"
 	className="mt-3 mb-3"
 />
-<img 
-	src="/images/posts/2022/homeserver-pi/fileserver-compose.jpeg" 
-	className="mt-3 mb-3"
+
+<Code 
+	filename="docker-compose.yaml"
+	languageName='yaml'
+	code={`services:
+	filebrowser:
+		container_name: filebrowser
+		image: hurlenko/filebrowser
+		restart: unless-stopped
+		ports:
+			- "5000:5000"
+		volumes:
+			- /home/lilly/filebrowser/files:/data
+			- /home/lilly/filebrowser/branding:/branding
+			- /home/lilly/filebrowser/config:/config
+		environment:
+			- FB_BASEURL: "/files"
+`}
 />
 
 ## Pi VPN
@@ -183,9 +218,18 @@ It effectively scans your 'cast-able' devices on the network and implements spon
 The community reports where the sponsor reads are in a video and it will skip over 
 the video for you.
 
-<img 
-	src="/images/posts/2022/homeserver-pi/castblock.jpeg" 
-	className="mt-3 mb-3"
+<Code 
+	filename="docker-compose.yaml"
+	languageName='yaml'
+	code={`services:
+	castblock:
+		container_name: castblock
+		image: erdnaxeli/castblock
+		restart: unless-stopped
+		network_mode: host
+		environment:
+			- MUTE_ADS: true
+`}
 />
 
 What it can't do unfortunately is block the actual ads that Youtube places 
@@ -243,16 +287,25 @@ flexibility also allowed me to display content in German and English. So it's eq
 as useful when I replay childhood games in German on my DS, as it is when I play new 
 games in English on the Switch.
 
-<img 
-	src="/images/posts/2022/homeserver-pi/dashboard.jpeg" 
-	className="mt-3 mb-3"
-/>
+<img
+			src="/images/posts/2022/homeserver-pi/dashboard.jpeg"
+			className="mt-3 mb-3"
+		/>
 
-<img 
-	src="/images/posts/2022/homeserver-pi/dashboard-compose.jpeg" 
-	className="mt-3 mb-3"
+<Code 
+	filename="docker-compose.yaml"
+	languageName='yaml'
+	code={`services:
+	dashboard:
+		container_name: dashboard
+		image: helblinglilly/piserver:TIMESTAMP
+		restart: unless-stopped
+		ports:
+			- "80:8080"
+		environment:
+			- POSTGRES_PASSWORD: "PASSWORD"
+`}
 />
-
 # Limitations
 
 So I am running a considerable amount of applications on this poor Raspberry Pi 3B+. 

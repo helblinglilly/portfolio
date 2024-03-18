@@ -1,26 +1,44 @@
-import React from 'react';
+'use client';
+
+import React, { useEffect, useState } from 'react';
 import hljs from 'highlight.js/lib/core';
-import { LanguageFn } from 'highlight.js';
+import json from 'highlight.js/lib/languages/json';
+import yaml from 'highlight.js/lib/languages/yaml';
+import 'highlight.js/styles/nord.css';
 
 export interface CodeSection {
   code: string;
   filename: string;
   languageName: string;
-  languageFn: LanguageFn;
 }
 
-export default function Code({ info } : { info: CodeSection }) {
-  hljs.registerLanguage(info.languageName, info.languageFn);
+export default function Code({ code, filename, languageName } : {
+  code: string;
+  filename?: string;
+  languageName: string;
+}) {
+  const [highlightedCode, setHighlightedCode] = useState(code);
+  hljs.registerLanguage('json', json);
+  hljs.registerLanguage('yaml', yaml);
 
-  const highlightedCode = hljs.highlight(info.code, {
-    language: info.languageName,
-  }).value;
+  useEffect(() => {
+    const highlighted = hljs.highlight(code, {
+      language: languageName,
+    }).value;
+    setHighlightedCode(highlighted);
+  }, [languageName, code]);
 
   return (
-    <div className="codeContainer mt-3">
+    <div
+      className="mt-3 mb-2 p-2 text-white rounded-md w-full"
+      style={{
+        backgroundColor: '#272823',
+        overflow: 'auto',
+      }}
+    >
       <pre>
         <p className="nohighlight">
-          <i>{info.filename}</i>
+          <i>{filename}</i>
         </p>
         <code
           // eslint-disable-next-line react/no-danger

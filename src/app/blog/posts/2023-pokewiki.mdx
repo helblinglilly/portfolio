@@ -37,21 +37,15 @@ a static file. This also means that all your app traffic will have to go through
 The last piece of the puzzle is to reroute all traffic to go to /api instead, using the snippet 
 below. This will make your app.ts file the entry point for the request.
 
-<Code info={
-	{
-		languageName: "json",
-		languageFn: require("highlight.js/lib/languages/json"),
-		filename: "vercel.json",
-		code: `{
+<Code filename="vercel.json" languageName="json" code={`{
   "rewrites": [
     {
       "source": "/(.*)",
       "destination": "/api/app"
     }
   ]
-}`,
-	}
-} />
+}
+`}/>
 
 Vercel also makes it easy to assign other branches to be used as staging environments 
 and have them deployed to a predictable subdomain. When working on a new set of features 
