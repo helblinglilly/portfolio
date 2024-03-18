@@ -3,13 +3,13 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import GithubIcon from '../components/atoms/Icons/Github';
-import ButtonLink from '../components/ButtonLink';
-import InstgramIcon from '../components/atoms/Icons/Instagram';
-import LinkedinIcon from '../components/atoms/Icons/LinkedIn';
-import SocialPreview from '../components/SocialPreview';
-import QueryProvider from '../providers/QueryProvider';
-import RecentGithubContribution from '../components/RecentGithubContribution';
+import GithubIcon from '@/components/atoms/Icons/Github';
+import ButtonLink from '@/components/ButtonLink';
+import InstgramIcon from '@/components/atoms/Icons/Instagram';
+import LinkedinIcon from '@/components/atoms/Icons/LinkedIn';
+import SocialPreview from '@/components/SocialPreview';
+import QueryProvider from '@/providers/QueryProvider';
+import RecentGithubContribution from '@/components/RecentGithubContribution';
 import Profile from './profile.png';
 import './homepage.css';
 

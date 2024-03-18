@@ -3,7 +3,7 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import Link from 'next/link';
-import getMostRecentContribution from '../data/github';
+import getMostRecentContribution from '@/data/github';
 import ButtonLink from './ButtonLink';
 import GithubIcon from './atoms/Icons/Github';
 

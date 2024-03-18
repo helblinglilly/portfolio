@@ -4,7 +4,7 @@ import React from 'react';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import Link from 'next/link';
-import ThemeIcon from '../components/ThemeIcon';
+import ThemeIcon from '@/components/ThemeIcon';
 
 export default function Navbar() {
   const { theme, setTheme } = useTheme();

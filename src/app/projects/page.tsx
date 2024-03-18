@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import React from 'react';
 import { Metadata } from 'next';
-import SocialPreview from '../../components/SocialPreview';
-import QueryProvider from '../../providers/QueryProvider';
+import SocialPreview from '@/components/SocialPreview';
+import QueryProvider from '@/providers/QueryProvider';
 
 export const metadata: Metadata = {
   title: 'Projects - Lilly Helbling',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 function Project() {
   return (
     <QueryProvider>
-      <main className="w-full flex flex-col md:flex-row gap-6 justify-around">
+      <main className="w-full flex flex-col lg:flex-row gap-6 justify-around">
         <section className="w-full grid gap-3">
           <Link href="#pokecompanion">
             <h1 id="pokecompanion" className="text-3xl font-semibold mb-2 hover:underline decoration-violet-300">Pokécompanion</h1>

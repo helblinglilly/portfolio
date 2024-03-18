@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import QueryProvider from '../../../providers/QueryProvider';
+import QueryProvider from '@/providers/QueryProvider';
 import formatMetadata from '../helpers';
 
 export const runtime = 'edge';

@@ -5,7 +5,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { useQuery } from 'react-query';
-import getSocialMetadata from '../data/socialpreview';
+import getSocialMetadata from '@/data/socialpreview';
 
 export default function SocialPreview({ url: inputUrl, className = '', showRoute = false }: {
   url: string;
