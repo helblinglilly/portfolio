@@ -11,6 +11,7 @@ import SocialPreview from '@/components/SocialPreview';
 import QueryProvider from '@/providers/QueryProvider';
 import RecentGithubContribution from '@/components/RecentGithubContribution';
 import Profile from './profile.jpeg';
+import CloudflareImage from '@/app/blog/posts/assets/2023-cloudflare/cloudflare.png'
 import './homepage.css';
 
 function Homepage() {
@@ -83,7 +84,7 @@ function Homepage() {
             </p>
             <ButtonLink link="/blog/2023-cloudflare" className="h-fit">
               <Image
-                src="/images/posts/2023/cloudflare/cloudflare.png"
+                src={CloudflareImage}
                 width={96}
                 height={96}
                 alt="Cloudflare"
