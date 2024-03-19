@@ -5,6 +5,7 @@ import hljs from 'highlight.js/lib/core';
 import json from 'highlight.js/lib/languages/json';
 import yaml from 'highlight.js/lib/languages/yaml';
 import bash from 'highlight.js/lib/languages/bash';
+import apache from 'highlight.js/lib/languages/apache'
 import 'highlight.js/styles/nord.css';
 
 export interface CodeSection {
@@ -22,6 +23,7 @@ export default function Code({ code, filename, languageName } : {
   hljs.registerLanguage('json', json);
   hljs.registerLanguage('yaml', yaml);
   hljs.registerLanguage('bash', bash);
+  hljs.registerLanguage('apache', apache);
 
   useEffect(() => {
     const highlighted = hljs.highlight(code, {
@@ -40,7 +42,7 @@ export default function Code({ code, filename, languageName } : {
     >
       <pre>
         <p className="nohighlight">
-          <i>{filename}</i>
+          <i className='text-slate-500'>{filename}</i>
         </p>
         <code
           // eslint-disable-next-line react/no-danger
