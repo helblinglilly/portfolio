@@ -41,7 +41,7 @@ Including them as part of the repository stores them safely and will include the
 the Docker image at deployment - which means you will be able to debug related issues 
 locally in exactly the same way.
 
-<div className="grid md:inline-flex gap-2 justify-center w-full mt-3">
+<div className="inlineWrapper justify-center w-full mt-3">
 	<SocialPreview url="https://github.com/helblinglilly/piserver" />
 </div>
 
@@ -89,6 +89,7 @@ anyway, so it isn't that noticeable after the first week of use.
 
 <Code 
 filename="docker-compose.yaml"
+className="w-full"
 languageName='yaml'
 code={`services:
 	pihole:

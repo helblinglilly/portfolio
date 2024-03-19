@@ -42,7 +42,7 @@ function Project() {
               is equal to the number of users! However, the skills learnt along
               the way should allow me to turn ideas into products quicker.
             </p>
-            <div className="grid md:flex gap-2">
+            <div className="inlineWrapper">
               <SocialPreview
                 url="https://pokecompanion.helbling.uk"
               />
@@ -51,7 +51,7 @@ function Project() {
               />
             </div>
 
-            <div className="grid md:flex gap-2">
+            <div className="inlineWrapper">
               <SocialPreview
                 url="https://github.com/helblinglilly/pokecompanion-lambda"
               />
@@ -77,7 +77,7 @@ function Project() {
               it more difficult to build out new features. Using a templating
               approach would make more interactive UI messier.
             </p>
-            <div className="grid md:flex gap-2">
+            <div className="inlineWrapper">
               <SocialPreview
                 url="https://pokewiki-zeta.vercel.app/"
               />
@@ -103,7 +103,7 @@ function Project() {
               With the downfall of Twitter/X, and no suitable replacement on the market, it's handy
               to keep my own forum for expression open.
             </p>
-            <div className="grid md:flex gap-2">
+            <div className="inlineWrapper">
               <SocialPreview
                 url="https://helbling.uk"
               />
@@ -130,7 +130,7 @@ function Project() {
               but realistically every time that I have to set up again I end up moving things
               around anyway. Then once it's setup, I prefer not to touch it again.
             </p>
-            <div className="grid md:flex gap-2">
+            <div className="inlineWrapper">
               <SocialPreview
                 url="https://github.com/helblinglilly/piserver"
               />

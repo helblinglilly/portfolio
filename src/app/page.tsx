@@ -33,7 +33,7 @@ function Homepage() {
           </div>
         </div>
 
-        <div className="w-full gap-3 grid md:flex md:justify-between">
+        <div className="inlineWrapper w-full md:justify-between">
           <ButtonLink link="https://github.com/helblinglilly">
             <GithubIcon />
             Github
