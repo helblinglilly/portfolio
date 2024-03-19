@@ -3,25 +3,17 @@ import React from 'react';
 import { Metadata } from 'next';
 import SocialPreview from '@/components/SocialPreview';
 import QueryProvider from '@/providers/QueryProvider';
+import metadataGenerator from '@/helpers/metadata';
 
-export const metadata: Metadata = {
-  title: 'Projects - Lilly Helbling',
-  description: "List of projects that I've been working on.",
-  creator: 'Lilly Helbling',
-  keywords: ['Software Engineer', 'Leeds'],
-  openGraph: {
-    type: 'profile',
-    firstName: 'Lilly',
-    lastName: 'Helbling',
-    gender: 'Female',
-    locale: 'en-GB',
-    url: 'https://helbling.uk',
-    countryName: 'United Kingdom',
-    images: {
-      url: 'https://helbling.uk/images/profile.jpeg',
-    },
-  },
-};
+export function generateMetadata(): Metadata {
+  return metadataGenerator({
+    title: 'Projects - Lilly Helbling',
+    description: "List of projects that I've been working on.",
+    url: 'https://helbling.uk/projects',
+    publishedTime: new Date('2020-01-01').toISOString(),
+    modifiedTime: new Date('2020-01-01').toISOString()
+  });
+}
 
 function Project() {
   return (
