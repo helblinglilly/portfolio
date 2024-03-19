@@ -1,6 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
 import Posts from './posts';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Blog - Lilly Helbling',
+  description: 'Sometimes I feel like posting an opinion on the internet.',
+  creator: 'Lilly Helbling',
+};
 
 function Blog() {
   return (

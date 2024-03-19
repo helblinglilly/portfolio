@@ -13,16 +13,13 @@ export const metadata: Metadata = {
   keywords: ['Software Engineer', 'Leeds'],
   metadataBase: new URL('https://helbling.uk'),
   openGraph: {
-    type: 'profile',
-    firstName: 'Lilly',
-    lastName: 'Helbling',
-    gender: 'Female',
+    type: 'website',
     locale: 'en-GB',
     url: 'https://helbling.uk',
     countryName: 'United Kingdom',
     description,
     images: {
-      url: 'https://helbling.uk/images/profile.jpeg',
+      url: '/images/socialpreview-dark.jpeg',
     },
   },
   twitter: {
@@ -31,7 +28,7 @@ export const metadata: Metadata = {
     title: 'Lilly Helbling',
     description,
     images: {
-      url: 'https://helbling.uk/images/profile.jpeg',
+      url: '/images/socialpreview-dark.jpeg',
     },
   },
 };
