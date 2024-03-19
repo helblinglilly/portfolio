@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import QueryProvider from '@/providers/QueryProvider';
 import formatMetadata from '../helpers';
+import metadataGenerator from '@/helpers/metadata';
 
 export const runtime = 'edge';
 
@@ -33,40 +34,29 @@ export async function generateMetadata({ params: { postname } }: {
   try {
     const blogpost = await getPostData(postname);
     const postMeta = formatMetadata(blogpost);
-    return {
-      description: postMeta.description,
-      keywords: postMeta.tags,
-      authors: postMeta.author,
-      openGraph: {
-        title: postMeta.title,
-        url: postMeta.url,
-        description: postMeta.description,
-        publishedTime: postMeta.publishedTime,
-        modifiedTime: postMeta.modifiedTime,
-        type: 'article',
-        tags: postMeta.tags,
-      },
+
+    return metadataGenerator({
       title: postMeta.title,
-      twitter: {
-        title: postMeta.title,
-        description: postMeta.description,
+      description: postMeta.description,
+      type: 'article',
+      tags: postMeta.tags,
+      publishedTime: postMeta.publishedTime,
+      modifiedTime: postMeta.modifiedTime,
+      authors: {
+        name: postMeta.author.name ?? 'Lilly Helbling',
+        url: postMeta.author.url ?? 'https://helbling.uk'
       },
-    };
+      url: postMeta.url
+    });
   } catch {
-    return {
+
+    return metadataGenerator({
       title: '404',
-      description: 'Post not found',
-      openGraph: {
-        title: '404',
-        description: 'Post not found',
-        tags: null,
-      },
-      twitter: {
-        title: '404',
-        description: 'Post not found',
-        tags: null,
-      },
-    };
+      description: 'Post does not exist',
+      url: 'https://helbling.uk',
+      publishedTime: new Date().toISOString(),
+      modifiedTime: new Date().toISOString()
+    });
   }
 }
 

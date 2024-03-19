@@ -2,21 +2,19 @@ import React from 'react';
 import Link from 'next/link';
 import Posts from './posts';
 import { Metadata } from 'next';
+import metadataGenerator from '@/helpers/metadata';
 
-const description = 'Sometimes I feel like posting an opinion on the internet.'
-export const metadata: Metadata = {
-  title: 'Blog - Lilly Helbling',
-  description,
-  creator: 'Lilly Helbling',
-  openGraph: {
+export function generateMetadata(): Metadata {
+  return metadataGenerator({
     title: 'Blog - Lilly Helbling',
-    description
-  },
-  twitter:{
-    title: 'Blog - Lilly Helbling',
-    description
-  }
-};
+    description: 'Sometimes I feel like posting an opinion on the internet.',
+    type: "profile",
+    image: '/images/profile.jpeg',
+    url: 'https://helbling.uk/blog',
+    publishedTime: Posts[Posts.length - 1].publishedTime,
+    modifiedTime: Posts[Posts.length - 1].modifiedTime,
+  });
+}
 
 function Blog() {
   return (
