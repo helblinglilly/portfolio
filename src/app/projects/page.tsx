@@ -7,7 +7,7 @@ import metadataGenerator from '@/helpers/metadata';
 
 export function generateMetadata(): Metadata {
   return metadataGenerator({
-    title: 'Projects - Lilly Helbling',
+    title: "Lilly's Projects",
     description: "List of projects that I've been working on.",
     url: 'https://helbling.uk/projects',
     publishedTime: new Date('2020-01-01').toISOString(),

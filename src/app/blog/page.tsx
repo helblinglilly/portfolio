@@ -6,7 +6,7 @@ import metadataGenerator from '@/helpers/metadata';
 
 export function generateMetadata(): Metadata {
   return metadataGenerator({
-    title: 'Blog - Lilly Helbling',
+    title: "Lilly's Blog",
     description: 'Sometimes I feel like posting an opinion on the internet.',
     type: "profile",
     image: '/images/profile.jpeg',
