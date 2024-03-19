@@ -1,3 +1,6 @@
+import Image from 'next/image'
+import IgnoreBuildStep from './assets/2022-vercel/ignore_build_step.jpg'
+
 export const title = 'Moving to Vercel';
 export const description = 'With Heroku making the news recently about removing their free-tier plan, I thought it would be interesting to look into the Platform as a service space. Much to my surprise, it was a lot easier than I anticipated.';
 export const tags = ['Vercel', 'Cloud']
@@ -53,7 +56,9 @@ but it's not as straightforward as it should be.<br />
 In the project settings, under "Git" you can specify an "Ignore Build Step" script, 
 which can point to a script that's part of your repository.
 
-<img src="/images/posts/2022/vercel/ignore_build_step.jpg" />
+<Image 
+  src={IgnoreBuildStep}
+/>
 
 This script gets run every time a new deployment is queued. If it exits with a code 
 1 the build will continue, otherwise it will be aborted. There are a few different 

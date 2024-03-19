@@ -1,5 +1,7 @@
 import SocialPreview from '@/components/SocialPreview.tsx'
 import Code from '@/components/Code.tsx'
+import Axiom from './assets/2022-pokewiki/axiom.jpg'
+import Image from 'next/image'
 
 export const title = 'Moving my Pokémon companion to the cloud';
 export const description = 'My process, decisions, and lessons learnt from replatforming my first application into the cloud. With considerations such as time to market, system observability and the managing of technical debt, this post covers a few areas where the path of least resistance can be the right, and sometimes wrong decision.';
@@ -74,7 +76,7 @@ and gives you an account-level overview. This is particularly useful as it enabl
 to compare your actual usage against the costs of native cloud platforms like AWS, 
 Azure, or GCP.
 
-<img src="/images/posts/2023/pokemon/axiom.jpg" />
+<Image src={Axiom} alt="axiom dashboards" />
 
 The one thing I've found myself missing from Axiom so far is the ability to add 
 filters to dashboard views. For example, it would be helpful to see all the routes 

@@ -10,7 +10,7 @@ import LinkedinIcon from '@/components/atoms/Icons/LinkedIn';
 import SocialPreview from '@/components/SocialPreview';
 import QueryProvider from '@/providers/QueryProvider';
 import RecentGithubContribution from '@/components/RecentGithubContribution';
-import Profile from './profile.png';
+import Profile from './profile.jpeg';
 import './homepage.css';
 
 function Homepage() {

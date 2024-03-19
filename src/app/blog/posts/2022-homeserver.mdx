@@ -1,5 +1,9 @@
 import SocialPreview from '@/components/SocialPreview.tsx'
 import Code from '@/components/Code.tsx'
+import Image from 'next/image'
+import Pihole from './assets/2022-homeserver/pihole.jpeg'
+import Fileserver from './assets/2022-homeserver/fileserver.jpeg'
+import Dashboard from './assets/2022-homeserver/dashboard.jpeg'
 
 export const title = 'My Pi home server';
 export const description = "A place to write custom apps on the network, block ads, run sponsorblock for my Chromecast devices, store a plex library and use it as local network storage. Find out how I've harnessed the power of Docker and a Raspberry Pi 3B+ to enjoy all the flexibility in a tiny, power-efficient, quiet package.";
@@ -81,10 +85,7 @@ additional latency. New DNS requests sometimes have a notable stutter, I would e
 around 200ms more than usual. But successful responses are usually cached on the client 
 anyway, so it isn't that noticeable after the first week of use.
 
-<img
-	src="/images/posts/2022/homeserver-pi/pihole.jpeg"
-	className="mt-3 mb-3"
-/>
+<Image src={Pihole} alt="Pihole screenshot"/>
 
 <Code 
 filename="docker-compose.yaml"
@@ -171,10 +172,7 @@ try to push another monthly subscription onto you. This means that we are in
 charge of backups, maintenance and increasing storage capacity, but it's exactly 
 the straightforward solution we were looking for.
 
-<img
-	src="/images/posts/2022/homeserver-pi/fileserver.jpeg"
-	className="mt-3 mb-3"
-/>
+<Image src={Fileserver} />
 
 <Code 
 	filename="docker-compose.yaml"
@@ -287,10 +285,9 @@ flexibility also allowed me to display content in German and English. So it's eq
 as useful when I replay childhood games in German on my DS, as it is when I play new 
 games in English on the Switch.
 
-<img
-			src="/images/posts/2022/homeserver-pi/dashboard.jpeg"
-			className="mt-3 mb-3"
-		/>
+<Image 
+	src={Dashboard}
+/>
 
 <Code 
 	filename="docker-compose.yaml"

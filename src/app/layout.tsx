@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     countryName: 'United Kingdom',
     description,
     images: {
-      url: 'https://helbling.uk/images/profile.png',
+      url: 'https://helbling.uk/images/profile.jpeg',
     },
   },
   twitter: {
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: 'Lilly Helbling',
     description,
     images: {
-      url: 'https://helbling.uk/images/profile.png',
+      url: 'https://helbling.uk/images/profile.jpeg',
     },
   },
 };

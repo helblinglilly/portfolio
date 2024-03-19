@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     url: 'https://helbling.uk',
     countryName: 'United Kingdom',
     images: {
-      url: 'https://helbling.uk/images/profile.png',
+      url: 'https://helbling.uk/images/profile.jpeg',
     },
   },
 };
