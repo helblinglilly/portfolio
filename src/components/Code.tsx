@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import hljs from 'highlight.js/lib/core';
 import json from 'highlight.js/lib/languages/json';
 import yaml from 'highlight.js/lib/languages/yaml';
+import bash from 'highlight.js/lib/languages/bash';
 import 'highlight.js/styles/nord.css';
 
 export interface CodeSection {
@@ -20,6 +21,7 @@ export default function Code({ code, filename, languageName } : {
   const [highlightedCode, setHighlightedCode] = useState(code);
   hljs.registerLanguage('json', json);
   hljs.registerLanguage('yaml', yaml);
+  hljs.registerLanguage('bash', bash);
 
   useEffect(() => {
     const highlighted = hljs.highlight(code, {

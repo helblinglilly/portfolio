@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import IgnoreBuildStep from './assets/2022-vercel/ignore_build_step.jpg'
+import Code from '@/components/Code.tsx'
 
 export const title = 'Moving to Vercel';
 export const description = 'With Heroku making the news recently about removing their free-tier plan, I thought it would be interesting to look into the Platform as a service space. Much to my surprise, it was a lot easier than I anticipated.';
@@ -68,9 +69,11 @@ While this offers advanced functionality, it's also the sort of feature that sho
 primarily be handled through a GUI. Advanced users could then still create their 
 own scripts if they wish to.
 
-```sh
-vercel.sh
-#!/bin/bash
+
+<Code 
+  filename="vercel.sh"
+  languageName='bash'
+  code={`#!/bin/bash
 echo "VERCEL_GIT_COMMIT_REF: $VERCEL_GIT_COMMIT_REF"
 
 if [ "$VERCEL_GIT_COMMIT_REF" == "main" ]; then
@@ -83,7 +86,8 @@ else
   echo "🛑 - Build cancelled"
   exit 0;
 fi
-```
+  `}
+/>
 
 # Moving to production
 
