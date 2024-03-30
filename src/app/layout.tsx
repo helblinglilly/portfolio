@@ -4,6 +4,7 @@ import { Metadata } from 'next';
 import Theme from '@/providers/Theme';
 import Navbar from './Navbar';
 import metadataGenerator from '@/helpers/metadata';
+import Script from 'next/script';
 
 export function generateMetadata(): Metadata {
   return metadataGenerator({
@@ -21,6 +22,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        {
+          process.env.NODE_ENV === 'production' &&
+            <Script src="/js/newrelic.js" />
+        }
         <Theme>
           <Navbar />
           <main className="m-6">{children}</main>
