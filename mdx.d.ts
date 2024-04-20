@@ -1,5 +1,5 @@
-/* eslint-disable import/no-mutable-exports */
 import type { ReactElement } from "react";
+
 declare module '*.mdx' {
   let MDXComponent: (_props: any) => ReactElement;
   export default MDXComponent;

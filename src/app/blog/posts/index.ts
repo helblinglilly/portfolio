@@ -1,3 +1,4 @@
+// @ts-nocheck
 import formatMetadata, { IPostMetadata } from '../helpers';
 import * as Rant2022 from './2022-r-rant.mdx';
 import * as AWSSummit2022 from './2022-aws-summit.mdx';

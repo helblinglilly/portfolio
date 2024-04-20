@@ -40,3 +40,4 @@ public/sitemap.xml
 cypress/downloads
 cypress/screenshots
 cypress/videos
+tsconfig.tsbuildinfo
