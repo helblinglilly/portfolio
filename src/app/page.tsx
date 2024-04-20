@@ -23,7 +23,7 @@ function Homepage() {
             src={Profile}
             alt="Profile Picture"
             priority
-            className="rounded-full w-4/12 h-4/12"
+            className="rounded-full h-fit min-w-12 w-4/12 h-4/12"
           />
           <div className="min-w-fit mt-auto mb-auto">
             <h1 className="text-2xl font-semibold">Lilly Helbling</h1>
@@ -74,9 +74,11 @@ function Homepage() {
 
           <div className="grid gap-3">
 
-            <Link href="#recent-blog">
-              <h2 id="recent-blog" className="text-xl font-semibold hover:underline decoration-violet-300">Recent Blog post</h2>
-            </Link>
+            <h2 id="recent-blog" className='text-xl font-semibold'>
+              <Link href="#recent-blog" className='anchor'>
+                Recent Blog post
+              </Link>
+            </h2>
 
             <p>
               If your frontend sites barely have any backend interactions,
@@ -104,15 +106,17 @@ function Homepage() {
 
             <div className="grid w-full gap-3 md:flex justify-items-center md:justify-between">
               <div>
-                <Link href="#pokecompanion">
-                  <h2 id="pokecompanion" className="text-2xl font-semibold mb-2 hover:underline decoration-violet-300">Pokécompanion</h2>
-                </Link>
+                <h2 id="pokecompanion" className='text-2xl font-semibold mb-2'>
+                  <Link href="#pokecompanion" className='anchor'>
+                    Pokécompanion
+                  </Link>
+                </h2>
 
                 <p>
                   My passion project, currently on its third iteration. What started off as a
                   basic frontend for the
                   {' '}
-                  <Link href="https://pokeapi.co" className="underline decoration-violet-300">PokéAPI</Link>
+                  <Link href="https://pokeapi.co" className="link">PokéAPI</Link>
                   {' '}
                   has lead me down countless avenues. While still
                   simple at its core, it solves the information overload problem while researching
@@ -128,9 +132,11 @@ function Homepage() {
           </section>
 
           <section className="w-full">
-            <Link href="#homeserver">
-              <h2 id="homeserver" className="text-2xl font-semibold mb-2 hover:underline decoration-violet-300">Homeserver</h2>
-            </Link>
+            <h2 id="homeserver" className='text-2xl font-semibold mb-2'>
+              <Link href="#homeserver" className='anchor'>
+                Homeserver
+              </Link>
+            </h2>
             <div className="grid w-full gap-3 md:flex justify-items-center md:justify-between md:flex-row-reverse">
               <p>
                 Every homelab needs a dashboard, but why would you choose a pre-made

@@ -1,9 +1,11 @@
 import Link from 'next/link';
 import React from 'react';
 import { Metadata } from 'next';
-import SocialPreview from '@/components/SocialPreview';
 import QueryProvider from '@/providers/QueryProvider';
 import metadataGenerator from '@/helpers/metadata';
+import Pokecompanion from './Pokecompanion';
+import Portfolio from './Portfolio';
+import Homeserver from './Homeserver';
 
 export function generateMetadata(): Metadata {
   return metadataGenerator({
@@ -18,8 +20,66 @@ export function generateMetadata(): Metadata {
 function Project() {
   return (
     <QueryProvider>
-      <main className="w-full flex flex-col lg:flex-row gap-6 justify-around">
-        <section className="w-full grid gap-3">
+      <div className="md:max-w-screen-sm md:ml-auto md:mr-auto">
+        <h1 className='text-3xl font-bold w-full mb-2'>Projects</h1>
+
+        <div>
+          <ul>
+            <li>
+              <h2 className='text-xl font-semibold mb-2'>
+                <Link href="#pokecompanion" className='link'>
+                  Pokécompanion
+                </Link>
+              </h2>
+            </li>
+            <ul>
+              <li>
+                <Link href="#update-service" className='anchor'>
+                  AWS Lambda - SQS update service
+                </Link>
+              </li>
+              <li>
+                <Link href="#pokecompanion-workers" className='anchor'>
+                  avatar.helbling.uk
+                </Link>
+              </li>
+              <li>
+                <Link href="#pokecompanion-workers" className='anchor'>
+              socialpreview.helbling.uk
+                </Link>
+              </li>
+            </ul>
+            <li>
+              <h2 className='text-xl font-semibold mb-2'>
+                <Link href="#homeserver" className='link'>
+                  Homeserver
+                </Link>
+              </h2>
+            </li>
+            <li>
+              <h2 className='text-xl font-semibold mb-2'>
+                <Link href="#portfolio" className='link'>
+                  Portfolio
+                </Link>
+              </h2>
+            </li>
+          </ul>
+        </div>
+
+        <hr className='mt-8 mb-8' />
+
+        <main>
+          <Pokecompanion />
+          <hr className='mt-8 mb-8' />
+          <Homeserver />
+          <hr className='mt-8 mb-8' />
+          <Portfolio />
+        </main>
+      </div>
+      {/* <main className="w-full flex flex-col lg:flex-row gap-6"> */}
+
+
+      {/* <section className="w-full grid gap-3">
           <Link href="#pokecompanion">
             <h1 id="pokecompanion" className="text-3xl font-semibold mb-2 hover:underline decoration-violet-300">Pokécompanion</h1>
           </Link>
@@ -129,8 +189,8 @@ function Project() {
             </div>
 
           </div>
-        </section>
-      </main>
+        </section> */}
+      {/* </main> */}
     </QueryProvider>
   );
 }

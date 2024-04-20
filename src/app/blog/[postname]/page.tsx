@@ -77,7 +77,7 @@ export default async function Post({ params: { postname } } : {
             {new Date(postMeta.publishedTime).toLocaleDateString('en-GB')}
             ,
           </p>
-          <Link href={postMeta.author.url}>{postMeta.author.name}</Link>
+          <Link href={postMeta.author.url} className='anchor'>{postMeta.author.name}</Link>
         </span>
 
         <hr />
