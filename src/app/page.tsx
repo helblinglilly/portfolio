@@ -131,7 +131,7 @@ function Homepage() {
               </div>
 
               <SocialPreview
-                url="https://pokecompanion.helbling.uk"
+                url="https://pokecompanion.com"
               />
 
             </div>

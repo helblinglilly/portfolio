@@ -64,7 +64,7 @@ export default function Pokecompanion() {
       </ul>
       <div className="inlineWrapper mt-3">
         <SocialPreview
-          url="https://pokecompanion.helbling.uk"
+          url="https://pokecompanion.com"
         />
         <SocialPreview
           url="https://github.com/helblinglilly/pokecompanion"

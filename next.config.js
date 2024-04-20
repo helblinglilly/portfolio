@@ -16,7 +16,7 @@ module.exports = withMDX(withBundleAnalyzer({
     domains: [
       'opengraph.githubassets.com',
       'github-readme-stats.vercel.app',
-      'pokecompanion.helbling.uk',
+      'pokecompanion.com',
       'pokemon.helbling.uk',
       'www.sweetaf.uk',
     ],
