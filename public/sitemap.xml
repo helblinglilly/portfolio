@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<url>
+  <loc>https://helbling.uk/</loc>
+  <lastmod>2024-04-20T18:41:35+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://helbling.uk/blog</loc>
+  <lastmod>2024-04-20T18:41:35+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://helbling.uk/projects</loc>
+  <lastmod>2024-04-20T18:41:35+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://helbling.uk/blog/2023-cloudflare</loc>
+  <lastmod>2024-04-20T18:41:35+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://helbling.uk/blog/2023-pokewiki</loc>
+  <lastmod>2024-04-20T18:41:35+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://helbling.uk/blog/2022-vercel</loc>
+  <lastmod>2024-04-20T18:41:35+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://helbling.uk/blog/2022-homeserver</loc>
+  <lastmod>2024-04-20T18:41:35+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://helbling.uk/blog/2022-aws-summit</loc>
+  <lastmod>2024-04-20T18:41:35+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://helbling.uk/blog/2022-r-rant</loc>
+  <lastmod>2024-04-20T18:41:35+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+</urlset>
