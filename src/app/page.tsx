@@ -149,7 +149,6 @@ function Homepage() {
 
               <SocialPreview
                 url="https://github.com/helblinglilly/piserver"
-                showRoute
               />
             </div>
           </section>
