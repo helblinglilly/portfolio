@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Homeserver() {
   return (
-    <article id="homeesrver">
+    <article id="homeserver">
       <h3 className='text-xl font-semibold mb-2'>
         <Link href="#homeserver" className="anchor">
 			Homeserver 
