@@ -3,8 +3,7 @@
 		"eslint:recommended",
 		"plugin:react/recommended",
 		"next/core-web-vitals",
-		"plugin:cypress/recommended",
-		"airbnb"
+		"plugin:cypress/recommended"
 	],
 	"rules": {
 		"react/require-default-props": "off",
@@ -12,7 +11,8 @@
 		"@next/next/link-passhref": "off",
 		"react/jsx-filename-extension": [1, { "extensions": [".jsx", ".tsx"] }],
 		"import/extensions": "off",
-		"no-unused-vars": ["error", { "argsIgnorePattern": "^_" }]
+		"no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+		"indent": ["error", 2]
 	},
 	"root": true,
 	"env": {

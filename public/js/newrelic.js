@@ -1,3 +1,4 @@
+/* eslint-disable */
 window.NREUM || (NREUM = {}); NREUM.init = { distributed_tracing: { enabled: true }, privacy: { cookies_enabled: true }, ajax: { deny_list: ['bam.eu01.nr-data.net'] } };
 
 NREUM.loader_config = {
