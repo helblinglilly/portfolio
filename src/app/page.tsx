@@ -13,6 +13,7 @@ import RecentGithubContribution from '@/components/RecentGithubContribution';
 import Profile from './profile.jpeg';
 import CloudflareImage from '@/app/blog/posts/assets/2023-cloudflare/cloudflare.png'
 import './homepage.css';
+import BlueSkyIcon from '@/components/atoms/Icons/BlueSky';
 
 function Homepage() {
   return (
@@ -37,6 +38,11 @@ function Homepage() {
           <ButtonLink link="https://github.com/helblinglilly">
             <GithubIcon />
             Github
+          </ButtonLink>
+
+          <ButtonLink link="https://bsky.app/profile/helbling.uk">
+            <BlueSkyIcon />
+            Bluesky
           </ButtonLink>
 
           <ButtonLink link="https://instagram.com/helblinglilly">
