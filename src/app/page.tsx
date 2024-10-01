@@ -59,7 +59,7 @@ function Homepage() {
       </div>
 
       <div className="flex-col md:flex-row gap-6 mb-8 flex justify-around">
-        <div id="sidebar" className="md:w-2/5 md:max-w-md grid gap-3 content-baseline">
+        <aside id="sidebar" className="md:w-2/5 md:max-w-md grid gap-3 content-baseline">
           <div>
             <div className="inline-flex">
               <h1 className="text-3xl font-bold w-full mb-2">
@@ -103,47 +103,48 @@ function Homepage() {
           </div>
 
           <RecentGithubContribution username="helblinglilly" />
-        </div>
+        </aside>
 
-        <main className="w-full grid gap-6 md:gap-0">
-          <section className="w-full">
+        <main className="w-full grid">
+          <h1 className="text-3xl font-semibold w-full mb-2">Showcase</h1>
 
-            <h1 className="text-3xl font-semibold w-full mb-2">Showcase</h1>
+          <section className='w-full justify-between grid md:flex gap-6'>
+            <article className="w-full grid gap-2">
+              <h2 id="pokecompanion" className='text-2xl font-semibold mb-0'>
+                <Link href="#pokecompanion" className='anchor'>
+                  Pokécompanion
+                </Link>
+              </h2>
 
-            <div className="grid w-full gap-3 md:flex justify-items-center md:justify-between">
-              <div>
-                <h2 id="pokecompanion" className='text-2xl font-semibold mb-2'>
-                  <Link href="#pokecompanion" className='anchor'>
-                    Pokécompanion
-                  </Link>
-                </h2>
-
-                <p>
-                  My passion project, currently on its third iteration. What started off as a
-                  basic frontend for the
-                  {' '}
-                  <Link href="https://pokeapi.co" className="link">PokéAPI</Link>
-                  {' '}
-                  has lead me down countless avenues. While still
-                  simple at its core, it solves the information overload problem while researching
-                  for a Pokémon game like nothing else. Trust me, I'm not biased!
-                </p>
+              <div className='w-full grid content-center'>
+                <SocialPreview
+                  url="https://pokecompanion.com"
+                />
               </div>
 
+              <p>
+                My passion project, currently on its third iteration. What started off as a
+                basic frontend for the
+                {' '}
+                <Link href="https://pokeapi.co" className="link">PokéAPI</Link>
+                {' '}
+                has lead me down countless avenues. While still
+                simple at its core, it solves the information overload problem while researching
+                for a Pokémon game like nothing else. Trust me, I'm not biased!
+              </p>
+            </article>
+
+            <article className='w-full'>
+              <h2 id="homeserver" className='text-2xl font-semibold mb-2'>
+                <Link href="#homeserver" className='anchor'>
+                  Homeserver
+                </Link>
+              </h2>
+
               <SocialPreview
-                url="https://pokecompanion.com"
+                url="https://github.com/helblinglilly/piserver"
               />
 
-            </div>
-          </section>
-
-          <section className="w-full">
-            <h2 id="homeserver" className='text-2xl font-semibold mb-2'>
-              <Link href="#homeserver" className='anchor'>
-                Homeserver
-              </Link>
-            </h2>
-            <div className="grid w-full gap-3 md:flex justify-items-center md:justify-between md:flex-row-reverse">
               <p>
                 Every homelab needs a dashboard, but why would you choose a pre-made
                 one when you could integrate your own apps into it?
@@ -153,10 +154,7 @@ function Homepage() {
                 them to solve a problem for me.
               </p>
 
-              <SocialPreview
-                url="https://github.com/helblinglilly/piserver"
-              />
-            </div>
+            </article>
           </section>
         </main>
       </div>
