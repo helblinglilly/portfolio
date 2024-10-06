@@ -7,6 +7,8 @@ import Pokecompanion from './Pokecompanion';
 import Portfolio from './Portfolio';
 import Homeserver from './Homeserver';
 
+export const runtime = 'edge';
+
 export function generateMetadata(): Metadata {
   return metadataGenerator({
     title: "Lilly's Projects",

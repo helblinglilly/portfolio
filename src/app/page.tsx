@@ -13,6 +13,7 @@ import BlueSkyIcon from '@/components/atoms/Icons/BlueSky';
 import LinkedinIcon from '@/components/atoms/Icons/LinkedIn';
 import InstgramIcon from '@/components/atoms/Icons/Instagram';
 
+export const runtime = 'edge';
 
 function Homepage() {
   return (

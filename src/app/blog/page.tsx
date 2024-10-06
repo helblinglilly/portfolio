@@ -4,6 +4,8 @@ import Posts from './posts';
 import { Metadata } from 'next';
 import metadataGenerator from '@/helpers/metadata';
 
+export const runtime = 'edge';
+
 export function generateMetadata(): Metadata {
   return metadataGenerator({
     title: "Lilly's Blog",
