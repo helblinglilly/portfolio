@@ -8,12 +8,16 @@ import './homepage.css';
 import Intro from '@/homepage/intro';
 import Current from '@/homepage/current';
 import Tools from '@/homepage/tools';
+import GithubIcon from '@/components/atoms/Icons/Github';
+import BlueSkyIcon from '@/components/atoms/Icons/BlueSky';
+import LinkedinIcon from '@/components/atoms/Icons/LinkedIn';
+import InstgramIcon from '@/components/atoms/Icons/Instagram';
 
 
 function Homepage() {
   return (
     <QueryProvider>
-      <header className="flex flex-row gap-4 w-full justify-center">
+      <header className="flex flex-row gap-4 w-full justify-center pb-4">
         <Image
           src={Profile}
           alt="Profile Picture"
@@ -28,7 +32,7 @@ function Homepage() {
         </div>
       </header>
 
-      <main className='grid w-full justify-center gap-4 md:w-8/12 md:mx-auto'>
+      <main className='grid w-full justify-center gap-4 md:w-8/12 md:mx-auto' id='main'>
         <article>
           <div className="inline-flex">
             <h1 className="text-3xl font-bold w-full mb-2">
@@ -46,33 +50,51 @@ function Homepage() {
         </article>
 
         <article>
-          <h2 className='h2'>Tools I use</h2>
           <Tools />
         </article>
-
       </main>
 
-      {/* <div className="inlineWrapper w-full md:justify-between">
-          <ButtonLink link="https://github.com/helblinglilly">
-            <GithubIcon />
-            Github
-          </ButtonLink>
+      <aside className='grid w-full gap-2 pt-4 md:mx-auto md:fixed md:justify-end md:top-[5rem] md:pr-10' aria-label='Social media links'>
+        <h3 className="text-2xl font-semibold">Socials</h3>
 
-          <ButtonLink link="https://bsky.app/profile/helbling.uk">
-            <BlueSkyIcon />
-            Bluesky
-          </ButtonLink>
+        <div className='grid grid-cols-4 md:grid-cols-1'>
+          <div className='col-span-2 sm:col-span-1'>
+            <a href="https://github.com/helblinglilly" className='inline-flex gap-2 text-center link'>
+              <div className='w-[24px] h-auto grid justify-center'>
+                <GithubIcon />
+              </div>
+              <p className='my-auto'>Github</p>
+            </a>
+          </div>
 
-          <ButtonLink link="https://instagram.com/helblinglilly">
-            <InstgramIcon />
-            Instagram
-          </ButtonLink>
+          <div className='col-span-2 sm:col-span-1'>
+            <a href="https://bsky.app/profile/helbling.uk" className='inline-flex gap-2 text-center link'>
+              <div className='w-[24px] h-auto grid justify-center'>
+                <BlueSkyIcon />
+              </div>
+              <p className='my-auto'>BlueSky</p>
+            </a>
+          </div>
 
-          <ButtonLink link="https://www.linkedin.com/in/joel-helbling-707ba0171">
-            <LinkedinIcon />
-            LinkedIn
-          </ButtonLink>
-        </div> */}
+          <div className='col-span-2 sm:col-span-1'>
+            <a href="https://instagram.com/helblinglilly" className='inline-flex gap-2 text-center link'>
+              <div className='w-[24px] h-auto grid justify-center'>
+                <InstgramIcon />
+              </div>
+              <p className='my-auto'>Instagram</p>
+            </a>
+          </div>
+          
+          <div className='col-span-2 sm:col-span-1'>
+            <a href="https://www.linkedin.com/in/joel-helbling-707ba0171" className='inline-flex gap-2 text-center link'>
+              <div className='w-[24px] h-auto grid justify-center'>
+                <LinkedinIcon />
+              </div>
+              <p className='my-auto'>LinkedIn</p>
+            </a>
+          </div>
+        </div>
+      </aside>
     </QueryProvider>
   );
 }

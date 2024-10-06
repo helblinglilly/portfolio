@@ -2,18 +2,33 @@ import React from "react";
 
 export default function ToolsProfessional(){
   return (
-    <React.Fragment>
-      <ul>
-        <li>React Native ✨</li>
+    <div className="grid gap-4 grid-cols-1 md:grid-cols-2">
+      <div>
+        <h2 className='h2'>Tools I use</h2>
         <ul>
-          <li><i>As of October 2024</i></li>
+          <li>React Native ✨</li>
+          <ul>
+            <li><i>As of October 2024</i></li>
+          </ul>
+          <li>NextJS / React / Typescript</li>
+          <li>GraphQL via Apollo</li>
+          <li>AWS via Terraform</li>
+          <li>kubernetes and Docker</li>
+          <li>Git(lab) and Jira</li>
         </ul>
-        <li>NextJS / React / Typescript</li>
-        <li>GraphQL via Apollo</li>
-        <li>AWS via Terraform</li>
-        <li>kubernetes and Docker</li>
-        <li>Git(lab) and Jira</li>
-      </ul>
-    </React.Fragment>
+      </div>
+
+      <div>
+        <h2 className="h2 pt-4 md:pt-0">What I've worked with before</h2>
+
+        <ul>
+          <li>.NET</li>
+          <li>MSSQL</li>
+          <li>Jenkins</li>
+          <li>Python / Databricks / Pandas</li>
+        </ul>
+      </div>
+    </div>
+
   )
 }
