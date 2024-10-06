@@ -1,18 +1,19 @@
 "use client"
 
-import { HomepageModeProvider } from "@/providers/ViewMode";
+import { HomepageMode, HomepageModeProvider } from "@/providers/ViewMode";
 import React from "react";
 import Navbar from "./Navbar";
 import HomepageViewGuard from "@/components/HomepageViewGuard";
 import { usePathname } from "next/navigation";
 
 export default function ClientLayout({
-  children
-}: { children: React.ReactNode}){
+  children,
+  homepageProviderInitial
+}: { children: React.ReactNode, homepageProviderInitial: HomepageMode | undefined}){
   const pathname = usePathname()
   
   return (
-    <HomepageModeProvider>
+    <HomepageModeProvider initialState={homepageProviderInitial}>
       <Navbar />
       {pathname === '/' && ( 
         <HomepageViewGuard />

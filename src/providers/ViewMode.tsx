@@ -1,4 +1,4 @@
-import { getCookie, setCookie, deleteCookie } from '@/helpers/cookies';
+import { setCookie, deleteCookie } from '@/helpers/cookies';
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 export enum HomepageMode {
@@ -16,13 +16,10 @@ interface HomepageModeContextProps {
 
 const HomepageModeContext = createContext<HomepageModeContextProps | undefined>(undefined);
 
-export const HomepageModeProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+export const HomepageModeProvider: React.FC<{ children: ReactNode, initialState: HomepageMode | undefined}> = ({ children, initialState }) => {
   const COOKIE_NAME = 'homepage-mode';
-  const existingRaw = getCookie(COOKIE_NAME) as HomepageMode | undefined;
 
-  const isExistingValid = existingRaw ? Object.values(HomepageMode).includes(existingRaw) : false;
-
-  const [mode, setInternalState] = useState<HomepageMode | undefined>(isExistingValid ? existingRaw : undefined);
+  const [mode, setInternalState] = useState<HomepageMode | undefined>(initialState);
 
   function setMode(newMode: HomepageMode | undefined){
     setInternalState(newMode);

@@ -5,6 +5,8 @@ import Theme from '@/providers/Theme';
 import metadataGenerator from '@/helpers/metadata';
 import Script from 'next/script';
 import ClientLayout from './clientLayout';
+import { cookies } from 'next/headers';
+import { HomepageMode } from '@/providers/ViewMode';
 
 export function generateMetadata(): Metadata {
   return metadataGenerator({
@@ -19,6 +21,9 @@ export default function RootLayout({
 }: {
   children: ReactNode
 }) {
+  const cookieStore = cookies();
+  const homepageMode = cookieStore.get('homepage-mode')?.value as HomepageMode | undefined;
+  
   return (
     <html lang="en">
       <body>
@@ -27,7 +32,7 @@ export default function RootLayout({
             <Script src="/js/newrelic.js" />
         }
         <Theme>
-          <ClientLayout>
+          <ClientLayout homepageProviderInitial={homepageMode}>
             {children}
           </ClientLayout>
         </Theme>
