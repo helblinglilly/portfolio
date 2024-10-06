@@ -2,9 +2,9 @@ import './globals.css';
 import React, { ReactNode } from 'react';
 import { Metadata } from 'next';
 import Theme from '@/providers/Theme';
-import Navbar from './Navbar';
 import metadataGenerator from '@/helpers/metadata';
 import Script from 'next/script';
+import ClientLayout from './clientLayout';
 
 export function generateMetadata(): Metadata {
   return metadataGenerator({
@@ -27,8 +27,9 @@ export default function RootLayout({
             <Script src="/js/newrelic.js" />
         }
         <Theme>
-          <Navbar />
-          <main className="m-6">{children}</main>
+          <ClientLayout>
+            {children}
+          </ClientLayout>
         </Theme>
       </body>
     </html>
