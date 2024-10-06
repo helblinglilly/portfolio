@@ -12,7 +12,7 @@ export function generateMetadata(): Metadata {
   return metadataGenerator({
     url: 'https://helbling.uk',
     publishedTime: new Date('2020-01-01').toISOString(),
-    modifiedTime: new Date('2023-03-19').toISOString(),
+    modifiedTime: new Date('2024-10-06').toISOString(),
   });
 }
 
