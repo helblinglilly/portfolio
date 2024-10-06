@@ -1,11 +1,13 @@
+import { getCookie, setCookie, deleteCookie } from '@/helpers/cookies';
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 export enum HomepageMode {
     // eslint-disable-next-line no-unused-vars
-    PERSONAL,
+    PERSONAL = "personal",
     // eslint-disable-next-line no-unused-vars
-    PROFESSIONAL
+    PROFESSIONAL = "professional"
 }
+
 
 interface HomepageModeContextProps {
   mode: HomepageMode | undefined;
@@ -15,7 +17,22 @@ interface HomepageModeContextProps {
 const HomepageModeContext = createContext<HomepageModeContextProps | undefined>(undefined);
 
 export const HomepageModeProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [mode, setMode] = useState<HomepageMode | undefined>(undefined);
+  const COOKIE_NAME = 'homepage-mode';
+  const existingRaw = getCookie(COOKIE_NAME) as HomepageMode | undefined;
+
+  const isExistingValid = existingRaw ? Object.values(HomepageMode).includes(existingRaw) : false;
+
+  const [mode, setInternalState] = useState<HomepageMode | undefined>(isExistingValid ? existingRaw : undefined);
+
+  function setMode(newMode: HomepageMode | undefined){
+    setInternalState(newMode);
+
+    if (newMode){
+      setCookie(COOKIE_NAME, newMode)
+    } else {
+      deleteCookie(COOKIE_NAME)
+    }
+  }
 
   return (
     <HomepageModeContext.Provider value={{ mode, setMode }}>
