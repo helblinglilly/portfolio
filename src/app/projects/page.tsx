@@ -68,7 +68,7 @@ function Project() {
 
         <hr className='mt-8 mb-8' />
 
-        <main>
+        <main id="main">
           <Pokecompanion />
           <hr className='mt-8 mb-8' />
           <Homeserver />

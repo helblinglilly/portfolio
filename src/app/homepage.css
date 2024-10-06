@@ -16,3 +16,6 @@
 		transform: rotate(-5deg);
 	}
 }
+.no-scroll {
+	overflow: hidden;
+}
