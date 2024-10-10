@@ -2,7 +2,6 @@
 
 import React from 'react';
 import Image from 'next/image';
-import QueryProvider from '@/providers/QueryProvider';
 import './homepage.css';
 import Intro from '@/homepage/intro';
 import Current from '@/homepage/current';
@@ -14,12 +13,14 @@ import InstgramIcon from '@/components/atoms/Icons/Instagram';
 
 export const runtime = 'edge';
 
+const profilePictureURL = 'https://static.helbling.uk/profile/current.jpg';
+
 function Homepage() {
   return (
-    <QueryProvider>
+    <React.Fragment>
       <header className="flex flex-row gap-4 w-full justify-center pb-4">
         <Image
-          src={'/images/profile.jpg'}
+          src={profilePictureURL}
           alt="Profile Picture"
           width={200}
           height={200}
@@ -97,7 +98,7 @@ function Homepage() {
           </div>
         </div>
       </aside>
-    </QueryProvider>
+    </React.Fragment>
   );
 }
 
