@@ -13,18 +13,27 @@ module.exports = withMDX(withBundleAnalyzer({
   },
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
   images: {
-    domains: [
-      'opengraph.githubassets.com',
-      'github-readme-stats.vercel.app',
-      'pokecompanion.com',
-      'pokemon.helbling.uk',
-      'www.sweetaf.uk',
-    ],
     remotePatterns: [
       {
         protocol: 'https',
         hostname: '**.helbling.uk',
       },
+      {
+        protocol: 'https',
+        hostname: 'pokecompanion.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'opengraph.githubassets.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'github-readme-stats.vercel.app'
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.sweetaf.uk'
+      }
     ],
   },
 
