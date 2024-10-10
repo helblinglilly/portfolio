@@ -3,7 +3,6 @@
 import React from 'react';
 import Image from 'next/image';
 import QueryProvider from '@/providers/QueryProvider';
-import Profile from './profile.jpeg';
 import './homepage.css';
 import Intro from '@/homepage/intro';
 import Current from '@/homepage/current';
@@ -20,8 +19,10 @@ function Homepage() {
     <QueryProvider>
       <header className="flex flex-row gap-4 w-full justify-center pb-4">
         <Image
-          src={Profile}
+          src={'/images/profile.jpg'}
           alt="Profile Picture"
+          width={200}
+          height={200}
           priority
           className="rounded-full h-32 w-auto"
         />
