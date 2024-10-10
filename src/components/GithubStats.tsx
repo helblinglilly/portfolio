@@ -71,7 +71,6 @@ export default function GithubStats() {
           width={450}
           height={164}
           alt="Most usage language statistics"
-          placeholder="blur"
         />
       </div>
 
@@ -82,7 +81,6 @@ export default function GithubStats() {
           height={164}
           alt="Overall statistics overview"
           className="mb-3"
-          placeholder="blur"
         />
       </div>
 
@@ -97,7 +95,6 @@ export default function GithubStats() {
             width={450}
             height={164}
             alt="Overall statistics overview"
-            placeholder="blur"
           />
         </a>
       </div>

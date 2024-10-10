@@ -2,164 +2,103 @@
 
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
-import GithubIcon from '@/components/atoms/Icons/Github';
-import ButtonLink from '@/components/ButtonLink';
-import InstgramIcon from '@/components/atoms/Icons/Instagram';
-import LinkedinIcon from '@/components/atoms/Icons/LinkedIn';
-import SocialPreview from '@/components/SocialPreview';
-import QueryProvider from '@/providers/QueryProvider';
-import RecentGithubContribution from '@/components/RecentGithubContribution';
-import Profile from './profile.jpeg';
-import CloudflareImage from '@/app/blog/posts/assets/2023-cloudflare/cloudflare.png'
 import './homepage.css';
+import Intro from '@/homepage/intro';
+import Current from '@/homepage/current';
+import Tools from '@/homepage/tools';
+import GithubIcon from '@/components/atoms/Icons/Github';
 import BlueSkyIcon from '@/components/atoms/Icons/BlueSky';
+import LinkedinIcon from '@/components/atoms/Icons/LinkedIn';
+import InstgramIcon from '@/components/atoms/Icons/Instagram';
+
+export const runtime = 'edge';
+
+const profilePictureURL = 'https://static.helbling.uk/profile/current.jpg';
 
 function Homepage() {
   return (
-    <QueryProvider>
-      <div id="header" className="flex-col md:flex-row gap-4 mb-8 flex justify-around items-center">
-        <div className="inline-flex md:grid lg:inline-flex gap-4 justify-center md:w-2/5 md:max-w-md md:justify-items-center">
-          <Image
-            src={Profile}
-            alt="Profile Picture"
-            priority
-            className="rounded-full h-fit min-w-12 w-4/12 h-4/12"
-          />
-          <div className="min-w-fit mt-auto mb-auto">
-            <h1 className="text-2xl font-semibold">Lilly Helbling</h1>
-            <p>Software Engineer</p>
-            <p>info@helbling.uk</p>
-            <i>she/they</i>
-          </div>
+    <React.Fragment>
+      <header className="flex flex-row gap-4 w-full justify-center pb-4">
+        <Image
+          src={profilePictureURL}
+          alt="Profile Picture"
+          width={200}
+          height={200}
+          priority
+          className="rounded-full h-32 w-auto"
+        />
+        <div className="min-w-fit mt-auto mb-auto">
+          <h1 className="text-2xl font-semibold">Lilly Helbling</h1>
+          <p>Software Engineer</p>
+          <p>info@helbling.uk</p>
+          <p><i>she/they</i> 🏳️‍⚧️</p>
         </div>
+      </header>
 
-        <div className="inlineWrapper w-full md:justify-between">
-          <ButtonLink link="https://github.com/helblinglilly">
-            <GithubIcon />
-            Github
-          </ButtonLink>
-
-          <ButtonLink link="https://bsky.app/profile/helbling.uk">
-            <BlueSkyIcon />
-            Bluesky
-          </ButtonLink>
-
-          <ButtonLink link="https://instagram.com/helblinglilly">
-            <InstgramIcon />
-            Instagram
-          </ButtonLink>
-
-          <ButtonLink link="https://www.linkedin.com/in/joel-helbling-707ba0171">
-            <LinkedinIcon />
-            LinkedIn
-          </ButtonLink>
-        </div>
-
-      </div>
-
-      <div className="flex-col md:flex-row gap-6 mb-8 flex justify-around">
-        <aside id="sidebar" className="md:w-2/5 md:max-w-md grid gap-3 content-baseline">
-          <div>
-            <div className="inline-flex">
-              <h1 className="text-3xl font-bold w-full mb-2">
+      <main className='grid w-full justify-center gap-4 md:w-8/12 md:mx-auto' id='main'>
+        <article>
+          <div className="inline-flex">
+            <h1 className="text-3xl font-bold w-full mb-2">
                 Hiya
-              </h1>
-              <p className="text-3xl font-bold ml-1" id="wave">👋</p>
-
-            </div>
-            <p>
-              I'm a Software Engineer based in Leeds, United Kingdom.
-              Professionally experienced with .NET, NextJS, and running those sites in AWS.
-            </p>
-            <p>
-              Outside of work I still play around with code, and occasionally express my
-              opinion on the internet.
-            </p>
+            </h1>
+            <p className="text-3xl font-bold ml-1" id="wave">👋</p>
           </div>
 
-          <div className="grid gap-3">
+          <Intro/>
+        </article>
 
-            <h2 id="recent-blog" className='text-xl font-semibold'>
-              <Link href="#recent-blog" className='anchor'>
-                Recent Blog post
-              </Link>
-            </h2>
+        <article>
+          <h2 className='h2'>Stuff I do</h2>
+          <Current />
+        </article>
 
-            <p>
-              If your frontend sites barely have any backend interactions,
-              should you look beyond serverless?
-            </p>
-            <ButtonLink link="/blog/2023-cloudflare" className="h-fit">
-              <Image
-                src={CloudflareImage}
-                width={96}
-                height={96}
-                alt="Cloudflare"
-              />
+        <article>
+          <Tools />
+        </article>
+      </main>
 
-              <p className="p-1 pr-8">Looking towards the Edge</p>
-            </ButtonLink>
-          </div>
+      <aside className='grid w-full gap-2 pt-4 md:mx-auto md:fixed md:justify-end md:top-[5rem] md:pr-10' aria-label='Social media links'>
+        <h3 className="text-2xl font-semibold">Socials</h3>
 
-          <RecentGithubContribution username="helblinglilly" />
-        </aside>
-
-        <main className="w-full grid">
-          <h1 className="text-3xl font-semibold w-full mb-2">Showcase</h1>
-
-          <section className='w-full justify-between grid md:flex gap-6'>
-            <article className="w-full grid gap-2">
-              <h2 id="pokecompanion" className='text-2xl font-semibold mb-0'>
-                <Link href="#pokecompanion" className='anchor'>
-                  Pokécompanion
-                </Link>
-              </h2>
-
-              <div className='w-full grid content-center'>
-                <SocialPreview
-                  url="https://pokecompanion.com"
-                />
+        <div className='grid grid-cols-4 md:grid-cols-1'>
+          <div className='col-span-2 sm:col-span-1'>
+            <a href="https://github.com/helblinglilly" className='inline-flex gap-2 text-center link'>
+              <div className='w-[24px] h-auto grid justify-center'>
+                <GithubIcon />
               </div>
+              <p className='my-auto'>Github</p>
+            </a>
+          </div>
 
-              <p>
-                My passion project, currently on its third iteration. What started off as a
-                basic frontend for the
-                {' '}
-                <Link href="https://pokeapi.co" className="link">PokéAPI</Link>
-                {' '}
-                has lead me down countless avenues. While still
-                simple at its core, it solves the information overload problem while researching
-                for a Pokémon game like nothing else. Trust me, I'm not biased!
-              </p>
-            </article>
+          <div className='col-span-2 sm:col-span-1'>
+            <a href="https://bsky.app/profile/helbling.uk" className='inline-flex gap-2 text-center link'>
+              <div className='w-[24px] h-auto grid justify-center'>
+                <BlueSkyIcon />
+              </div>
+              <p className='my-auto'>BlueSky</p>
+            </a>
+          </div>
 
-            <article className='w-full'>
-              <h2 id="homeserver" className='text-2xl font-semibold mb-2'>
-                <Link href="#homeserver" className='anchor'>
-                  Homeserver
-                </Link>
-              </h2>
-
-              <SocialPreview
-                url="https://github.com/helblinglilly/piserver"
-              />
-
-              <p>
-                Every homelab needs a dashboard, but why would you choose a pre-made
-                one when you could integrate your own apps into it?
-                This repo stores my configurations, the code to a glorified bookmark bar,
-                as well as a timesheet app and energy bill (and usage) visualisation tool.
-                Both could be public projects in their own right - but for now, I just need
-                them to solve a problem for me.
-              </p>
-
-            </article>
-          </section>
-        </main>
-      </div>
-
-    </QueryProvider>
+          <div className='col-span-2 sm:col-span-1'>
+            <a href="https://instagram.com/helblinglilly" className='inline-flex gap-2 text-center link'>
+              <div className='w-[24px] h-auto grid justify-center'>
+                <InstgramIcon />
+              </div>
+              <p className='my-auto'>Instagram</p>
+            </a>
+          </div>
+          
+          <div className='col-span-2 sm:col-span-1'>
+            <a href="https://www.linkedin.com/in/joel-helbling-707ba0171" className='inline-flex gap-2 text-center link'>
+              <div className='w-[24px] h-auto grid justify-center'>
+                <LinkedinIcon />
+              </div>
+              <p className='my-auto'>LinkedIn</p>
+            </a>
+          </div>
+        </div>
+      </aside>
+    </React.Fragment>
   );
 }
 

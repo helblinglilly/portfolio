@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import QueryProvider from '@/providers/QueryProvider';
 import formatMetadata from '../helpers';
 import metadataGenerator from '@/helpers/metadata';
 
@@ -82,9 +81,7 @@ export default async function Post({ params: { postname } } : {
 
         <hr />
 
-        <QueryProvider>
-          <Content.BlogPost />
-        </QueryProvider>
+        <Content.BlogPost />
       </div>
     );
   } catch {
