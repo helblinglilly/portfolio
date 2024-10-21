@@ -1,2 +1,5 @@
 User-agent: *
 Disallow: /*.helbling.uk/
+
+User-agent: *
+Disallow: /files/

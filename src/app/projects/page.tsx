@@ -5,6 +5,7 @@ import metadataGenerator from '@/helpers/metadata';
 import Pokecompanion from './Pokecompanion';
 import Portfolio from './Portfolio';
 import Homeserver from './Homeserver';
+import Crafts from './Crafts';
 
 export const runtime = 'edge';
 
@@ -25,6 +26,14 @@ function Project() {
 
       <div>
         <ul>
+          <li>
+            <h2 className='text-xl font-semibold mb-2'>
+              <Link href="#crafts" className='link'>
+                Crafts
+              </Link>
+            </h2>
+          </li>
+
           <li>
             <h2 className='text-xl font-semibold mb-2'>
               <Link href="#pokecompanion" className='link'>
@@ -69,6 +78,8 @@ function Project() {
       <hr className='mt-8 mb-8' />
 
       <main id="main">
+        <Crafts />
+        <hr className='mt-8 mb-8' />
         <Pokecompanion />
         <hr className='mt-8 mb-8' />
         <Homeserver />
