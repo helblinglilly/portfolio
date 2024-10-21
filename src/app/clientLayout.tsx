@@ -5,6 +5,7 @@ import React from "react";
 import Navbar from "./Navbar";
 import HomepageViewGuard from "@/components/HomepageViewGuard";
 import { usePathname } from "next/navigation";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 export default function ClientLayout({
   children,
@@ -14,12 +15,14 @@ export default function ClientLayout({
   
   return (
     <HomepageModeProvider initialState={homepageProviderInitial}>
-      <Navbar />
-      {pathname === '/' && ( 
-        <HomepageViewGuard />
-      )}
+      <QueryClientProvider client={new QueryClient()}>
+        <Navbar />
+        {pathname === '/' && ( 
+          <HomepageViewGuard />
+        )}
       
-      <div className="m-6">{children}</div>
+        <div className="m-6">{children}</div>
+      </QueryClientProvider>
     </HomepageModeProvider>
   )
 }
