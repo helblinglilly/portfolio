@@ -9,6 +9,8 @@ import QueerGradient from "@/app/files/pride-inside/queer-gradient.svg"
 import PanGradient from "@/app/files/pride-inside/pan-gradient.svg"
 import NonBinaryGradient from "@/app/files/pride-inside/non-binary-gradient.svg"
 
+export const runtime = 'edge';
+
 export default function PrideInside() {
 
   const files: Record<string, { files: string[]; preview: any }> = {
