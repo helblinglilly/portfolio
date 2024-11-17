@@ -17,12 +17,14 @@ export function generateMetadata(): Metadata {
   });
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: ReactNode
-}) {
-  const cookieStore = cookies();
+export default async function RootLayout(
+  {
+    children,
+  }: {
+    children: ReactNode
+  }
+) {
+  const cookieStore = await cookies();
   const homepageMode = cookieStore.get('homepage-mode')?.value as HomepageMode | undefined;
   
   return (

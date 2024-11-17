@@ -130,8 +130,8 @@ export default async function Post() {
         <div className="mb-4">
           <ul>
             {
-              orderedProjects.map((entry) => {
-                return <ProjectListItem project={entry} key={entry.toString()} />
+              orderedProjects.map((entry, i) => {
+                return <ProjectListItem project={entry} key={i} />
               })
             }
           </ul>

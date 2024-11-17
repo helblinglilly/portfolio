@@ -25,11 +25,19 @@ async function getPostData(postname: string) {
   }
 }
 
-export async function generateMetadata({ params: { postname } }: {
-  params: {
-    postname: string;
+export async function generateMetadata(
+  props: {
+    params: Promise<{
+      postname: string;
+    }>
   }
-}) {
+) {
+  const params = await props.params;
+
+  const {
+    postname
+  } = params;
+
   try {
     const blogpost = await getPostData(postname);
     const postMeta = formatMetadata(blogpost);
@@ -48,7 +56,6 @@ export async function generateMetadata({ params: { postname } }: {
       url: postMeta.url
     });
   } catch {
-
     return metadataGenerator({
       title: '404',
       description: 'Post does not exist',
@@ -59,11 +66,13 @@ export async function generateMetadata({ params: { postname } }: {
   }
 }
 
-export default async function Post({ params: { postname } } : {
-  params: {
-    postname: string;
-  }
+
+export default async function Post(props: {
+  params: Promise<{ postname: string }>
 }) {
+  const params = await props.params;
+  const { postname } = params;
+
   try {
     const Content = await getPostData(postname);
     const postMeta = formatMetadata(Content);
