@@ -1,93 +1,167 @@
-import Link from 'next/link';
 import React from 'react';
-import { Metadata } from 'next';
-import metadataGenerator from '@/helpers/metadata';
-import Pokecompanion from './Pokecompanion';
-import Portfolio from './Portfolio';
-import Homeserver from './Homeserver';
-import Crafts from './Crafts';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
 
 export const runtime = 'edge';
 
-export function generateMetadata(): Metadata {
-  return metadataGenerator({
-    title: "Lilly's Projects",
-    description: "List of projects that I've been working on.",
-    url: 'https://helbling.uk/projects',
-    publishedTime: new Date('2020-01-01').toISOString(),
-    modifiedTime: new Date('2020-01-01').toISOString()
-  });
+interface IProject {
+  Post: any;
+  filename: string;
+  name: string;
+  link?: string;
+  github?: string;
 }
 
-function Project() {
+async function getPostData(postname: string): Promise<IProject> {
+  try {
+    const mdx = await import(`./${postname}.mdx`);
+    return {
+      Post: mdx.default,
+      filename: postname,
+      name: mdx.name,
+      link: mdx.production,
+      github: mdx.github
+    };
+  } catch {
+    throw new Error(`Failed to find .mdx file for ./${postname}.mdx`)
+  }
+}
+
+function ProjectTitle({ name, link, github }: { name: string, link?: string, github?: string }){
+  function ExternalLink({ children }: { children: React.ReactNode }){
+    if (!link){
+      return <>{ children }</>
+    }
+
+    return (
+      <Link href={link} target="_blank" className='anchor link'>
+        {children}
+      </Link>
+    )
+  }
+
+  function Github(){
+    if (!github){
+      return null;
+    }
+
+    return (
+      <Link href={github} target='_blank' className='link mt-auto'><i>Github</i></Link>
+    )
+  }
+
+  function Name(){
+    return (
+      <h3 className='text-xl font-semibold' id="reddit">
+        {name}
+      </h3>
+    )
+  }
+
   return (
-    <div className="md:max-w-screen-sm md:ml-auto md:mr-auto">
-      <h1 className='text-3xl font-bold w-full mb-2'>Projects</h1>
-
-      <div>
-        <ul>
-          <li>
-            <h2 className='text-xl font-semibold mb-2'>
-              <Link href="#crafts" className='link'>
-                Crafts
-              </Link>
-            </h2>
-          </li>
-
-          <li>
-            <h2 className='text-xl font-semibold mb-2'>
-              <Link href="#pokecompanion" className='link'>
-                  Pokécompanion
-              </Link>
-            </h2>
-          </li>
-          <ul>
-            <li>
-              <Link href="#update-service" className='anchor'>
-                  AWS Lambda - SQS update service
-              </Link>
-            </li>
-            <li>
-              <Link href="#pokecompanion-workers" className='anchor'>
-                  avatar.helbling.uk
-              </Link>
-            </li>
-            <li>
-              <Link href="#pokecompanion-workers" className='anchor'>
-              socialpreview.helbling.uk
-              </Link>
-            </li>
-          </ul>
-          <li>
-            <h2 className='text-xl font-semibold mb-2'>
-              <Link href="#homeserver" className='link'>
-                  Homeserver
-              </Link>
-            </h2>
-          </li>
-          <li>
-            <h2 className='text-xl font-semibold mb-2'>
-              <Link href="#portfolio" className='link'>
-                  Portfolio
-              </Link>
-            </h2>
-          </li>
-        </ul>
-      </div>
-
-      <hr className='mt-8 mb-8' />
-
-      <main id="main">
-        <Crafts />
-        <hr className='mt-8 mb-8' />
-        <Pokecompanion />
-        <hr className='mt-8 mb-8' />
-        <Homeserver />
-        <hr className='mt-8 mb-8' />
-        <Portfolio />
-      </main>
+    <div className="inline-flex gap-4 mb-2">
+      <ExternalLink>
+        <Name />
+      </ExternalLink>
+      <Github />
     </div>
-  );
+  )
+
 }
 
-export default Project;
+
+type ValueOrArray<T> = T | Array<ValueOrArray<T>>;
+
+function getNestedProjectStructure(filenames: string | string[], projects: IProject[]): ValueOrArray<IProject> {
+  if (Array.isArray(filenames)){
+    return filenames.map((filename) => getNestedProjectStructure(filename, projects));
+  }
+
+  return projects.find((project) => project.filename === filenames) as IProject;
+}
+
+function ProjectListItem({ project, isNested }: { project: ValueOrArray<IProject>, isNested?: boolean }){
+  if (Array.isArray(project)){
+    const projArr = project as Array<IProject>
+    return (
+      <ul>
+        {
+          projArr.map((proj) => <ProjectListItem project={proj} key={proj.filename} isNested={true} />)
+        }
+      </ul>
+    )
+  }
+
+  return (
+    <li>
+      <Link href={`#${project.filename}`} className={`anchor text-md ${!isNested ? 'font-semibold' : ''}`}>
+        {project.name}
+      </Link>
+    </li>
+  )
+}
+
+export default async function Post() {
+  const projectNames = [
+    'pokecompanion', 
+    [
+      'infra-as-code',
+      'avatar.helbling.uk', 
+      'socialpreview.helbling.uk', 
+    ],
+    'mp4.helbling.uk', 
+    'reddit.helbling.uk', 
+    'homelab', 
+    'portfolio', 
+    'crafts'
+  ];
+
+  try {
+    const projectsPromises = projectNames.flat().map((name) => getPostData(name));
+    const projects = await Promise.all(projectsPromises)
+    const orderedProjects = projectNames.map((name) => {
+      return getNestedProjectStructure(name, projects)
+    });
+
+    return (
+      <div className="md:max-w-screen-sm md:ml-auto md:mr-auto">
+        <h1 className='text-3xl font-bold w-full mb-2'>Projects</h1>
+
+        <div className="mb-4">
+          <ul>
+            {
+              orderedProjects.map((entry) => {
+                return <ProjectListItem project={entry} key={entry.toString()} />
+              })
+            }
+          </ul>
+        </div>
+
+        <hr className='mt-8 mb-8' />
+
+        {
+          projects.map((Project, i) => {
+            return (
+              <div key={Project.name} id={Project.filename}>
+                <article>
+                  <ProjectTitle {...Project} />
+                  <div className="blogWrapper">
+                    <Project.Post />
+                  </div>
+                </article>
+
+                {i !== projects.length - 1 && (
+                  <hr className='mt-8 mb-8' />
+                )}
+              </div>
+            )
+          })
+        }
+      </div>
+    );
+  } catch(err) {
+    console.error(err);
+    notFound();
+  }
+}
+

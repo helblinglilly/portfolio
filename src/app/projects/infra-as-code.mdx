@@ -1,0 +1,12 @@
+import Link from 'next/link';
+
+export const name = 'Infrastructure as Code'
+export const github = 'https://github.com/helblinglilly/aws-pocketbase';
+
+While I've previously been able to rely on the free tiers of different Saas Platforms, I wanted to actually own the infrastructure for <a href="#pokecompanion">Pokécompanion</a>.
+
+Moving all existing configurations, especially for Cloudflare, into Terraform was a fair bit of effort and I didn't want to over-engineer a proper secret storing mechanism. However, I still wanted to be able to spin up a new Pocketbase instance with minimal configuration so I thought to rewrite the relevant section as its own Terraform module.
+
+I've been using this ever since, and my <a href="#homeserver">homelab</a> Ansible script also live in there now - having already saved me hours.
+
+Spinning up new projects has also become much easier since. It seems like a lot, but was worth the effort.

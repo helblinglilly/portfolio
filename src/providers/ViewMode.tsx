@@ -1,3 +1,5 @@
+"use client"
+
 import { setCookie, deleteCookie } from '@/helpers/cookies';
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 

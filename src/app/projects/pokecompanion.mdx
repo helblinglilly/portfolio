@@ -1,0 +1,29 @@
+import Link from 'next/link';
+
+export const name = 'Pokécompanion'
+export const production = "https://pokecompanion.com"
+export const github = 'https://github.com/helblinglilly/pokecompanion';
+
+My passion project, which is now on its third iteration using Svelte. While plenty of front-ends to the world of Pokémon already exist, none of them solve my needs quite right. On mobile, the site needs to feel light-weight and easily digestable. Additional features of the site should seek to be non-intrusive.
+
+At its core, it is just a PokeAPI frontend. But a number of microservices have sprawled from it. Lots of sites also let their data become out of date which is incredibly infuriating - and one day that will be me, so an auto-update functionality was also quite important.
+
+Product and project aside, it's also been a massive learning opportunity to apply new tech to a real product, such as:
+
+- Auto-ingesting new data without need for manual input
+    - Using AWS Lambda and SQS
+    - Auto-deploying changes to a Github Repo
+- Using Pocketbase as a simple backend
+    - Handling OAuth
+    - Deploying to AWS with proper backup strategies
+    - Building a re-usable Pocketbase Terraform module
+- Using Cloudflare
+    - Pages projects to host this site
+    - R2 to host social media preview images
+    - Workers
+        - To generate user avatars: avatar.helbling.uk
+        - To debug social media previews: socialpreview.helbling.uk
+- Observability
+    - Error reporting with Sentry
+    - Log ingest with Axiom
+    - Unify the above with New Relic

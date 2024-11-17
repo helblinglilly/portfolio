@@ -8,8 +8,8 @@ export default function NotFound() {
       <h1 className="h1">404 - Page not found</h1>
 
       <div>
-      <p>This page does not exist</p>
-      <Link href="/" className='link'>Return Home</Link>
+        <p>This page does not exist</p>
+        <Link href="/" className='link'>Return Home</Link>
       </div>
     </main>
   )

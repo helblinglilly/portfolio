@@ -21,7 +21,7 @@ export function generateMetadata(): Metadata {
 function Blog() {
   return (
     <>
-      <h1 id="pokecompanion" className="text-3xl font-semibold mb-4">Blog</h1>
+      <h1 id="blog" className="text-3xl font-semibold mb-4">Blog</h1>
       <main className="grid gap-6" id="main">
         {
           Posts.map((post) => (

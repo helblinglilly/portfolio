@@ -1,5 +1,4 @@
 import React, { ReactNode } from 'react';
-import './blogStyles.css';
 
 export default function RootLayout({
   children,

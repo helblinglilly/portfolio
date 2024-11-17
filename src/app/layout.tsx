@@ -1,4 +1,5 @@
 import './globals.css';
+import '@/app/markdown.css';
 import React, { ReactNode } from 'react';
 import { Metadata } from 'next';
 import Theme from '@/providers/Theme';

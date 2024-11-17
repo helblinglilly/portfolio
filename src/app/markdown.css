@@ -1,4 +1,4 @@
-#blogWrapper h1 {
+.blogWrapper h1 {
 	font-weight: 600;
 	margin-bottom: 0.5rem;
 	/* Tailwind 2xl */
@@ -6,7 +6,7 @@
 	line-height: 2rem;
 }
 
-#blogWrapper h2 {
+.blogWrapper h2 {
 	font-weight: 600;
 	margin-bottom: 0.3rem;
 	/* Tailwind xl */
@@ -14,45 +14,45 @@
 	line-height: 1.75rem; 
 }
 
-#blogWrapper img {
+.blogWrapper img {
 	margin-top: 0.75rem;
 	margin-bottom: 0.75rem;
 }
 
-#blogWrapper a {
+.blogWrapper a {
 	text-decoration-color: #c4b5fd;
 	text-decoration-line: underline;
 }
 
-#blogWrapper > h1:not(:first-child){
+.blogWrapper > h1:not(:first-child){
 	margin-top: 0.5rem;
 }
 
-#blogWrapper p {
+.blogWrapper p {
 	padding-top: 0.25rem;
 	padding-bottom: 0.25rem;
 }
 
-#blogHeader {
+.blogHeader {
 	display: inline-flex;
 	gap: 0.2rem;
 	margin-bottom: 0.4rem;
 }
 
-#blogHeader > a {
+.blogHeader > a {
 	margin-top: auto;
 	margin-bottom: auto;
 }
 
-#blogWrapper > ul {
+.blogWrapper > ul {
 	margin-top: 1em;
 }
 
-#blogWrapper > ol {
+.blogWrapper > ol {
 	list-style: decimal;
 	margin-left: 2em;
 }
 
-#blogWrapper > p > code {
+.blogWrapper > p > code {
 	color: red;
 }
