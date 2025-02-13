@@ -3,11 +3,30 @@ import React from "react";
 export default function CurrentProfessional(){
   return (
     <React.Fragment>
-      <p>Early 2023 I was responsible for the migration of <a href="https://www.sunshine.co.uk" className="link">sunshine.co.uk</a>'s Booking Path to our new technology platform. As well as performing most of the work, I also had to manage stakeholders whilst a major project was underway at the same time and on shared deadlines.</p>
 
-      <p>During my day to day with <a href="https://www.onthebeach.co.uk" className="link">On the Beach</a> I build new features for our booking flow via AB Tests while ensuring high tracking and observability mechanisms are in place. I also worked closely with our platforms team to ensure our shared codebase was using up to date features and evaluating our scaling strategy through stress tests.</p>
+      <div className="py-4">
+        <h2 className='h2'>Approach</h2>
 
-      <p>Previously, I've worked at <a href="https://www.digital.nhs.uk" className="link">NHS England (formerly NHS Digital)</a> as part of the Pathways team maintaining several .NET applications and assisting the migration to our AWS platform.</p>
+        <div className="grid gap-2">
+          <p className="">Solve problems in a customer-centric manner while ensuring operational excellence of the technical implementation.</p>
+          <p className="">Build resilience in teams to avoid dependence on individuals. Encourage collaborative learning and build productive habits.</p>
+        </div>
+      </div>
+
+      <div className="grid gap-2 pb-4">
+        <h3 className="h3 font-bold text-lg">On the Beach<span className="ml-2 text-sm">2023</span></h3>
+
+        <ul className="grid gap-2 border-s border-grey-200 relative list-none ml-4">
+          <li className="mt-2 mb-2 ms-4 -start-1.5"><div className="absolute -start-1.5 mt-1.5 h-3 w-3 rounded-full bg-gray-300" />Launched a <a href="https://medium.com/mobilepeople/backend-for-frontend-pattern-why-you-need-to-know-it-46f94ce420b0" className="link">Backend for Frontend</a> to support the apps</li>
+          <li className="mb-2 ms-4 -start-1.5"><div className="absolute -start-1.5 mt-1.5 h-3 w-3 rounded-full bg-gray-300" />Switched teams to work in the mobile app space</li>
+          <li className="mb-2 ms-4 -start-1.5"><div className="absolute -start-1.5 mt-1.5 h-3 w-3 rounded-full bg-gray-300" />In role promotion</li>
+          <li className="mb-2 ms-4 -start-1.5"><div className="absolute -start-1.5 mt-1.5 h-3 w-3 rounded-full bg-gray-300" />Lead <a href="https://sunshine.co.uk" className="link">sunshine.co.uk</a>'s booking funnel migration</li>
+          <li className="mb-2 ms-4 -start-1.5"><div className="absolute -start-1.5 mt-1.5 h-3 w-3 rounded-full bg-gray-300" />Joined the Booking Path Team</li>
+        </ul>
+      </div>
+
+      <h3 className="h3 font-bold text-lg">NHS Digital <span className="ml-2 text-sm">2021 - 2023</span></h3>
+      <p>Joined on a graduate scheme working in the Pathways team. Maintained several .NET applications and supported our AWS migration.</p>
     </React.Fragment>
   )
 }

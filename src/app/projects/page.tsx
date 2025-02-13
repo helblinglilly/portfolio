@@ -103,23 +103,24 @@ function ProjectListItem({ project, isNested }: { project: ValueOrArray<IProject
 
 export default async function Post() {
   const projectNames = [
-    'pokecompanion', 
+    'homelab',
+    'infra-as-code',
     [
-      'infra-as-code',
-      'avatar.helbling.uk', 
-      'socialpreview.helbling.uk', 
+      'avatar.helbling.uk',
+      'helbling.uk',
+      'mp4.helbling.uk',
+      'pokecompanion.com',
+      'reddit.helbling.uk',
+      'socialpreview.helbling.uk',
     ],
-    'mp4.helbling.uk', 
-    'reddit.helbling.uk', 
-    'homelab', 
-    'portfolio', 
     'crafts'
   ];
 
   try {
-    const projectsPromises = projectNames.flat().map((name) => getPostData(name));
+    const projectsWithPosts = projectNames.flat();
+    const projectsPromises = projectsWithPosts.map((name) => getPostData(name));
     const projects = await Promise.all(projectsPromises)
-    const orderedProjects = projectNames.map((name) => {
+    const orderedProjects = projectsWithPosts.map((name) => {
       return getNestedProjectStructure(name, projects)
     });
 
@@ -164,4 +165,3 @@ export default async function Post() {
     notFound();
   }
 }
-

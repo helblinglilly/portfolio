@@ -48,7 +48,6 @@ function Homepage() {
         </article>
 
         <article>
-          <h2 className='h2'>Stuff I do</h2>
           <Current />
         </article>
 
@@ -87,7 +86,7 @@ function Homepage() {
               <p className='my-auto'>Instagram</p>
             </a>
           </div>
-          
+
           <div className='col-span-2 sm:col-span-1'>
             <a href="https://www.linkedin.com/in/joel-helbling-707ba0171" className='inline-flex gap-2 text-center link'>
               <div className='w-[24px] h-auto grid justify-center'>
