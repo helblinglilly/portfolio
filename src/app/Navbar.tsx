@@ -26,20 +26,20 @@ export default function Navbar() {
         <div className="flex h-full items-center">
           <Link
             href="/"
-            className="hidden sm:flex h-10 items-center rounded-md px-4 hover:bg-violet-200 dark:hover:bg-violet-400"
+            className="hidden sm:flex h-10 items-center rounded-md px-4 hover:bg-violet-200 dark:hover:bg-[#F714B1] hover:decoration-transparent"
           >
             Home
           </Link>
 
           <Link
             href="/blog"
-            className="flex h-10 items-center rounded-md px-4 hover:bg-slate-200 hover:bg-violet-200 dark:hover:bg-violet-400"
+            className="flex h-10 items-center rounded-md px-4 hover:bg-slate-200 dark:hover:bg-[#F714B1] hover:decoration-transparent"
           >
             Blog
           </Link>
           <Link
             href="/projects"
-            className="flex h-10 items-center rounded-md px-4 hover:bg-slate-200 hover:bg-violet-200 dark:hover:bg-violet-400"
+            className="flex h-10 items-center rounded-md px-4 hover:bg-slate-200 dark:hover:bg-[#F714B1] hover:decoration-transparent"
           >
             Projects
           </Link>
@@ -51,7 +51,7 @@ export default function Navbar() {
           <button
             type="button"
             aria-label={`Change Homepage Mode to ${mode === HomepageMode.PERSONAL ? HomepageMode.PROFESSIONAL : HomepageMode.PERSONAL}`}
-            className="mr-3 flex h-10 items-center rounded-md px-4 hover:bg-violet-200 dark:hover:bg-violet-400"
+            className="mr-3 flex h-10 items-center rounded-md px-4 hover:bg-violet-200 dark:hover:bg-[#F714B1] hover:decoration-transparent"
             onClick={() => {
               setMode(mode === HomepageMode.PERSONAL ? HomepageMode.PROFESSIONAL : HomepageMode.PERSONAL);
             }}
@@ -63,7 +63,7 @@ export default function Navbar() {
         <button
           type="button"
           aria-label="Change Theme"
-          className="mr-3 flex h-10 items-center rounded-md px-4 hover:bg-violet-200 dark:hover:bg-violet-400"
+          className="mr-3 flex h-10 items-center rounded-md px-4 hover:bg-violet-200 dark:hover:bg-[#F714B1] hover:decoration-transparent"
           onClick={() => {
             setTheme(theme === 'dark' ? 'light' : 'dark');
           }}

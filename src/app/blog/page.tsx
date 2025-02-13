@@ -28,7 +28,7 @@ function Blog() {
             <Link
               key={post.title}
               href={post.url}
-              className="p-4 w-full h-full bg-slate-200 rounded-md hover:bg-violet-100 dark:bg-slate-700 dark:hover:bg-violet-400"
+              className="p-4 w-full h-full bg-slate-200 rounded-md hover:bg-violet-100 dark:bg-slate-700 dark:hover:bg-violet-400 hover:decoration-transparent"
             >
               <article className="mb-3">
                 <h2 className="h2" style={{ marginBottom: 0 }}>{post.title}</h2>
