@@ -1,11 +1,11 @@
-import React, { ReactNode } from 'react';
+import React, { type ReactNode } from "react";
 
 export default function RootLayout({
-  children,
+	children,
 }: {
-  children: ReactNode
+	children: ReactNode;
 }) {
-  return (
-    <div className="md:max-w-screen-sm md:ml-auto md:mr-auto">{children}</div>
-  );
+	return (
+		<div className="md:max-w-screen-sm md:ml-auto md:mr-auto">{children}</div>
+	);
 }

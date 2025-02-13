@@ -13,6 +13,7 @@ export const runtime = 'edge';
 
 export default function PrideInside() {
 
+  // biome-ignore lint/suspicious/noExplicitAny: They're just svgs but TS doesn't know that
   const files: Record<string, { files: string[]; preview: any }> = {
     lesbian: {
       files: ['lesbian-gradient', 'lesbian-static'],
@@ -49,7 +50,7 @@ export default function PrideInside() {
         <h1 className="text-2xl font-semibold mb-4">Main template file</h1>
 
         <div className="inline-flex gap-4">
-          <Image 
+          <Image
             src={PrideGradientTrans}
             alt={"Intel-type sticker with a pride rainbow along the top and the world 'Pride' on a transgender coloured gradient background"}
             width={70}
