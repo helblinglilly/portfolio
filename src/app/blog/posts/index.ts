@@ -6,6 +6,7 @@ import * as Homeserver2022 from './2022-homeserver.mdx';
 import * as Vercel2022 from './2022-vercel.mdx';
 import * as Cloudflare2023 from './2023-cloudflare.mdx';
 import * as Pokewiki2023 from './2023-pokewiki.mdx';
+import * as Homelab2025 from './2025-homelab-lessons.mdx'
 
 const AllPosts: IPostMetadata[] = [
   Rant2022,
@@ -14,6 +15,7 @@ const AllPosts: IPostMetadata[] = [
   Vercel2022,
   Cloudflare2023,
   Pokewiki2023,
+  Homelab2025
 ].sort((a, b) => (new Date(a.publishedTime).valueOf() < new Date(b.publishedTime).valueOf()
   ? 1
   : -1)).map((entry) => formatMetadata(entry));

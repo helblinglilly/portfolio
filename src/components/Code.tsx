@@ -11,13 +11,13 @@ import 'highlight.js/styles/nord.css';
 export interface CodeSection {
   code: string;
   filename: string;
-  languageName: string;
+  languageName?: string;
 }
 
 export default function Code({ code, filename, languageName } : {
   code: string;
   filename?: string;
-  languageName: string;
+  languageName?: string;
 }) {
   const [highlightedCode, setHighlightedCode] = useState(code);
   hljs.registerLanguage('json', json);
@@ -26,10 +26,12 @@ export default function Code({ code, filename, languageName } : {
   hljs.registerLanguage('apache', apache);
 
   useEffect(() => {
-    const highlighted = hljs.highlight(code, {
-      language: languageName,
-    }).value;
-    setHighlightedCode(highlighted);
+    if (languageName){
+      const highlighted = hljs.highlight(code, {
+        language: languageName,
+      }).value;
+      setHighlightedCode(highlighted);
+    }
   }, [languageName, code]);
 
   return (

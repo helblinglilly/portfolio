@@ -1,0 +1,146 @@
+import SocialPreview from '@/components/SocialPreview.tsx'
+import Code from '@/components/Code.tsx'
+import Image from 'next/image'
+
+export const title = 'Hard lessons learnt from homelabbing';
+export const description = 'Nothing is worse than accidentally undoing months worth of work - how can we avoid this when setting up "just our own little projects".';
+export const publishedTime = new Date('2025-03-01T12:00:00.00Z').toISOString();
+export const modifiedTime = new Date('2025-03-01T12:00:00.00Z').toISOString();
+export const url = '/blog/2025-homelab-lessons';
+
+# Intro
+
+Typically, I try to build my software following Murphy's Law
+
+> Anything that can go wrong, will go wrong
+
+and I usually keep the dimension of time in mind with this. What I didn't anticipate is that my old SD Cards
+I had laying around would sometimes only have about 3 months worth of life left in them.
+
+# How I got here
+
+[Castblock](https://github.com/erdnaxeli/castblock) is a brilliant project and incredibly easy to use.
+You deploy a single docker container on any device in your network, and it will find any Youtube videos
+being Chromecasted in your network and skip the sponsor spots and mute audio while ads were playing.
+
+Immediately the task was clear, install docker and docker-compose on a Raspberry Pi I had laying around,
+keep the compose file on my laptop somewhere as a backup and never deal with annoying ads again.
+
+What grew from there was a [Github repo](https://github.com/helblinglilly/piserver) dedicated to managing
+my Pi. I soon learnt about PiHole, Plex, wanted to host my own web applications etc. The tasks, at their
+core, were still simple. Assuming the Pi was set up such that:
+
+- Docker and Docker Compose were installed
+- My user was added to the Docker group
+- The Github runners service was running and healthy
+- The USB-attached hard drive was healthy and mounted correctly
+- I wasn't doing anything intensive on the machine for the next 30mins
+
+## Credit where credit is due
+
+As my setup grew, I knew that something would someday go wrong. I thought just keeping a Github repo
+would save me because I could just push any code changes to main and they would get deployed.
+Yes the image had to be built on the Pi and destroying/restarting all the images took its fair time as well, but it worked!
+
+Thinking ahead, I knew I lived on borrowed time and I kept backups of some important steps like getting docker
+installed so that if something were to break, I could get set up again in less than an hour.
+Did I ever verify this restore process? Of course not. Then the SD card got corrupted.
+
+
+## What did I learn from that?
+
+Not much.
+
+I got a new SD Card out of my drawer, pulled the repo down, ran the scripts and. Oh, those scripts had a lot of
+assumptions in them. Well that's alright, I can fix those assumptions now and it'll be better next time 🤡
+
+Rinse and repeat two more times. The scripts did get better, and I managed to be back up and running in less
+than an hour on the final run. But I knew something needed to change.
+
+# So what changed?
+
+At this point, I'd already deployed across two Pi's because one wasn't powerful enough for everything I wanted
+to run.
+
+What changed was the third machine (and Terraform).
+
+I wanted to try out [Immich](https://immich.app/) as a replacement to Google Photos, and I wanted to keep
+my actual media files in the Cloud - if my house were to suddenly burn down or my cat would somehow knock the
+harddrive down, I'd still want acacess to my memories.
+
+As part of building out [Pokecompanion](https://pokecompanion.com) I already started building my cloud
+infrastructure through Terraform, so this new machine running Immich would be no different.
+
+## Ansible
+
+Endorsed by [Wolfgang](https://www.youtube.com/@WolfgangsChannel), I thought this would be worth a try
+before adding new Infrastructure and giving myself more headaches.
+
+Ansible lets you define "playbooks" that can be run against multiple machines at the same time, the
+only assumption is that your current user has access to them via SSH. Every step lets you define
+states, so if a folder already exists, don't create it. If docker is already installed, don't try
+to install it again.
+
+After thinking I was done migrating all my previous shell scripts across, I voluntarily nuked
+my Pis again, and set them up from scratch only using those Ansible scripts. There were some pain points,
+but it worked.
+
+# What does my configuration look like now?
+
+All this time, I've used Github to "drive" changes thinking I don't want to be dependant on my laptop.
+My laptop is in fact the only entity which I've never had any problems with. I still push code changes
+to GitHub, but more as a backup mechanism and any changes are now deployed via my local system.
+
+To set up this new machine running Immich, I started off with its Terraform config (to actually get an instance in my name).
+
+That ended up looking something like this, with minimal setup in the cloudconfig - as every change to that
+requires the instance to be destroyed and recreated.
+
+<br />
+
+```tf
+resource "hcloud_server" "immich" {
+  name                     = "immich"
+  image                    = "ubuntu-24.04"
+  server_type              = "cx22"
+  location                 = "fsn1"
+  shutdown_before_deletion = true
+  backups                  = true
+  ssh_keys                 = [hcloud_ssh_key.mylaptop.id]
+
+  user_data = <<-EOF
+    # Sets up a user account with my SSH key
+    users:
+      - name: ${var.server_username}
+        groups: sudo
+        shell: /bin/bash
+        sudo: ['ALL=(ALL) NOPASSWD:ALL']
+        ssh_authorized_keys:
+          - "${chomp(file(var.ssh_public_key))}"
+
+    # Setup for any hard drive mounts
+  EOF
+}
+```
+
+with my ansible playbooks colocated
+
+```
+/immich
+  server.tofu
+  provider.tofu
+  variables.tofu
+  plan.sh
+  /ansible
+    /immich
+      restore.yaml
+      backup.yaml
+      install.yaml
+    /newrelic-agent
+      docker-compose.yaml
+      newrelic.yaml
+    docker.yaml
+    inventory.ini
+
+
+```
