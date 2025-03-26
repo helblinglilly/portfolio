@@ -1,6 +1,6 @@
-import type React from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type React from "react";
 
 export const runtime = "edge";
 
@@ -122,6 +122,7 @@ export default async function Post() {
 		"homelab",
 		"infra-as-code",
 		[
+		  "qr.helbling.uk",
 			"avatar.helbling.uk",
 			"helbling.uk",
 			"mp4.helbling.uk",
