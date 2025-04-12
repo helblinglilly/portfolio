@@ -25,7 +25,11 @@ export default async function RootLayout({
 		<html lang="en" suppressHydrationWarning>
 			<body>
 				{process.env.NODE_ENV === "production" && (
-					<Script src="/js/newrelic.js" />
+				<Script
+            src="https://analytics.helbling.uk/script.js"
+            data-website-id="76ff2b4e-bc0a-483e-a1a0-970545bf0feb"
+            strategy="afterInteractive"
+          />
 				)}
 				<Theme>
 					<ClientLayout>
