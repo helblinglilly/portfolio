@@ -1,6 +1,5 @@
-/* eslint-disable react/react-in-jsx-scope */
 import { useTheme } from 'next-themes';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function ThemeIcon() {
   const { theme } = useTheme();

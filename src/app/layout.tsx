@@ -1,13 +1,11 @@
-import "./globals.css";
 import "@/app/markdown.css";
-import React, { type ReactNode } from "react";
-import type { Metadata } from "next";
-import Theme from "@/providers/Theme";
 import metadataGenerator from "@/helpers/metadata";
+import Theme from "@/providers/Theme";
+import type { Metadata } from "next";
 import Script from "next/script";
+import { type ReactNode } from "react";
 import ClientLayout from "./clientLayout";
-import { cookies } from "next/headers";
-import type { HomepageMode } from "@/providers/ViewMode";
+import "./globals.css";
 
 export function generateMetadata(): Metadata {
 	return metadataGenerator({
@@ -22,19 +20,15 @@ export default async function RootLayout({
 }: {
 	children: ReactNode;
 }) {
-	const cookieStore = await cookies();
-	const homepageMode = cookieStore.get("homepage-mode")?.value as
-		| HomepageMode
-		| undefined;
 
 	return (
-		<html lang="en">
+		<html lang="en" suppressHydrationWarning>
 			<body>
 				{process.env.NODE_ENV === "production" && (
 					<Script src="/js/newrelic.js" />
 				)}
 				<Theme>
-					<ClientLayout homepageProviderInitial={homepageMode}>
+					<ClientLayout>
 						{children}
 					</ClientLayout>
 				</Theme>
