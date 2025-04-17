@@ -31,6 +31,7 @@ export default async function RootLayout({
             strategy="afterInteractive"
           />
 				)}
+
 				<Theme>
 					<ClientLayout>
 						{children}
