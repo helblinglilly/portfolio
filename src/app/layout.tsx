@@ -2,6 +2,7 @@ import "@/app/markdown.css";
 import metadataGenerator from "@/helpers/metadata";
 import Theme from "@/providers/Theme";
 import type { Metadata } from "next";
+import Head from "next/head";
 import Script from "next/script";
 import { type ReactNode } from "react";
 import ClientLayout from "./clientLayout";
@@ -23,6 +24,9 @@ export default async function RootLayout({
 
 	return (
 		<html lang="en" suppressHydrationWarning>
+		<Head>
+		  <link rel="canonical" href="https://helbling.uk" />
+		</Head>
 			<body>
 				{process.env.NODE_ENV === "production" && (
 				<Script
