@@ -1,12 +1,11 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/Accordion";
-import React from "react";
 
 export default function ToolsProfessional(){
   return (
     <>
       <h2 className='h2'>Tech Stack</h2>
       <Accordion type="single" collapsible className="w-full">
-        <AccordionItem value="item-1">
+        <AccordionItem value="item-1" data-umami-event="accordion-mobile">
           <AccordionTrigger>Mobile App Development</AccordionTrigger>
           <AccordionContent>
             <div className="grid gap-2">
@@ -15,7 +14,7 @@ export default function ToolsProfessional(){
             </div>
             </AccordionContent>
         </AccordionItem>
-        <AccordionItem value="item-2">
+        <AccordionItem value="item-2" data-umami-event="accordion-browser">
           <AccordionTrigger>Browser Experiences</AccordionTrigger>
           <AccordionContent>
             <div className="grid gap-2">
@@ -54,7 +53,7 @@ export default function ToolsProfessional(){
             </div>
           </AccordionContent>
         </AccordionItem>
-        <AccordionItem value="item-3">
+        <AccordionItem value="item-3" data-umami-event="accordion-deployment">
           <AccordionTrigger>Deployment</AccordionTrigger>
           <AccordionContent>
             <div className="grid gap-1">
@@ -64,7 +63,7 @@ export default function ToolsProfessional(){
             </div>
           </AccordionContent>
         </AccordionItem>
-        <AccordionItem value="item-4">
+        <AccordionItem value="item-4" data-umami-event="accordion-manage">
           <AccordionTrigger>Management and Health</AccordionTrigger>
           <AccordionContent>
             <div className="grid gap-1">
@@ -76,34 +75,5 @@ export default function ToolsProfessional(){
         </AccordionItem>
       </Accordion>
     </>
-    // <div className="grid gap-4 grid-cols-1 md:grid-cols-2">
-    //   <div>
-    //     <h2 className='h2'>Stack</h2>
-    //     <ul>
-    //       <li>React Native ✨</li>
-    //       <ul>
-    //         <li><i>As of October 2024</i></li>
-    //       </ul>
-    //       <li>NextJS / React / Typescript</li>
-    //       <li>GraphQL via Apollo</li>
-    //       <li>AWS via Terraform</li>
-    //       <li>kubernetes and Docker</li>
-    //       <li>NewRelic</li>
-    //       <li>Git(lab) and Jira</li>
-    //     </ul>
-    //   </div>
-
-    //   <div>
-    //     <h2 className="h2 pt-4 md:pt-0">What I've worked with before</h2>
-
-    //     <ul>
-    //       <li>.NET</li>
-    //       <li>MSSQL</li>
-    //       <li>Jenkins</li>
-    //       <li>Python / Databricks / Pandas</li>
-    //     </ul>
-    //   </div>
-    // </div>
-
   )
 }
