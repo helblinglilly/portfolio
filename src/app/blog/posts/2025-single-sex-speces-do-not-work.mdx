@@ -1,0 +1,90 @@
+import SocialPreview from '@/components/SocialPreview.tsx'
+
+export const title = 'Single sex spaces are not enforceable';
+export const description = "It will get worse before it gets better. Minorities losing their rights is a net-negative to everyone. Here's why I fear it will get worse before it will get better thanks to democratic systems and the age of social media.";
+export const tags = [];
+export const publishedTime = new Date('2025-05-02T09:00:00.00Z').toISOString();
+export const modifiedTime = new Date('2025-05-02T09:00:00.00Z').toISOString();
+export const url = '/blog/2025-single-sex-speces-do-not-work';
+import Code from '@/components/Code.tsx'
+
+## Prefix
+
+Is it selfish to post an opinion about human values in reaction to news that directly targets a demographic that I'm part of? Maybe, but when people are willing to listen, say something that matters.
+
+This is based on my personal opinions and experiences. Citation needed.
+
+<p><i>Published following the ruling of the UK's Supreme Court that <a href="https://www.theguardian.com/society/2025/apr/16/critics-of-trans-rights-win-uk-supreme-court-case-over-definition-of-woman">defines a woman in law by sex, not gender</a> in the Equalities Act 2010.</i></p>
+
+## Divide and conquer
+
+This recent ruling is not _actually_ about "protecting" anybody. This is about making headlines, creating polarising debates and dividing communities.
+
+Decision-makers always seek to divide people and create an "us and them". It doesn't matter if anybody's left-handed, a woman, communist, gay, follows a different religion, or was born on the other side of an imaginary line on the ground. They are creating a narrative that "we" need to be protected and that "they" are not welcome here. Where's the humanity in that? Where does this lead to?
+
+What would the working people, humanity, be able to achieve if we united? Power would be <a href="https://en.wikipedia.org/wiki/Citizens%27_assembly">distributed</a> and <a href="https://fuelarc.com/cars/only-tesla-exempt-from-new-auto-tariffs-thanks-to-85-domestic-content-rule/">less easily abused</a>.
+
+In the immediate term, we can fight against this by calling out fabricated issues for what they are instead of engaging with them and normalising their discussion. In the long term, we need to stand up for each other, show empathy, and remember that we're all just people. It's never too late to learn, admit past mistakes, and try to be a better person tomorrow, than we were today.
+
+
+## Why separation by sex at birth is unworkable
+
+> **Gender:** a group of people in a society who share particular qualities or ways of behaving which that society associates with being male, female, or another identity.<br />
+**Sex:** the physical state of being either male, female, or intersex.<br />
+<i>Cambridge dictionary</i>
+
+Gender is nuanced, complex, and individual - thereby not easily compatible with the law. As the objective was to clarify the law, distinguishing by sex is the easier route because it is provable, which gender is not as it's a spectrum.
+
+Much like software engineers, they were effectively tasked to either take on a big project with a high maintenance burden or reduce scope and create something that works 90% of the time and pretend the other 10% doesn't exist.
+
+Which of the examples below is simpler to reason about?
+
+<Code
+languageName="ts"
+code ={`interface Sex {
+    // obviously this would be male-centric
+    // erasing intersex people as well
+    isMale: true | false
+}`}
+/>
+
+
+or this
+
+<Code
+languageName="ts"
+code ={`interface GenderIdentity {
+    assignedGenderAtBirth: 'female' | 'male';
+    anatomyAtBirth: 'venus' | 'mars'  | 'other';
+    currentAnatomy: 'venus' | 'mars' | 'other';
+    legalSex: 'female' | 'male'  | 'non-binary';
+    perceivedIdentityBySociety: 'female' | 'male' | 'people_get_confused';
+    identity: string;
+    pronouns: Array<{
+        direct: string;
+        indirect: string;
+    }>
+}`}
+/>
+
+The first example is of course simpler, and some might argue that the second example is overly complicated and not applicable to everyday life. However, depending on the context, different parts of an identity might be relevant. A trans man being brought in for a prostate exam might not be appropriate. Identity will not matter when someone's bones are dug up in a few millennia. Some people might consider anatomy when dating, some might not.
+
+In regards to the Equalities Act 2010, the relevant part of one's identity is what is perceived by society, because that is how people in everyday life get discriminated against. Specifying this in law is a difficult task as one's perceived identity is subjective, but pretending it's not at least a contributing factor is ignorant and unacceptable.
+
+The outcome, lining this up with a person's legal sex at birth, is not enforceable in everyday life, only in the courts. How could this possibly be protecting cis women in single-sex spaces? A predator will not stop at the risk of a lawsuit or time in prison, the same as they won't be stopped by a sign on a toilet door.<br />Who will be stopped by this? The trans woman who's just trying to go about her business. She will fear that it will take just one <a href="https://en.wikipedia.org/wiki/TERF_(acronym)">TERF</a> to <a href="https://lgbtqia.wiki/wiki/Clocking">clock</a> her, pursue legal action, and her life could be turned upside down.
+
+Trans men are, as usual, <a href="https://www.huffingtonpost.co.uk/entry/mp-leaves-ex-minister-speechless-with-fact-about-trans-ruling_uk_680f4a12e4b049bc73d57f60">completely forgotten about</a> - despite the much graver security implications for women.
+
+Following the logic which is now clarified in law, women are safe amongst men in single-sex spaces as long as they were _born_ with the same genitalia? A <a href="https://www.urbandictionary.com/define.php?term=passing">passing</a> trans man using women-only spaces will raise far more suspicion than a passing trans woman. Where are they supposed to do their business when they are legally not allowed in men's single-sex spaces? It's also the last straw for the supposed safety argument. A predator, who is somehow looking for an excuse, could just enter women's spaces and claim they're a trans man - no need to "put on a dress" anymore.
+
+## Conclusion
+
+No matter which perspective you consider, this ruling does not make practical sense. It is, however, in the eyes of some people, the intuitive answer. It's the answer which aligns with their close-minded world view which dares not be challenged by anyone. I cannot offer a perfect, inclusive yet enforceable alternative. I am also not paid to do so.
+
+<br />
+
+---
+
+<br />
+
+_If you'd like to read more thoughts about the state of the world, written by yours truly, you might find my take on <a href="/blog/2025-democracy-in-the-digital-age">democracy in the modern age</a> quite interesting._
