@@ -29,11 +29,27 @@ export default async function RootLayout({
 		</Head>
 			<body>
 				{process.env.NODE_ENV === "production" && (
-				<Script
+				<>
+				  <Script
             src="https://analytics.helbling.uk/script.js"
             data-website-id="76ff2b4e-bc0a-483e-a1a0-970545bf0feb"
             strategy="afterInteractive"
           />
+
+          <Script id="outbound-link-tracking" strategy="afterInteractive">
+            {`
+              (() => {
+                const name = 'outbound-link-click';
+                document.querySelectorAll('a').forEach(a => {
+                  if (a.host !== window.location.host && !a.getAttribute('data-umami-event')) {
+                    a.setAttribute('data-umami-event', name);
+                    a.setAttribute('data-umami-event-url', a.href);
+                  }
+                });
+              })();
+            `}
+          </Script>
+				</>
 				)}
 				<Theme>
 					<ClientLayout>
