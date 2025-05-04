@@ -1,0 +1,167 @@
+import SocialPreview from '@/components/SocialPreview.tsx'
+import Code from '@/components/Code.tsx'
+
+export const title = 'Infra as code everything';
+export const description = 'My hosting journey has brought me to configuring everything I via Infrastructure as Code tools. Some might consider this overkill. Here, I share my journey and the benefits I see when setting up a new service.';
+export const publishedTime = new Date('2025-06-07T12:00:00.00Z').toISOString();
+export const modifiedTime = new Date('2025-06-07T12:00:00.00Z').toISOString();
+export const url = '/blog/2025-iac-everything';
+
+I've been self-hosting different apps and services for a couple of years now. Over time, I've replaced multiple SD Cards, moved to the cloud, changed cloud providers, and spent too much time installing Docker and configuring Samba shares. Tinkering is fun, but if an SD Card dies as I'm about to watch my favourite show on Jellyfin, I want to spend as little time as possible setting up a fresh host.
+
+# Ansible
+
+At first, I didn't get the point of <a href="https://docs.ansible.com/ansible/latest/index.html">Ansible</a>. It seemed like it was just a way to avoid writing shell scripts, and that's still true to some extent. However, the extra convenience quickly starts to pay dividends.
+
+I used to keep a collection of shell scripts about, and the process looked a little bit like this:
+
+- Set up a user and SSH access for the machine
+- Copy shell scripts and related assets across
+- SSH into the machine and run them
+- Repeat for every machine I'm setting up
+
+This doesn't sound too bad, and it would seem that the emphasis is on setting up multiple machines which doesn't happen that often. However, should any of the machines have subtle differences like their CPU architecture, Linux distribution or others, then writing a bunch of `if` statements in shell scripts becomes quite tedious. Testing that any script adjustments made for machine B still work for machine A is also quite irritating and time-consuming. It's nothing that couldn't be addressed with a more consistent architecture and better shell scripting skills, but the former is beyond my control and I can't find the motivation for the latter in this context.
+
+When I'm forced to set up a new machine now, I have one playbook (what Ansible calls its scripts) that I can reuse everywhere to install Docker, or mount my network drive.
+
+## Service portability
+
+Take my Jellyfin configuration for example:
+
+<Code filename="jellyfin.yaml" languageName="yaml" code={`- name: Set up Jellyfin docker container
+  hosts:
+    - raspberry.local
+  tasks:
+    - name: Stop existing docker compose
+      command: docker compose -f ~/jellyfin.docker-compose.yaml down
+      ignore_errors: true
+
+    - name: Write docker compose file
+      copy:
+        dest: "~/jellyfin.docker-compose.yaml"
+        content: |
+          services:
+            jellyfin:
+              image: jellyfin/jellyfin:10.10
+              container_name: jellyfin
+              restart: unless-stopped
+              environment:
+                - PUID=1000
+                - PGID=1000
+                - TZ=Europe/London
+              volumes:
+                - /mnt/raspberry/filebrowser/files/media/jellyfin-config:/config
+                - /mnt/raspberry/filebrowser/files/media/tvshows:/tvshows:ro
+                - /mnt/raspberry/filebrowser/files/media/movies:/movies:ro
+                - /mnt/raspberry/filebrowser/files/media/music:/music:ro
+                - /mnt/raspberry/filebrowser/files/media/videos:/videos:ro
+                - jellyfin_cache:/cache
+              ports:
+                - 8096:8096
+              network_mode: bridge
+              dns:
+                - 1.1.1.1
+                - 8.8.8.8
+
+          volumes:
+            jellyfin_cache:
+
+    - name: Start stack
+      command: docker compose -f ~/jellyfin.docker-compose.yaml up -d
+`} />
+
+Assuming other machines have the same mount point defined for the hard drive, moving this service is as simple as changing the `hosts` entry.
+
+Another aspect that I like about this is that I can edit my docker-compose file in context, and I know that what I see on my laptop is what will be used when I run the script. The number of times that I modified a compose file on the host itself, fixed whatever issue I had, then destroyed my progress by re-running the stale file off my laptop is... embarrassing.
+
+# OpenTofu (Terraform)
+
+_<a href="https://opentofu.org/blog/opentofu-announces-fork-of-terraform/">OpenTofu</a> is effectively the same as Terraform, but without the terrible license terms that Terraform adopted_
+
+At my first Software Engineering job, we were halfway through our AWS migration so I quickly had to learn cloud infrastructure and Terrraform. I think it's fair to say that we didn't know what we were doing yet and our setup for how we coordinated shell scripts, our Jenkins runners, Kubernetes and AWS reflected that. There was a stark contrast between what online resources were telling me the benefits of IaC was, and what I was experiencing. At my next workplace, IaC (still Terraform) was incredibly easy to work with and I was keen to get involved, taking lessons and downfalls of the setup at my old employer on board. Anyway, now with enough confidence that Infrastructure as Code can work well, I wanted to try and adopt it at home for my other projects.
+
+Initially, I wanted to set up a <a href="https://pocketbase.io/">Pocketbase</a> instance on AWS and host it on a single EC2 instance, fitting perfectly within the free tier. AWS is probably not the friendliest cloud provider to start learning this with. Setting up a hosted zone, load balancing, SSL certs, and security groups was a good AWS refresher; but it wasn't fun. I tried to abstract some of this into a <a href="https://github.com/helblinglilly/aws-pocketbase">Terraform module</a> but eventually got tangled in my own mess.
+
+I continued moving my other projects to <a href="/blog/2023-cloudflare">Cloudflare</a> and started to build those out via Terraform too. When I pulled together environment variables from different sources, the whole setup started to shine. <a href="https://reddit.helbling.uk">reddit.helbling.uk</a> requires a Google Cloud Platform API key to talk to the Youtube API, and I could set all of this up without ever seeing the API key in a UI. When I moved the Pocketbase instance to a different subdomain, I didn't need to touch my Cloudflare setup at all, it updated the environment variables as part of the setup - like magic.
+
+As my AWS Free Tier expired and my monthly bill shot from $0.60 to $13, I decided to move off AWS and over to Hetzner. Most of my code was not transferable and so I switched from hosting Pocketbase on bare-metal to a Docker container. The cheapest Hetzner instances have more RAM than the cheapest EC2 instances on AWS so I started to move more services off my local Raspberry Pi's and over to Hetzner.
+
+Because I already had the Ansible scripts to set up Docker, the services itself, etc I only needed to create the instance, and make it accessible.
+
+Before exposing these services to the public, I wanted to protect them with some level of user access policies - ideally managed by Cloudflare to avoid DDoS attacks on my cloud server. Setting up a <a href="https://developers.cloudflare.com/cloudflare-one/policies/access/app-paths/">Cloudflare Zero Trust</a> tunnel required minimal setup and gave me the ability to control access via Terraform too.
+
+Now, when setting up a new a new service, I can reuse my Ansible playbooks to get the application running, and handle the public interface via Terraform.
+
+The code snippet below covers the Terraform setup to:
+
+- Set up a new DNS entry pointing at the tunnel
+- Tell the tunnel where to route that traffic to
+- Configure access policies for that host on the tunnel
+
+<Code filename="notes.tofu" languageName="terraform" code={`resource "cloudflare_dns_record" "notes" {
+    zone_id = var.cloudflare_zone_id
+    name    = "notes"
+    content = "$\{cloudflare_zero_trust_tunnel_cloudflared.cloudlab.id\}.cfargotunnel.com"
+    type    = "CNAME"
+    comment = "Cloudflare Tunnel"
+    proxied = true
+    ttl     = 1
+}
+
+resource "cloudflare_zero_trust_tunnel_cloudflared_config" "cloudlab_config" {
+    account_id = var.cloudflare_account_id
+    tunnel_id  = cloudflare_zero_trust_tunnel_cloudflared.cloudlab.id
+
+    config = {
+      ingress = [
+        # other services ...
+        {
+          hostname = "notes.helbling.uk"
+          service  = "http://localhost:1111"
+        },
+        {
+          service = "http_status:404"
+        }
+      ]
+    }
+}
+
+resource "cloudflare_zero_trust_access_application" "memos" {
+    domain                      = "notes.helbling.uk"
+    type                        = "self_hosted"
+    zone_id                     = var.cloudflare_zone_id
+    allowed_idps                = [cloudflare_zero_trust_access_identity_provider.google.id]
+    self_hosted_domains         = ["notes.helbling.uk/*"]
+    # .. other config
+    policies = [
+      {
+        decision   = "allow"
+        id         = cloudflare_zero_trust_access_policy.allow_me_only.id
+        precedence = 0
+      }
+    ]
+
+    destinations = [
+      {
+        type = "public"
+        uri  = "notes.helbling.uk"
+      }
+    ]
+}
+
+`} />
+
+Run my `./plan.sh` script to run `tofu plan` and populate my sensitive variables, run `tofu apply` and done - this takes less than 2 minutes!
+
+The result? I challenge you to log in to <a href="https://notes.helbling.uk">notes.helbling.uk</a>. This setup also allows me to try out new services with very little friction that are easy to delete again.
+
+# Github
+
+Besides being a reliable backup in case my machine ever breaks, keeping a good commit history when changes are being made is incredibly valuable when you find yourself running in circles or retrying something you attempted before. As with most things, the initial "get something that works" commit will usually be huge, but when you get to a point where you try to optimise this step (and potentially fail), it's reassuring that you can always `git reset --soft HEAD~1` to get back to where you started.
+
+
+# Conclusion
+
+Repeatability can save you many hours and nerves when migrating infrastructure or performing complete restores. It comes at an upfront time cost, but in my experience, the reduced stress is worth the investment.
+
+These tools aren't magic, they just helped _me_ to get a job done. By adopting them, their strengths became more apparent and highlighted weaknesses in my previous approaches. To me, they offer the right level of abstraction and have helped me spend my time more wisely.
