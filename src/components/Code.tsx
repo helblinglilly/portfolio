@@ -1,12 +1,13 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
 import hljs from 'highlight.js/lib/core';
-import json from 'highlight.js/lib/languages/json';
-import yaml from 'highlight.js/lib/languages/yaml';
+import apache from 'highlight.js/lib/languages/apache';
 import bash from 'highlight.js/lib/languages/bash';
-import apache from 'highlight.js/lib/languages/apache'
+import json from 'highlight.js/lib/languages/json';
+import tcl from 'highlight.js/lib/languages/tcl';
+import yaml from 'highlight.js/lib/languages/yaml';
 import 'highlight.js/styles/nord.css';
+import { useEffect, useState } from 'react';
 
 export interface CodeSection {
   code: string;
@@ -24,6 +25,7 @@ export default function Code({ code, filename, languageName } : {
   hljs.registerLanguage('yaml', yaml);
   hljs.registerLanguage('bash', bash);
   hljs.registerLanguage('apache', apache);
+  hljs.registerLanguage('terraform', tcl);
 
   useEffect(() => {
     const highlighted = hljs.highlight(code, {
