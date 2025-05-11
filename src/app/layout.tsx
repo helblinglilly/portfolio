@@ -32,7 +32,7 @@ export default async function RootLayout({
 				<>
 				  <Script
             src="https://analytics.helbling.uk/script.js"
-            data-website-id="76ff2b4e-bc0a-483e-a1a0-970545bf0feb"
+            data-website-id="11bbfb52-ea1f-401b-96ca-72f074fb41d1"
             strategy="afterInteractive"
           />
 
