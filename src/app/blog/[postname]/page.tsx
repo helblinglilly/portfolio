@@ -1,10 +1,10 @@
-import React from 'react';
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
-import formatMetadata from '../helpers';
-import metadataGenerator from '@/helpers/metadata';
+import React from "react";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import formatMetadata from "../helpers";
+import metadataGenerator from "@/helpers/metadata";
 
-export const runtime = 'edge';
+export const runtime = "edge";
 
 // notFound throws
 // eslint-disable-next-line consistent-return
@@ -25,18 +25,14 @@ async function getPostData(postname: string) {
   }
 }
 
-export async function generateMetadata(
-  props: {
-    params: Promise<{
-      postname: string;
-    }>
-  }
-) {
+export async function generateMetadata(props: {
+  params: Promise<{
+    postname: string;
+  }>;
+}) {
   const params = await props.params;
 
-  const {
-    postname
-  } = params;
+  const { postname } = params;
 
   try {
     const blogpost = await getPostData(postname);
@@ -45,30 +41,29 @@ export async function generateMetadata(
     return metadataGenerator({
       title: postMeta.title,
       description: postMeta.description,
-      type: 'article',
+      type: "article",
       tags: postMeta.tags,
       publishedTime: postMeta.publishedTime,
       modifiedTime: postMeta.modifiedTime,
       authors: {
-        name: postMeta.author.name ?? 'Lilly Helbling',
-        url: postMeta.author.url ?? 'https://helbling.uk'
+        name: postMeta.author.name ?? "Lilly Helbling",
+        url: postMeta.author.url ?? "https://helbling.uk",
       },
-      url: postMeta.url
+      url: postMeta.url,
     });
   } catch {
     return metadataGenerator({
-      title: '404',
-      description: 'Post does not exist',
-      url: 'https://helbling.uk',
+      title: "404",
+      description: "Post does not exist",
+      url: "https://helbling.uk",
       publishedTime: new Date().toISOString(),
-      modifiedTime: new Date().toISOString()
+      modifiedTime: new Date().toISOString(),
     });
   }
 }
 
-
 export default async function Post(props: {
-  params: Promise<{ postname: string }>
+  params: Promise<{ postname: string }>;
 }) {
   const params = await props.params;
   const { postname } = params;
@@ -81,11 +76,10 @@ export default async function Post(props: {
         <h1 className="text-3xl font-semibold mb-2">{Content.title}</h1>
 
         <span className="blogHeader">
-          <p>
-            {new Date(postMeta.publishedTime).toLocaleDateString('en-GB')}
-            ,
-          </p>
-          <Link href={postMeta.author.url} className='anchor'>{postMeta.author.name}</Link>
+          <p>{new Date(postMeta.publishedTime).toLocaleDateString("en-GB")},</p>
+          <Link href={postMeta.author.url} className="anchor">
+            {postMeta.author.name}
+          </Link>
         </span>
 
         <hr />
