@@ -5,19 +5,19 @@ import Intro from "@/homepage/intro";
 import Current from "@/homepage/current";
 import Tools from "@/homepage/tools";
 
-const profilePictureURL = "https://static.helbling.uk/profile/current.jpg";
+const profilePictureURL = "/images/profile.jpg";
 
 function Homepage() {
   return (
     <React.Fragment>
-      <header className="flex flex-row gap-4 w-full justify-center">
-        <Image
+      <header className="flex flex-row gap-4 h-36 w-full justify-center">
+        <img
           src={profilePictureURL}
           alt="Profile Picture"
-          width={200}
-          height={200}
-          priority
-          className="rounded-full h-32 w-auto"
+          width={400}
+          height={400}
+          loading="eager"
+          className="rounded-full w-auto"
         />
         <div className="min-w-fit mt-auto mb-auto">
           <h1 className="text-2xl font-semibold">Lilly Helbling</h1>
