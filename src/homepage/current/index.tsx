@@ -8,8 +8,8 @@ export default function CurrentProfessional() {
 
         <div className="grid gap-2">
           <p className="">
-            Validate solution in production early and responsibly, delivering
-            user value sooner. Backed by strong observability and graceful
+            Validate solutions in production early and responsibly, delivering
+            user value quicker. Backed by strong observability and graceful
             degregation, this pathes the way for fast iterations.
           </p>
           <p className="">
