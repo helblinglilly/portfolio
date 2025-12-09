@@ -1,18 +1,27 @@
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/Accordion";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/Accordion";
 
-export default function ToolsProfessional(){
+export default function ToolsProfessional() {
   return (
     <>
-      <h2 className='h2'>Tech Stack</h2>
+      <h2 className="h2">Tech Stack</h2>
       <Accordion type="single" collapsible className="w-full">
         <AccordionItem value="item-1" data-umami-event="accordion-mobile">
           <AccordionTrigger>Mobile App Development</AccordionTrigger>
           <AccordionContent>
             <div className="grid gap-2">
               <p>React Native targetting Android & iOS</p>
-              <p>Data and versioning managed via Backend for Frontend</p>
+              <p>Maestro for E2E testing</p>
+              <p>
+                Integrating tightly with a Backend for Frontend to ship to as
+                many users as possible.
+              </p>
             </div>
-            </AccordionContent>
+          </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-2" data-umami-event="accordion-browser">
           <AccordionTrigger>Browser Experiences</AccordionTrigger>
@@ -26,18 +35,30 @@ export default function ToolsProfessional(){
               <div className="pb-2 grid gap-1">
                 <p className="font-bold">Testing</p>
                 <ul>
-                  <li><p>Jest Unit Tests</p></li>
-                  <li><p>Storybook for collaboration</p></li>
-                  <li><p>Cypress End to End</p></li>
-                  <li><p>Mock Service Worker</p></li>
+                  <li>
+                    <p>Vitest/Jest Unit Tests</p>
+                  </li>
+                  <li>
+                    <p>Storybook for collaboration</p>
+                  </li>
+                  <li>
+                    <p>Cypress End to End</p>
+                  </li>
+                  <li>
+                    <p>Mock Service Worker</p>
+                  </li>
                 </ul>
               </div>
 
               <div className="grid gap-1">
                 <p className="font-bold">On the client</p>
                 <ul>
-                  <li><p>React</p></li>
-                  <li><p>Tailwind (preferred), CSS/SCSS</p></li>
+                  <li>
+                    <p>React professionally, Svelte for personal use</p>
+                  </li>
+                  <li>
+                    <p>Tailwind (preferred), CSS/SCSS</p>
+                  </li>
                 </ul>
               </div>
 
@@ -46,9 +67,7 @@ export default function ToolsProfessional(){
                 <ul>
                   <li>NextJS</li>
                   <li>Node</li>
-                  <li>.NET</li>
                 </ul>
-
               </div>
             </div>
           </AccordionContent>
@@ -67,7 +86,9 @@ export default function ToolsProfessional(){
           <AccordionTrigger>Management and Health</AccordionTrigger>
           <AccordionContent>
             <div className="grid gap-1">
-              <p>Observability and Alerting with New Relic, Sentry or Instana</p>
+              <p>
+                Observability and Alerting with New Relic, Sentry or Instana
+              </p>
               <p>Source control through Git, managed on Gitlab</p>
               <p>Tasks completed in sprints, managed in Jira</p>
             </div>
@@ -75,5 +96,5 @@ export default function ToolsProfessional(){
         </AccordionItem>
       </Accordion>
     </>
-  )
+  );
 }
