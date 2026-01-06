@@ -124,17 +124,16 @@ function ProjectListItem({
 
 export default async function Post() {
   const projectNames = [
+    "pokecompanion.com",
+    "timesheet.helbling.uk",
+    "reddit.helbling.uk",
     "homelab",
     "infra-as-code",
-    [
-      "qr.helbling.uk",
-      "avatar.helbling.uk",
-      "helbling.uk",
-      "mp4.helbling.uk",
-      "pokecompanion.com",
-      "reddit.helbling.uk",
-      "socialpreview.helbling.uk",
-    ],
+    "qr.helbling.uk",
+    "avatar.helbling.uk",
+    "helbling.uk",
+    "mp4.helbling.uk",
+    "socialpreview.helbling.uk",
     "crafts",
   ];
 

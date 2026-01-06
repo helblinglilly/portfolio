@@ -4,24 +4,57 @@ export const name = 'pokecompanion.com'
 export const production = "https://pokecompanion.com"
 export const github = 'https://github.com/helblinglilly/pokecompanion';
 
-My passion project, which is now on its third iteration using Svelte. While plenty of front-ends to the world of Pokémon already exist, none of them solve my needs quite right. On mobile, the site needs to feel light-weight and easily digestable. Additional features of the site should seek to be non-intrusive.
+Pokécompanion is my long-running passion project and is currently on its third major iteration, now built with SvelteKit. While there’s no shortage of PokeAPI frontends, none of them quite met my needs.
 
-At its core, it is just a PokeAPI frontend. But a number of microservices have sprawled from it. Lots of sites also let their data become out of date which is incredibly infuriating - and one day that will be me, so an auto-update functionality was also quite important.
+On mobile especially, I wanted something snappy and digestible. The contents should be well presented and easily digestable. Most importantly, it should support multiple languages.
 
-Product and project aside, it's also been a massive learning opportunity to apply new tech to a real product, such as:
+Over the years, as well as being genuinely helpful while playing Pokémon, this has also acted as my main project, my tech playground, the real product to experiment with new approaches and... it showed. I've spent approximately three months essentially rewriting everything but the UI. Here are just a handful of things I had to consider.
 
-- Auto-ingesting new data without need for manual input
-    - Using AWS Lambda and SQS
-    - Auto-deploying changes to a Github Repo
-- Using Pocketbase as a simple backend
-    - Handling OAuth
-    - Deploying to AWS with proper backup strategies
-    - Building a re-usable Pocketbase Terraform module
-- Using Cloudflare
-    - Pages projects to host this site
-    - R2 to host social media preview images
-    - Workers as microservices
-- Observability
-    - Error reporting with Sentry
-    - Log ingest with Axiom
-    - Migrate the above to New Relic
+#### API Separation
+
+This might seem obvious in hindsight, but the API endpoints originally lived inside the same SvelteKit project. That worked initially, but it tightly coupled the frontend and backend and didn't make for an easy path to reuse these endpoints with other clients. "What other clients?" I hear you ask. See, I'm now working more with React Native vs regular React at my job and I miss having a personal project that I'm passionate about and could use as a guinea pig. 
+
+Splitting out the API also helped me tackle a lot of the other issues pointed out below, creates an OpenAPI output instead of Svelte's TS proprietary type-sharing magic, and builds a solid backend that I should be confident to build a mobile app for in the future. Watch this space!
+
+#### Caching and performance
+
+Rendering a single Pokémon page creates up to 50 downstream API calls. Early on, I relied heavily on client-side caching via service workers, which helped repeat visits but still left initial page loads slower than I'd like.
+
+By consolidating data fetching in a single, long-running API I could:
+- Add Redis between the API and PokeAPI
+- Control cache of a single HTTP response to Cloudflare
+- Layer caching across the API, Cloudflare, and a service worker on the client
+
+This significantly improved performance from 3secs for an initial load to a few milliseconds on a warm cache. Most importantly, every request would contribute to keeping a global cache warm instead of just their own. In theory, the more use the site gets, the faster it should become (hopefully, I will eat those words one day).
+
+#### Staying up to date
+
+Many hobby projects become stale once the author loses interest and this was no exception when Scarlet/Violet was released. To avoid repeating that mistake, I experimented with an auto-update system.
+
+My first attempt involved a heavily over-engineered [Lambda + SQS setup](https://github.com/helblinglilly/pokecompanion-lambda/) that force-pushed updates to main. When I returned to the project after an 8-month break, it took far too long to understand what I’d built and I know I needed to add more than just search capabilities.
+
+I’ve since absorbed this logic into the API, using Redis as a lightweight queue broker. This makes the system easier to reason about, easier to extend with new jobs, and means I can keep development local with Pocketbase and a Redis instance instead of dealing with the Lambda debugging interface and incurring costs for every attempt.
+
+#### Observability & debugging
+
+I couldn't determine how people were actually using the site - something that I've come to appreciate in my day-job. So I've set up [umami](https://umami.is/) to learn more about my users in a non-intrusive way and without risk of only seeing part of the data thanks to ad blockers. 
+
+Sentry worked well frontend worked initially, but debugging between an API that I didn't control and a framework that I would only use in my spare time made it ineffective over time. To help fill in this gap, I moved as much business logic as possible into the API where I could use tools I’m far more comfortable with. New Relic now handles proper APM and logging, replacing a previous Axiom setup - all without costing anything at this scale.
+
+#### Migrating and dealing with tech debt
+
+With a Svelte 5 upgrade looming, I knew bugs were inevitable. If I wanted to upgrade and keep the site functional, I needed to know what it was doing. There are three ways to go about this: 
+
+- Rewrite everything using the same approaches to re-learn domain knowledge
+- Delete code by rewriting it elsewhere - you don't need to know about code that doesn't exist in a repo
+- Study the code. This is a personal project, I'm not going to do this.
+
+As you might be able to tell, I went with option 2 and shifted as much complexity as possible into the API and deliberately simplified the frontend. At this point, I consider the frontend more of a liability than an asset, so keeping it “dumb” is a feature, not a failure.
+
+#### Avoiding the fourth rewrite
+
+Now that the dust has settled, I’m ready to build new features — ideally without triggering a fourth full rewrite.
+
+To help with this, I’ve adopted bulletproof-react patterns for new frontend work. While it’s not commonly used in Svelte projects, it will help me manage risk. When I inevitably incur tech debt, it lives in a well-defined box with a limited blast radius.
+
+I hope this should help avoid another [three month project like this](https://github.com/helblinglilly/pokecompanion/compare/20b90791..07fef124). Touch wood.
