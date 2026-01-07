@@ -1,0 +1,103 @@
+import SocialPreview from '@/components/SocialPreview.tsx'
+
+export const title = 'I rewrote Pokecompanion again... kinda';
+export const description = 'The most valuable experience I gained in a personal project to date. Also a 3 month process that I do not wish to repeat. The platform improved, but without any new features why bother?';
+export const tags = ['Pokemon', 'PokeAPI'];
+export const publishedTime = new Date('2026-01-08T13:00:00.00Z').toISOString();
+export const modifiedTime = new Date('2026-01-08T13:00:00.00Z').toISOString();
+export const url = '/blog/2026-pokecompanion-rewrite';
+
+<br />
+
+# Why?
+
+The code was messy, boundaries unclear and generally dated. My skills and standards in my craft have improved over time, that's expected and not enough of a reason to justify a rewrite.
+
+The issue was the platform. I'll elaborate on the specifics below, but a decision needed to be made. Do I rewrite everything for the third time, abandon the project entirely, or take it seriously and try to fix it? Spoiler: I'd consider it fixed.
+
+## Observability
+
+Every week I got an Email from Sentry with new errors and I was simply ignoring them. "Failed to fetch" or "Request cancelled" really just aren't helpful and don't communicate user impact.
+
+I treated PokeAPI as a proper backend when I should've been treating it as a database. I couldn't distinguish between genuine logic faults and failed downstream network requests so how was I ever going to fix them?
+
+Furthermore, I couldn't establish what my users were doing since I didn't have an analytics platform. The only feedback I could get were from my partner and I, which was fine at the start, but if I wanted to grow and build useful features I needed better insights. So before starting any work, I set up an [analytics platform](https://umami.is), took some benchmarks and let it sit for a week while I laid out a plan.
+
+Fun fact: Singaporean bots running Chrome on Windows 7 really like it!
+
+## Forming a plan
+
+I started by laying out my current pain points:
+
+- Svelte 5 was released and included a new state management paradigm. Not having meaningfully worked on this project for over a year, debugging any migration issues was going to be difficult.
+- I stored .json files with PokeAPI data in the frontend. They were massive and needed to go.
+  - They powered the entire search client-side
+  - An auto-update setup existed, but broke months ago
+  - They were consumed all across the site, disguising the source of truth
+- No distinction in errors caused by downstream requests/unexpected data vs genuine logic errors
+- Big request waterfalls for every Pokemon, slowing down performance
+- My "value-add" platform (tagging feature) was a public Pocketbase instance which may be vulnerable to attacks.
+
+
+That felt like a lot, but a common architecture pattern started to look appealing. I needed a proper backend.
+
+## A new philosophy
+
+The frontend was no longer a cool bit of tech that I could play around with, but it became a liability. A new backend was going to transform PokeAPI data into
+simple-to-work-with data, so that the frontend could consume it without any modifications.
+
+The frontend had to stop talking to PokeAPI and Pocketbase entirely - everything should be managed by the backend.
+
+I wasn't going to compromise on type safety. The backend should output an OpenAPI schema and treat it like a product in its own right; the frontend would derive all its types from this spec.
+
+Most importantly: No new features were to be added yet as a strong foundation will make new developments easier in the future. Achieving parity first will also re-surface any hacks that were introduced in the past and allow me to deal with them properly. 
+In the meantime, a notebook can keep me company.
+
+
+# Natural improvements
+
+I addressed countless bugs, half of them I wasn't even aware of. Page by page, performance improved. I could re-consider my data fetching approach and expand my caching toolset: [Redis](https://redis.io/).
+
+Under the old architecture, cache could only exist in Cloudflare, or the client. The site would become faster, the further each client explored it - but there is no joy in exploring slow sites...
+Introducing a Redis cache between my new API (on a single server) and PokeAPI meant that every user contributed to the same shared cache. More users = faster site. I look forward to regretting this sentence in the future.
+
+Redis + [BullMQ](https://www.npmjs.com/package/bullmq) also gave me a new message broker so I rebuilt and absorbed [my old, over-engineered AWS solution](https://github.com/helblinglilly/pokecompanion-lambda/). A weekly data scrape would also pre-warm my cache with 7 day TTLs - very handy!
+
+## Results
+
+Navigating from the homepage to a Pokemon now takes milliseconds instead of seconds.
+
+Lighthouse scores for the most intensive page ([a Pokémon](https://pokecompanion.com/pokemon/194)) improved from ~72 to ~85.
+
+A [solid backend](https://api.pokecompanion.com/docs) with platform agnostic documentation and APM feeding into New Relic.
+
+Check the network tab when loading a Pokémon. No calls to [PokeAPI](https://pokeapi.co), no calls to a Pocketbase instance, and no massive .json files anymore! I could take the Pocketbase instance off the internet entirely which just helps me sleep at night.
+
+It's now running on Svelte 5. The migration script that they provided covered 90% of my code and debugging the remaining 10% was easily fixed in an evening.
+
+Typescript passes! I don't know how this ever got missed, but during the initial build I incurred > 100 TS errors. They are now confidently a relic of the past.
+
+The site remained in working order throughout the migration, and I continuously deployed to production.
+
+# Looking ahead
+
+Pokécompanion has been, and will continue to be my tech playground. 
+
+The only reason I rebuilt it in Svelte when it was previously an [Express App](https://pokemon.helbling.uk) was because I wanted to. <br />
+[Pocketbase](https://pocketbase.io) is only in use because it seemed like a cool open source project.<br />
+Styling? Is still a convoluted mess between component-specific CSS, some global setup, and Tailwind because I wanted to compare and contrast approaches.<br />
+[Storybook](https://storybook.js.org/) was in there once, because there was a period where we used it intensely at work and I needed to upskill.
+
+All these upgrades on their own would be an interesting tech challenge, but a huge waste of time. So what gives?
+
+Much like my professional work, Pokecompanion is evolving. I no longer pride myself in the quality of the code alone, but the overall product. I have a better understanding of tech debt and how to utilise it, but also respect when something requires more time and thought.
+
+With my business logic consolidated, platform agnostic type output, and a team-switch where I now work on a mobile app... I think it's time. Watch this space. A Pokécompanion app is in the works. Coming to a Google <s>I'm not paying $100/year, thanks Apple</s> Playstore near you in late 2026, early 2027.
+
+<br />
+
+---
+
+<br />
+
+[The diff](https://github.com/helblinglilly/pokecompanion/compare/20b90791..07fef124) speaks for itself.
