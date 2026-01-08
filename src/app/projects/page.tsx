@@ -9,6 +9,7 @@ interface IProject {
   name: string;
   link?: string;
   github?: string;
+  favicon?: string;
 }
 
 async function getPostData(postname: string): Promise<IProject> {
@@ -20,6 +21,7 @@ async function getPostData(postname: string): Promise<IProject> {
       name: mdx.name,
       link: mdx.production,
       github: mdx.github,
+      favicon: mdx.favicon,
     };
   } catch {
     throw new Error(`Failed to find .mdx file for ./${postname}.mdx`);
@@ -30,10 +32,12 @@ function ProjectTitle({
   name,
   link,
   github,
+  favicon,
 }: {
   name: string;
   link?: string;
   github?: string;
+  favicon?: string;
 }) {
   function ExternalLink({ children }: { children: React.ReactNode }) {
     if (!link) {
@@ -41,7 +45,7 @@ function ProjectTitle({
     }
 
     return (
-      <Link href={link} target="_blank" className="anchor link">
+      <Link href={link} target="_blank" className="anchor link inline-flex">
         {children}
       </Link>
     );
@@ -70,7 +74,18 @@ function ProjectTitle({
   return (
     <div className="inline-flex gap-4 mb-2">
       <ExternalLink>
-        <Name />
+        <div className="inline-flex gap-4 w-fit">
+          {favicon && (
+            <img
+              src={favicon}
+              alt={`Favicon for ${name}`}
+              height="fit-content"
+              width={30}
+              className="rounded-lg"
+            />
+          )}
+          <Name />
+        </div>
       </ExternalLink>
       <Github />
     </div>
@@ -96,13 +111,14 @@ function ProjectListItem({
   project,
   isNested,
 }: {
-  project: ValueOrArray<IProject>;
+  project: IProject;
   isNested?: boolean;
 }) {
   if (Array.isArray(project)) {
     const projArr = project as Array<IProject>;
     return (
-      <ul>
+      <ul className="grid gap-4">
+        {/*<nav></nav>*/}
         {projArr.map((proj) => (
           <ProjectListItem project={proj} key={proj.filename} isNested={true} />
         ))}
@@ -114,8 +130,16 @@ function ProjectListItem({
     <li>
       <Link
         href={`#${project.filename}`}
-        className={`anchor text-md ${!isNested ? "font-semibold" : ""}`}
+        className={`anchor text-md inline-flex gap-4 ${!isNested ? "font-semibold" : ""}`}
       >
+        {/*{project.favicon && (
+          <img
+            src={project.favicon}
+            alt={`Favicon for ${project.filename}`}
+            height={"fit-content"}
+            width={25}
+          />
+        )}*/}
         {project.name}
       </Link>
     </li>
@@ -152,7 +176,13 @@ export default async function Post() {
         <div className="mb-4">
           <ul>
             {orderedProjects.map((entry, i) => {
-              return <ProjectListItem project={entry} key={i} />;
+              return (
+                <ProjectListItem
+                  project={entry as IProject}
+                  key={i}
+                  isNested={false}
+                />
+              );
             })}
           </ul>
         </div>
