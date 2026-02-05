@@ -24,7 +24,7 @@ function Homepage() {
           <p>Software Engineer</p>
           <p>info@helbling.uk</p>
           <p>
-            <i>she/they</i> 🏳️‍⚧️
+            <i>she/her</i> 🏳️‍⚧️
           </p>
         </div>
       </header>
