@@ -10,7 +10,7 @@ export default function CurrentProfessional() {
           <p className="">
             Validate solutions in production early and responsibly, delivering
             user value quicker. Backed by strong observability and graceful
-            degregation, this pathes the way for fast iterations.
+            degregation, paving the way for fast iterations.
           </p>
           <p className="">
             Build strong systems and processes in teams that build genuine
