@@ -94,3 +94,15 @@ ul {
 .skip-to-content-link:focus {
   transform: translateY(0%);
 }
+
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+
+body:has(dialog[open]) {
+  overflow: hidden;
+}
+
+dialog[open] {
+  overscroll-behavior: contain;
+}

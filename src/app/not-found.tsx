@@ -2,7 +2,10 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <main className="w-full justify-center text-center grid gap-4 pt-8">
+    <main
+      className="w-full justify-center text-center grid gap-4 pt-8"
+      id="main"
+    >
       <h1 className="h1">404 - Page not found</h1>
 
       <div>
