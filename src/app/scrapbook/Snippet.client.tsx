@@ -12,7 +12,11 @@ function SnippetSource({
   children: React.ReactNode;
 }) {
   if (link) {
-    return <Link href={link}>{children}</Link>;
+    return (
+      <Link href={link} className="link">
+        {children}
+      </Link>
+    );
   }
   return <>{children}</>;
 }
@@ -68,15 +72,11 @@ export function SnippetModal({
 
   return (
     <dialog
-      onCancel={(e) => {
-        e.preventDefault();
-        close();
-      }}
       ref={dialogRef}
-      className="fixed inset-0 z-50 m-0 h-dvh w-screen max-h-none max-w-none bg-transparent p-0"
+      className="fixed inset-0 z-10 m-0 h-dvh w-screen max-h-none max-w-none bg-transparent p-0"
     >
       <div
-        className="grid h-dvh w-full items-center p-8 md:p-16 backdrop-blur-md"
+        className="grid h-dvh z-20 w-full items-center p-8 md:p-16 backdrop-blur-md"
         onClick={(e) => {
           if (e.target === e.currentTarget) {
             close();

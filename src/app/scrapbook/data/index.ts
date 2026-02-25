@@ -1,5 +1,6 @@
-// @ts-nocheck Don't worry about it
 // Auto-import all .mdx files in this directory
+// @ts-nocheck Don't worry about it
+
 const mdxContext = require.context("./", false, /\.mdx$/);
 
 export interface ISnippet {
