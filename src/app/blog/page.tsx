@@ -9,7 +9,7 @@ export function generateMetadata(): Metadata {
     title: "Lilly's Blog",
     description: "Sometimes I feel like posting an opinion on the internet.",
     type: "profile",
-    image: "/images/profile.jpg",
+    image: "/images/socialpreview-dark.png",
     url: "https://helbling.uk/blog",
     publishedTime: Posts[Posts.length - 1].publishedTime,
     modifiedTime: Posts[Posts.length - 1].modifiedTime,

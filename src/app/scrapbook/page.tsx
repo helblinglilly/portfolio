@@ -9,7 +9,7 @@ export function generateMetadata(): Metadata {
   return metadataGenerator({
     title: "Lilly's Scrapbook",
     description: "A collection of values and other tidbits that I hold dear",
-    image: "/images/profile.jpg",
+    image: "/images/socialpreview-dark.png",
     url: "https://helbling.uk/scrapbook",
     publishedTime: Snippets[Snippets.length - 1].publishedTime,
     modifiedTime: Snippets[Snippets.length - 1].publishedTime,
@@ -30,11 +30,15 @@ function SnippetPage() {
         Scrapbook, snippets, quotes
       </h1>
 
-      <p>
-        Below is a collection of stuff that I valueable or find myself
-        frequently referencing. Free from social media.
-      </p>
-      <p>Click on a card to find out more.</p>
+      <div className="grid gap-2 w-full lg:w-1/2">
+        <p>
+          Below is a collection of stuff that I valueable or find myself
+          frequently referencing. Kind of like a Pintrest board, but in my own
+          corner of the internet and I get to tell the story behind each entry.
+        </p>
+        <p>Free from ads, AI and algorithms.</p>
+        <p>Click on a card to learn more.</p>
+      </div>
 
       <main className="grid gap-6" id="main">
         <h2 className="text-xl font-semibold">What I bring to work with me</h2>
