@@ -156,6 +156,7 @@ export default async function Post() {
     "qr.helbling.uk",
     "avatar.helbling.uk",
     "helbling.uk",
+    "img.helbling.uk",
     "mp4.helbling.uk",
     "socialpreview.helbling.uk",
     "crafts",
