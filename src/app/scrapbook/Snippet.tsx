@@ -1,5 +1,3 @@
-"use server";
-
 import React from "react";
 import { ISnippet } from "./data";
 import Link from "next/link";
