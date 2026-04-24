@@ -99,14 +99,6 @@ ul {
   transform: translateY(0%);
 }
 
-html:has(dialog[open]) {
+html.overflow-hidden {
   overflow: hidden;
-}
-
-body:has(dialog[open]) {
-  overflow: hidden;
-}
-
-dialog[open] {
-  overscroll-behavior: contain;
 }
