@@ -24,7 +24,14 @@ export default function CurrentProfessional() {
           On the Beach<span className="ml-2 text-sm">2023 - present</span>
         </h3>
 
-        <ul className="grid gap-2 border-s border-[#F714B1] relative list-none ml-3">
+        <ul className="grid gap-2 border-s border-[#F714B1] relative list-none ml-3 [&>li]:list-none">
+          <li className="mt-2 mb-2 ms-4 -start-1.5">
+            <div
+              style={{ insetInlineStart: "-0.4rem" }}
+              className="absolute mt-1.5 h-3 w-3 rounded-full bg-[#F714B1] animate-pulse"
+            />
+            Promotion to Senior Software Engineer
+          </li>
           <li className="mt-2 mb-2 ms-4 -start-1.5">
             <div
               style={{ insetInlineStart: "-0.4rem" }}

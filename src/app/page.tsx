@@ -21,7 +21,7 @@ function Homepage() {
         />
         <div className="min-w-fit mt-auto mb-auto">
           <h1 className="text-2xl font-semibold">Lilly Helbling</h1>
-          <p>Software Engineer</p>
+          <p>Senior Software Engineer</p>
           <p>info@helbling.uk</p>
           <p>
             <i>she/her</i> 🏳️‍⚧️
