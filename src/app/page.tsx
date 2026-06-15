@@ -5,7 +5,7 @@ import Intro from "@/homepage/intro";
 import Current from "@/homepage/current";
 import Tools from "@/homepage/tools";
 
-const profilePictureURL = "/images/profile.jpg";
+const profilePictureURL = "/images/profile.jpeg";
 
 function Homepage() {
   return (
