@@ -55,7 +55,14 @@ function SnippetPage() {
                   <post.content />
                 </SnippetModal>
               </Suspense>
-              <Snippet snippet={post} key={post.key} />
+              <Snippet
+                snippet={{
+                  key: post.key,
+                  snippet: post.snippet,
+                  source: post.source,
+                }}
+                key={post.key}
+              />
             </React.Fragment>
           ))}
         </section>
@@ -74,7 +81,14 @@ function SnippetPage() {
                   <post.content />
                 </SnippetModal>
               </Suspense>
-              <Snippet snippet={post} key={post.key} />
+              <Snippet
+                snippet={{
+                  key: post.key,
+                  snippet: post.snippet,
+                  source: post.source,
+                }}
+                key={post.key}
+              />
             </React.Fragment>
           ))}
         </section>

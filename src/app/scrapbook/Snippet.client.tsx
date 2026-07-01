@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { ISnippet } from "./data";
 
@@ -31,16 +31,22 @@ export function SnippetModal({
   const QUERY_PARAM_NAME = "highlighted";
   const params = useSearchParams();
   const pathname = usePathname();
-  const router = useRouter();
   const overlayRef = useRef<HTMLDivElement>(null);
 
   const isActive = params.get(QUERY_PARAM_NAME) === snippet.key;
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(isActive);
 
   const close = () => {
-    if (params.get(QUERY_PARAM_NAME) === snippet.key) {
-      router.replace(pathname, { scroll: false });
-    }
+    if (params.get(QUERY_PARAM_NAME) !== snippet.key) return;
+
+    const nextParams = new URLSearchParams(params);
+    nextParams.delete(QUERY_PARAM_NAME);
+    const query = nextParams.toString();
+    window.history.replaceState(
+      null,
+      "",
+      query ? `${pathname}?${query}` : pathname,
+    );
   };
 
   // Sync visibility state with URL param
@@ -88,11 +94,12 @@ export function SnippetModal({
           ? "opacity-100 pointer-events-auto"
           : "opacity-0 pointer-events-none"
       }`}
-      onClick={(e) => {
+      onPointerDown={(e) => {
         if (e.target === e.currentTarget) close();
       }}
     >
       <div
+        onPointerDown={(e) => e.stopPropagation()}
         className={`w-full lg:w-2/3 rounded-md md:rounded-xl bg-gray-200/90 dark:bg-slate-800/95 drop-shadow-md flex flex-col overflow-y-auto overscroll-contain max-h-[calc(100dvh-4rem)] md:max-h-[calc(100dvh-8rem)] transition-all duration-100 ${
           isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
         }`}
