@@ -5,14 +5,13 @@ export const production = "https://pokecompanion.com"
 export const github = 'https://github.com/helblinglilly/pokecompanion';
 export const favicon = 'https://pokecompanion.com/favicon.png'
 
-This project, in its original form, existed since 2021 and has undergone several, major iterations. There's so much to talk about, I think it's best to just link out to the individual blog posts:
+My playground, and passion project. Learnt something new at work and want to try it out? I test it here.
+It's gone through 2 web frameworks, 3 hosts and countless "what if I rewrote it like that" dating back to 2021.
 
-[It originally lived on my Raspberry Pi](/blog/2022-homeserver)
+While it will never be "done", I've now built it in a way where it should be able to maintain itself for when I do eventually lose interest in this.
 
-[Then I moved it to Vercel](blog/2023-pokewiki)
+Most recently, after [a number of platform improvements](/blog/2026-pokecompanion-rewrite) I started working on a proper mobile app as well! I'm currently looking for testers on Android, please do sign up on [pokecompanion.com/app/invite](https://pokecompanion.com/app/invite?utm_source=portfolio&utm_campaign=projects).
 
-[Before starting from scratch on Cloudflare workers](/blog/2023-cloudflare)
+Frontend: Svelte Kit deployed to Cloudflare. React Native via Expo soon 👀
 
-Most recently, after [a number of platform improvements](/blog/2026-pokecompanion-rewrite) I can honestly say I'm proud of it, and the journey it took.
-
-Svelte Kit deployed to Cloudflare, ExpressJS API hosted on a VPS with Pocketbase acting as a database.
+Backend: Shared ExpressJS API on a VPS. Pocketbase acting as a user database, and Redis for caching to the PokeAPI.
