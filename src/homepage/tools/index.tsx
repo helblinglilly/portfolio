@@ -17,8 +17,8 @@ export default function ToolsProfessional() {
               <p>React Native targetting Android & iOS</p>
               <p>Maestro for E2E testing</p>
               <p>
-                Integrating tightly with a Backend for Frontend to ship to as
-                many users as possible.
+                Integrating tightly with a Backend for Frontend reach as many
+                users as possible.
               </p>
             </div>
           </AccordionContent>
@@ -39,13 +39,16 @@ export default function ToolsProfessional() {
                     <p>Vitest/Jest Unit Tests</p>
                   </li>
                   <li>
+                    <p>
+                      Mock Service Worker to black-box test at the network
+                      boundaries
+                    </p>
+                  </li>
+                  <li>
+                    <p>Playwright End to End</p>
+                  </li>
+                  <li>
                     <p>Storybook for collaboration</p>
-                  </li>
-                  <li>
-                    <p>Cypress End to End</p>
-                  </li>
-                  <li>
-                    <p>Mock Service Worker</p>
                   </li>
                 </ul>
               </div>
@@ -83,13 +86,17 @@ export default function ToolsProfessional() {
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-4" data-umami-event="accordion-manage">
-          <AccordionTrigger>Management and Health</AccordionTrigger>
+          <AccordionTrigger>
+            Tech management and operational health
+          </AccordionTrigger>
           <AccordionContent>
             <div className="grid gap-1">
+              <p>User metrics via Google Tag Manager and Firebase analytics</p>
+              <p>Observability and Alerting with New Relic</p>
               <p>
-                Observability and Alerting with New Relic, Sentry or Instana
+                Source control through Git, managed on Gitlab or Github for
+                personal projects
               </p>
-              <p>Source control through Git, managed on Gitlab</p>
               <p>Tasks completed in sprints, managed in Jira</p>
             </div>
           </AccordionContent>
