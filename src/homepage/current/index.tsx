@@ -37,24 +37,21 @@ export default function CurrentProfessional() {
               style={{ insetInlineStart: "-0.4rem" }}
               className="absolute mt-1.5 h-3 w-3 rounded-full bg-[#F714B1] animate-pulse"
             />
-            Architected and lead the delivery of a server-driven UI platform to{" "}
-            <a href="https://www.onthebeach.co.uk/app" className="link">
-              our app
-            </a>
+            Decreased feedback delay from weeks to minutes by introducing a Backend for Frontend to the app
           </li>
           <li className="mb-2 ms-4 -start-1.5">
             <div
               style={{ insetInlineStart: "-0.4rem" }}
               className="absolute mt-1.5 h-3 w-3 rounded-full bg-[#F714B1]"
             />
-            Switched teams to work in the mobile app space
+            Team switch to the app team, increasing MAUs by 25% YOY
           </li>
           <li className="mb-2 ms-4 -start-1.5">
             <div
               style={{ insetInlineStart: "-0.4rem" }}
               className="absolute mt-1.5 h-3 w-3 rounded-full bg-[#F714B1]"
             />
-            In role promotion
+            Promotion to Software Engineer (Mid)
           </li>
           <li className="mb-2 ms-4 -start-1.5">
             <div
@@ -65,14 +62,14 @@ export default function CurrentProfessional() {
             <a href="https://sunshine.co.uk" className="link">
               sunshine.co.uk
             </a>
-            's booking funnel migration
+            's booking funnel migration to new tech platform
           </li>
           <li className="mb-2 ms-4 -start-1.5">
             <div
               style={{ insetInlineStart: "-0.4rem" }}
               className="absolute mt-1.5 h-3 w-3 rounded-full bg-[#F714B1]"
             />
-            Joined the Booking Path Team
+            1 year stint in the booking funnel
           </li>
         </ul>
       </div>
