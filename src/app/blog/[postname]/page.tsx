@@ -4,8 +4,6 @@ import { notFound } from "next/navigation";
 import formatMetadata from "../helpers";
 import metadataGenerator from "@/helpers/metadata";
 
-export const runtime = "edge";
-
 // notFound throws
 // eslint-disable-next-line consistent-return
 async function getPostData(postname: string) {

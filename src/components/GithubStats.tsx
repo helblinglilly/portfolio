@@ -42,10 +42,15 @@ export default function GithubStats() {
           "https://api.github.com/users/helblinglilly/events?per_page=1",
         );
         const responseBody = await result.json();
+        const latestRepo =
+          Array.isArray(responseBody) &&
+          typeof responseBody[0]?.repo?.name === "string"
+            ? responseBody[0].repo.name
+            : null;
 
-        if (responseBody[0]?.repo?.name) {
-          const username = responseBody[0].repo.name.split("/")[0];
-          const repo = responseBody[0].repo.name.split("/")[1];
+        if (latestRepo) {
+          const username = latestRepo.split("/")[0];
+          const repo = latestRepo.split("/")[1];
           repoUsername.current = username;
           repoName.current = repo;
 
