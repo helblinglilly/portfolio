@@ -46,7 +46,7 @@ export default function CurrentProfessional() {
           <li className="mt-2 mb-2 ms-4 -start-1.5">
             <div
               style={{ insetInlineStart: "-0.4rem" }}
-              className="absolute mt-1.5 h-3 w-3 rounded-full bg-[#F714B1] animate-pulse"
+              className="absolute mt-1.5 h-3 w-3 rounded-full bg-[#F714B1]"
             />
             Architected and lead delivery of a Server-Driven UI framework delivered via a Backend for Frontend to the app
           </li>
