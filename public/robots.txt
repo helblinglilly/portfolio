@@ -3,3 +3,5 @@ Disallow: /*.helbling.uk/
 
 User-agent: *
 Disallow: /files/
+
+Sitemap: https://helbling.uk/sitemap.xml

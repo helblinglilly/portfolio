@@ -34,6 +34,10 @@ const AllSnippets: ISnippet[] = mdxContext
       publishedTime: mod.publishedTime ?? new Date().toISOString(),
     };
   })
-  .sort((a, b) => (new Date(a).valueOf() < new Date(b).valueOf() ? 1 : -1));
+  .sort((a, b) =>
+    new Date(a.publishedTime).valueOf() < new Date(b.publishedTime).valueOf()
+      ? 1
+      : -1,
+  );
 
 export default AllSnippets;
