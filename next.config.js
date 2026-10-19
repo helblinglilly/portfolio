@@ -4,6 +4,12 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 
 const withMDX = require("@next/mdx")({
   extension: /\.mdx?$/,
+  options: {
+    rehypePlugins: [
+      "rehype-slug",
+      ["rehype-autolink-headings", { behavior: "wrap" }],
+    ],
+  },
 });
 
 module.exports = withMDX(
