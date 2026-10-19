@@ -12,6 +12,7 @@ html {
 }
 
 body {
+  min-height: 100vh;
   font-size: 1em;
   font-weight: 400;
   font-family:
@@ -28,6 +29,28 @@ body {
     Helvetica,
     Arial,
     sans-serif;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, rgba(190, 180, 210, 0.11) 1px, transparent 1.5px);
+    /*linear-gradient(rgba(190, 180, 210, 0.055) 1px, transparent 1px),*/
+    /*linear-gradient(90deg, rgba(190, 180, 210, 0.055) 1px, transparent 1px);*/
+  background-size: 22px 22px, 108px 108px, 108px;
+  background-position: center center;
+  mask-image: radial-gradient(ellipse at center, black 35%, transparent 82%);
+}
+
+html:not(.dark) body::before {
+  background-image:
+    radial-gradient(circle, rgba(70, 55, 90, 0.1) 1px, transparent 1.5px);
+  background-size: 22px 22px, 108px 108px, 108px;
+  background-position: center center;
 }
 
 @layer utilities {

@@ -10,7 +10,7 @@ function Homepage() {
     <React.Fragment>
       <header className="flex flex-col lg:flex-row gap-4 w-full justify-center items-center lg:items-start py-12 md:py-24">
         <Profile />
-        <div className="lg:mt-24 lg:-translate-y-1/3">
+        <div className="mt-12 lg:mt-24 lg:-translate-y-1/3">
           <Intro />
         </div>
       </header>
