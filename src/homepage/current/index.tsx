@@ -26,7 +26,18 @@ export default function CurrentProfessional() {
           Pokécompanion<span className="ml-2 text-sm">2021 - present</span>
         </h3>
         <p>
-          Active side project with a <a href="https://pokecompanion.com" className="link" target="_blank">website</a> and app on <a href="https://play.google.com/store/apps/details?id=com.helblinglilly.pokecompanion" className="link">Google Play</a>.
+          Active side project with a{" "}
+          <a href="https://pokecompanion.com" className="link" target="_blank">
+            website
+          </a>{" "}
+          and app on{" "}
+          <a
+            href="https://play.google.com/store/apps/details?id=com.helblinglilly.pokecompanion"
+            className="link"
+          >
+            Google Play
+          </a>
+          .
         </p>
       </div>
 
@@ -48,7 +59,8 @@ export default function CurrentProfessional() {
               style={{ insetInlineStart: "-0.4rem" }}
               className="absolute mt-1.5 h-3 w-3 rounded-full bg-[#F714B1]"
             />
-            Architected and lead delivery of a Server-Driven UI framework delivered via a Backend for Frontend to the app
+            Architected and lead delivery of a Server-Driven UI framework
+            delivered via a Backend for Frontend to the app
           </li>
           <li className="mb-2 ms-4 -start-1.5">
             <div
@@ -82,9 +94,9 @@ export default function CurrentProfessional() {
         NHS Digital <span className="ml-2 text-sm">2021 - 2023</span>
       </h3>
       <p>
-        Maintained several .NET web and desktop applications and supported our AWS migration.
+        Maintained several .NET web and desktop applications and supported our
+        AWS migration.
       </p>
-
     </React.Fragment>
   );
 }

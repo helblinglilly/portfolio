@@ -1,13 +1,17 @@
-import Link from 'next/link';
-import React from 'react';
+import Link from "next/link";
+import React from "react";
 
-function ButtonLink(
-  { children, link, className = '' }: {
-    children: React.ReactNode;
+function ButtonLink({
+  children,
+  link,
+  className = "",
+  newTab = false,
+}: {
+  children: React.ReactNode;
   link: string;
   className?: string;
-  },
-) {
+  newTab?: boolean;
+}) {
   return (
     <button
       type="button"
@@ -15,6 +19,8 @@ function ButtonLink(
     >
       <Link
         href={link}
+        target={newTab ? "_blank" : undefined}
+        rel={newTab ? "noopener noreferrer" : undefined}
         className="inline-flex gap-1 items-center justify-center font-semibold text-lg w-full h-full"
       >
         {children}

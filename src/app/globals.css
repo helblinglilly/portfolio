@@ -86,17 +86,27 @@ ul {
 }
 
 .skip-to-content-link {
-  background: #e77e23;
-  height: 30px;
+  position: fixed;
+  z-index: 20;
+  top: 0;
   left: 50%;
-  padding: 8px;
-  position: absolute;
-  transform: translateY(-100%);
-  transition: transform 0.3s;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  transform: translateX(-50%);
 }
 
 .skip-to-content-link:focus {
-  transform: translateY(0%);
+  width: auto;
+  height: auto;
+  clip: auto;
+  overflow: visible;
+  padding: 8px 16px;
+  color: white;
+  background: #e77e23;
+  transform: translateX(-50%);
 }
 
 html.overflow-hidden {

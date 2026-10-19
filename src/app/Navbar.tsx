@@ -16,7 +16,7 @@ export default function Navbar() {
       </a>*/}
 
       <nav className="flex justify-center w-full px-4 mt-4">
-        <div className="bg-zinc-50 dark:bg-zinc-800 dark:border-t-fuchsia-50 border rounded-2xl p-2 w-full max-w-4xl min-w-0 flex flex-row justify-between">
+        <div className="bg-zinc-50 dark:bg-zinc-800 dark:border-t-fuchsia-50 border rounded-2xl p-2 w-full max-w-5xl min-w-0 flex flex-row justify-between">
           <div className="flex min-w-0 gap-1 sm:gap-4 pl-1 sm:pl-4">
             <Link
               href="/"
@@ -32,19 +32,19 @@ export default function Navbar() {
 
             <Link
               href="/blog"
-              className="flex h-10 items-center rounded-2xl px-1 sm:px-4 hover:bg-fuchsia-300 dark:hover:bg-[#F714B1] hover:decoration-transparent"
+              className="flex h-10 items-center rounded-xl px-1 sm:px-4 hover:bg-fuchsia-300 dark:hover:bg-[#F714B1] hover:decoration-transparent"
             >
               Blog
             </Link>
             <Link
               href="/projects"
-              className="flex h-10 items-center rounded-2xl px-1 sm:px-4 hover:bg-fuchsia-300 dark:hover:bg-[#F714B1] hover:decoration-transparent"
+              className="flex h-10 items-center rounded-xl px-1 sm:px-4 hover:bg-fuchsia-300 dark:hover:bg-[#F714B1] hover:decoration-transparent"
             >
               Projects
             </Link>
             <Link
               href="/scrapbook"
-              className="flex h-10 items-center rounded-2xl px-1 sm:px-4 hover:bg-fuchsia-300 dark:hover:bg-[#F714B1] hover:decoration-transparent"
+              className="flex h-10 items-center rounded-xl px-1 sm:px-4 hover:bg-fuchsia-300 dark:hover:bg-[#F714B1] hover:decoration-transparent"
             >
               Scrapbook
             </Link>
@@ -54,7 +54,7 @@ export default function Navbar() {
             <button
               type="button"
               aria-label="Change Theme"
-              className="flex h-10 shrink-0 items-center rounded-2xl px-2 sm:px-4 hover:bg-fuchsia-300 dark:hover:bg-[#F714B1] hover:decoration-transparent hover:cursor-pointer"
+              className="flex h-10 shrink-0 items-center rounded-xl px-2 sm:px-4 hover:bg-fuchsia-300 dark:hover:bg-[#F714B1] hover:decoration-transparent hover:cursor-pointer"
               onClick={() => {
                 setTheme(theme === "dark" ? "light" : "dark");
               }}
