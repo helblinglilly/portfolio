@@ -6,6 +6,6 @@ export default function RootLayout({
 	children: ReactNode;
 }) {
 	return (
-		<div className="md:max-w-screen-sm md:ml-auto md:mr-auto">{children}</div>
+		<div className="mx-auto w-full max-w-screen-md">{children}</div>
 	);
 }
