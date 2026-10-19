@@ -1,0 +1,121 @@
+import SocialPreview from '@/components/SocialPreview.tsx'
+
+export const title = 'Stuck with stale dependencies? You might have a process problem';
+export const description = 'Some apps were several LTS\' behind, others were seeing daily dependency bumps. A process was failing, and I think I know how to fix it!';
+export const publishedTime = new Date('2026-10-20T12:00:00.00Z').toISOString();
+export const modifiedTime = new Date('2026-10-20T12:00:00.00Z').toISOString();
+export const url = '/blog/2026-dependencies';
+
+Nobody likes actioning dependency bumps, but what can engineers do about it?
+
+Across the codebases and teams at my last company, I've seen anything from total stagnation to daily 8am dependabot [MR]s asking for code review. In my opinion, neither worked or were in any way sustainable. Here's how I attempted to tackle this to help me sleep at night without making it everybody else's problem.
+
+## Why they matter
+
+Let's get everyone on the same page first, and why you should care about dependencies at all with an example:
+
+Assume you rely on version 1.5.8 of a given library - the latest version when you added it to your project three years ago.
+You add it because it solves a specific problem you have and it's easier to re-use a product that somebody else has already built rather than building your own solution from scratch. You treat it like a black-box and it does the job. 
+
+### Vulnerabilities
+
+Time passes, domain knowledge gets lost, people or their interests move on.
+Meanwhile, the library grows. It supports these brand new use cases that really don't apply to you, they fix bugs you didn't even know you had (or relied on), and fix any new security vulnerabilities that crop up. They are now on version 4.1.2.
+
+But what's this? A 9.1/10 [CVE] originating from this library. What can you do now?
+
+The library authors fix the issue, but only for major versions 3 and 4 as the rest is considered legacy. You take a look at what that would entail and oh no, you're too far behind. This can go in a couple of different directions now:
+- The major version bumps never affected you, and you just migrate with no issue
+- You can easily bump, but the library no longer behaves in the way you expect it to and
+	- you mocked the library away in your tests
+	- the main I/O stays the same, but there are side effects that remained untested
+	- you have no test coverage at all because why would you bother testing the library
+- Transient dependencies for the latest version are not compatible with your project and suddenly you have a major migration on your hands.
+
+Hopefully, the team learns about this and can manage upwards, rather than this being brought to you by a flustered manager in the middle of a busy week.
+
+Let's assume the worst case scenario from the list above. What should be a simple "make this issue go away" could now knock out an engineer for several days in a major migration, break a feature in production that you have little knowledge over, or break integrations with other systems that could be hard to trace.
+Either way, it's time consuming before, or after the change has gone live and delivery slows down. You may resource for these kinds of issues, we've called them KTLO (Keep the lights on), but if they hit you at the wrong time they could delay entire projects.
+
+### The trap of staying up to date
+
+The section above outlines why you should care about this to begin with, but always staying on the latest versions is no good either.
+
+In the example from above, the tricky part could've been migrating to major version 2, and getting to a supported patch would've been easy. 3 and 4 could not have been relevant to you at all, and what about the minor and patch versions in between? By keeping up to date and QAing this not-very-loved feature in your application you might improve your domain knowledge, but there is no tangible value to the business in you doing these dependency bumps.
+Add to that, your code release process likely doesn't just allow for 1 engineer to just hit merge, so now you're distracting at least one other engineer as well.
+
+As any developer in the Javascript eco-system will tell you, staying up to date can also be an attack vector in itself. Just google for "npm supply chain attack".
+
+Now consider that not every library follows the standard versioning conventions. AWS SDKs bump their version weekly - do you now want to spend time bumping dependencies weekly just because your hyperscaler overlords decided that this model works best for them? Probably not.
+
+## The core problem
+
+### Finding the right trigger
+
+For engineers, it's about [finding the correct trigger] to build the habit to bump dependencies.
+
+> For more on this topic, I can recommend <a href="https://isbnsearch.org/isbn/0306822628">Making habits, breaking habits by Jeremy Dean</a>
+
+There are various, popular tools that try to help with this.
+
+**Audit steps in CI**
+They block you from performing any releases if a new, high risk vulnerability is detected. You can either action it then and there, or whitelist it to get your release out. Either way, they force you into acknowledging the issue straight away.
+
+**RSS feeds**
+These can let you know about every new version of a dependency, often with a changelog attached. Great solutions for repositories where you need to stay on the latest versions or you are anticipating a specific bug fix, but these can quickly cause alert-fatigue.
+
+**Dependabot**
+They can be configured to open [MR]s for every available update. These can offer a great signal if a change is safe to merge (assessed by your CI pipeline) or if manual action will be required. Great way to assess the scope of changes required for a specific bump, but still requires a person to merge the [MR]s.
+
+All of these tools can alert us about issues with specific dependencies, but not the general dependency-health of our codebases. They all lack nuance.
+
+### What good looks like
+
+Every conversation I've had about this topic, with any Head of Engineering has always resulted in "you need better pipelines, not more process". While I completely agree, this is also easier said than done, especially if you look after systems that you're less familiar with, or that are brownfield. We struggled to get time dedicated to to tackle this in our systems that needed it most because, today, you're still pushing out new features and dedicating time to this would mean stopping (or slowing) feature work.
+
+So yes, ideally, every dependabot [MR] will just run a CI pipeline, and a green pipeline will give you 100% confidence that this change is safe to ship.
+If dependabot can't tackle it, maybe we can offload those migrations to AI now and the test output that it produces still gives us sufficient confidence in our CI.
+
+### What can we do in the meantime?
+
+If you feel that your dependabot process is working for you, congratulations! Otherwise, keep reading.
+
+In my opinion, the best thing we can do as engineers is to shine a light on this to our product and engineering stakeholders. 
+
+Managing dependencies will always be a concern for any live system. Abandoning all hope leaves the business exposed. By being a "hero" and taking responsibility for dependencies yourself, you will build an undesirable reputation for yourself, become a contingency, and encourage a system around you that doesn't care about the issue because it's a "you" thing.
+
+Every team, every tech stack, every system will have different characteristics for its blast radius, number of dependencies in use, and how much effort these could be to maintain.
+
+By having these conversations with relevant stakeholders and speaking their language, we can turn this thankless engineering job with a potentially massive business risk, into a "KTLO" kind of workflow and budget resources for it.
+The difficulty here is tailoring these conversations to the stakeholders. Engineers will know the pain of staying up to date with dependabot or needing to stay on an older [paradigm of your JS framework] because one library requires that you do. Product managers will understand the risk of losing engineering resources without notice. Security teams will shiver at the risk of a [CVE] 9.1 being unaddressable for more than 24 hours. Your manager or team lead should understand these trade-offs, including how a proposed solution may fit into the day-day of the team. It's important you get buy-in from them before you even speak with other engineers about this, because the objective is to create a contract with different stakeholders which they ultimately agree to and are willing to protect. Without buy-in from a lead, you may get a new process adopted just by speaking to the engineers, but risk getting overruled by your lead as they have not bought into the idea.
+
+## What this looks like in practice
+
+First and foremost, you should continue to chip away at improving your confidence in CI and ensuring that any new work follows whatever "good" looks like for you, your team and the applications you look after.
+
+Normally, I would shill out for a tool at this point. Unfortunately, it remains close-sourced with my old employer, but the concept is simple.
+
+I built a tool that should run daily, and effectively run `npm outdated` (or language equivalent), parse the output, and transform it into a score that would be universal and comparable across languages and tech stacks. It then ingests this data into our observability platform, and we configured SLAs against these that would trigger an alert that we would deal with like any other.
+
+The magic isn't in the tool, but in the agreement between the different stakeholders that went along with it. It was understood that someone would have to go and "bump a few dependencies" when this alert triggered. Major versions would count higher than minor, which weighed more than patches. These were configurable so 2 major versions behind could be interpreted as the same as **[insert number of your choice]** of minor versions behind.
+
+### How disruptive was this?
+
+In a greenfield NodeJS repo with eight dependencies, this triggered once over an entire year and it was easily dealt with. This experience will vary on your tech, and agreements so your mileage may vary.
+But it meant over the course of that year, we didn't spend a minute thinking about dependencies or dependabot, and had the confidence that if a [CVE] were to pop up, we were well positioned to address it. In the age of AI, bumping these dependencies was easily delegated to a session of Claude running in the background while the engineer got on with their regular work.
+
+That helped me sleep at night, it kept our product team happy, and we still had resources available for KTLO that we could spend on codebases that needed it more.
+
+## Conclusion
+
+There is no one-size fits all solution. All orgs, teams and codebases are different. Building a process is still susceptible to organisational changes, but they are more stable than relying on a single person or running a 2014 release of Ruby on Rails in 2026.
+
+As engineers, we perform a lot of thankless jobs in a week, whether we're aware of them or not. When these have the potential to expose the business to emerging security threats, or bring delivery to a standstill then it's our responsibility to highlight this and communicate with our stakeholders. 
+
+A solution that depends on an individual is not a solution. Instead, we shall use our understanding of these technical challenges combined with our communication skills to build systems that can be independently iterated on even long after we've left the organisation.
+
+[CVE]: https://en.wikipedia.org/wiki/Common_Vulnerabilities_and_Exposures
+
+[MR]: https://stackoverflow.com/questions/22199432/pull-request-vs-merge-request
+
+[paradigm of your JS framework]: https://dev.to/shyam0118/app-router-vs-pages-router-in-nextjs-a-deep-practical-guide-341g

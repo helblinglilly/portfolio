@@ -8,6 +8,7 @@ import * as Cloudflare2023 from "./2023-cloudflare.mdx";
 import * as Pokewiki2023 from "./2023-pokewiki.mdx";
 import * as InfraAsCode2025 from "./2025-iac-everything.mdx";
 import * as Pokecompanion2026 from "./2026-pokecompanion-rewrite.mdx";
+import * as Dependencies2026 from "./2026-dependencies.mdx";
 
 const AllPosts: IPostMetadata[] = [
   Rant2022,
@@ -18,6 +19,7 @@ const AllPosts: IPostMetadata[] = [
   Pokewiki2023,
   InfraAsCode2025,
   Pokecompanion2026,
+  Dependencies2026,
 ]
   .sort((a, b) =>
     new Date(a.publishedTime).valueOf() < new Date(b.publishedTime).valueOf()
