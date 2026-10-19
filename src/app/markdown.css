@@ -30,6 +30,20 @@
   margin-block: 1.75rem 0.5rem;
 }
 
+.blogWrapper blockquote {
+  margin-block: 1.75rem;
+  margin-inline: 0;
+  padding: 1rem 1.25rem;
+  border-inline-start: 3px solid #c4b5fd;
+  border-radius: 0 0.25rem 0.25rem 0;
+  background-color: rgb(139 92 246 / 0.07);
+  color: inherit;
+}
+
+.blogWrapper blockquote > :last-child {
+  margin-bottom: 0;
+}
+
 .blogHeader {
   display: flex;
   flex-wrap: wrap;
