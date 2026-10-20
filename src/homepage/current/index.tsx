@@ -43,7 +43,9 @@ export default function CurrentProfessional() {
 
       <div className="grid gap-2 pb-4">
         <h3 className="h3 font-bold text-lg">
-          On the Beach<span className="ml-2 text-sm">2023 - 2026</span>
+          On the Beach
+          <span className="ml-2 text-sm lg:hidden">23 - 26</span>
+          <span className="ml-2 text-sm hidden">2023 - 2026</span>
         </h3>
 
         <ul className="grid gap-2 border-s border-brand relative list-none ml-3 [&>li]:list-none">

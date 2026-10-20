@@ -19,10 +19,18 @@ export const Intro = ({}: {}) => {
       </p>
 
       <p className="text-foreground">
-        With a general interest in all things tech I offer an open, curious mind
-        that's quick to adapt to new technologies. I'm always honing my ability
-        to solve user problems up and down the stack, making sure I consider
-        every part of the process.
+        A curious, pragmatic, product minded engineer with great passion for
+        users and teams.
+      </p>
+
+      <p className="text-foreground">
+        My expertise lies in frontend development, but my curiosity and can-do
+        attitude lead me to solve user problems up and down the stack.
+      </p>
+
+      <p className="text-foreground">
+        I'm always looking to improve myself, uplift those around me, and learn
+        from every failure and success - together.
       </p>
     </section>
   );

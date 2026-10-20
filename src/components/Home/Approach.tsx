@@ -15,11 +15,11 @@ export const Approach = ({}: {}) => {
       <h2 className="text-2xl font-semibold tracking-tight mb-2">Approach</h2>
 
       <p>
-        I belive that the best products are built through collaboration, a
-        shared sense of ownership, and an understanding of the role they play in
-        our users' lives. My job is to help create that environment and build
-        the tools and processes that make it easier for everyone, especially
-        non-technical teammates, to try out ideas.
+        I believe the best products are built through collaboration, a shared
+        sense of ownership, and an understanding of the role they play in our
+        users' lives. My job is to help create that environment, with tools and
+        processes that make it easier for everyone, especially non-technical
+        teammates, to try out ideas.
       </p>
 
       <br />
@@ -37,11 +37,11 @@ export const Approach = ({}: {}) => {
 
       <p>
         In high-performing teams, everyone has room to grow beyond their core
-        skillset, and roles become less rigid in day-to-day work. Engineers
-        create designs, Product Owners fix bugs, and designers draft tracking
-        specifications. Everyone benefits from a greater appreciation of each
+        skills, and roles become less rigid in day-to-day work. Engineers create
+        designs, product owners fix bugs, and designers draft tracking
+        specifications. Everyone benefits from a greater understanding of each
         other's work. This takes psychological safety, open minds, and genuine
-        collaboration. I'm always looking for opportunities to learn and grow,
+        collaboration. I’m always looking for opportunities to learn and grow,
         and I’m honoured to help create those opportunities for others.
       </p>
     </>

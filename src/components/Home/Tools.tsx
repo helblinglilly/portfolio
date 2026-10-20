@@ -7,10 +7,10 @@ export default function ToolsProfessional() {
       <h2 className="text-2xl font-semibold tracking-tight mb-2">Tech Stack</h2>
 
       <p>
-        Code is just the mean by which we can trick computers into what we want
-        them to do. I'd never turn down the opportunity to work with a new
-        language, but these are the tools that I'm confident with. Tools and
-        languages that I use every day, and that I can execute quickly with.
+        Code is just the means by which we trick computers into doing what we
+        want. I'm always keen to work with a new language, but these are the
+        tools and technologies I use every day, the ones I know well and can can
+        execute with quickly.
       </p>
 
       <br />

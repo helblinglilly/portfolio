@@ -6,7 +6,6 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import React from "react";
 import { ProjectFavicon } from "../ProjectFavicon";
 
 export const WorkHistory = ({}: {}) => {
@@ -18,10 +17,10 @@ export const WorkHistory = ({}: {}) => {
         </h2>
 
         <p>
-          I've joined the industry in 2021, after graduating my batchelors
-          degree with a 1:1 in Computer Science from the University of Kent. My
-          story into computing isn't anything special, I knew I wanted to do
-          this since I was 13 and I've worked hard to make that dream come true.
+          Professional Experience I joined the industry in 2021 after graduating
+          from the University of Kent with a first-class honours degree in
+          Computer Science. I've known I wanted to work in computing since I was
+          13, and I’ve worked hard to turn that ambition into a career.
         </p>
 
         <Carousel className="px-8 pt-4 md:px-12">
@@ -57,9 +56,11 @@ export const WorkHistory = ({}: {}) => {
                         url="https://onthebeach.co.uk/favicon.ico"
                       />
 
-                      <h3 className="text-lg font-semibold ">On the Beach</h3>
+                      <div className="grid">
+                        <h3 className="text-lg font-semibold ">On the Beach</h3>
+                        <p className="text-xs font-extralight">2023-2026</p>
+                      </div>
                     </div>
-                    <p className="text-sm font-light">2023-2026</p>
                   </div>
 
                   <p className="text-foreground">
@@ -79,10 +80,11 @@ export const WorkHistory = ({}: {}) => {
                         url="https://digital.nhs.uk/webfiles/1785841778050/icons/favicon.ico"
                       />
 
-                      <h3 className="text-lg font-semibold ">NHS Digital</h3>
+                      <div className="grid">
+                        <h3 className="text-lg font-semibold ">NHS Digital</h3>
+                        <p className="text-xs font-extralight">2021-2023</p>
+                      </div>
                     </div>
-
-                    <p className="text-sm font-light">2021-2023</p>
                   </div>
 
                   <p className="text-foreground">

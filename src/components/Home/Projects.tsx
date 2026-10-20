@@ -17,9 +17,9 @@ export const Projects = ({}: {}) => {
       </h2>
 
       <p>
-        I have an intrinsic drive to build things, 9/10 times these tend to be
-        in the digital world. That's great news for you, because it means you
-        get to play around with as much or as little as you'd like!
+        I have an intrinsic drive to build things, and nine times out of ten,
+        they end up being digital. So have a nosey, try things out, and explore
+        as much or as little as you like!
       </p>
 
       <div className="">
