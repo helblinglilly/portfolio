@@ -27,10 +27,13 @@ function Blog() {
           <Link
             key={post.title}
             href={post.url}
-            className="p-4 w-full h-full bg-card rounded-md hover:bg-accent hover:text-accent-foreground hover:decoration-transparent"
+            className="group p-4 w-full h-full bg-card rounded-md transition-colors hover:bg-accent hover:text-accent-foreground hover:decoration-transparent focus-visible:bg-accent focus-visible:text-accent-foreground"
           >
             <article className="mb-3">
-              <h2 className="h2" style={{ marginBottom: 0 }}>
+              <h2
+                className="h2 group-hover:text-accent-foreground group-focus-visible:text-accent-foreground"
+                style={{ marginBottom: 0 }}
+              >
                 {post.title}
               </h2>
               <i>
