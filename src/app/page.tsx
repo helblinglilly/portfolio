@@ -6,7 +6,7 @@ import { Profile } from "@/components/Home/Profile";
 import { Projects } from "@/components/Home/Projects";
 import { Approach } from "@/components/Home/Approach";
 import Tools from "@/components/Home/Tools";
-import { WorkHistory } from "@/components/Home/WorkHistory/WorkHistory";
+import { WorkHistory } from "@/components/Home/WorkHistory";
 
 function Homepage() {
   return (

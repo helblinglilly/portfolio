@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from "next/image";
 
 export const name = 'pokecompanion.com'
 export const production = "https://pokecompanion.com"
@@ -16,13 +17,18 @@ Most recently, after [a number of platform improvements](/blog/2026-pokecompanio
   href="https://play.google.com/store/apps/details?id=com.helblinglilly.pokecompanion"
   aria-label="Get the Pokécompanion app on Google Play"
   target="_blank"
+  className="w-full flex justify-center"
 >
-  <img
+  <Image
     src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
-    className="w-8"
     alt="Get it on Google Play"
+    width={300}
+    height={80}
+    className="h-[70px] w-[300px] object-contain"
   />
 </Link>
+
+<br />
 
 Frontend: Svelte Kit deployed to Cloudflare. React Native via Expo
 

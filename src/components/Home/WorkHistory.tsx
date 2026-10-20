@@ -6,7 +6,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import { ProjectFavicon } from "../ProjectFavicon";
+import { ProjectFavicon } from "./ProjectFavicon";
 
 export const WorkHistory = ({}: {}) => {
   return (

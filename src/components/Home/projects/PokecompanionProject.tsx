@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Card } from "../../atoms/Card";
 import { CarouselItem } from "../../ui/carousel";
 import { ProjectDialog } from "../ProjectDialog";
@@ -31,10 +32,14 @@ function PokecompanionProjectContent() {
           href="https://play.google.com/store/apps/details?id=com.helblinglilly.pokecompanion"
           aria-label="Get the Pokécompanion app on Google Play"
           target="_blank"
+          className="flex justify-center"
         >
-          <img
+          <Image
             src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
             alt="Get it on Google Play"
+            width={150}
+            height={40}
+            className="h-[40px] w-[150px] object-contain"
           />
         </Link>
       </div>
