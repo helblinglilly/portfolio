@@ -13,7 +13,9 @@ export default function ClientLayout({
     <QueryClientProvider client={new QueryClient()}>
       <Navbar />
 
-      <div className="m-3 mb-6 md:m-6">{children}</div>
+      <div className="m-4 mb-6 md:m-6">
+        <div className="mx-auto w-full min-w-0 lg:w-8/12">{children}</div>
+      </div>
     </QueryClientProvider>
   );
 }

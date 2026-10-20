@@ -9,7 +9,7 @@ export const Intro = ({}: {}) => {
     <section className="max-w-2xl">
       <div className="inline-flex">
         <h2 className="text-6xl font-bold w-full mb-2 tracking-tight">Hiya</h2>
-        <p className="text-6xl font-bold ml-1" id="wave">
+        <p className="text-6xl font-bold ml-1 motion-safe:animate-[wave_3s_infinite]">
           👋
         </p>
       </div>

@@ -40,7 +40,7 @@ body::before {
   z-index: -1;
   pointer-events: none;
   background-image:
-    radial-gradient(circle, rgba(190, 180, 210, 0.11) 1px, transparent 1.5px);
+    radial-gradient(circle, rgba(190, 180, 210, 0.11) 2px, transparent 1.5px);
     /*linear-gradient(rgba(190, 180, 210, 0.055) 1px, transparent 1px),*/
     /*linear-gradient(90deg, rgba(190, 180, 210, 0.055) 1px, transparent 1px);*/
   background-size: 22px 22px, 108px 108px, 108px;
@@ -50,7 +50,7 @@ body::before {
 
 html:not(.dark) body::before {
   background-image:
-    radial-gradient(circle, rgba(70, 55, 90, 0.1) 1px, transparent 1.5px);
+    radial-gradient(circle, rgba(70, 55, 90, 0.1) 2px, transparent 1.5px);
   background-size: 22px 22px, 108px 108px, 108px;
   background-position: center center;
 }

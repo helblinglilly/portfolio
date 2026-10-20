@@ -50,7 +50,7 @@ export default function CurrentProfessional() {
           <li className="mt-2 ms-4 -start-1.5">
             <div
               style={{ insetInlineStart: "-0.4rem" }}
-              className="absolute mt-1.5 h-3 w-3 rounded-full bg-brand animate-pulse"
+              className="absolute mt-1.5 h-3 w-3 rounded-full bg-brand animate-pulse motion-reduce:animate-non"
             />
             Reduce various team's delivery times via AI Dev Enablement team
           </li>

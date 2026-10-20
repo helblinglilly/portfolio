@@ -1,9 +1,3 @@
-#wave {
-	animation-duration: 3s;
-	animation-name: wave;
-	animation-iteration-count: infinite; /* Add this line */
-}
-
 @keyframes wave {
 	0% {
 		transform: rotate(-5deg);

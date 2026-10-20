@@ -30,13 +30,20 @@ export const Projects = ({}: {}) => {
             <CarouselItem className="md:basis-1/2 lg:basis-1/3">
               <article className="h-full">
                 <Card>
-                  <div className="flex flex-row justify-start gap-4 pb-2 items-center">
-                    <ProjectFavicon
-                      projectName="Pokecompanion"
-                      url="https://pokecompanion.com/favicon.png"
-                    />
+                  <div className="flex flex-row justify-between gap-4 pb-2 items-center">
+                    <div className="flex flex-row justify-left gap-4 items-center">
+                      <ProjectFavicon
+                        projectName="Pokecompanion"
+                        url="https://pokecompanion.com/favicon.png"
+                      />
 
-                    <h3 className="text-lg font-semibold ">Pokécompanion</h3>
+                      <h3 className="text-lg font-semibold ">Pokécompanion</h3>
+                    </div>
+
+                    <span className="relative flex size-3 mr-6">
+                      <span className="absolute inline-flex h-full w-full animate-ping motion-reduce:animate-none rounded-full bg-brand opacity-75"></span>
+                      <span className="relative inline-flex size-3 rounded-full bg-brand"></span>
+                    </span>
                   </div>
                   <p className="text-foreground">
                     Starting in 2021, this is my longest-running project,

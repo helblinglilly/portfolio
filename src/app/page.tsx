@@ -2,9 +2,11 @@ import React from "react";
 import "./homepage.css";
 import { Intro } from "@/components/Home/Intro";
 import Current from "@/homepage/current";
-import Tools from "@/homepage/tools";
 import { Profile } from "@/components/Home/Profile";
 import { Projects } from "@/components/Home/Projects";
+import { Approach } from "@/components/Home/Approach";
+import Tools from "@/components/Home/Tools";
+import { WorkHistory } from "@/components/Home/WorkHistory/WorkHistory";
 
 function Homepage() {
   return (
@@ -16,21 +18,22 @@ function Homepage() {
         </div>
       </header>
 
-      <main
-        className="grid min-w-0 w-full max-w-5xl justify-center gap-8 lg:w-8/12 md:mx-auto"
-        id="main"
-      >
+      <main className="grid min-w-0 w-full grid-cols-1 gap-8" id="main">
         <section className="min-w-0 flex-col gap-4">
           <Projects />
         </section>
 
-        <article>
-          <Current />
-        </article>
+        <section className="min-w-0 flex-col gap-4">
+          <Approach />
+        </section>
 
-        <article>
+        <section>
           <Tools />
-        </article>
+        </section>
+
+        <section>
+          <WorkHistory />
+        </section>
       </main>
     </React.Fragment>
   );
