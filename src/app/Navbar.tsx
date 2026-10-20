@@ -7,7 +7,7 @@ import Link from "next/link";
 import React from "react";
 
 export default function Navbar() {
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
 
   return (
     <React.Fragment>
@@ -32,19 +32,19 @@ export default function Navbar() {
 
             <Link
               href="/blog"
-              className="flex h-10 items-center rounded-xl px-1 sm:px-4 hover:bg-fuchsia-300/80 dark:hover:bg-[#F714B1] hover:decoration-transparent"
+              className="flex h-10 items-center rounded-xl px-1 sm:px-4 hover:bg-navigation hover:text-black hover:decoration-transparent"
             >
               Blog
             </Link>
             <Link
               href="/projects"
-              className="flex h-10 items-center rounded-xl px-1 sm:px-4 hover:bg-fuchsia-300/80 dark:hover:bg-[#F714B1] hover:decoration-transparent"
+              className="flex h-10 items-center rounded-xl px-1 sm:px-4 hover:bg-navigation hover:text-black hover:decoration-transparent"
             >
               Projects
             </Link>
             <Link
               href="/scrapbook"
-              className="flex h-10 items-center rounded-xl px-1 sm:px-4 hover:bg-fuchsia-300/80 dark:hover:bg-[#F714B1] hover:decoration-transparent"
+              className="flex h-10 items-center rounded-xl px-1 sm:px-4 hover:bg-navigation hover:text-black hover:decoration-transparent"
             >
               Scrapbook
             </Link>
@@ -54,9 +54,9 @@ export default function Navbar() {
             <button
               type="button"
               aria-label="Change Theme"
-              className="flex h-10 shrink-0 items-center rounded-xl px-2 sm:px-4 hover:bg-fuchsia-300/80 dark:hover:bg-[#F714B1] hover:decoration-transparent hover:cursor-pointer"
+              className="flex h-10 shrink-0 items-center rounded-xl px-2 sm:px-4 hover:bg-navigation hover:text-black hover:decoration-transparent hover:cursor-pointer"
               onClick={() => {
-                setTheme(theme === "dark" ? "light" : "dark");
+                setTheme(resolvedTheme === "dark" ? "light" : "dark");
               }}
             >
               <ThemeIcon />

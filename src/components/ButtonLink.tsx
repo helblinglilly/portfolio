@@ -15,7 +15,7 @@ function ButtonLink({
   return (
     <button
       type="button"
-      className={`flex h-12 w-full bg-slate-200 rounded-md hover:bg-violet-100 dark:bg-slate-700 dark:hover:bg-violet-400 ${className}`}
+      className={`flex h-12 w-full bg-card rounded-md hover:bg-accent hover:text-accent-foreground ${className}`}
     >
       <Link
         href={link}

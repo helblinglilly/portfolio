@@ -46,18 +46,18 @@ export default function CurrentProfessional() {
           On the Beach<span className="ml-2 text-sm">2023 - 2026</span>
         </h3>
 
-        <ul className="grid gap-2 border-s border-[#F714B1] relative list-none ml-3 [&>li]:list-none">
+        <ul className="grid gap-2 border-s border-brand relative list-none ml-3 [&>li]:list-none">
           <li className="mt-2 ms-4 -start-1.5">
             <div
               style={{ insetInlineStart: "-0.4rem" }}
-              className="absolute mt-1.5 h-3 w-3 rounded-full bg-[#F714B1] animate-pulse"
+              className="absolute mt-1.5 h-3 w-3 rounded-full bg-brand animate-pulse"
             />
             Reduce various team's delivery times via AI Dev Enablement team
           </li>
           <li className="mt-2 mb-2 ms-4 -start-1.5">
             <div
               style={{ insetInlineStart: "-0.4rem" }}
-              className="absolute mt-1.5 h-3 w-3 rounded-full bg-[#F714B1]"
+              className="absolute mt-1.5 h-3 w-3 rounded-full bg-brand"
             />
             Architected and lead delivery of a Server-Driven UI framework
             delivered via a Backend for Frontend to the app
@@ -65,14 +65,14 @@ export default function CurrentProfessional() {
           <li className="mb-2 ms-4 -start-1.5">
             <div
               style={{ insetInlineStart: "-0.4rem" }}
-              className="absolute mt-1.5 h-3 w-3 rounded-full bg-[#F714B1]"
+              className="absolute mt-1.5 h-3 w-3 rounded-full bg-brand"
             />
             Team switch to the app team, increasing MAUs by 25% YOY
           </li>
           <li className="mb-2 ms-4 -start-1.5">
             <div
               style={{ insetInlineStart: "-0.4rem" }}
-              className="absolute mt-1.5 h-3 w-3 rounded-full bg-[#F714B1]"
+              className="absolute mt-1.5 h-3 w-3 rounded-full bg-brand"
             />
             Lead{" "}
             <a href="https://sunshine.co.uk" className="link">
@@ -83,7 +83,7 @@ export default function CurrentProfessional() {
           <li className="mb-2 ms-4 -start-1.5">
             <div
               style={{ insetInlineStart: "-0.4rem" }}
-              className="absolute mt-1.5 h-3 w-3 rounded-full bg-[#F714B1]"
+              className="absolute mt-1.5 h-3 w-3 rounded-full bg-brand"
             />
             Run experiments and improvements in our eCommerce funnel
           </li>

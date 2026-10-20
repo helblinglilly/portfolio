@@ -3,7 +3,7 @@
 @import "shadcn/tailwind.css";
 
 @theme {
-  --color-dark: #333;
+  --color-brand: #f714b1;
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -55,18 +55,6 @@ html:not(.dark) body::before {
   background-position: center center;
 }
 
-@layer utilities {
-  .theme-light {
-    /* @apply text-light-primary; */
-  }
-
-  .theme-dark {
-    /* @apply text-dark-primary; */
-    background-color: red;
-    color: red;
-  }
-}
-
 .h1 {
   font-weight: 600;
   margin-bottom: 0.5rem;
@@ -106,7 +94,7 @@ ul {
 }
 
 .anchor:hover {
-  text-decoration-color: #f714b1;
+  text-decoration-color: var(--color-brand);
   text-decoration-line: underline;
 }
 
@@ -129,8 +117,8 @@ ul {
   clip: auto;
   overflow: visible;
   padding: 8px 16px;
-  color: white;
-  background: #e77e23;
+  color: black;
+  background: var(--color-brand);
   transform: translateX(-50%);
 }
 
@@ -172,6 +160,9 @@ html.overflow-hidden {
   --color-card: var(--card);
   --color-foreground: var(--foreground);
   --color-background: var(--background);
+  --color-heading: var(--heading);
+  --color-subheading: var(--subheading);
+  --color-navigation: var(--navigation);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -183,23 +174,26 @@ html.overflow-hidden {
 /*---break---*/
 :root {
   --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
+  --foreground: var(--color-gray-800);
+  --heading: var(--color-black);
+  --subheading: var(--color-gray-900);
+  --navigation: color-mix(in srgb, var(--color-fuchsia-300) 80%, transparent);
+  --card: var(--color-violet-50);
+  --card-foreground: var(--foreground);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
+  --popover-foreground: var(--foreground);
   --primary: oklch(0.205 0 0);
   --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
+  --secondary: var(--card);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --accent: color-mix(in srgb, var(--color-violet-300) 80%, transparent);
+  --accent-foreground: var(--color-gray-900);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --ring: var(--color-brand);
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
@@ -218,23 +212,26 @@ html.overflow-hidden {
 /*---break---*/
 .dark {
   --background: var(--color-zinc-900);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
+  --foreground: var(--color-gray-100);
+  --heading: var(--color-white);
+  --subheading: var(--color-gray-100);
+  --navigation: var(--color-brand);
+  --card: var(--color-zinc-800);
+  --card-foreground: var(--foreground);
+  --popover: var(--color-zinc-800);
+  --popover-foreground: var(--foreground);
   --primary: oklch(0.922 0 0);
   --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
+  --secondary: var(--card);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
   --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
+  --accent: var(--color-violet-400);
+  --accent-foreground: var(--color-gray-900);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
+  --ring: var(--color-brand);
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
@@ -259,5 +256,15 @@ html.overflow-hidden {
   }
   html {
     @apply font-sans;
+  }
+}
+
+@layer base {
+  h1, h2, h3, h4, h5, h6, .h1, .h2 {
+    color: var(--heading);
+  }
+  :where(a, button, [tabindex]):focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
   }
 }

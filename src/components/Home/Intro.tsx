@@ -14,11 +14,11 @@ export const Intro = ({}: {}) => {
         </p>
       </div>
 
-      <p className="text-2xl font-semibold tracking-tight text-gray-800 dark:text-gray-200">
+      <p className="text-2xl font-semibold tracking-tight text-subheading">
         {text}
       </p>
 
-      <p className="text-gray-800 dark:text-gray-200">
+      <p className="text-foreground">
         With a general interest in all things tech I offer an open, curious mind
         that's quick to adapt to new technologies. I'm always honing my ability
         to solve user problems up and down the stack, making sure I consider

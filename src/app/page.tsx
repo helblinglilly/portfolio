@@ -17,7 +17,7 @@ function Homepage() {
       </header>
 
       <main
-        className="grid min-w-0 w-full justify-center gap-8 lg:w-8/12 md:mx-auto"
+        className="grid min-w-0 w-full max-w-5xl justify-center gap-8 lg:w-8/12 md:mx-auto"
         id="main"
       >
         <section className="min-w-0 flex-col gap-4">

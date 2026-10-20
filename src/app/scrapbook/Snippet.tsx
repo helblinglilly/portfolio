@@ -37,7 +37,7 @@ const Snippet = ({
         window.history.pushState(null, "", `${url.pathname}${url.search}`);
       }}
     >
-      <article className="grid mb-3 p-4 w-full h-full min-h-32 md:min-w-60 rounded-md bg-slate-200 dark:bg-slate-700 hover:bg-violet-100 dark:hover:bg-violet-400">
+      <article className="grid mb-3 p-4 w-full h-full min-h-32 md:min-w-60 rounded-md bg-card hover:bg-accent hover:text-accent-foreground">
         <p className="font-semibold">{snippet.snippet}</p>
 
         <div className="mt-auto">

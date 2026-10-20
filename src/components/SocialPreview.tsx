@@ -26,10 +26,10 @@ export default function SocialPreview({
   const placeholder = "/images/placeholder.jpeg";
 
   return (
-    <div className="bg-slate-200 dark:bg-slate-700 hover:bg-violet-100 dark:hover:bg-slate-600 rounded-sm h-fit w-4/5 max-w-80 justify-self-center">
+    <div className="bg-card hover:bg-accent hover:text-accent-foreground rounded-sm h-fit w-4/5 max-w-80 justify-self-center">
       <Link
         href={url}
-        className={`text-center text-slate-700 dark:text-slate-200 italic justify-self-center ${className}`}
+        className={`text-center text-foreground italic justify-self-center ${className}`}
         style={{
           textDecorationLine: "none",
         }}

@@ -12,7 +12,7 @@ import { ProjectFavicon } from "./ProjectFavicon";
 export const Projects = ({}: {}) => {
   return (
     <>
-      <h2 className="text-2xl font-semibold tracking-tight mb-2 text-gray-800 dark:text-gray-200">
+      <h2 className="text-2xl font-semibold tracking-tight mb-2">
         My projects
       </h2>
 
@@ -28,7 +28,7 @@ export const Projects = ({}: {}) => {
           <CarouselNext />
           <CarouselContent>
             <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-              <article className="">
+              <article className="h-full">
                 <Card>
                   <div className="flex flex-row justify-start gap-4 pb-2 items-center">
                     <ProjectFavicon
@@ -38,7 +38,7 @@ export const Projects = ({}: {}) => {
 
                     <h3 className="text-lg font-semibold ">Pokécompanion</h3>
                   </div>
-                  <p className="text-gray-800 dark:text-gray-100">
+                  <p className="text-foreground">
                     Starting in 2021, this is my longest-running project,
                     complete with an Android app and Website.
                   </p>
@@ -46,7 +46,7 @@ export const Projects = ({}: {}) => {
               </article>
             </CarouselItem>
             <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-              <article className="">
+              <article className="h-full">
                 <Card>
                   <div className="flex flex-row justify-start gap-4 pb-2 items-center">
                     <ProjectFavicon
@@ -57,7 +57,7 @@ export const Projects = ({}: {}) => {
                     <h3 className="text-lg font-semibold ">Timesheet</h3>
                   </div>
 
-                  <p className="text-gray-800 dark:text-gray-100">
+                  <p className="text-foreground">
                     A self-hostable, easy to use, web-based time tracking tool,
                     complete with user authentication.
                   </p>
@@ -65,7 +65,7 @@ export const Projects = ({}: {}) => {
               </article>
             </CarouselItem>
             <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-              <article className="">
+              <article className="h-full">
                 <Card>
                   <div className="flex flex-row justify-start gap-4 pb-2 items-center">
                     <ProjectFavicon
@@ -78,7 +78,7 @@ export const Projects = ({}: {}) => {
                     </h3>
                   </div>
 
-                  <p className="text-gray-800 dark:text-gray-100">
+                  <p className="text-foreground">
                     Surfaces videos, thumbnails and proper app-deeplinks for a
                     select number of Youtube channels that upload TTS reddit
                     threads.
@@ -87,7 +87,7 @@ export const Projects = ({}: {}) => {
               </article>
             </CarouselItem>
             <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-              <article className="">
+              <article className="h-full">
                 <Card>
                   <div className="flex flex-row justify-start gap-4 pb-2 items-center">
                     <ProjectFavicon
@@ -97,7 +97,7 @@ export const Projects = ({}: {}) => {
                     <h3 className="text-lg font-semibold ">qr.helbling.uk</h3>
                   </div>
 
-                  <p className="text-gray-800 dark:text-gray-100">
+                  <p className="text-foreground">
                     Quickly turn any link into a scannable QR code to allow for
                     easy sharing across different device eco-systems.
                   </p>
@@ -105,7 +105,7 @@ export const Projects = ({}: {}) => {
               </article>
             </CarouselItem>
             <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-              <article className="">
+              <article className="h-full">
                 <Card>
                   <div className="flex flex-row justify-start gap-4 pb-2 items-center">
                     <ProjectFavicon
@@ -118,7 +118,7 @@ export const Projects = ({}: {}) => {
                     </h3>
                   </div>
 
-                  <p className="text-gray-800 dark:text-gray-100">
+                  <p className="text-foreground">
                     JDenticon avatar microservice to quickly provide profile
                     avatars in different apps.
                   </p>
@@ -126,7 +126,7 @@ export const Projects = ({}: {}) => {
               </article>
             </CarouselItem>
             <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-              <article className="">
+              <article className="h-full">
                 <Card>
                   <div className="flex flex-row justify-start gap-4 pb-2 items-center">
                     <ProjectFavicon
@@ -136,7 +136,7 @@ export const Projects = ({}: {}) => {
                     <h3 className="text-lg font-semibold ">img.helbling.uk</h3>
                   </div>
 
-                  <p className="text-gray-800 dark:text-gray-100">
+                  <p className="text-foreground">
                     Strips sensitive metadata from images, to allow for safe
                     storage in external mediums.
                   </p>
@@ -144,7 +144,7 @@ export const Projects = ({}: {}) => {
               </article>
             </CarouselItem>
             <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-              <article className="">
+              <article className="h-full">
                 <Card>
                   <div className="flex flex-row justify-start gap-4 pb-2 items-center">
                     <ProjectFavicon
@@ -154,7 +154,7 @@ export const Projects = ({}: {}) => {
                     <h3 className="text-lg font-semibold ">mp4.helbling.uk</h3>
                   </div>
 
-                  <p className="text-gray-800 dark:text-gray-100">
+                  <p className="text-foreground">
                     POC using ffmpeg in the browser to power an MP4 video
                     converter. It's slow, don't use this.
                   </p>
@@ -162,7 +162,7 @@ export const Projects = ({}: {}) => {
               </article>
             </CarouselItem>
             <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-              <article className="">
+              <article className="h-full">
                 <Card>
                   <div className="flex flex-row justify-start gap-4 pb-2 items-center">
                     <ProjectFavicon projectName="socialpreview.helbling.uk" />
@@ -172,7 +172,7 @@ export const Projects = ({}: {}) => {
                     </h3>
                   </div>
 
-                  <p className="text-gray-800 dark:text-gray-100">
+                  <p className="text-foreground">
                     Renders a website's meta tags to allow for easier debugging.
                   </p>
                 </Card>

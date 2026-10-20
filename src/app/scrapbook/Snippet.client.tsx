@@ -100,7 +100,7 @@ export function SnippetModal({
     >
       <div
         onPointerDown={(e) => e.stopPropagation()}
-        className={`w-full lg:w-2/3 rounded-md md:rounded-xl bg-gray-200/90 dark:bg-slate-800/95 drop-shadow-md flex flex-col overflow-y-auto overscroll-contain max-h-[calc(100dvh-4rem)] md:max-h-[calc(100dvh-8rem)] transition-all duration-100 ${
+        className={`w-full lg:w-2/3 rounded-md md:rounded-xl bg-popover text-popover-foreground drop-shadow-md flex flex-col overflow-y-auto overscroll-contain max-h-[calc(100dvh-4rem)] md:max-h-[calc(100dvh-8rem)] transition-all duration-100 ${
           isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
         }`}
       >
