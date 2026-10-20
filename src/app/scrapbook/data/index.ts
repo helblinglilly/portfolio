@@ -7,7 +7,6 @@ export interface ISnippet {
   key: string;
   publishedTime: string;
   source: string;
-  tags: string[];
   link?: string;
   /**
    * The short snippet that should be shown in a card
@@ -27,7 +26,6 @@ const AllSnippets: ISnippet[] = mdxContext
     return {
       key: key.split("./")[1].split(".mdx")[0],
       source: mod.source ?? "Unknown",
-      tags: mod.tags ?? [],
       link: mod.link,
       content: mod.default,
       snippet: mod.snippet,

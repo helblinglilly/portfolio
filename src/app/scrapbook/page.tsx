@@ -17,20 +17,13 @@ export function generateMetadata(): Metadata {
 }
 
 function SnippetPage() {
-  const professional = Snippets.filter((snippet) => {
-    return snippet.tags.includes("prof");
-  });
-  const fun = Snippets.filter((snippet) => {
-    return snippet.tags.includes("fun");
-  });
-
   return (
     <>
-      <h1 id="blog" className="text-3xl font-semibold mb-4">
+      <h1 id="scrapbook" className="text-3xl font-semibold tracking-tight mb-8">
         Scrapbook, snippets, quotes
       </h1>
 
-      <div className="grid gap-2 w-full lg:w-1/2">
+      <div className="grid gap-2 w-full lg:w-1/2 mb-8">
         <p>
           Below is a collection of stuff that I valueable or find myself
           frequently referencing. Kind of like a Pintrest board, but in my own
@@ -40,58 +33,32 @@ function SnippetPage() {
         <p>Click on a card to learn more.</p>
       </div>
 
-      <main className="grid gap-6" id="main">
-        <h2 className="text-xl font-semibold">What I bring to work with me</h2>
-        <section className="grid gap-6 grid-flow-row sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 w-full">
-          {professional.map((post) => (
-            <React.Fragment key={post.key}>
-              <Suspense>
-                <SnippetModal
-                  snippet={{
-                    ...post,
-                    content: null, // canot be serialised over the wire
-                  }}
-                >
-                  <post.content />
-                </SnippetModal>
-              </Suspense>
-              <Snippet
+      <main
+        className="grid min-w-0 w-full grid-cols-[repeat(auto-fill,minmax(min(100%,15rem),1fr))] gap-8"
+        id="main"
+      >
+        {Snippets.map((post) => (
+          <React.Fragment key={post.key}>
+            <Suspense>
+              <SnippetModal
                 snippet={{
-                  key: post.key,
-                  snippet: post.snippet,
-                  source: post.source,
+                  ...post,
+                  content: null, // canot be serialised over the wire
                 }}
-                key={post.key}
-              />
-            </React.Fragment>
-          ))}
-        </section>
-
-        <h2 className="text-xl font-semibold">Other, great content</h2>
-        <section className="grid gap-6 grid-flow-row sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 w-full">
-          {fun.map((post) => (
-            <React.Fragment key={post.key}>
-              <Suspense>
-                <SnippetModal
-                  snippet={{
-                    ...post,
-                    content: null, // canot be serialised over the wire
-                  }}
-                >
-                  <post.content />
-                </SnippetModal>
-              </Suspense>
-              <Snippet
-                snippet={{
-                  key: post.key,
-                  snippet: post.snippet,
-                  source: post.source,
-                }}
-                key={post.key}
-              />
-            </React.Fragment>
-          ))}
-        </section>
+              >
+                <post.content />
+              </SnippetModal>
+            </Suspense>
+            <Snippet
+              snippet={{
+                key: post.key,
+                snippet: post.snippet,
+                source: post.source,
+              }}
+              key={post.key}
+            />
+          </React.Fragment>
+        ))}
       </main>
     </>
   );

@@ -16,7 +16,7 @@ const Snippet = ({
     <a
       href={href}
       id={snippet.key}
-      className="hover:no-underline"
+      className="group min-w-0 rounded-md hover:no-underline"
       data-umami-event={`snippet-expand-${snippet.key}`}
       onClick={(event) => {
         if (
@@ -37,7 +37,7 @@ const Snippet = ({
         window.history.pushState(null, "", `${url.pathname}${url.search}`);
       }}
     >
-      <article className="grid mb-3 p-4 w-full h-full min-h-32 md:min-w-60 rounded-md bg-card hover:bg-accent hover:text-accent-foreground">
+      <article className="grid min-w-0 gap-6 p-4 w-full h-full min-h-32 wrap-break-word rounded-md bg-card shadow-md shadow-gray-400 dark:shadow-none transition-colors group-hover:bg-accent group-hover:text-accent-foreground group-focus-visible:bg-accent group-focus-visible:text-accent-foreground">
         <p className="font-semibold">{snippet.snippet}</p>
 
         <div className="mt-auto">

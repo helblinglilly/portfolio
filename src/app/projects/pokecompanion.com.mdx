@@ -10,8 +10,20 @@ It's gone through 2 web frameworks, 3 hosts and countless "what if I rewrote it 
 
 While it will never be "done", I've now built it in a way where it should be able to maintain itself for when I do eventually lose interest in this.
 
-Most recently, after [a number of platform improvements](/blog/2026-pokecompanion-rewrite) I started working on a proper mobile app as well! I'm currently looking for testers on Android, please do sign up on [pokecompanion.com/app/invite](https://pokecompanion.com/app/invite?utm_source=portfolio&utm_campaign=projects).
+Most recently, after [a number of platform improvements](/blog/2026-pokecompanion-rewrite) and about eight months of work, I've published an Android app!
 
-Frontend: Svelte Kit deployed to Cloudflare. React Native via Expo soon 👀
+<Link
+  href="https://play.google.com/store/apps/details?id=com.helblinglilly.pokecompanion"
+  aria-label="Get the Pokécompanion app on Google Play"
+  target="_blank"
+>
+  <img
+    src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+    className="w-8"
+    alt="Get it on Google Play"
+  />
+</Link>
+
+Frontend: Svelte Kit deployed to Cloudflare. React Native via Expo
 
 Backend: Shared ExpressJS API on a VPS. Pocketbase acting as a user database, and Redis for caching to the PokeAPI.

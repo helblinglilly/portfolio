@@ -14,6 +14,7 @@ const withMDX = require("@next/mdx")({
 
 module.exports = withMDX(
   withBundleAnalyzer({
+    allowedDevOrigins: ["192.168.0.31"],
     reactStrictMode: true,
     experimental: {
       // OpenNext cache interception currently serves the wrong segment payload

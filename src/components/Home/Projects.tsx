@@ -29,8 +29,14 @@ export const Projects = ({}: {}) => {
 
       <div className="">
         <Carousel className="px-8 pt-4 md:px-12">
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious
+            data-umami-event="projects-carousel"
+            data-umami-event-direction="previous"
+          />
+          <CarouselNext
+            data-umami-event="projects-carousel"
+            data-umami-event-direction="next"
+          />
           <CarouselContent>
             <PokecompanionProject />
             <TimesheetProject />

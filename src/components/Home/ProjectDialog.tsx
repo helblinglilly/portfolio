@@ -24,7 +24,9 @@ export function ProjectDialog({
         {children}
         <DialogTrigger
           aria-label={`Read more about ${title}`}
-          className="absolute inset-0 cursor-pointer rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+          data-umami-event="project-open"
+          data-umami-event-project={title}
+          className="absolute inset-0 cursor-pointer touch-manipulation rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
         />
       </article>
       <DialogContent aria-describedby={undefined}>

@@ -19,15 +19,15 @@ export function generateMetadata(): Metadata {
 function Blog() {
   return (
     <>
-      <h1 id="blog" className="text-3xl font-semibold mb-4">
+      <h1 id="blog" className="text-3xl font-semibold tracking-tight mb-8">
         Blog
       </h1>
-      <main className="grid gap-6" id="main">
+      <main className="grid min-w-0 w-full grid-cols-1 gap-8" id="main">
         {Posts.map((post) => (
           <Link
             key={post.title}
             href={post.url}
-            className="group p-4 w-full h-full bg-card rounded-md transition-colors hover:bg-accent hover:text-accent-foreground hover:decoration-transparent focus-visible:bg-accent focus-visible:text-accent-foreground"
+            className="group p-4 w-full h-full bg-card shadow-md shadow-gray-400 dark:shadow-none rounded-md transition-colors hover:bg-accent hover:text-accent-foreground hover:decoration-transparent focus-visible:bg-accent focus-visible:text-accent-foreground"
           >
             <article className="mb-3">
               <h2
