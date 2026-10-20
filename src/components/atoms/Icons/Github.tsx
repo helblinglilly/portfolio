@@ -1,21 +1,16 @@
-"use client";
-
-import { useTheme } from "next-themes";
 import React from "react";
 
 export default function GithubIcon({
   className,
   ...props
 }: React.SVGProps<SVGSVGElement>) {
-  const { theme } = useTheme();
-
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 30 30"
       width="100%"
       height="100%"
-      fill={theme === "light" ? "" : "white"}
+      fill="currentColor"
       className={className}
       aria-label="Github"
       role="img"
