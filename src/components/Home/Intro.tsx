@@ -18,7 +18,7 @@ export const Intro = ({}: {}) => {
         {text}
       </p>
 
-      <p>
+      <p className="text-gray-800 dark:text-gray-200">
         With a general interest in all things tech I offer an open, curious mind
         that's quick to adapt to new technologies. I'm always honing my ability
         to solve user problems up and down the stack, making sure I consider

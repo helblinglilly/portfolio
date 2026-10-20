@@ -13,7 +13,7 @@ export default function ClientLayout({
     <QueryClientProvider client={new QueryClient()}>
       <Navbar />
 
-      <div className="m-6">{children}</div>
+      <div className="m-3 mb-6 md:m-6">{children}</div>
     </QueryClientProvider>
   );
 }

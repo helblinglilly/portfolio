@@ -16,7 +16,7 @@ export default function Navbar() {
       </a>*/}
 
       <nav className="flex justify-center w-full px-4 mt-4">
-        <div className="bg-transparent  dark:border-t-fuchsia-50 border rounded-2xl p-2 w-full max-w-5xl min-w-0 flex flex-row justify-between shadow-neutral-400 shadow-xs md:shadow-lg dark:shadow-none">
+        <div className="bg-transparent border-2 rounded-2xl p-2 w-full max-w-5xl min-w-0 flex flex-row justify-between shadow-neutral-400 shadow-xs md:shadow-lg dark:shadow-none dark:border-neutral-300">
           <div className="flex min-w-0 gap-1 sm:gap-4 pl-1 sm:pl-4">
             <Link
               href="/"

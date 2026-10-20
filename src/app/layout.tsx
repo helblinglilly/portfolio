@@ -11,6 +11,10 @@ import BlueSkyIcon from "@/components/atoms/Icons/BlueSky";
 import GithubIcon from "@/components/atoms/Icons/Github";
 import InstagramIcon from "@/components/atoms/Icons/Instagram";
 import LinkedinIcon from "@/components/atoms/Icons/LinkedIn";
+import { Geist } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
 export function generateMetadata(): Metadata {
   return metadataGenerator({
@@ -26,7 +30,11 @@ export default async function RootLayout({
   children: ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={cn("font-sans", geist.variable)}
+    >
       <Head>
         <link rel="canonical" href="https://helbling.uk" />
       </Head>
@@ -56,7 +64,7 @@ export default async function RootLayout({
         )}
         <Theme>
           <ClientLayout>
-            <div className="grid gap-4">
+            <div className="grid min-w-0 gap-4">
               {children}
               <footer className="justify-around pt-4">
                 <section

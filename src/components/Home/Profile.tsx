@@ -16,7 +16,7 @@ export function Profile() {
           width={400}
           height={400}
           loading="eager"
-          className="rounded-full w-48 h-auto border border-t-fuchsia-50"
+          className="rounded-full w-48 h-auto border-2 border-fuchsia-50"
         />
 
         <div className="justify-between flex flex-col">
