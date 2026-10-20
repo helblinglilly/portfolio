@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import type React from "react";
 
 interface IProject {
-  // biome-ignore lint/suspicious/noExplicitAny: Dynamic type of mdx documents unknown
   Post: any;
   filename: string;
   name: string;

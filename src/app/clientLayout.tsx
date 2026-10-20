@@ -5,16 +5,15 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Navbar from "./Navbar";
 
 export default function ClientLayout({
-	children,
+  children,
 }: {
-	children: React.ReactNode;
+  children: React.ReactNode;
 }) {
+  return (
+    <QueryClientProvider client={new QueryClient()}>
+      <Navbar />
 
-	return (
-			<QueryClientProvider client={new QueryClient()}>
-				<Navbar />
-
-				<div className="m-6">{children}</div>
-			</QueryClientProvider>
-	);
+      <div className="m-6">{children}</div>
+    </QueryClientProvider>
+  );
 }

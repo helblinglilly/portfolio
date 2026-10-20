@@ -1,6 +1,6 @@
 import type { ReactElement } from "react";
 
-declare module '*.mdx' {
+declare module "*.mdx" {
   let MDXComponent: (_props: any) => ReactElement;
   export default MDXComponent;
 

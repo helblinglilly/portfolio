@@ -27,12 +27,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: newestSnippet?.publishedTime,
       priority: 0.5,
     },
-    ...AllPosts.map(
-      (post): MetadataRoute.Sitemap[number] => ({
-        url: `${baseUrl}${post.url}`,
-        lastModified: post.modifiedTime,
-        priority: 0.2,
-      }),
-    ),
+    ...AllPosts.map((post): MetadataRoute.Sitemap[number] => ({
+      url: `${baseUrl}${post.url}`,
+      lastModified: post.modifiedTime,
+      priority: 0.2,
+    })),
   ];
 }

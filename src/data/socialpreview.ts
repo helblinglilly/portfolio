@@ -12,7 +12,7 @@ interface ISocialMeta {
   image: {
     og: string | null;
     twitter: string | null;
-  }
+  };
 }
 
 async function getSocialMetadata(link: string): Promise<ISocialMeta> {

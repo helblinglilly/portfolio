@@ -1,12 +1,16 @@
-'use client';
+"use client";
 
-import { ThemeProvider } from 'next-themes';
-// biome-ignore lint/style/useImportType: <explanation>
-import React from 'react';
+import { ThemeProvider } from "next-themes";
+import React from "react";
 
-export default function Theme({ children }: { children: React.ReactNode}) {
+export default function Theme({ children }: { children: React.ReactNode }) {
   return (
-    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem enableColorScheme>
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="dark"
+      enableSystem
+      enableColorScheme
+    >
       {children}
     </ThemeProvider>
   );

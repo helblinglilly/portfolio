@@ -4,6 +4,7 @@ import { Intro } from "@/components/Home/Intro";
 import Current from "@/homepage/current";
 import Tools from "@/homepage/tools";
 import { Profile } from "@/components/Home/Profile";
+import { Projects } from "@/components/Home/Projects";
 
 function Homepage() {
   return (
@@ -19,6 +20,9 @@ function Homepage() {
         className="grid w-full justify-center gap-4 lg:w-8/12 md:mx-auto"
         id="main"
       >
+        <section>
+          <Projects />
+        </section>
         <article>
           <Current />
         </article>

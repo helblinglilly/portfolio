@@ -7,21 +7,21 @@ export interface IPostMetadata {
   author?: {
     name?: string;
     url?: string;
-  }
+  };
   url: string;
 }
 
 const formatMetadata = (metadata: Partial<IPostMetadata>) => ({
-  title: metadata.title ?? 'Missing title',
-  description: metadata.description ?? 'Missing description',
-  tags: metadata.tags ?? ['Missing Tags'],
+  title: metadata.title ?? "Missing title",
+  description: metadata.description ?? "Missing description",
+  tags: metadata.tags ?? ["Missing Tags"],
   publishedTime: metadata.publishedTime ?? new Date().toISOString(),
   modifiedTime: metadata.modifiedTime ?? new Date().toISOString(),
   author: {
-    name: metadata.author?.name ?? 'Lilly Helbling',
-    url: metadata.author?.url ?? 'https://helbling.uk',
+    name: metadata.author?.name ?? "Lilly Helbling",
+    url: metadata.author?.url ?? "https://helbling.uk",
   },
-  url: metadata.url ?? '/blog/404',
+  url: metadata.url ?? "/blog/404",
 });
 
 export default formatMetadata;
