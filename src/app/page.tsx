@@ -1,7 +1,6 @@
 import React from "react";
 import "./homepage.css";
 import { Intro } from "@/components/Home/Intro";
-import Current from "@/homepage/current";
 import { Profile } from "@/components/Home/Profile";
 import { Projects } from "@/components/Home/Projects";
 import { Approach } from "@/components/Home/Approach";
