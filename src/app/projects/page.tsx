@@ -171,7 +171,7 @@ export default async function Post() {
     });
 
     return (
-      <div className="md:max-w-screen-sm md:ml-auto md:mr-auto">
+      <div className="mx-auto w-full max-w-screen-md">
         <h1 className="text-3xl font-bold w-full mb-2">Projects</h1>
 
         <div className="mb-4">
