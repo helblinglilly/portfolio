@@ -3,11 +3,11 @@
 export function greetingText() {
   const day = new Date().getDay();
 
-  if (day === 4) {
+  if (day === 5) {
     return "Happy Friday, I'm Lilly";
   }
 
-  if ([5, 6].includes(day)) {
+  if ([6, 7].includes(day)) {
     return "Lovely weekend, I'm Lilly";
   }
 
