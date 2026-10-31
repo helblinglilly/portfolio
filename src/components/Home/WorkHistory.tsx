@@ -31,17 +31,36 @@ export const WorkHistory = ({}: {}) => {
               <article className="h-full">
                 <Card>
                   <div className="flex flex-row justify-between gap-4 pb-2 items-center">
-                    <div className="flex flex-row justify-left gap-4 items-center">
-                      <h3 className="text-lg font-semibold ">?</h3>
-                    </div>
+                    <div className="flex flex-row justify-left gap-4 items-center w-full">
+                      <ProjectFavicon
+                        projectName="Akeneo"
+                        url="https://www.akeneo.com/wp-content/uploads/2024/07/cropped-logo-akeneo-Symbol@2x-32x32.png"
+                      />
 
-                    <span className="relative flex size-3 mr-6">
-                      <span className="absolute inline-flex h-full w-full animate-ping motion-reduce:animate-none rounded-full bg-brand opacity-75"></span>
-                      <span className="relative inline-flex size-3 rounded-full bg-brand"></span>
-                    </span>
+                      <div className="grid">
+                        <h3 className="text-lg font-semibold ">Akeneo</h3>
+                        <p className="text-xs font-extralight">2026</p>
+                      </div>
+
+                      <div className="ml-auto">
+                        <span className="relative flex size-3 mr-6">
+                          <span className="absolute inline-flex h-full w-full animate-ping motion-reduce:animate-none rounded-full bg-brand opacity-75"></span>
+                          <span className="relative inline-flex size-3 rounded-full bg-brand"></span>
+                        </span>
+                      </div>
+                    </div>
                   </div>
+
                   <p className="text-foreground">
-                    Later this month, I'll be starting a new adventure!
+                    B2B Product Experience company, where I'm working on the{" "}
+                    <a
+                      href="https://www.akeneo.com/activation/"
+                      className="link"
+                      target="_blank"
+                    >
+                      Activation
+                    </a>{" "}
+                    product
                   </p>
                 </Card>
               </article>

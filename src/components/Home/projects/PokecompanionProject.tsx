@@ -62,7 +62,7 @@ export function PokecompanionProject() {
                 url="https://pokecompanion.com/favicon.png"
               />
 
-              <h3 className="text-lg font-semibold ">Pokécompanion</h3>
+              <h3 className="text-lg font-semibold">Pokécompanion</h3>
             </div>
 
             <span className="relative flex size-3 mr-6">
