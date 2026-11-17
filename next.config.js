@@ -17,6 +17,7 @@ module.exports = withMDX(
     allowedDevOrigins: ["192.168.0.31"],
     reactStrictMode: true,
     experimental: {
+      agentUpgrade: "security",
       // OpenNext cache interception currently serves the wrong segment payload
       // when Next 16.3's prefetch inlining is enabled, causing endless retries.
       // https://github.com/opennextjs/opennextjs-cloudflare/issues/1334
